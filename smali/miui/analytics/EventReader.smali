@@ -12,10 +12,10 @@
     .locals 1
 
     .prologue
-    .line 10
+    .line 11
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 11
+    .line 12
     new-instance v0, Lmiui/analytics/PersistenceHelper;
 
     invoke-direct {v0}, Lmiui/analytics/PersistenceHelper;-><init>()V
@@ -31,17 +31,17 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 19
     iget-object v0, p0, Lmiui/analytics/EventReader;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     if-eqz v0, :cond_0
 
-    .line 19
+    .line 20
     iget-object v0, p0, Lmiui/analytics/EventReader;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     invoke-virtual {v0}, Lmiui/analytics/PersistenceHelper;->close()V
 
-    .line 21
+    .line 22
     :cond_0
     return-void
 .end method
@@ -52,16 +52,16 @@
     .parameter "databaseName"
 
     .prologue
-    .line 14
+    .line 15
     iget-object v0, p0, Lmiui/analytics/EventReader;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     invoke-virtual {v0, p1, p2}, Lmiui/analytics/PersistenceHelper;->readOpen(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 15
+    .line 16
     return-void
 .end method
 
-.method public readEvents(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;
+.method public readEvents(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
     .locals 1
     .parameter "selection"
     .parameter
@@ -69,10 +69,9 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/Map",
+            "Ljava/util/List",
             "<",
-            "Ljava/util/regex/Pattern;",
-            "Ljava/lang/String;",
+            "Lmiui/analytics/Item;",
             ">;)",
             "Ljava/util/List",
             "<",
@@ -82,20 +81,20 @@
     .end annotation
 
     .prologue
-    .line 24
-    .local p2, itemsReg:Ljava/util/Map;,"Ljava/util/Map<Ljava/util/regex/Pattern;Ljava/lang/String;>;"
+    .line 25
+    .local p2, itemsReg:Ljava/util/List;,"Ljava/util/List<Lmiui/analytics/Item;>;"
     iget-object v0, p0, Lmiui/analytics/EventReader;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     if-eqz v0, :cond_0
 
-    .line 25
+    .line 26
     iget-object v0, p0, Lmiui/analytics/EventReader;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
-    invoke-virtual {v0, p1, p2}, Lmiui/analytics/PersistenceHelper;->readEvents(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;
+    invoke-virtual {v0, p1, p2}, Lmiui/analytics/PersistenceHelper;->readEvents(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 28
+    .line 29
     :goto_0
     return-object v0
 

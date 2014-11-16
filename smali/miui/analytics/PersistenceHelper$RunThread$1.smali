@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 64
+    .line 67
     iput-object p1, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 67
+    .line 70
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 82
+    .line 85
     :goto_0
     return-void
 
-    .line 69
+    .line 72
     :pswitch_0
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -59,7 +59,7 @@
 
     goto :goto_0
 
-    .line 73
+    .line 76
     :pswitch_1
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -74,7 +74,7 @@
 
     goto :goto_0
 
-    .line 77
+    .line 80
     :pswitch_2
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -83,7 +83,7 @@
     #calls: Lmiui/analytics/PersistenceHelper;->closeImp()V
     invoke-static {v0}, Lmiui/analytics/PersistenceHelper;->access$400(Lmiui/analytics/PersistenceHelper;)V
 
-    .line 78
+    .line 81
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     iget-object v0, v0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
@@ -99,7 +99,7 @@
 
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
-    .line 79
+    .line 82
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     iget-object v0, v0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 67
+    .line 70
     nop
 
     :pswitch_data_0
