@@ -27,10 +27,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/PositionController;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 1813
+    .line 1788
     iput-object p1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     const/4 v0, 0x0
@@ -46,7 +45,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1813
+    .line 1788
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/PositionController$FilmRatio;-><init>(Lcom/android/gallery3d/ui/PositionController;)V
 
     return-void
@@ -58,25 +57,25 @@
     .parameter "kind"
 
     .prologue
-    .line 1827
+    .line 1802
     iput p2, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
-    .line 1828
+    .line 1803
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mCurrentRatio:F
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mFromRatio:F
 
-    .line 1829
+    .line 1804
     iput p1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mToRatio:F
 
-    .line 1830
+    .line 1805
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->startTime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationStartTime:J
 
-    .line 1831
+    .line 1806
     invoke-static {}, Lcom/android/gallery3d/ui/PositionController;->access$2400()[I
 
     move-result-object v0
@@ -87,10 +86,10 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationDuration:I
 
-    .line 1832
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->advanceAnimation()Z
+    .line 1807
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$Animatable;->advanceAnimation()Z
 
-    .line 1833
+    .line 1808
     const/4 v0, 0x1
 
     return v0
@@ -105,24 +104,24 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1838
+    .line 1813
     const/high16 v1, 0x3f80
 
     cmpl-float v1, p1, v1
 
     if-ltz v1, :cond_1
 
-    .line 1839
+    .line 1814
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mToRatio:F
 
     iput v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mCurrentRatio:F
 
-    .line 1843
+    .line 1818
     :cond_0
     :goto_0
     return v0
 
-    .line 1842
+    .line 1817
     :cond_1
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mFromRatio:F
 
@@ -138,7 +137,7 @@
 
     iput v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mCurrentRatio:F
 
-    .line 1843
+    .line 1818
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mCurrentRatio:F
 
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mToRatio:F
@@ -156,7 +155,7 @@
     .locals 2
 
     .prologue
-    .line 1820
+    .line 1795
     iget-object v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mFilmMode:Z
@@ -168,7 +167,7 @@
 
     const/high16 v0, 0x3f80
 
-    .line 1821
+    .line 1796
     .local v0, target:F
     :goto_0
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$FilmRatio;->mToRatio:F
@@ -179,18 +178,18 @@
 
     const/4 v1, 0x0
 
-    .line 1822
+    .line 1797
     :goto_1
     return v1
 
-    .line 1820
+    .line 1795
     .end local v0           #target:F
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1822
+    .line 1797
     .restart local v0       #target:F
     :cond_1
     const/4 v1, 0x2

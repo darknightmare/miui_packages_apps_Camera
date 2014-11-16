@@ -18,7 +18,7 @@
 
     .prologue
     .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     new-instance v0, Lcom/google/zxing/oned/rss/expanded/decoders/CurrentParsingState;
@@ -1256,7 +1256,7 @@
     .local v0, alpha:Lcom/google/zxing/oned/rss/expanded/decoders/DecodedChar;
     iget-object v2, p0, Lcom/google/zxing/oned/rss/expanded/decoders/GeneralAppIdDecoder;->current:Lcom/google/zxing/oned/rss/expanded/decoders/CurrentParsingState;
 
-    invoke-virtual {v0}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedChar;->getNewPosition()I
+    invoke-virtual {v0}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedObject;->getNewPosition()I
 
     move-result v3
 
@@ -1564,7 +1564,7 @@
     .local v1, iso:Lcom/google/zxing/oned/rss/expanded/decoders/DecodedChar;
     iget-object v2, p0, Lcom/google/zxing/oned/rss/expanded/decoders/GeneralAppIdDecoder;->current:Lcom/google/zxing/oned/rss/expanded/decoders/CurrentParsingState;
 
-    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedChar;->getNewPosition()I
+    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedObject;->getNewPosition()I
 
     move-result v3
 
@@ -1755,7 +1755,7 @@
     .local v1, numeric:Lcom/google/zxing/oned/rss/expanded/decoders/DecodedNumeric;
     iget-object v2, p0, Lcom/google/zxing/oned/rss/expanded/decoders/GeneralAppIdDecoder;->current:Lcom/google/zxing/oned/rss/expanded/decoders/CurrentParsingState;
 
-    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedNumeric;->getNewPosition()I
+    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedObject;->getNewPosition()I
 
     move-result v3
 
@@ -1988,7 +1988,7 @@
 
     .line 61
     :goto_1
-    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedInformation;->getNewPosition()I
+    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedObject;->getNewPosition()I
 
     move-result v4
 
@@ -2009,7 +2009,7 @@
 
     .line 64
     :cond_2
-    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedInformation;->getNewPosition()I
+    invoke-virtual {v1}, Lcom/google/zxing/oned/rss/expanded/decoders/DecodedObject;->getNewPosition()I
 
     move-result v0
 

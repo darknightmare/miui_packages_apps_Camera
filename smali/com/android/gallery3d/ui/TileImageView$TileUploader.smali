@@ -26,15 +26,14 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/TileImageView;)V
     .locals 2
-    .parameter
 
     .prologue
-    .line 550
+    .line 548
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView$TileUploader;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 551
+    .line 549
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -52,7 +51,7 @@
     .parameter "x1"
 
     .prologue
-    .line 550
+    .line 548
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/TileImageView$TileUploader;-><init>(Lcom/android/gallery3d/ui/TileImageView;)V
 
     return-void
@@ -70,18 +69,18 @@
 
     const/4 v4, 0x0
 
-    .line 555
+    .line 553
     if-eqz p2, :cond_0
 
-    .line 570
+    .line 568
     :goto_0
     return v4
 
-    .line 556
+    .line 554
     :cond_0
     const/4 v0, 0x1
 
-    .line 559
+    .line 557
     .local v0, quota:I
     :cond_1
     :goto_1
@@ -89,7 +88,7 @@
 
     monitor-enter v5
 
-    .line 560
+    .line 558
     :try_start_0
     iget-object v2, p0, Lcom/android/gallery3d/ui/TileImageView$TileUploader;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
@@ -102,18 +101,18 @@
 
     move-result-object v1
 
-    .line 561
+    .line 559
     .local v1, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 562
+    .line 560
     if-eqz v1, :cond_2
 
     if-gtz v0, :cond_3
 
-    .line 569
+    .line 567
     :cond_2
     iget-object v5, p0, Lcom/android/gallery3d/ui/TileImageView$TileUploader;->mActive:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -124,7 +123,7 @@
     :goto_2
     invoke-virtual {v5, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 570
+    .line 568
     if-eqz v1, :cond_6
 
     :goto_3
@@ -132,7 +131,7 @@
 
     goto :goto_0
 
-    .line 561
+    .line 559
     .end local v1           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :catchall_0
     move-exception v2
@@ -144,16 +143,16 @@
 
     throw v2
 
-    .line 563
+    .line 561
     .restart local v1       #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_3
-    invoke-virtual {v1}, Lcom/android/gallery3d/ui/TileImageView$Tile;->isContentValid()Z
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/UploadedTexture;->isContentValid()Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    .line 564
+    .line 562
     iget v2, v1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
     const/16 v5, 0x8
@@ -165,10 +164,10 @@
     :goto_4
     invoke-static {v2}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
 
-    .line 565
-    invoke-virtual {v1, p1}, Lcom/android/gallery3d/ui/TileImageView$Tile;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
+    .line 563
+    invoke-virtual {v1, p1}, Lcom/android/gallery3d/ui/UploadedTexture;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 566
+    .line 564
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_1
@@ -176,18 +175,18 @@
     :cond_4
     move v2, v4
 
-    .line 564
+    .line 562
     goto :goto_4
 
     :cond_5
     move v2, v4
 
-    .line 569
+    .line 567
     goto :goto_2
 
     :cond_6
     move v3, v4
 
-    .line 570
+    .line 568
     goto :goto_3
 .end method

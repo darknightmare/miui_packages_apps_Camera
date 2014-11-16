@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/gallery3d/app/SlideshowPage;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 87
+    .line 86
     iput-object p1, p0, Lcom/android/gallery3d/app/SlideshowPage$1;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
     invoke-direct {p0}, Lcom/android/gallery3d/ui/GLView;-><init>()V
@@ -45,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 90
+    .line 89
     iget-object v0, p0, Lcom/android/gallery3d/app/SlideshowPage$1;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
     #getter for: Lcom/android/gallery3d/app/SlideshowPage;->mSlideshowView:Lcom/android/gallery3d/ui/SlideshowView;
@@ -57,9 +56,9 @@
 
     sub-int v2, p5, p3
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Lcom/android/gallery3d/ui/SlideshowView;->layout(IIII)V
+    invoke-virtual {v0, v3, v3, v1, v2}, Lcom/android/gallery3d/ui/GLView;->layout(IIII)V
 
-    .line 91
+    .line 90
     return-void
 .end method
 
@@ -70,19 +69,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 95
+    .line 94
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v1, :cond_0
 
-    .line 96
+    .line 95
     iget-object v0, p0, Lcom/android/gallery3d/app/SlideshowPage$1;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/app/SlideshowPage;->onBackPressed()V
+    invoke-virtual {v0}, Lcom/android/gallery3d/app/ActivityState;->onBackPressed()V
 
-    .line 98
+    .line 97
     :cond_0
     return v1
 .end method
@@ -92,9 +91,9 @@
     .parameter "canvas"
 
     .prologue
-    .line 103
+    .line 102
     invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->clearBuffer()V
 
-    .line 104
+    .line 103
     return-void
 .end method

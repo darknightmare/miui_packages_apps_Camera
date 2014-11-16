@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 97
+    .line 96
     iput-object p1, p0, Lcom/android/gallery3d/ui/MenuExecutor$1;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
     invoke-direct {p0, p2}, Lcom/android/gallery3d/ui/SynchronizedHandler;-><init>(Lcom/android/gallery3d/app/GalleryActivity;)V
@@ -40,40 +40,40 @@
     .parameter "message"
 
     .prologue
-    .line 100
+    .line 99
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 123
+    .line 122
     :cond_0
     :goto_0
     return-void
 
-    .line 102
+    .line 101
     :pswitch_0
     iget-object v1, p0, Lcom/android/gallery3d/ui/MenuExecutor$1;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
     #calls: Lcom/android/gallery3d/ui/MenuExecutor;->stopTaskAndDismissDialog()V
     invoke-static {v1}, Lcom/android/gallery3d/ui/MenuExecutor;->access$000(Lcom/android/gallery3d/ui/MenuExecutor;)V
 
-    .line 103
+    .line 102
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-eqz v1, :cond_1
 
-    .line 104
+    .line 103
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
 
-    .line 105
+    .line 104
     .local v0, listener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     invoke-interface {v0, v1}, Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;->onProgressComplete(I)V
 
-    .line 107
+    .line 106
     .end local v0           #listener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
     :cond_1
     iget-object v1, p0, Lcom/android/gallery3d/ui/MenuExecutor$1;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
@@ -87,7 +87,7 @@
 
     goto :goto_0
 
-    .line 111
+    .line 110
     :pswitch_1
     iget-object v1, p0, Lcom/android/gallery3d/ui/MenuExecutor$1;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
@@ -109,18 +109,18 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setProgress(I)V
 
-    .line 112
+    .line 111
     :cond_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-eqz v1, :cond_0
 
-    .line 113
+    .line 112
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
 
-    .line 114
+    .line 113
     .restart local v0       #listener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
     iget v1, p1, Landroid/os/Message;->arg1:I
 
@@ -128,7 +128,7 @@
 
     goto :goto_0
 
-    .line 119
+    .line 118
     .end local v0           #listener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
     :pswitch_2
     iget-object v1, p0, Lcom/android/gallery3d/ui/MenuExecutor$1;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
@@ -148,7 +148,7 @@
 
     goto :goto_0
 
-    .line 100
+    .line 99
     nop
 
     :pswitch_data_0

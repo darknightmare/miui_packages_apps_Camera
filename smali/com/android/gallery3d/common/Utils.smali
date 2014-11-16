@@ -133,7 +133,7 @@
 
     .prologue
     .line 31
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -196,7 +196,6 @@
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -284,6 +283,39 @@
     move p2, p0
 
     .line 101
+    goto :goto_0
+.end method
+
+.method public static closeSilently(Landroid/database/Cursor;)V
+    .locals 3
+    .parameter "cursor"
+
+    .prologue
+    .line 211
+    if-eqz p0, :cond_0
+
+    :try_start_0
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 215
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 212
+    :catch_0
+    move-exception v0
+
+    .line 213
+    .local v0, t:Ljava/lang/Throwable;
+    const-string v1, "Utils"
+
+    const-string v2, "fail to close"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     goto :goto_0
 .end method
 
@@ -509,6 +541,29 @@
     .line 195
     :cond_1
     add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public static isOpaque(I)Z
+    .locals 2
+    .parameter "color"
+
+    .prologue
+    .line 119
+    ushr-int/lit8 v0, p0, 0x18
+
+    const/16 v1, 0xff
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

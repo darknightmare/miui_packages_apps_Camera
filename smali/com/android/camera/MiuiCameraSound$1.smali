@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/camera/MiuiCameraSound;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 103
+    .line 99
     iput-object p1, p0, Lcom/android/camera/MiuiCameraSound$1;->this$0:Lcom/android/camera/MiuiCameraSound;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,10 +47,10 @@
 
     const/high16 v2, 0x3f80
 
-    .line 106
+    .line 102
     if-nez p3, :cond_1
 
-    .line 107
+    .line 103
     iget-object v0, p0, Lcom/android/camera/MiuiCameraSound$1;->this$0:Lcom/android/camera/MiuiCameraSound;
 
     #getter for: Lcom/android/camera/MiuiCameraSound;->mSoundIdToPlay:I
@@ -71,10 +70,10 @@
 
     move v6, v2
 
-    .line 108
+    .line 104
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    .line 109
+    .line 105
     iget-object v0, p0, Lcom/android/camera/MiuiCameraSound$1;->this$0:Lcom/android/camera/MiuiCameraSound;
 
     const/4 v1, -0x1
@@ -82,12 +81,12 @@
     #setter for: Lcom/android/camera/MiuiCameraSound;->mSoundIdToPlay:I
     invoke-static {v0, v1}, Lcom/android/camera/MiuiCameraSound;->access$002(Lcom/android/camera/MiuiCameraSound;I)I
 
-    .line 115
+    .line 111
     :cond_0
     :goto_0
     return-void
 
-    .line 112
+    .line 108
     :cond_1
     const-string v0, "MiuiCameraSound"
 

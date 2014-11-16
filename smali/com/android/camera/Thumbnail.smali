@@ -28,10 +28,10 @@
     .locals 1
 
     .prologue
-    .line 68
+    .line 65
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Lcom/android/camera/Thumbnail;->sLock:Ljava/lang/Object;
 
@@ -46,25 +46,25 @@
     .parameter "mirror"
 
     .prologue
-    .line 70
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 67
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
+    .line 61
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/camera/Thumbnail;->mFromFile:Z
 
-    .line 71
+    .line 68
     iput-object p1, p0, Lcom/android/camera/Thumbnail;->mUri:Landroid/net/Uri;
 
-    .line 72
+    .line 69
     invoke-static {p2, p3, p4}, Lcom/android/camera/Thumbnail;->rotateImage(Landroid/graphics/Bitmap;IZ)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/camera/Thumbnail;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 73
+    .line 70
     return-void
 .end method
 
@@ -76,54 +76,49 @@
     .parameter "inSampleSize"
 
     .prologue
-    const/4 v1, 0x1
-
     const/4 v2, 0x0
 
     const/high16 v6, 0x3f00
 
-    .line 367
+    .line 333
     new-instance v8, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v8}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 368
+    .line 334
     .local v8, options:Landroid/graphics/BitmapFactory$Options;
     iput p3, v8, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    .line 369
-    iput-boolean v1, v8, Landroid/graphics/BitmapFactory$Options;->inPurgeable:Z
-
-    .line 370
+    .line 335
     array-length v1, p0
 
     invoke-static {p0, v2, v1, v8}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 372
+    .line 337
     .local v0, bitmap:Landroid/graphics/Bitmap;
     if-nez p1, :cond_0
 
     if-eqz p2, :cond_4
 
-    .line 373
+    .line 338
     :cond_0
     new-instance v5, Landroid/graphics/Matrix;
 
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 374
+    .line 339
     .local v5, m1:Landroid/graphics/Matrix;
     new-instance v7, Landroid/graphics/Matrix;
 
     invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 375
+    .line 340
     .local v7, m2:Landroid/graphics/Matrix;
     if-eqz p1, :cond_1
 
-    .line 376
+    .line 341
     int-to-float v1, p1
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -144,11 +139,11 @@
 
     invoke-virtual {v5, v1, v2, v3}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
-    .line 379
+    .line 344
     :cond_1
     if-eqz p2, :cond_2
 
-    .line 380
+    .line 345
     const/high16 v1, -0x4080
 
     const/high16 v2, 0x3f80
@@ -171,10 +166,10 @@
 
     invoke-virtual {v7, v1, v2, v3, v4}, Landroid/graphics/Matrix;->setScale(FFFF)V
 
-    .line 382
+    .line 347
     invoke-virtual {v5, v7}, Landroid/graphics/Matrix;->postConcat(Landroid/graphics/Matrix;)Z
 
-    .line 386
+    .line 351
     :cond_2
     const/4 v1, 0x0
 
@@ -195,16 +190,16 @@
 
     move-result-object v9
 
-    .line 390
+    .line 355
     .local v9, rotated:Landroid/graphics/Bitmap;
     if-eq v9, v0, :cond_3
 
-    .line 391
+    .line 356
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 398
+    .line 363
     .end local v5           #m1:Landroid/graphics/Matrix;
     .end local v7           #m2:Landroid/graphics/Matrix;
     .end local v9           #rotated:Landroid/graphics/Bitmap;
@@ -212,13 +207,13 @@
     :goto_0
     return-object v9
 
-    .line 394
+    .line 359
     .restart local v5       #m1:Landroid/graphics/Matrix;
     .restart local v7       #m2:Landroid/graphics/Matrix;
     :catch_0
     move-exception v10
 
-    .line 395
+    .line 360
     .local v10, t:Ljava/lang/Throwable;
     const-string v1, "Thumbnail"
 
@@ -232,7 +227,7 @@
     :cond_4
     move-object v9, v0
 
-    .line 398
+    .line 363
     goto :goto_0
 .end method
 
@@ -244,20 +239,20 @@
     .parameter "mirror"
 
     .prologue
-    .line 446
+    .line 411
     if-nez p1, :cond_0
 
-    .line 447
+    .line 412
     const-string v0, "Thumbnail"
 
     const-string v1, "Failed to create thumbnail from null bitmap"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 448
+    .line 413
     const/4 v0, 0x0
 
-    .line 450
+    .line 415
     :goto_0
     return-object v0
 
@@ -278,21 +273,16 @@
     .parameter "mirror"
 
     .prologue
-    .line 344
+    .line 325
     new-instance v1, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v1}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 345
+    .line 326
     .local v1, options:Landroid/graphics/BitmapFactory$Options;
     iput p2, v1, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    .line 346
-    const/4 v2, 0x1
-
-    iput-boolean v2, v1, Landroid/graphics/BitmapFactory$Options;->inPurgeable:Z
-
-    .line 347
+    .line 327
     const/4 v2, 0x0
 
     array-length v3, p0
@@ -301,7 +291,7 @@
 
     move-result-object v0
 
-    .line 348
+    .line 328
     .local v0, bitmap:Landroid/graphics/Bitmap;
     invoke-static {p3, v0, p1, p4}, Lcom/android/camera/Thumbnail;->createThumbnail(Landroid/net/Uri;Landroid/graphics/Bitmap;IZ)Lcom/android/camera/Thumbnail;
 
@@ -310,87 +300,13 @@
     return-object v2
 .end method
 
-.method public static createThumbnailFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;IZ)Lcom/android/camera/Thumbnail;
-    .locals 11
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "orientation"
-    .parameter "mirror"
-
-    .prologue
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v3, 0x0
-
-    .line 352
-    if-eqz p1, :cond_0
-
-    .line 353
-    new-array v2, v10, [Ljava/lang/String;
-
-    const-string v0, "_data"
-
-    aput-object v0, v2, v9
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v4, v3
-
-    move-object v5, v3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v7
-
-    .line 354
-    .local v7, cursor:Landroid/database/Cursor;
-    if-eqz v7, :cond_0
-
-    invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 355
-    invoke-interface {v7, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 356
-    .local v8, path:Ljava/lang/String;
-    invoke-interface {v7}, Landroid/database/Cursor;->close()V
-
-    .line 357
-    invoke-static {v8, v10}, Landroid/media/ThumbnailUtils;->createImageThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-
-    move-result-object v6
-
-    .line 359
-    .local v6, bitmap:Landroid/graphics/Bitmap;
-    invoke-static {p1, v6, p2, p3}, Lcom/android/camera/Thumbnail;->createThumbnail(Landroid/net/Uri;Landroid/graphics/Bitmap;IZ)Lcom/android/camera/Thumbnail;
-
-    move-result-object v3
-
-    .line 362
-    .end local v6           #bitmap:Landroid/graphics/Bitmap;
-    .end local v7           #cursor:Landroid/database/Cursor;
-    .end local v8           #path:Ljava/lang/String;
-    :cond_0
-    return-object v3
-.end method
-
 .method public static createVideoThumbnailBitmap(Ljava/io/FileDescriptor;I)Landroid/graphics/Bitmap;
     .locals 1
     .parameter "fd"
     .parameter "targetWidth"
 
     .prologue
-    .line 402
+    .line 367
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lcom/android/camera/Thumbnail;->createVideoThumbnailBitmap(Ljava/lang/String;Ljava/io/FileDescriptor;I)Landroid/graphics/Bitmap;
@@ -406,7 +322,7 @@
     .parameter "targetWidth"
 
     .prologue
-    .line 406
+    .line 371
     const/4 v0, 0x0
 
     invoke-static {p0, v0, p1}, Lcom/android/camera/Thumbnail;->createVideoThumbnailBitmap(Ljava/lang/String;Ljava/io/FileDescriptor;I)Landroid/graphics/Bitmap;
@@ -423,24 +339,24 @@
     .parameter "targetWidth"
 
     .prologue
-    .line 411
+    .line 376
     const/4 v0, 0x0
 
-    .line 412
+    .line 377
     .local v0, bitmap:Landroid/graphics/Bitmap;
     new-instance v3, Landroid/media/MediaMetadataRetriever;
 
     invoke-direct {v3}, Landroid/media/MediaMetadataRetriever;-><init>()V
 
-    .line 414
+    .line 379
     .local v3, retriever:Landroid/media/MediaMetadataRetriever;
     if-eqz p0, :cond_0
 
-    .line 415
+    .line 380
     :try_start_0
     invoke-virtual {v3, p0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
 
-    .line 419
+    .line 384
     :goto_0
     const-wide/16 v7, -0x1
 
@@ -452,23 +368,23 @@
 
     move-result-object v0
 
-    .line 426
+    .line 391
     :try_start_1
     invoke-virtual {v3}, Landroid/media/MediaMetadataRetriever;->release()V
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 431
+    .line 396
     :goto_1
     if-nez v0, :cond_1
 
     const/4 v7, 0x0
 
-    .line 442
+    .line 407
     :goto_2
     return-object v7
 
-    .line 417
+    .line 382
     :cond_0
     :try_start_2
     invoke-virtual {v3, p1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
@@ -479,11 +395,11 @@
 
     goto :goto_0
 
-    .line 420
+    .line 385
     :catch_0
     move-exception v7
 
-    .line 426
+    .line 391
     :try_start_3
     invoke-virtual {v3}, Landroid/media/MediaMetadataRetriever;->release()V
     :try_end_3
@@ -491,17 +407,17 @@
 
     goto :goto_1
 
-    .line 427
+    .line 392
     :catch_1
     move-exception v7
 
     goto :goto_1
 
-    .line 422
+    .line 387
     :catch_2
     move-exception v7
 
-    .line 426
+    .line 391
     :try_start_4
     invoke-virtual {v3}, Landroid/media/MediaMetadataRetriever;->release()V
     :try_end_4
@@ -509,50 +425,50 @@
 
     goto :goto_1
 
-    .line 427
+    .line 392
     :catch_3
     move-exception v7
 
     goto :goto_1
 
-    .line 425
+    .line 390
     :catchall_0
     move-exception v7
 
-    .line 426
+    .line 391
     :try_start_5
     invoke-virtual {v3}, Landroid/media/MediaMetadataRetriever;->release()V
     :try_end_5
     .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_5
 
-    .line 429
+    .line 394
     :goto_3
     throw v7
 
-    .line 434
+    .line 399
     :cond_1
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
 
-    .line 435
+    .line 400
     .local v6, width:I
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
-    .line 436
+    .line 401
     .local v2, height:I
     if-le v6, p2, :cond_2
 
-    .line 437
+    .line 402
     int-to-float v7, p2
 
     int-to-float v8, v6
 
     div-float v4, v7, v8
 
-    .line 438
+    .line 403
     .local v4, scale:F
     int-to-float v7, v6
 
@@ -562,7 +478,7 @@
 
     move-result v5
 
-    .line 439
+    .line 404
     .local v5, w:I
     int-to-float v7, v2
 
@@ -572,7 +488,7 @@
 
     move-result v1
 
-    .line 440
+    .line 405
     .local v1, h:I
     const/4 v7, 0x1
 
@@ -586,10 +502,10 @@
     :cond_2
     move-object v7, v0
 
-    .line 442
+    .line 407
     goto :goto_2
 
-    .line 427
+    .line 392
     .end local v2           #height:I
     .end local v6           #width:I
     :catch_4
@@ -612,34 +528,34 @@
 
     const/4 v13, 0x0
 
-    .line 126
+    .line 123
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v8
 
-    .line 127
+    .line 124
     .local v8, w:I
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
-    .line 128
+    .line 125
     .local v2, h:I
     invoke-static {v8, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
-    .line 129
+    .line 126
     .local v1, d:I
     shr-int/lit8 v5, v1, 0x1
 
-    .line 130
+    .line 127
     .local v5, r:I
     new-instance v4, Landroid/graphics/Paint;
 
     invoke-direct {v4}, Landroid/graphics/Paint;-><init>()V
 
-    .line 131
+    .line 128
     .local v4, paint:Landroid/graphics/Paint;
     new-instance v7, Landroid/graphics/Rect;
 
@@ -661,13 +577,13 @@
 
     invoke-direct {v7, v9, v10, v11, v12}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 133
+    .line 130
     .local v7, rectSrc:Landroid/graphics/Rect;
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6, v13, v13, v1, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 135
+    .line 132
     .local v6, rectDst:Landroid/graphics/Rect;
     sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
@@ -675,30 +591,30 @@
 
     move-result-object v3
 
-    .line 138
+    .line 135
     .local v3, output:Landroid/graphics/Bitmap;
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 139
+    .line 136
     .local v0, canvas:Landroid/graphics/Canvas;
     invoke-virtual {v4, v14}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 140
+    .line 137
     invoke-virtual {v4, v14}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
-    .line 141
+    .line 138
     const/4 v9, -0x1
 
     invoke-virtual {v4, v9}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 142
+    .line 139
     sget-object v9, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v4, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 143
+    .line 140
     int-to-float v9, v5
 
     int-to-float v10, v5
@@ -707,7 +623,7 @@
 
     invoke-virtual {v0, v9, v10, v11, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    .line 144
+    .line 141
     new-instance v9, Landroid/graphics/PorterDuffXfermode;
 
     sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
@@ -716,95 +632,11 @@
 
     invoke-virtual {v4, v9}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    .line 145
+    .line 142
     invoke-virtual {v0, p0, v7, v6, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    .line 147
+    .line 144
     return-object v3
-.end method
-
-.method private static getImageBucketIds()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 273
-    invoke-static {}, Lcom/android/camera/storage/Storage;->hasSecondaryStorage()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/camera/storage/Storage;->secondaryStorageMounted()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 274
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "bucket_id IN ("
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->PRIMARY_BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ","
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->SECONDARY_BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ")"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 277
-    :goto_0
-    return-object v0
-
-    :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "bucket_id="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
 .end method
 
 .method private static getLastImageThumbnail(Landroid/content/ContentResolver;)Lcom/android/camera/Thumbnail$Media;
@@ -812,10 +644,10 @@
     .parameter "resolver"
 
     .prologue
-    .line 291
+    .line 270
     sget-object v14, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 293
+    .line 272
     .local v14, baseUri:Landroid/net/Uri;
     invoke-virtual {v14}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
@@ -833,7 +665,7 @@
 
     move-result-object v1
 
-    .line 294
+    .line 273
     .local v1, query:Landroid/net/Uri;
     const/4 v0, 0x4
 
@@ -863,21 +695,19 @@
 
     aput-object v4, v2, v0
 
-    .line 296
+    .line 275
     .local v2, projection:[Ljava/lang/String;
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "mime_type=\'image/jpeg\' AND "
+    const-string v4, "mime_type=\'image/jpeg\' AND bucket_id="
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/camera/Thumbnail;->getImageBucketIds()Ljava/lang/String;
-
-    move-result-object v4
+    sget-object v4, Lcom/android/camera/Storage;->BUCKET_ID:Ljava/lang/String;
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -905,15 +735,15 @@
 
     move-result-object v3
 
-    .line 298
+    .line 277
     .local v3, selection:Ljava/lang/String;
     const-string v5, "datetaken DESC,_id DESC"
 
-    .line 299
+    .line 279
     .local v5, order:Ljava/lang/String;
     const/4 v15, 0x0
 
-    .line 301
+    .line 281
     .local v15, cursor:Landroid/database/Cursor;
     const/4 v4, 0x0
 
@@ -924,7 +754,7 @@
 
     move-result-object v15
 
-    .line 302
+    .line 282
     if-eqz v15, :cond_1
 
     invoke-interface {v15}, Landroid/database/Cursor;->moveToFirst()Z
@@ -933,14 +763,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 303
+    .line 283
     const/4 v0, 0x0
 
     invoke-interface {v15, v0}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v7
 
-    .line 304
+    .line 284
     .local v7, id:J
     new-instance v6, Lcom/android/camera/Thumbnail$Media;
 
@@ -970,38 +800,38 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 308
+    .line 288
     if-eqz v15, :cond_0
 
-    .line 309
+    .line 289
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
-    .line 312
+    .line 292
     .end local v7           #id:J
     :cond_0
     :goto_0
     return-object v6
 
-    .line 308
+    .line 288
     :cond_1
     if-eqz v15, :cond_2
 
-    .line 309
+    .line 289
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
-    .line 312
+    .line 292
     :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
 
-    .line 308
+    .line 288
     :catchall_0
     move-exception v0
 
     if-eqz v15, :cond_3
 
-    .line 309
+    .line 289
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
     :cond_3
@@ -1023,32 +853,32 @@
 
     const/4 v6, 0x1
 
-    .line 215
+    .line 212
     invoke-static {p0}, Lcom/android/camera/Thumbnail;->getLastImageThumbnail(Landroid/content/ContentResolver;)Lcom/android/camera/Thumbnail$Media;
 
     move-result-object v1
 
-    .line 216
+    .line 213
     .local v1, image:Lcom/android/camera/Thumbnail$Media;
     invoke-static {p0}, Lcom/android/camera/Thumbnail;->getLastVideoThumbnail(Landroid/content/ContentResolver;)Lcom/android/camera/Thumbnail$Media;
 
     move-result-object v3
 
-    .line 217
+    .line 214
     .local v3, video:Lcom/android/camera/Thumbnail$Media;
     if-nez v1, :cond_0
 
     if-nez v3, :cond_0
 
-    .line 253
+    .line 250
     :goto_0
     return v4
 
-    .line 219
+    .line 216
     :cond_0
     const/4 v0, 0x0
 
-    .line 223
+    .line 220
     .local v0, bitmap:Landroid/graphics/Bitmap;
     if-eqz v1, :cond_4
 
@@ -1062,7 +892,7 @@
 
     if-ltz v7, :cond_4
 
-    .line 224
+    .line 221
     :cond_1
     if-eqz p2, :cond_2
 
@@ -1076,10 +906,10 @@
 
     move v4, v5
 
-    .line 225
+    .line 222
     goto :goto_0
 
-    .line 227
+    .line 224
     :cond_2
     iget-wide v7, v1, Lcom/android/camera/Thumbnail$Media;->id:J
 
@@ -1087,21 +917,21 @@
 
     move-result-object v0
 
-    .line 229
+    .line 226
     if-nez v0, :cond_3
 
-    .line 231
+    .line 228
     iget-object v5, v1, Lcom/android/camera/Thumbnail$Media;->path:Ljava/lang/String;
 
     invoke-static {v5, v6}, Landroid/media/ThumbnailUtils;->createImageThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 233
+    .line 230
     :cond_3
     move-object v2, v1
 
-    .line 249
+    .line 246
     .local v2, lastMedia:Lcom/android/camera/Thumbnail$Media;
     :goto_1
     iget-object v5, v2, Lcom/android/camera/Thumbnail$Media;->uri:Landroid/net/Uri;
@@ -1112,7 +942,7 @@
 
     if-eqz v5, :cond_7
 
-    .line 250
+    .line 247
     iget-object v5, v2, Lcom/android/camera/Thumbnail$Media;->uri:Landroid/net/Uri;
 
     iget v7, v2, Lcom/android/camera/Thumbnail$Media;->orientation:I
@@ -1125,10 +955,10 @@
 
     move v4, v6
 
-    .line 251
+    .line 248
     goto :goto_0
 
-    .line 235
+    .line 232
     .end local v2           #lastMedia:Lcom/android/camera/Thumbnail$Media;
     :cond_4
     if-eqz p2, :cond_5
@@ -1143,10 +973,10 @@
 
     move v4, v5
 
-    .line 236
+    .line 233
     goto :goto_0
 
-    .line 238
+    .line 235
     :cond_5
     iget-wide v7, v3, Lcom/android/camera/Thumbnail$Media;->id:J
 
@@ -1154,24 +984,24 @@
 
     move-result-object v0
 
-    .line 240
+    .line 237
     if-nez v0, :cond_6
 
-    .line 242
+    .line 239
     iget-object v5, v3, Lcom/android/camera/Thumbnail$Media;->path:Ljava/lang/String;
 
     invoke-static {v5, v6}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 245
+    .line 242
     :cond_6
     move-object v2, v3
 
     .restart local v2       #lastMedia:Lcom/android/camera/Thumbnail$Media;
     goto :goto_1
 
-    .line 253
+    .line 250
     :cond_7
     const/4 v4, 0x2
 
@@ -1184,7 +1014,7 @@
     .parameter "resolver"
 
     .prologue
-    .line 177
+    .line 174
     new-instance v9, Ljava/io/File;
 
     const-string v12, "last_thumb"
@@ -1193,33 +1023,33 @@
 
     invoke-direct {v9, v0, v12}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 178
+    .line 175
     .local v9, file:Ljava/io/File;
     const/4 v11, 0x0
 
-    .line 179
+    .line 176
     .local v11, uri:Landroid/net/Uri;
     const/4 v3, 0x0
 
-    .line 180
+    .line 177
     .local v3, bitmap:Landroid/graphics/Bitmap;
     const/4 v7, 0x0
 
-    .line 181
+    .line 178
     .local v7, f:Ljava/io/FileInputStream;
     const/4 v1, 0x0
 
-    .line 182
+    .line 179
     .local v1, b:Ljava/io/BufferedInputStream;
     const/4 v4, 0x0
 
-    .line 183
+    .line 180
     .local v4, d:Ljava/io/DataInputStream;
     sget-object v13, Lcom/android/camera/Thumbnail;->sLock:Ljava/lang/Object;
 
     monitor-enter v13
 
-    .line 185
+    .line 182
     :try_start_0
     new-instance v8, Ljava/io/FileInputStream;
 
@@ -1228,7 +1058,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 186
+    .line 183
     .end local v7           #f:Ljava/io/FileInputStream;
     .local v8, f:Ljava/io/FileInputStream;
     :try_start_1
@@ -1241,7 +1071,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 187
+    .line 184
     .end local v1           #b:Ljava/io/BufferedInputStream;
     .local v2, b:Ljava/io/BufferedInputStream;
     :try_start_2
@@ -1252,7 +1082,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_4
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 188
+    .line 185
     .end local v4           #d:Ljava/io/DataInputStream;
     .local v5, d:Ljava/io/DataInputStream;
     :try_start_3
@@ -1264,7 +1094,7 @@
 
     move-result-object v11
 
-    .line 189
+    .line 186
     move-object/from16 v0, p1
 
     invoke-static {v11, v0}, Lcom/android/camera/Util;->isUriValid(Landroid/net/Uri;Landroid/content/ContentResolver;)Z
@@ -1273,23 +1103,23 @@
 
     if-nez v12, :cond_0
 
-    .line 190
-    invoke-virtual {v5}, Ljava/io/DataInputStream;->close()V
+    .line 187
+    invoke-virtual {v5}, Ljava/io/FilterInputStream;->close()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_5
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 191
+    .line 188
     const/4 v10, 0x0
 
-    .line 199
+    .line 196
     :try_start_4
     invoke-static {v8}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 200
+    .line 197
     invoke-static {v2}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 201
+    .line 198
     invoke-static {v5}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
     monitor-exit v13
@@ -1306,13 +1136,13 @@
     .restart local v1       #b:Ljava/io/BufferedInputStream;
     move-object v7, v8
 
-    .line 206
+    .line 203
     .end local v8           #f:Ljava/io/FileInputStream;
     .restart local v7       #f:Ljava/io/FileInputStream;
     :goto_0
     return-object v10
 
-    .line 193
+    .line 190
     .end local v1           #b:Ljava/io/BufferedInputStream;
     .end local v4           #d:Ljava/io/DataInputStream;
     .end local v7           #f:Ljava/io/FileInputStream;
@@ -1325,28 +1155,28 @@
 
     move-result-object v3
 
-    .line 194
-    invoke-virtual {v5}, Ljava/io/DataInputStream;->close()V
+    .line 191
+    invoke-virtual {v5}, Ljava/io/FilterInputStream;->close()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 199
+    .line 196
     :try_start_6
     invoke-static {v8}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 200
+    .line 197
     invoke-static {v2}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 201
+    .line 198
     invoke-static {v5}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 203
+    .line 200
     monitor-exit v13
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    .line 204
+    .line 201
     const/4 v12, 0x0
 
     const/4 v13, 0x0
@@ -1355,7 +1185,7 @@
 
     move-result-object v10
 
-    .line 205
+    .line 202
     .local v10, thumbnail:Lcom/android/camera/Thumbnail;
     if-eqz v10, :cond_1
 
@@ -1374,17 +1204,17 @@
     .restart local v1       #b:Ljava/io/BufferedInputStream;
     move-object v7, v8
 
-    .line 206
+    .line 203
     .end local v8           #f:Ljava/io/FileInputStream;
     .restart local v7       #f:Ljava/io/FileInputStream;
     goto :goto_0
 
-    .line 195
+    .line 192
     .end local v10           #thumbnail:Lcom/android/camera/Thumbnail;
     :catch_0
     move-exception v6
 
-    .line 196
+    .line 193
     .local v6, e:Ljava/io/IOException;
     :goto_1
     :try_start_7
@@ -1412,24 +1242,24 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    .line 197
+    .line 194
     const/4 v10, 0x0
 
-    .line 199
+    .line 196
     :try_start_8
     invoke-static {v7}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 200
+    .line 197
     invoke-static {v1}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 201
+    .line 198
     invoke-static {v4}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
     monitor-exit v13
 
     goto :goto_0
 
-    .line 203
+    .line 200
     .end local v6           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v12
@@ -1441,7 +1271,7 @@
 
     throw v12
 
-    .line 199
+    .line 196
     :catchall_1
     move-exception v12
 
@@ -1449,17 +1279,17 @@
     :try_start_9
     invoke-static {v7}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 200
+    .line 197
     invoke-static {v1}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 201
+    .line 198
     invoke-static {v4}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
     throw v12
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    .line 203
+    .line 200
     .end local v1           #b:Ljava/io/BufferedInputStream;
     .end local v4           #d:Ljava/io/DataInputStream;
     .end local v7           #f:Ljava/io/FileInputStream;
@@ -1483,7 +1313,7 @@
     .restart local v7       #f:Ljava/io/FileInputStream;
     goto :goto_2
 
-    .line 199
+    .line 196
     .end local v7           #f:Ljava/io/FileInputStream;
     .restart local v8       #f:Ljava/io/FileInputStream;
     :catchall_3
@@ -1535,7 +1365,7 @@
     .restart local v7       #f:Ljava/io/FileInputStream;
     goto :goto_3
 
-    .line 195
+    .line 192
     .end local v7           #f:Ljava/io/FileInputStream;
     .restart local v8       #f:Ljava/io/FileInputStream;
     :catch_1
@@ -1593,10 +1423,10 @@
     .parameter "resolver"
 
     .prologue
-    .line 316
+    .line 296
     sget-object v14, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 318
+    .line 298
     .local v14, baseUri:Landroid/net/Uri;
     invoke-virtual {v14}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
@@ -1614,7 +1444,7 @@
 
     move-result-object v1
 
-    .line 319
+    .line 299
     .local v1, query:Landroid/net/Uri;
     const/4 v0, 0x3
 
@@ -1638,15 +1468,19 @@
 
     aput-object v4, v2, v0
 
-    .line 321
+    .line 301
     .local v2, projection:[Ljava/lang/String;
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/android/camera/Thumbnail;->getVideoBucketIds()Ljava/lang/String;
+    const-string v4, "bucket_id="
 
-    move-result-object v4
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v4, Lcom/android/camera/Storage;->BUCKET_ID:Ljava/lang/String;
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1674,15 +1508,15 @@
 
     move-result-object v3
 
-    .line 322
+    .line 303
     .local v3, selection:Ljava/lang/String;
     const-string v5, "datetaken DESC,_id DESC"
 
-    .line 324
+    .line 305
     .local v5, order:Ljava/lang/String;
     const/4 v15, 0x0
 
-    .line 326
+    .line 307
     .local v15, cursor:Landroid/database/Cursor;
     const/4 v4, 0x0
 
@@ -1693,7 +1527,7 @@
 
     move-result-object v15
 
-    .line 327
+    .line 308
     if-eqz v15, :cond_1
 
     invoke-interface {v15}, Landroid/database/Cursor;->moveToFirst()Z
@@ -1702,14 +1536,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 328
+    .line 309
     const/4 v0, 0x0
 
     invoke-interface {v15, v0}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v7
 
-    .line 329
+    .line 310
     .local v7, id:J
     new-instance v6, Lcom/android/camera/Thumbnail$Media;
 
@@ -1735,126 +1569,42 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 334
+    .line 315
     if-eqz v15, :cond_0
 
-    .line 335
+    .line 316
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
-    .line 338
+    .line 319
     .end local v7           #id:J
     :cond_0
     :goto_0
     return-object v6
 
-    .line 334
+    .line 315
     :cond_1
     if-eqz v15, :cond_2
 
-    .line 335
+    .line 316
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
-    .line 338
+    .line 319
     :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
 
-    .line 334
+    .line 315
     :catchall_0
     move-exception v0
 
     if-eqz v15, :cond_3
 
-    .line 335
+    .line 316
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
     :cond_3
     throw v0
-.end method
-
-.method private static getVideoBucketIds()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 282
-    invoke-static {}, Lcom/android/camera/storage/Storage;->hasSecondaryStorage()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/camera/storage/Storage;->secondaryStorageMounted()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 283
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "bucket_id IN ("
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->PRIMARY_BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ","
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->SECONDARY_BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ")"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 286
-    :goto_0
-    return-object v0
-
-    :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "bucket_id="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/camera/storage/Storage;->BUCKET_ID:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
 .end method
 
 .method private static rotateImage(Landroid/graphics/Bitmap;IZ)Landroid/graphics/Bitmap;
@@ -1866,28 +1616,28 @@
     .prologue
     const/high16 v4, 0x3f00
 
-    .line 92
+    .line 89
     if-nez p1, :cond_0
 
     if-eqz p2, :cond_4
 
-    .line 94
+    .line 91
     :cond_0
     new-instance v5, Landroid/graphics/Matrix;
 
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 95
+    .line 92
     .local v5, m1:Landroid/graphics/Matrix;
     new-instance v7, Landroid/graphics/Matrix;
 
     invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 96
+    .line 93
     .local v7, m2:Landroid/graphics/Matrix;
     if-eqz p1, :cond_1
 
-    .line 97
+    .line 94
     int-to-float v0, p1
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -1908,11 +1658,11 @@
 
     invoke-virtual {v5, v0, v1, v2}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
-    .line 100
+    .line 97
     :cond_1
     if-eqz p2, :cond_2
 
-    .line 101
+    .line 98
     const/high16 v0, -0x4080
 
     const/high16 v1, 0x3f80
@@ -1935,10 +1685,10 @@
 
     invoke-virtual {v7, v0, v1, v2, v3}, Landroid/graphics/Matrix;->setScale(FFFF)V
 
-    .line 103
+    .line 100
     invoke-virtual {v5, v7}, Landroid/graphics/Matrix;->postConcat(Landroid/graphics/Matrix;)Z
 
-    .line 106
+    .line 103
     :cond_2
     const/4 v1, 0x0
 
@@ -1961,40 +1711,40 @@
 
     move-result-object v9
 
-    .line 110
+    .line 107
     .local v9, rotated:Landroid/graphics/Bitmap;
     invoke-static {v9}, Lcom/android/camera/Thumbnail;->getCircleBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v8
 
-    .line 111
+    .line 108
     .local v8, output:Landroid/graphics/Bitmap;
     if-eq v9, p0, :cond_3
 
-    .line 112
+    .line 109
     invoke-virtual {v9}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 114
+    .line 111
     :cond_3
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 122
+    .line 119
     .end local v5           #m1:Landroid/graphics/Matrix;
     .end local v7           #m2:Landroid/graphics/Matrix;
     .end local v9           #rotated:Landroid/graphics/Bitmap;
     :goto_0
     return-object v8
 
-    .line 116
+    .line 113
     .end local v8           #output:Landroid/graphics/Bitmap;
     .restart local v5       #m1:Landroid/graphics/Matrix;
     .restart local v7       #m2:Landroid/graphics/Matrix;
     :catch_0
     move-exception v10
 
-    .line 117
+    .line 114
     .local v10, t:Ljava/lang/Throwable;
     const-string v0, "Thumbnail"
 
@@ -2002,7 +1752,7 @@
 
     invoke-static {v0, v1, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 120
+    .line 117
     .end local v5           #m1:Landroid/graphics/Matrix;
     .end local v7           #m2:Landroid/graphics/Matrix;
     .end local v10           #t:Ljava/lang/Throwable;
@@ -2011,7 +1761,7 @@
 
     move-result-object v8
 
-    .line 121
+    .line 118
     .restart local v8       #output:Landroid/graphics/Bitmap;
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V
 
@@ -2024,7 +1774,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 85
     iget-boolean v0, p0, Lcom/android/camera/Thumbnail;->mFromFile:Z
 
     return v0
@@ -2034,7 +1784,7 @@
     .locals 1
 
     .prologue
-    .line 80
+    .line 77
     iget-object v0, p0, Lcom/android/camera/Thumbnail;->mBitmap:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -2044,7 +1794,7 @@
     .locals 1
 
     .prologue
-    .line 76
+    .line 73
     iget-object v0, p0, Lcom/android/camera/Thumbnail;->mUri:Landroid/net/Uri;
 
     return-object v0
@@ -2055,32 +1805,32 @@
     .parameter "filesDir"
 
     .prologue
-    .line 152
+    .line 149
     new-instance v7, Ljava/io/File;
 
     const-string v8, "last_thumb"
 
     invoke-direct {v7, p1, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 153
+    .line 150
     .local v7, file:Ljava/io/File;
     const/4 v5, 0x0
 
-    .line 154
+    .line 151
     .local v5, f:Ljava/io/FileOutputStream;
     const/4 v0, 0x0
 
-    .line 155
+    .line 152
     .local v0, b:Ljava/io/BufferedOutputStream;
     const/4 v2, 0x0
 
-    .line 156
+    .line 153
     .local v2, d:Ljava/io/DataOutputStream;
     sget-object v9, Lcom/android/camera/Thumbnail;->sLock:Ljava/lang/Object;
 
     monitor-enter v9
 
-    .line 158
+    .line 155
     :try_start_0
     new-instance v6, Ljava/io/FileOutputStream;
 
@@ -2089,7 +1839,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 159
+    .line 156
     .end local v5           #f:Ljava/io/FileOutputStream;
     .local v6, f:Ljava/io/FileOutputStream;
     :try_start_1
@@ -2102,7 +1852,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 160
+    .line 157
     .end local v0           #b:Ljava/io/BufferedOutputStream;
     .local v1, b:Ljava/io/BufferedOutputStream;
     :try_start_2
@@ -2113,7 +1863,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_4
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 161
+    .line 158
     .end local v2           #d:Ljava/io/DataOutputStream;
     .local v3, d:Ljava/io/DataOutputStream;
     :try_start_3
@@ -2125,7 +1875,7 @@
 
     invoke-virtual {v3, v8}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 162
+    .line 159
     iget-object v8, p0, Lcom/android/camera/Thumbnail;->mBitmap:Landroid/graphics/Bitmap;
 
     sget-object v10, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
@@ -2134,20 +1884,20 @@
 
     invoke-virtual {v8, v10, v11, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 163
-    invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
+    .line 160
+    invoke-virtual {v3}, Ljava/io/FilterOutputStream;->close()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_5
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 167
+    .line 164
     :try_start_4
     invoke-static {v6}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 168
+    .line 165
     invoke-static {v1}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 169
+    .line 166
     invoke-static {v3}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
@@ -2162,7 +1912,7 @@
     .restart local v0       #b:Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .line 171
+    .line 168
     .end local v6           #f:Ljava/io/FileOutputStream;
     .restart local v5       #f:Ljava/io/FileOutputStream;
     :goto_0
@@ -2171,14 +1921,14 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 172
+    .line 169
     return-void
 
-    .line 164
+    .line 161
     :catch_0
     move-exception v4
 
-    .line 165
+    .line 162
     .local v4, e:Ljava/io/IOException;
     :goto_1
     :try_start_6
@@ -2210,19 +1960,19 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    .line 167
+    .line 164
     :try_start_7
     invoke-static {v5}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 168
+    .line 165
     invoke-static {v0}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 169
+    .line 166
     invoke-static {v2}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
     goto :goto_0
 
-    .line 171
+    .line 168
     .end local v4           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v8
@@ -2234,7 +1984,7 @@
 
     throw v8
 
-    .line 167
+    .line 164
     :catchall_1
     move-exception v8
 
@@ -2242,17 +1992,17 @@
     :try_start_8
     invoke-static {v5}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 168
+    .line 165
     invoke-static {v0}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
-    .line 169
+    .line 166
     invoke-static {v2}, Lcom/android/camera/Util;->closeSilently(Ljava/io/Closeable;)V
 
     throw v8
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    .line 171
+    .line 168
     .end local v0           #b:Ljava/io/BufferedOutputStream;
     .end local v2           #d:Ljava/io/DataOutputStream;
     .end local v5           #f:Ljava/io/FileOutputStream;
@@ -2276,7 +2026,7 @@
     .restart local v5       #f:Ljava/io/FileOutputStream;
     goto :goto_2
 
-    .line 167
+    .line 164
     .end local v5           #f:Ljava/io/FileOutputStream;
     .restart local v6       #f:Ljava/io/FileOutputStream;
     :catchall_3
@@ -2328,7 +2078,7 @@
     .restart local v5       #f:Ljava/io/FileOutputStream;
     goto :goto_3
 
-    .line 164
+    .line 161
     .end local v5           #f:Ljava/io/FileOutputStream;
     .restart local v6       #f:Ljava/io/FileOutputStream;
     :catch_1
@@ -2386,9 +2136,9 @@
     .parameter "fromFile"
 
     .prologue
-    .line 84
+    .line 81
     iput-boolean p1, p0, Lcom/android/camera/Thumbnail;->mFromFile:Z
 
-    .line 85
+    .line 82
     return-void
 .end method

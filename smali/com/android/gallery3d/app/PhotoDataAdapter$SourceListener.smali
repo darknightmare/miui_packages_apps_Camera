@@ -24,13 +24,12 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/app/PhotoDataAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 896
+    .line 883
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$SourceListener;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +40,7 @@
     .parameter "x1"
 
     .prologue
-    .line 896
+    .line 883
     invoke-direct {p0, p1}, Lcom/android/gallery3d/app/PhotoDataAdapter$SourceListener;-><init>(Lcom/android/gallery3d/app/PhotoDataAdapter;)V
 
     return-void
@@ -53,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 898
+    .line 885
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$SourceListener;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mReloadTask:Lcom/android/gallery3d/app/PhotoDataAdapter$ReloadTask;
@@ -72,7 +71,7 @@
 
     invoke-virtual {v0}, Lcom/android/gallery3d/app/PhotoDataAdapter$ReloadTask;->notifyDirty()V
 
-    .line 899
+    .line 886
     :cond_0
     return-void
 .end method

@@ -29,10 +29,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/PositionController;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 1763
+    .line 1738
     iput-object p1, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     const/4 v0, 0x0
@@ -48,7 +47,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1763
+    .line 1738
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/PositionController$Gap;-><init>(Lcom/android/gallery3d/ui/PositionController;)V
 
     return-void
@@ -62,7 +61,7 @@
     .parameter "kind"
 
     .prologue
-    .line 1780
+    .line 1755
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
 
     if-ne v0, p1, :cond_0
@@ -71,33 +70,33 @@
 
     if-eq p2, v0, :cond_0
 
-    .line 1781
+    .line 1756
     const/4 v0, 0x0
 
-    .line 1789
+    .line 1764
     :goto_0
     return v0
 
-    .line 1783
+    .line 1758
     :cond_0
     iput p2, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
-    .line 1784
+    .line 1759
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mFromGap:I
 
-    .line 1785
+    .line 1760
     iput p1, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mToGap:I
 
-    .line 1786
+    .line 1761
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->startTime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationStartTime:J
 
-    .line 1787
+    .line 1762
     invoke-static {}, Lcom/android/gallery3d/ui/PositionController;->access$2400()[I
 
     move-result-object v0
@@ -108,10 +107,10 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationDuration:I
 
-    .line 1788
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$Gap;->advanceAnimation()Z
+    .line 1763
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$Animatable;->advanceAnimation()Z
 
-    .line 1789
+    .line 1764
     const/4 v0, 0x1
 
     goto :goto_0
@@ -126,24 +125,24 @@
 
     const/4 v2, 0x0
 
-    .line 1794
+    .line 1769
     const/high16 v3, 0x3f80
 
     cmpl-float v3, p1, v3
 
     if-ltz v3, :cond_1
 
-    .line 1795
+    .line 1770
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mToGap:I
 
     iput v2, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
 
-    .line 1804
+    .line 1779
     :cond_0
     :goto_0
     return v1
 
-    .line 1798
+    .line 1773
     :cond_1
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mFromGap:I
 
@@ -165,19 +164,19 @@
 
     iput v3, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
 
-    .line 1799
+    .line 1774
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
     const/16 v4, 0x9
 
     if-ne v3, v4, :cond_2
 
-    .line 1800
+    .line 1775
     invoke-static {p1}, Lcom/android/gallery3d/ui/CaptureAnimation;->calculateScale(F)F
 
     move-result v0
 
-    .line 1801
+    .line 1776
     .local v0, f:F
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
 
@@ -191,10 +190,10 @@
 
     move v1, v2
 
-    .line 1802
+    .line 1777
     goto :goto_0
 
-    .line 1804
+    .line 1779
     .end local v0           #f:F
     :cond_2
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Gap;->mCurrentGap:I
@@ -212,7 +211,7 @@
     .locals 4
 
     .prologue
-    .line 1774
+    .line 1749
     iget-wide v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationStartTime:J
 
     const-wide/16 v2, -0x1
@@ -223,7 +222,7 @@
 
     const/4 v0, 0x0
 
-    .line 1775
+    .line 1750
     :goto_0
     return v0
 

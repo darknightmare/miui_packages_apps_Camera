@@ -9,7 +9,7 @@
 
     .prologue
     .line 38
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -214,7 +214,6 @@
 
 .method public static createVideoThumbnail(Ljava/lang/String;)Landroid/graphics/Bitmap;
     .locals 7
-    .parameter
 
     .prologue
     const/4 v1, 0x0
@@ -1029,7 +1028,7 @@
     .line 258
     const-string v0, "image/jpeg"
 
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1068,7 +1067,7 @@
 
     const-string v1, "image/gif"
 
-    invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 

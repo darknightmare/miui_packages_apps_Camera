@@ -37,7 +37,7 @@
     const/4 v1, 0x0
 
     .line 41
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->getY()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v2
 
@@ -51,7 +51,7 @@
 
     if-gtz v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->getX()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v2
 
@@ -107,7 +107,7 @@
     const/high16 v4, 0x4000
 
     .line 53
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->getX()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v3
 
@@ -117,7 +117,7 @@
 
     .line 54
     .local v1, combinedX:F
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/AlignmentPattern;->getY()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v3
 

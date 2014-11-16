@@ -229,8 +229,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -246,7 +244,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/zxing/QRCodeType;
     .locals 1
-    .parameter
 
     .prologue
     .line 5
@@ -268,7 +265,7 @@
     .line 5
     sget-object v0, Lcom/android/zxing/QRCodeType;->$VALUES:[Lcom/android/zxing/QRCodeType;
 
-    invoke-virtual {v0}, [Lcom/android/zxing/QRCodeType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

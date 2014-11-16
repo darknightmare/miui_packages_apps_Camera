@@ -53,7 +53,7 @@
     const-wide/16 v2, 0x0
 
     .line 54
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
     const/4 v0, 0x0
@@ -71,14 +71,14 @@
     .line 38
     iput-wide v2, p0, Lcom/android/camera/MotionFocusManager;->mGyrocopeTimeStamp:J
 
-    .line 106
+    .line 105
     new-instance v0, Lcom/android/camera/MotionFocusManager$1;
 
     invoke-direct {v0, p0}, Lcom/android/camera/MotionFocusManager$1;-><init>(Lcom/android/camera/MotionFocusManager;)V
 
     iput-object v0, p0, Lcom/android/camera/MotionFocusManager;->mGyroscopeListener:Landroid/hardware/SensorEventListener;
 
-    .line 151
+    .line 146
     new-instance v0, Lcom/android/camera/MotionFocusManager$2;
 
     invoke-direct {v0, p0}, Lcom/android/camera/MotionFocusManager$2;-><init>(Lcom/android/camera/MotionFocusManager;)V
@@ -166,6 +166,17 @@
     return-object v0
 .end method
 
+.method static synthetic access$1000(Lcom/android/camera/MotionFocusManager;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 16
+    invoke-direct {p0}, Lcom/android/camera/MotionFocusManager;->deviceBecomeStable()V
+
+    return-void
+.end method
+
 .method static synthetic access$200(Lcom/android/camera/MotionFocusManager;)D
     .locals 2
     .parameter "x0"
@@ -175,18 +186,6 @@
     iget-wide v0, p0, Lcom/android/camera/MotionFocusManager;->mAngleTotal:D
 
     return-wide v0
-.end method
-
-.method static synthetic access$202(Lcom/android/camera/MotionFocusManager;D)D
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 16
-    iput-wide p1, p0, Lcom/android/camera/MotionFocusManager;->mAngleTotal:D
-
-    return-wide p1
 .end method
 
 .method static synthetic access$218(Lcom/android/camera/MotionFocusManager;D)D
@@ -205,16 +204,15 @@
     return-wide v0
 .end method
 
-.method static synthetic access$300(Lcom/android/camera/MotionFocusManager;D)V
-    .locals 0
+.method static synthetic access$300(Lcom/android/camera/MotionFocusManager;)Landroid/os/Handler;
+    .locals 1
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
     .line 16
-    invoke-direct {p0, p1, p2}, Lcom/android/camera/MotionFocusManager;->deviceKeepMoving(D)V
+    iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mHandler:Landroid/os/Handler;
 
-    return-void
+    return-object v0
 .end method
 
 .method static synthetic access$400(Lcom/android/camera/MotionFocusManager;)J
@@ -240,13 +238,98 @@
     return-wide p1
 .end method
 
-.method static synthetic access$500(Lcom/android/camera/MotionFocusManager;)V
+.method static synthetic access$500(Lcom/android/camera/MotionFocusManager;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 16
+    iget-boolean v0, p0, Lcom/android/camera/MotionFocusManager;->mDeviceStable:Z
+
+    return v0
+.end method
+
+.method static synthetic access$502(Lcom/android/camera/MotionFocusManager;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 16
+    iput-boolean p1, p0, Lcom/android/camera/MotionFocusManager;->mDeviceStable:Z
+
+    return p1
+.end method
+
+.method static synthetic access$600(Lcom/android/camera/MotionFocusManager;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 16
+    iget v0, p0, Lcom/android/camera/MotionFocusManager;->mAccelerometerTag:I
+
+    return v0
+.end method
+
+.method static synthetic access$602(Lcom/android/camera/MotionFocusManager;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 16
+    iput p1, p0, Lcom/android/camera/MotionFocusManager;->mAccelerometerTag:I
+
+    return p1
+.end method
+
+.method static synthetic access$612(Lcom/android/camera/MotionFocusManager;I)I
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 16
+    iget v0, p0, Lcom/android/camera/MotionFocusManager;->mAccelerometerTag:I
+
+    add-int/2addr v0, p1
+
+    iput v0, p0, Lcom/android/camera/MotionFocusManager;->mAccelerometerTag:I
+
+    return v0
+.end method
+
+.method static synthetic access$700(Lcom/android/camera/MotionFocusManager;)V
     .locals 0
     .parameter "x0"
 
     .prologue
     .line 16
-    invoke-direct {p0}, Lcom/android/camera/MotionFocusManager;->deviceBecomeStable()V
+    invoke-direct {p0}, Lcom/android/camera/MotionFocusManager;->deviceBeginMoving()V
+
+    return-void
+.end method
+
+.method static synthetic access$800(Lcom/android/camera/MotionFocusManager;D)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 16
+    invoke-direct {p0, p1, p2}, Lcom/android/camera/MotionFocusManager;->deviceKeepMoving(D)V
+
+    return-void
+.end method
+
+.method static synthetic access$900(Lcom/android/camera/MotionFocusManager;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 16
+    invoke-direct {p0}, Lcom/android/camera/MotionFocusManager;->deviceKeepStable()V
 
     return-void
 .end method
@@ -255,18 +338,31 @@
     .locals 1
 
     .prologue
-    .line 211
+    .line 201
     iget-boolean v0, p0, Lcom/android/camera/MotionFocusManager;->mEnabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 212
+    .line 202
     iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mMotionFocusListener:Lcom/android/camera/MotionFocusManager$MotionFocusListener;
 
     invoke-interface {v0}, Lcom/android/camera/MotionFocusManager$MotionFocusListener;->onDeviceBecomeStable()V
 
-    .line 215
+    .line 204
     :cond_0
+    return-void
+.end method
+
+.method private deviceBeginMoving()V
+    .locals 1
+
+    .prologue
+    .line 197
+    iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mMotionFocusListener:Lcom/android/camera/MotionFocusManager$MotionFocusListener;
+
+    invoke-interface {v0}, Lcom/android/camera/MotionFocusManager$MotionFocusListener;->onDeviceBeginMoving()V
+
+    .line 198
     return-void
 .end method
 
@@ -275,22 +371,55 @@
     .parameter "a"
 
     .prologue
-    .line 222
+    .line 211
     iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mMotionFocusListener:Lcom/android/camera/MotionFocusManager$MotionFocusListener;
 
     invoke-interface {v0, p1, p2}, Lcom/android/camera/MotionFocusManager$MotionFocusListener;->onDeviceKeepMoving(D)V
 
-    .line 223
+    .line 212
+    return-void
+.end method
+
+.method private deviceKeepStable()V
+    .locals 1
+
+    .prologue
+    .line 207
+    iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mMotionFocusListener:Lcom/android/camera/MotionFocusManager$MotionFocusListener;
+
+    invoke-interface {v0}, Lcom/android/camera/MotionFocusManager$MotionFocusListener;->onDeviceKeepStable()V
+
+    .line 208
     return-void
 .end method
 
 
 # virtual methods
 .method public autoFocus()V
-    .locals 0
+    .locals 4
 
     .prologue
+    const/4 v3, 0x1
+
+    .line 84
+    iget-boolean v0, p0, Lcom/android/camera/MotionFocusManager;->mEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    .line 85
+    iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 86
+    iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mHandler:Landroid/os/Handler;
+
+    const-wide/16 v1, 0x320
+
+    invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
     .line 88
+    :cond_0
     return-void
 .end method
 
@@ -346,25 +475,25 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 100
+    .line 99
     iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 101
+    .line 100
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/camera/MotionFocusManager;->mAngleTotal:D
 
-    .line 102
+    .line 101
     iput-boolean v2, p0, Lcom/android/camera/MotionFocusManager;->mDeviceStable:Z
 
-    .line 103
+    .line 102
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/camera/MotionFocusManager;->mAccelerometerTag:I
 
-    .line 104
+    .line 103
     return-void
 .end method
 
@@ -390,28 +519,25 @@
     if-eqz v0, :cond_0
 
     .line 92
-    invoke-virtual {p0}, Lcom/android/camera/MotionFocusManager;->reset()V
-
-    .line 93
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/camera/MotionFocusManager;->mListenerRegister:Z
 
-    .line 94
+    .line 93
     iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/camera/MotionFocusManager;->mGyroscopeListener:Landroid/hardware/SensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 95
+    .line 94
     iget-object v0, p0, Lcom/android/camera/MotionFocusManager;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/camera/MotionFocusManager;->mAccelerationListener:Landroid/hardware/SensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 97
+    .line 96
     :cond_0
     return-void
 .end method

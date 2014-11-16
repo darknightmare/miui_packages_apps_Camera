@@ -126,7 +126,7 @@
 
     .prologue
     .line 15
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -820,10 +820,6 @@
     add-int/lit8 v8, v8, -0x1
 
     invoke-virtual {v4, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v7}, Lcom/android/zxing/WiFiUtil;->removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 

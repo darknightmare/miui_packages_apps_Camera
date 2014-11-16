@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lmiui/analytics/PersistenceHelper$RunThread;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 67
+    .line 64
     iput-object p1, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +38,16 @@
     .parameter "msg"
 
     .prologue
-    .line 70
+    .line 67
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 85
+    .line 82
     :goto_0
     return-void
 
-    .line 72
+    .line 69
     :pswitch_0
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -59,7 +58,7 @@
 
     goto :goto_0
 
-    .line 76
+    .line 73
     :pswitch_1
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -74,7 +73,7 @@
 
     goto :goto_0
 
-    .line 80
+    .line 77
     :pswitch_2
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
@@ -83,7 +82,7 @@
     #calls: Lmiui/analytics/PersistenceHelper;->closeImp()V
     invoke-static {v0}, Lmiui/analytics/PersistenceHelper;->access$400(Lmiui/analytics/PersistenceHelper;)V
 
-    .line 81
+    .line 78
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     iget-object v0, v0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
@@ -99,7 +98,7 @@
 
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
-    .line 82
+    .line 79
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread$1;->this$1:Lmiui/analytics/PersistenceHelper$RunThread;
 
     iget-object v0, v0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
@@ -111,7 +110,7 @@
 
     goto :goto_0
 
-    .line 70
+    .line 67
     nop
 
     :pswitch_data_0

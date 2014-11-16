@@ -65,7 +65,7 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 130
     sget-object v0, Lcom/android/gallery3d/data/MediaItem;->sMicroThumbBufferPool:Lcom/android/gallery3d/data/BytesBufferPool;
 
     return-object v0
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 118
+    .line 122
     sget-object v0, Lcom/android/gallery3d/data/MediaItem;->sMicroThumbPool:Lcom/android/gallery3d/data/BitmapPool;
 
     return-object v0
@@ -86,10 +86,10 @@
     .parameter "type"
 
     .prologue
-    .line 106
+    .line 110
     packed-switch p0, :pswitch_data_0
 
-    .line 112
+    .line 116
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "should only request thumb/microthumb from cache"
@@ -98,11 +98,11 @@
 
     throw v0
 
-    .line 108
+    .line 112
     :pswitch_0
     const/16 v0, 0x280
 
-    .line 110
+    .line 114
     :goto_0
     return v0
 
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 106
+    .line 110
     nop
 
     :pswitch_data_0
@@ -125,7 +125,7 @@
     .locals 1
 
     .prologue
-    .line 122
+    .line 126
     sget-object v0, Lcom/android/gallery3d/data/MediaItem;->sThumbPool:Lcom/android/gallery3d/data/BitmapPool;
 
     return-object v0
@@ -147,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 85
     invoke-virtual {p0}, Lcom/android/gallery3d/data/MediaItem;->getRotation()I
 
     move-result v0
@@ -193,7 +193,7 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 89
     const/4 v0, 0x0
 
     return v0
@@ -203,7 +203,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 106
     const/4 v0, 0x0
 
     return-object v0
@@ -213,7 +213,7 @@
     .locals 2
 
     .prologue
-    .line 89
+    .line 93
     const-wide/16 v0, 0x0
 
     return-wide v0

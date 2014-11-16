@@ -45,10 +45,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/PositionController;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 1614
+    .line 1596
     iput-object p1, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     const/4 v0, 0x0
@@ -64,7 +63,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1614
+    .line 1596
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/PositionController$Box;-><init>(Lcom/android/gallery3d/ui/PositionController;)V
 
     return-void
@@ -78,7 +77,7 @@
     .parameter "x3"
 
     .prologue
-    .line 1614
+    .line 1596
     invoke-direct {p0, p1, p2, p3}, Lcom/android/gallery3d/ui/PositionController$Box;->doAnimation(IFI)Z
 
     move-result v0
@@ -93,12 +92,12 @@
     .parameter "kind"
 
     .prologue
-    .line 1687
+    .line 1662
     invoke-virtual {p0, p2}, Lcom/android/gallery3d/ui/PositionController$Box;->clampScale(F)F
 
     move-result p2
 
-    .line 1689
+    .line 1664
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
     if-ne v0, p1, :cond_0
@@ -113,41 +112,41 @@
 
     if-eq p3, v0, :cond_0
 
-    .line 1691
+    .line 1666
     const/4 v0, 0x0
 
-    .line 1703
+    .line 1678
     :goto_0
     return v0
 
-    .line 1695
+    .line 1670
     :cond_0
     iput p3, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
-    .line 1696
+    .line 1671
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mFromY:I
 
-    .line 1697
+    .line 1672
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mFromScale:F
 
-    .line 1698
+    .line 1673
     iput p1, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mToY:I
 
-    .line 1699
+    .line 1674
     iput p2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mToScale:F
 
-    .line 1700
+    .line 1675
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->startTime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationStartTime:J
 
-    .line 1701
+    .line 1676
     invoke-static {}, Lcom/android/gallery3d/ui/PositionController;->access$2400()[I
 
     move-result-object v0
@@ -156,10 +155,10 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationDuration:I
 
-    .line 1702
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$Box;->advanceAnimation()Z
+    .line 1677
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/PositionController$Animatable;->advanceAnimation()Z
 
-    .line 1703
+    .line 1678
     const/4 v0, 0x1
 
     goto :goto_0
@@ -174,7 +173,7 @@
 
     const/high16 v5, 0x3f00
 
-    .line 1723
+    .line 1698
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mPageScroller:Lcom/android/gallery3d/ui/FlingScroller;
@@ -184,7 +183,7 @@
 
     invoke-virtual {v3, p1}, Lcom/android/gallery3d/ui/FlingScroller;->computeScrollOffset(F)V
 
-    .line 1724
+    .line 1699
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     iget v4, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
@@ -192,10 +191,10 @@
     #calls: Lcom/android/gallery3d/ui/PositionController;->calculateStableBound(F)V
     invoke-static {v3, v4}, Lcom/android/gallery3d/ui/PositionController;->access$2700(Lcom/android/gallery3d/ui/PositionController;F)V
 
-    .line 1726
+    .line 1701
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
-    .line 1727
+    .line 1702
     .local v0, oldY:I
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -210,7 +209,7 @@
 
     iput v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
-    .line 1730
+    .line 1705
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mBoundTop:I
@@ -231,7 +230,7 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 1731
+    .line 1706
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mPageScroller:Lcom/android/gallery3d/ui/FlingScroller;
@@ -251,7 +250,7 @@
 
     float-to-int v1, v3
 
-    .line 1732
+    .line 1707
     .local v1, v:I
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -264,7 +263,7 @@
 
     invoke-interface {v3, v1, v4}, Lcom/android/gallery3d/ui/PositionController$Listener;->onAbsorb(II)V
 
-    .line 1738
+    .line 1713
     .end local v1           #v:I
     :cond_0
     :goto_0
@@ -279,7 +278,7 @@
     :cond_1
     return v2
 
-    .line 1733
+    .line 1708
     :cond_2
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -301,7 +300,7 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 1734
+    .line 1709
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mPageScroller:Lcom/android/gallery3d/ui/FlingScroller;
@@ -319,7 +318,7 @@
 
     float-to-int v1, v3
 
-    .line 1735
+    .line 1710
     .restart local v1       #v:I
     iget-object v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -342,29 +341,29 @@
 
     const/4 v2, 0x0
 
-    .line 1742
+    .line 1717
     const/high16 v3, 0x3f80
 
     cmpl-float v3, p1, v3
 
     if-ltz v3, :cond_1
 
-    .line 1743
+    .line 1718
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mToY:I
 
     iput v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
-    .line 1744
+    .line 1719
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mToScale:F
 
     iput v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
 
-    .line 1754
+    .line 1729
     :cond_0
     :goto_0
     return v1
 
-    .line 1747
+    .line 1722
     :cond_1
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mFromY:I
 
@@ -386,7 +385,7 @@
 
     iput v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
-    .line 1748
+    .line 1723
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mFromScale:F
 
     iget v4, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mToScale:F
@@ -401,19 +400,19 @@
 
     iput v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
 
-    .line 1749
+    .line 1724
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
     const/16 v4, 0x9
 
     if-ne v3, v4, :cond_2
 
-    .line 1750
+    .line 1725
     invoke-static {p1}, Lcom/android/gallery3d/ui/CaptureAnimation;->calculateScale(F)F
 
     move-result v0
 
-    .line 1751
+    .line 1726
     .local v0, f:F
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
 
@@ -423,10 +422,10 @@
 
     move v1, v2
 
-    .line 1752
+    .line 1727
     goto :goto_0
 
-    .line 1754
+    .line 1729
     .end local v0           #f:F
     :cond_2
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
@@ -456,14 +455,14 @@
     .parameter "s"
 
     .prologue
-    .line 1708
+    .line 1683
     const v0, 0x3f333333
 
     iget v1, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMin:F
 
     mul-float/2addr v0, v1
 
-    const/high16 v1, 0x4000
+    const v1, 0x3fb33333
 
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMax:F
 
@@ -481,19 +480,19 @@
     .parameter "progress"
 
     .prologue
-    .line 1715
+    .line 1690
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
     const/4 v1, 0x6
 
     if-ne v0, v1, :cond_0
 
-    .line 1716
+    .line 1691
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/PositionController$Box;->interpolateFlingPage(F)Z
 
     move-result v0
 
-    .line 1718
+    .line 1693
     :goto_0
     return v0
 
@@ -511,7 +510,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1639
+    .line 1621
     iget-wide v6, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationStartTime:J
 
     const-wide/16 v8, -0x1
@@ -520,12 +519,12 @@
 
     if-eqz v6, :cond_1
 
-    .line 1683
+    .line 1658
     :cond_0
     :goto_0
     return v5
 
-    .line 1640
+    .line 1622
     :cond_1
     iget v6, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
@@ -544,7 +543,7 @@
 
     if-nez v6, :cond_0
 
-    .line 1642
+    .line 1624
     :cond_2
     iget v6, p0, Lcom/android/gallery3d/ui/PositionController$Animatable;->mAnimationKind:I
 
@@ -565,7 +564,7 @@
 
     if-nez v6, :cond_0
 
-    .line 1644
+    .line 1626
     :cond_3
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -589,11 +588,11 @@
 
     if-eq p0, v6, :cond_0
 
-    .line 1646
+    .line 1628
     :cond_4
     iget v4, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
 
-    .line 1649
+    .line 1631
     .local v4, y:I
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -608,7 +607,7 @@
 
     if-ne p0, v6, :cond_a
 
-    .line 1650
+    .line 1632
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #getter for: Lcom/android/gallery3d/ui/PositionController;->mExtraScalingRange:Z
@@ -624,7 +623,7 @@
 
     mul-float v3, v6, v7
 
-    .line 1652
+    .line 1634
     .local v3, scaleMin:F
     :goto_1
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
@@ -638,11 +637,11 @@
 
     iget v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMax:F
 
-    const/high16 v7, 0x4000
+    const v7, 0x3fb33333
 
     mul-float v2, v6, v7
 
-    .line 1654
+    .line 1636
     .local v2, scaleMax:F
     :goto_2
     iget v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
@@ -651,7 +650,7 @@
 
     move-result v0
 
-    .line 1655
+    .line 1637
     .local v0, scale:F
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -662,10 +661,10 @@
 
     if-eqz v6, :cond_8
 
-    .line 1656
+    .line 1638
     const/4 v4, 0x0
 
-    .line 1673
+    .line 1655
     .end local v2           #scaleMax:F
     .end local v3           #scaleMin:F
     :goto_3
@@ -679,56 +678,31 @@
 
     if-eqz v6, :cond_0
 
-    .line 1675
+    .line 1656
     :cond_5
-    iget-object v5, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
+    const/4 v5, 0x2
 
-    #getter for: Lcom/android/gallery3d/ui/PositionController;->mIsCamera:Z
-    invoke-static {v5}, Lcom/android/gallery3d/ui/PositionController;->access$3200(Lcom/android/gallery3d/ui/PositionController;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b
-
-    iget-object v5, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
-
-    #getter for: Lcom/android/gallery3d/ui/PositionController;->mListener:Lcom/android/gallery3d/ui/PositionController$Listener;
-    invoke-static {v5}, Lcom/android/gallery3d/ui/PositionController;->access$700(Lcom/android/gallery3d/ui/PositionController;)Lcom/android/gallery3d/ui/PositionController$Listener;
-
-    move-result-object v5
-
-    invoke-interface {v5}, Lcom/android/gallery3d/ui/PositionController$Listener;->canIgnoreAnimation()Z
+    invoke-direct {p0, v4, v0, v5}, Lcom/android/gallery3d/ui/PositionController$Box;->doAnimation(IFI)Z
 
     move-result v5
-
-    if-eqz v5, :cond_b
-
-    .line 1676
-    iput v4, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentY:I
-
-    .line 1677
-    iput v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
-
-    .line 1678
-    const/4 v5, 0x1
 
     goto/16 :goto_0
 
-    .line 1650
+    .line 1632
     .end local v0           #scale:F
     :cond_6
     iget v3, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMin:F
 
     goto :goto_1
 
-    .line 1652
+    .line 1634
     .restart local v3       #scaleMin:F
     :cond_7
     iget v2, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMax:F
 
     goto :goto_2
 
-    .line 1658
+    .line 1640
     .restart local v0       #scale:F
     .restart local v2       #scaleMax:F
     :cond_8
@@ -741,7 +715,7 @@
     #calls: Lcom/android/gallery3d/ui/PositionController;->calculateStableBound(FI)V
     invoke-static {v6, v0, v7}, Lcom/android/gallery3d/ui/PositionController;->access$1500(Lcom/android/gallery3d/ui/PositionController;FI)V
 
-    .line 1662
+    .line 1644
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
     #calls: Lcom/android/gallery3d/ui/PositionController;->viewTallerThanScaledImage(F)Z
@@ -751,12 +725,12 @@
 
     if-nez v6, :cond_9
 
-    .line 1663
+    .line 1645
     iget v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mCurrentScale:F
 
     sub-float v1, v6, v0
 
-    .line 1664
+    .line 1646
     .local v1, scaleDiff:F
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
 
@@ -775,7 +749,7 @@
 
     add-int/2addr v4, v6
 
-    .line 1666
+    .line 1648
     .end local v1           #scaleDiff:F
     :cond_9
     iget-object v6, p0, Lcom/android/gallery3d/ui/PositionController$Box;->this$0:Lcom/android/gallery3d/ui/PositionController;
@@ -798,26 +772,16 @@
 
     goto :goto_3
 
-    .line 1669
+    .line 1651
     .end local v0           #scale:F
     .end local v2           #scaleMax:F
     .end local v3           #scaleMin:F
     :cond_a
     const/4 v4, 0x0
 
-    .line 1670
+    .line 1652
     iget v0, p0, Lcom/android/gallery3d/ui/PositionController$Box;->mScaleMin:F
 
     .restart local v0       #scale:F
     goto :goto_3
-
-    .line 1681
-    :cond_b
-    const/4 v5, 0x2
-
-    invoke-direct {p0, v4, v0, v5}, Lcom/android/gallery3d/ui/PositionController$Box;->doAnimation(IFI)Z
-
-    move-result v5
-
-    goto/16 :goto_0
 .end method

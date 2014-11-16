@@ -20,18 +20,15 @@
 
     .prologue
     .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
+    .line 58
     return-void
 .end method
 
 
 # virtual methods
 .method public abstract attachScreenNail()Lcom/android/gallery3d/ui/ScreenNail;
-.end method
-
-.method public abstract canIgnoreAnimation()Z
 .end method
 
 .method public abstract createCameraScreenNail()Z
@@ -59,10 +56,7 @@
 .method public abstract onFullScreenChanged(Z)V
 .end method
 
-.method public abstract onLeftFling()V
-.end method
-
-.method public abstract onLongPress(II)V
+.method public abstract onLongPress(Landroid/view/MotionEvent;)V
 .end method
 
 .method public abstract onScale(FFF)Z
@@ -71,13 +65,7 @@
 .method public abstract onScaleBegin(FF)Z
 .end method
 
-.method public abstract onScaleEnd()V
-.end method
-
 .method public abstract onSingleTapUp(II)Z
-.end method
-
-.method public abstract onSlideTrack(Landroid/graphics/RectF;Z)Z
 .end method
 
 .method public abstract setServer(Lcom/android/gallery3d/app/AppBridge$Server;)V

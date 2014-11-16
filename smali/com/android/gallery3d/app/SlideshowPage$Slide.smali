@@ -30,18 +30,18 @@
     .parameter "bitmap"
 
     .prologue
-    .line 72
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 71
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    .line 72
     iput-object p3, p0, Lcom/android/gallery3d/app/SlideshowPage$Slide;->bitmap:Landroid/graphics/Bitmap;
 
-    .line 74
+    .line 73
     iput-object p1, p0, Lcom/android/gallery3d/app/SlideshowPage$Slide;->item:Lcom/android/gallery3d/data/MediaItem;
 
-    .line 75
+    .line 74
     iput p2, p0, Lcom/android/gallery3d/app/SlideshowPage$Slide;->index:I
 
-    .line 76
+    .line 75
     return-void
 .end method

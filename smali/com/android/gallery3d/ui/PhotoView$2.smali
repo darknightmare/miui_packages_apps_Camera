@@ -24,67 +24,28 @@
 # direct methods
 .method constructor <init>(Lcom/android/gallery3d/ui/PhotoView;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 283
+    .line 267
     iput-object p1, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public canIgnoreAnimation()Z
-    .locals 1
-
-    .prologue
-    .line 303
-    iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
-
-    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mFullScreenCamera:Z
-    invoke-static {v0}, Lcom/android/gallery3d/ui/PhotoView;->access$400(Lcom/android/gallery3d/ui/PhotoView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
-
-    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mListener:Lcom/android/gallery3d/ui/PhotoView$Listener;
-    invoke-static {v0}, Lcom/android/gallery3d/ui/PhotoView;->access$000(Lcom/android/gallery3d/ui/PhotoView;)Lcom/android/gallery3d/ui/PhotoView$Listener;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/gallery3d/ui/PhotoView$Listener;->canIgnoreAnimation()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public invalidate()V
     .locals 1
 
     .prologue
-    .line 285
+    .line 269
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/ui/PhotoView;->invalidate()V
+    invoke-virtual {v0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
-    .line 286
+    .line 270
     return-void
 .end method
 
@@ -92,7 +53,7 @@
     .locals 1
 
     .prologue
-    .line 291
+    .line 275
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mHolding:I
@@ -119,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 288
+    .line 272
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mHolding:I
@@ -143,21 +104,41 @@
 .end method
 
 .method public onAbsorb(II)V
-    .locals 0
+    .locals 1
     .parameter "velocity"
     .parameter "direction"
 
     .prologue
-    .line 301
+    .line 284
+    iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
+
+    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mEdgeView:Lcom/android/gallery3d/ui/EdgeView;
+    invoke-static {v0}, Lcom/android/gallery3d/ui/PhotoView;->access$400(Lcom/android/gallery3d/ui/PhotoView;)Lcom/android/gallery3d/ui/EdgeView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/gallery3d/ui/EdgeView;->onAbsorb(II)V
+
+    .line 285
     return-void
 .end method
 
 .method public onPull(II)V
-    .locals 0
+    .locals 1
     .parameter "offset"
     .parameter "direction"
 
     .prologue
-    .line 295
+    .line 278
+    iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$2;->this$0:Lcom/android/gallery3d/ui/PhotoView;
+
+    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mEdgeView:Lcom/android/gallery3d/ui/EdgeView;
+    invoke-static {v0}, Lcom/android/gallery3d/ui/PhotoView;->access$400(Lcom/android/gallery3d/ui/PhotoView;)Lcom/android/gallery3d/ui/EdgeView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/gallery3d/ui/EdgeView;->onPull(II)V
+
+    .line 279
     return-void
 .end method

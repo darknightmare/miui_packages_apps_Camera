@@ -56,9 +56,9 @@
 
     new-instance v0, Lcom/android/gallery3d/app/GalleryActionBar$ActionItem;
 
-    const v4, 0x7f0d01d8
+    const v4, 0x7f0d01e6
 
-    const v5, 0x7f0d01c7
+    const v5, 0x7f0d01d5
 
     move v2, v1
 
@@ -68,11 +68,11 @@
 
     new-instance v4, Lcom/android/gallery3d/app/GalleryActionBar$ActionItem;
 
-    const v8, 0x7f0d01cc
+    const v8, 0x7f0d01da
 
-    const v9, 0x7f0d01be
+    const v9, 0x7f0d01cc
 
-    const v10, 0x7f0d01c9
+    const v10, 0x7f0d01d7
 
     move v5, v13
 
@@ -86,11 +86,11 @@
 
     new-instance v4, Lcom/android/gallery3d/app/GalleryActionBar$ActionItem;
 
-    const v8, 0x7f0d01d6
+    const v8, 0x7f0d01e4
 
-    const v9, 0x7f0d01c4
+    const v9, 0x7f0d01d2
 
-    const v10, 0x7f0d01cb
+    const v10, 0x7f0d01d9
 
     move v5, v12
 
@@ -108,9 +108,9 @@
 
     const/16 v5, 0x20
 
-    const v8, 0x7f0d01cd
+    const v8, 0x7f0d01db
 
-    const v9, 0x7f0d01c8
+    const v9, 0x7f0d01d6
 
     move v6, v1
 
@@ -124,9 +124,9 @@
 
     const/16 v5, 0x8
 
-    const v8, 0x7f0d01d5
+    const v8, 0x7f0d01e3
 
-    const v9, 0x7f0d01ca
+    const v9, 0x7f0d01d8
 
     move v6, v1
 
@@ -142,12 +142,12 @@
 .end method
 
 .method public constructor <init>(Lcom/android/gallery3d/app/GalleryActivity;)V
-    .locals 3
+    .locals 2
     .parameter "activity"
 
     .prologue
     .line 134
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     new-instance v0, Lcom/android/gallery3d/app/GalleryActionBar$ClusterAdapter;
@@ -196,23 +196,6 @@
     iput v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mCurrentIndex:I
 
     .line 140
-    iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
-
-    iget-object v1, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f02005a
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 141
     return-void
 .end method
 
@@ -254,7 +237,7 @@
 
     .prologue
     .line 126
-    const v2, 0x7f0c00b0
+    const v2, 0x7f0c009b
 
     invoke-interface {p0, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -289,7 +272,7 @@
     .parameter "listener"
 
     .prologue
-    .line 258
+    .line 257
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -298,7 +281,7 @@
 
     invoke-virtual {v0, p1}, Landroid/app/ActionBar;->addOnMenuVisibilityListener(Landroid/app/ActionBar$OnMenuVisibilityListener;)V
 
-    .line 259
+    .line 258
     :cond_0
     return-void
 .end method
@@ -307,7 +290,7 @@
     .locals 1
 
     .prologue
-    .line 157
+    .line 156
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -331,7 +314,7 @@
     .locals 1
 
     .prologue
-    .line 250
+    .line 249
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -340,7 +323,7 @@
 
     invoke-virtual {v0}, Landroid/app/ActionBar;->hide()V
 
-    .line 251
+    .line 250
     :cond_0
     return-void
 .end method
@@ -351,7 +334,7 @@
     .parameter "itemId"
 
     .prologue
-    .line 281
+    .line 280
     iget v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mCurrentIndex:I
 
     if-eq p1, v0, :cond_0
@@ -360,7 +343,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 284
+    .line 283
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActivity:Lcom/android/gallery3d/app/GalleryActivity;
 
     invoke-interface {v0}, Lcom/android/gallery3d/app/GalleryActivity;->getGLRoot()Lcom/android/gallery3d/ui/GLRoot;
@@ -369,7 +352,7 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GLRoot;->lockRenderThread()V
 
-    .line 286
+    .line 285
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mClusterRunner:Lcom/android/gallery3d/app/GalleryActionBar$ClusterRunner;
 
@@ -383,7 +366,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 288
+    .line 287
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActivity:Lcom/android/gallery3d/app/GalleryActivity;
 
     invoke-interface {v0}, Lcom/android/gallery3d/app/GalleryActivity;->getGLRoot()Lcom/android/gallery3d/ui/GLRoot;
@@ -392,13 +375,13 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GLRoot;->unlockRenderThread()V
 
-    .line 291
+    .line 290
     :cond_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 288
+    .line 287
     :catchall_0
     move-exception v0
 
@@ -418,7 +401,7 @@
     .parameter "listener"
 
     .prologue
-    .line 262
+    .line 261
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -427,7 +410,7 @@
 
     invoke-virtual {v0, p1}, Landroid/app/ActionBar;->removeOnMenuVisibilityListener(Landroid/app/ActionBar$OnMenuVisibilityListener;)V
 
-    .line 263
+    .line 262
     :cond_0
     return-void
 .end method
@@ -440,12 +423,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 224
+    .line 223
     iget-object v2, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v2, :cond_1
 
-    .line 225
+    .line 224
     if-eqz p1, :cond_2
 
     const/4 v2, 0x4
@@ -458,7 +441,7 @@
     :cond_0
     or-int v0, v2, v1
 
-    .line 227
+    .line 226
     .local v0, options:I
     iget-object v1, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
@@ -466,12 +449,12 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 229
+    .line 228
     iget-object v1, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     invoke-virtual {v1, p1}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
-    .line 231
+    .line 230
     .end local v0           #options:I
     :cond_1
     return-void
@@ -479,7 +462,7 @@
     :cond_2
     move v2, v1
 
-    .line 225
+    .line 224
     goto :goto_0
 .end method
 
@@ -488,7 +471,7 @@
     .parameter "title"
 
     .prologue
-    .line 234
+    .line 233
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -497,7 +480,7 @@
 
     invoke-virtual {v0, p1}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 235
+    .line 234
     :cond_0
     return-void
 .end method
@@ -506,7 +489,7 @@
     .locals 1
 
     .prologue
-    .line 246
+    .line 245
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar;->mActionBar:Landroid/app/ActionBar;
 
     if-eqz v0, :cond_0
@@ -515,7 +498,7 @@
 
     invoke-virtual {v0}, Landroid/app/ActionBar;->show()V
 
-    .line 247
+    .line 246
     :cond_0
     return-void
 .end method

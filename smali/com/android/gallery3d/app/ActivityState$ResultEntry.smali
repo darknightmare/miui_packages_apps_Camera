@@ -27,10 +27,10 @@
     .locals 1
 
     .prologue
-    .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 54
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 56
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/app/ActivityState$ResultEntry;->resultCode:I

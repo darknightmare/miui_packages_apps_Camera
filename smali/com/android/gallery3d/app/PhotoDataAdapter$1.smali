@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 189
+    .line 188
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     invoke-direct {p0, p2}, Lcom/android/gallery3d/ui/SynchronizedHandler;-><init>(Lcom/android/gallery3d/app/GalleryActivity;)V
@@ -40,19 +40,19 @@
     .parameter "message"
 
     .prologue
-    .line 193
+    .line 192
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 213
+    .line 212
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    .line 195
+    .line 194
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -60,12 +60,12 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 211
+    .line 210
     :cond_0
     :goto_0
     return-void
 
-    .line 198
+    .line 197
     :pswitch_1
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -76,7 +76,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 199
+    .line 198
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mDataListener:Lcom/android/gallery3d/app/PhotoDataAdapter$DataListener;
@@ -88,7 +88,7 @@
 
     goto :goto_0
 
-    .line 204
+    .line 203
     :pswitch_2
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -99,7 +99,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 205
+    .line 204
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mDataListener:Lcom/android/gallery3d/app/PhotoDataAdapter$DataListener;
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 210
+    .line 209
     :pswitch_3
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$1;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -120,7 +120,7 @@
 
     goto :goto_0
 
-    .line 193
+    .line 192
     nop
 
     :pswitch_data_0

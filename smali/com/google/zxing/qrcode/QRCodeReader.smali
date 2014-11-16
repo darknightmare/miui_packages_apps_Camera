@@ -34,7 +34,7 @@
 
     .prologue
     .line 43
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
     new-instance v0, Lcom/google/zxing/qrcode/decoder/Decoder;
@@ -498,7 +498,6 @@
 .method public final decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
     .locals 10
     .parameter "image"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

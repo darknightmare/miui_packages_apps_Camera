@@ -27,13 +27,13 @@
     .parameter "options"
 
     .prologue
-    .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 41
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
+    .line 42
     iput-object p1, p0, Lcom/android/gallery3d/data/DecodeUtils$DecodeCanceller;->mOptions:Landroid/graphics/BitmapFactory$Options;
 
-    .line 44
+    .line 43
     return-void
 .end method
 
@@ -43,11 +43,11 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 47
     iget-object v0, p0, Lcom/android/gallery3d/data/DecodeUtils$DecodeCanceller;->mOptions:Landroid/graphics/BitmapFactory$Options;
 
     invoke-virtual {v0}, Landroid/graphics/BitmapFactory$Options;->requestCancelDecode()V
 
-    .line 49
+    .line 48
     return-void
 .end method

@@ -3,18 +3,14 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
         <LinearLayout android:orientation="horizontal" android:id="@id/on_screen_indicators_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
-            <com.android.camera.ui.RotateImageView android:id="@id/onscreen_gps_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_audio_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_coloreffect_indicator" style="@style/OnScreenIndicator" />
-            <com.android.camera.ui.RotateImageView android:id="@id/onscreen_face_beauty_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_white_balance_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_exposure_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_focus_indicator" style="@style/OnScreenIndicator" />
-            <com.android.camera.ui.RotateImageView android:id="@id/onscreen_scene_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_iso_indicator" style="@style/OnScreenIndicator" />
-            <com.android.camera.ui.RotateImageView android:id="@id/onscreen_exposuretime_indicator" style="@style/OnScreenIndicator" />
             <com.android.camera.ui.RotateImageView android:id="@id/onscreen_referenceline_indicator" style="@style/OnScreenIndicator" />
         </LinearLayout>
-        <com.android.camera.ui.RotateTextView android:textSize="40.0sp" android:textColor="#90ff8000" android:gravity="right" android:id="@id/multi_snap_number" android:visibility="gone" android:layout_alignParentRight="true" style="@style/RotateImageViewStyle" />
+        <com.android.camera.ui.RotateTextView android:textSize="50.0sp" android:textColor="#90ff8000" android:gravity="right" android:id="@id/multi_snap_number" android:visibility="gone" android:layout_alignParentRight="true" style="@style/RotateImageViewStyle" />
     </RelativeLayout>
 </com.android.camera.ui.RestrictRotateLayout>

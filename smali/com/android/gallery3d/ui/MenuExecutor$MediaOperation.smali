@@ -66,22 +66,22 @@
     .end annotation
 
     .prologue
-    .line 386
+    .line 385
     .local p3, items:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/Path;>;"
     iput-object p1, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 387
+    .line 386
     iput p2, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->mOperation:I
 
-    .line 388
+    .line 387
     iput-object p3, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->mItems:Ljava/util/ArrayList;
 
-    .line 389
+    .line 388
     iput-object p4, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->mListener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
 
-    .line 390
+    .line 389
     return-void
 .end method
 
@@ -92,7 +92,7 @@
     .parameter "x0"
 
     .prologue
-    .line 380
+    .line 379
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->run(Lcom/android/gallery3d/util/ThreadPool$JobContext;)Ljava/lang/Void;
 
     move-result-object v0
@@ -105,10 +105,10 @@
     .parameter "jc"
 
     .prologue
-    .line 393
+    .line 392
     const/4 v2, 0x0
 
-    .line 394
+    .line 393
     .local v2, index:I
     iget-object v7, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
@@ -121,11 +121,11 @@
 
     move-result-object v4
 
-    .line 395
+    .line 394
     .local v4, manager:Lcom/android/gallery3d/data/DataManager;
     const/4 v5, 0x1
 
-    .line 397
+    .line 396
     .local v5, result:I
     :try_start_0
     iget-object v7, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->mItems:Ljava/util/ArrayList;
@@ -156,7 +156,7 @@
 
     check-cast v1, Lcom/android/gallery3d/data/Path;
 
-    .line 398
+    .line 397
     .local v1, id:Lcom/android/gallery3d/data/Path;
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
     :try_end_1
@@ -167,10 +167,10 @@
 
     if-eqz v7, :cond_1
 
-    .line 399
+    .line 398
     const/4 v5, 0x3
 
-    .line 411
+    .line 410
     .end local v1           #id:Lcom/android/gallery3d/data/Path;
     :cond_0
     iget-object v7, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
@@ -182,7 +182,7 @@
 
     move v2, v3
 
-    .line 413
+    .line 412
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v3           #index:I
     .restart local v2       #index:I
@@ -191,7 +191,7 @@
 
     return-object v7
 
-    .line 402
+    .line 401
     .end local v2           #index:I
     .restart local v0       #i$:Ljava/util/Iterator;
     .restart local v1       #id:Lcom/android/gallery3d/data/Path;
@@ -209,10 +209,10 @@
 
     if-nez v7, :cond_2
 
-    .line 403
+    .line 402
     const/4 v5, 0x2
 
-    .line 405
+    .line 404
     :cond_2
     iget-object v7, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
     :try_end_2
@@ -238,7 +238,7 @@
     .restart local v3       #index:I
     goto :goto_0
 
-    .line 407
+    .line 406
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #id:Lcom/android/gallery3d/data/Path;
     .end local v3           #index:I
@@ -246,7 +246,7 @@
     :catch_0
     move-exception v6
 
-    .line 408
+    .line 407
     .local v6, th:Ljava/lang/Throwable;
     :goto_2
     :try_start_4
@@ -282,11 +282,11 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Lcom/android/gallery3d/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Lcom/android/gallery3d/ui/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 411
+    .line 410
     iget-object v7, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->this$0:Lcom/android/gallery3d/ui/MenuExecutor;
 
     iget-object v8, p0, Lcom/android/gallery3d/ui/MenuExecutor$MediaOperation;->mListener:Lcom/android/gallery3d/ui/MenuExecutor$ProgressListener;
@@ -322,7 +322,7 @@
     .restart local v2       #index:I
     goto :goto_3
 
-    .line 407
+    .line 406
     .end local v2           #index:I
     .restart local v3       #index:I
     :catch_1

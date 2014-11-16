@@ -30,28 +30,28 @@
 
     const/4 v0, 0x0
 
-    .line 29
+    .line 32
     invoke-direct {p0, p1}, Lcom/android/camera/ui/TwoStateTextView;-><init>(Landroid/content/Context;)V
 
-    .line 15
+    .line 18
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
-    .line 16
+    .line 19
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mStartDegree:I
 
-    .line 17
+    .line 20
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
 
-    .line 19
+    .line 22
     iput-boolean v0, p0, Lcom/android/camera/ui/RotateTextView;->mClockwise:Z
 
-    .line 21
+    .line 24
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationStartTime:J
 
-    .line 22
+    .line 25
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationEndTime:J
 
-    .line 30
+    .line 33
     return-void
 .end method
 
@@ -65,28 +65,28 @@
 
     const/4 v0, 0x0
 
-    .line 25
+    .line 28
     invoke-direct {p0, p1, p2}, Lcom/android/camera/ui/TwoStateTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 15
+    .line 18
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
-    .line 16
+    .line 19
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mStartDegree:I
 
-    .line 17
+    .line 20
     iput v0, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
 
-    .line 19
+    .line 22
     iput-boolean v0, p0, Lcom/android/camera/ui/RotateTextView;->mClockwise:Z
 
-    .line 21
+    .line 24
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationStartTime:J
 
-    .line 22
+    .line 25
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationEndTime:J
 
-    .line 26
+    .line 29
     return-void
 .end method
 
@@ -97,12 +97,12 @@
     .parameter "canvas"
 
     .prologue
-    .line 80
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getText()Ljava/lang/CharSequence;
+    .line 83
+    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v7
 
-    .line 81
+    .line 84
     .local v7, text:Ljava/lang/CharSequence;
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -110,11 +110,11 @@
 
     if-eqz v12, :cond_0
 
-    .line 112
+    .line 115
     :goto_0
     return-void
 
-    .line 85
+    .line 88
     :cond_0
     iget v12, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
@@ -122,12 +122,12 @@
 
     if-eq v12, v13, :cond_1
 
-    .line 86
+    .line 89
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v8
 
-    .line 87
+    .line 90
     .local v8, time:J
     iget-wide v12, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationEndTime:J
 
@@ -135,14 +135,14 @@
 
     if-gez v12, :cond_4
 
-    .line 88
+    .line 91
     iget-wide v12, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationStartTime:J
 
     sub-long v12, v8, v12
 
     long-to-int v2, v12
 
-    .line 89
+    .line 92
     .local v2, deltaTime:I
     iget v12, p0, Lcom/android/camera/ui/RotateTextView;->mStartDegree:I
 
@@ -158,20 +158,20 @@
 
     add-int v1, v12, v13
 
-    .line 91
+    .line 94
     .local v1, degree:I
     if-ltz v1, :cond_3
 
     rem-int/lit16 v1, v1, 0x168
 
-    .line 92
+    .line 95
     :goto_2
     iput v1, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
-    .line 93
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->invalidate()V
+    .line 96
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    .line 99
+    .line 102
     .end local v1           #degree:I
     .end local v8           #time:J
     :cond_1
@@ -180,33 +180,33 @@
 
     move-result v6
 
-    .line 101
+    .line 104
     .local v6, saveCount:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v4
 
-    .line 102
+    .line 105
     .local v4, left:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v10
 
-    .line 103
+    .line 106
     .local v10, top:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v5
 
-    .line 104
+    .line 107
     .local v5, right:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
     move-result v0
 
-    .line 105
+    .line 108
     .local v0, bottom:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v12
 
@@ -214,9 +214,9 @@
 
     sub-int v11, v12, v5
 
-    .line 106
+    .line 109
     .local v11, width:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v12
 
@@ -224,7 +224,7 @@
 
     sub-int v3, v12, v0
 
-    .line 107
+    .line 110
     .local v3, height:I
     div-int/lit8 v12, v11, 0x2
 
@@ -240,7 +240,7 @@
 
     invoke-virtual {p1, v12, v13}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 108
+    .line 111
     iget v12, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
     neg-int v12, v12
@@ -249,8 +249,8 @@
 
     invoke-virtual {p1, v12}, Landroid/graphics/Canvas;->rotate(F)V
 
-    .line 109
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getWidth()I
+    .line 112
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v12
 
@@ -260,7 +260,7 @@
 
     int-to-float v12, v12
 
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v13
 
@@ -272,15 +272,15 @@
 
     invoke-virtual {p1, v12, v13}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 110
-    invoke-super {p0, p1}, Lcom/android/camera/ui/TwoStateTextView;->onDraw(Landroid/graphics/Canvas;)V
+    .line 113
+    invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 111
+    .line 114
     invoke-virtual {p1, v6}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     goto :goto_0
 
-    .line 89
+    .line 92
     .end local v0           #bottom:I
     .end local v3           #height:I
     .end local v4           #left:I
@@ -295,7 +295,7 @@
 
     goto :goto_1
 
-    .line 91
+    .line 94
     .end local v2           #deltaTime:I
     .restart local v1       #degree:I
     :cond_3
@@ -305,7 +305,7 @@
 
     goto :goto_2
 
-    .line 95
+    .line 98
     .end local v1           #degree:I
     :cond_4
     iget v12, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
@@ -321,35 +321,35 @@
     .parameter "heightMeasureSpec"
 
     .prologue
-    .line 68
-    invoke-super {p0, p1, p2}, Lcom/android/camera/ui/TwoStateTextView;->onMeasure(II)V
+    .line 71
+    invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
-    .line 70
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getMeasuredWidth()I
+    .line 73
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v2
 
-    .line 71
+    .line 74
     .local v2, w:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->getMeasuredHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v0
 
-    .line 72
+    .line 75
     .local v0, h:I
     if-eq v2, v0, :cond_0
 
-    .line 73
+    .line 76
     if-le v2, v0, :cond_1
 
     move v1, v2
 
-    .line 74
+    .line 77
     .local v1, size:I
     :goto_0
-    invoke-virtual {p0, v1, v1}, Lcom/android/camera/ui/RotateTextView;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v1, v1}, Landroid/view/View;->setMeasuredDimension(II)V
 
-    .line 76
+    .line 79
     .end local v1           #size:I
     :cond_0
     return-void
@@ -357,7 +357,7 @@
     :cond_1
     move v1, v0
 
-    .line 73
+    .line 76
     goto :goto_0
 .end method
 
@@ -367,22 +367,22 @@
     .parameter "animation"
 
     .prologue
-    .line 38
+    .line 41
     if-ltz p1, :cond_0
 
     rem-int/lit16 p1, p1, 0x168
 
-    .line 39
+    .line 42
     :goto_0
     iget v1, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
 
     if-ne p1, v1, :cond_1
 
-    .line 59
+    .line 62
     :goto_1
     return-void
 
-    .line 38
+    .line 41
     :cond_0
     rem-int/lit16 v1, p1, 0x168
 
@@ -390,37 +390,37 @@
 
     goto :goto_0
 
-    .line 40
+    .line 43
     :cond_1
     iput p1, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
 
-    .line 41
+    .line 44
     if-eqz p2, :cond_5
 
-    .line 42
+    .line 45
     iget v1, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
     iput v1, p0, Lcom/android/camera/ui/RotateTextView;->mStartDegree:I
 
-    .line 43
+    .line 46
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationStartTime:J
 
-    .line 45
+    .line 48
     iget v1, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I
 
     iget v2, p0, Lcom/android/camera/ui/RotateTextView;->mCurrentDegree:I
 
     sub-int v0, v1, v2
 
-    .line 46
+    .line 49
     .local v0, diff:I
     if-ltz v0, :cond_3
 
-    .line 50
+    .line 53
     :goto_2
     const/16 v1, 0xb4
 
@@ -428,7 +428,7 @@
 
     add-int/lit16 v0, v0, -0x168
 
-    .line 52
+    .line 55
     :cond_2
     if-ltz v0, :cond_4
 
@@ -437,7 +437,7 @@
     :goto_3
     iput-boolean v1, p0, Lcom/android/camera/ui/RotateTextView;->mClockwise:Z
 
-    .line 53
+    .line 56
     iget-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationStartTime:J
 
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
@@ -454,27 +454,27 @@
 
     iput-wide v1, p0, Lcom/android/camera/ui/RotateTextView;->mAnimationEndTime:J
 
-    .line 58
+    .line 61
     .end local v0           #diff:I
     :goto_4
-    invoke-virtual {p0}, Lcom/android/camera/ui/RotateTextView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_1
 
-    .line 46
+    .line 49
     .restart local v0       #diff:I
     :cond_3
     add-int/lit16 v0, v0, 0x168
 
     goto :goto_2
 
-    .line 52
+    .line 55
     :cond_4
     const/4 v1, 0x0
 
     goto :goto_3
 
-    .line 56
+    .line 59
     .end local v0           #diff:I
     :cond_5
     iget v1, p0, Lcom/android/camera/ui/RotateTextView;->mTargetDegree:I

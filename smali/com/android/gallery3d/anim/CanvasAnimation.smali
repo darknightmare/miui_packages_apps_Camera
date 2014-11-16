@@ -18,3 +18,6 @@
 # virtual methods
 .method public abstract apply(Lcom/android/gallery3d/ui/GLCanvas;)V
 .end method
+
+.method public abstract getCanvasSaveFlags()I
+.end method

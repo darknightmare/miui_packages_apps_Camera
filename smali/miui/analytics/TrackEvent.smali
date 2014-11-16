@@ -96,7 +96,6 @@
 
 .method private buildParam(Ljava/util/Map;)Ljava/lang/String;
     .locals 6
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

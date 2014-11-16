@@ -129,7 +129,7 @@
     if-eqz p1, :cond_0
 
     .line 73
-    invoke-virtual {p0, v2}, Lcom/android/gallery3d/ui/UploadedTexture;->setBorder(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/gallery3d/ui/BasicTexture;->setBorder(Z)V
 
     .line 74
     iput v2, p0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
@@ -225,7 +225,7 @@
     if-ne v2, v3, :cond_0
 
     .line 141
-    invoke-virtual {p0, v1, v0}, Lcom/android/gallery3d/ui/UploadedTexture;->setSize(II)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/gallery3d/ui/BasicTexture;->setSize(II)V
 
     .line 144
     .end local v0           #h:I
@@ -337,485 +337,491 @@
 .end method
 
 .method private uploadToCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
-    .locals 26
+    .locals 27
     .parameter "canvas"
 
     .prologue
     .line 217
+    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getGLInstance()Ljavax/microedition/khronos/opengles/GL11;
+
+    move-result-object v1
+
+    .line 219
+    .local v1, gl:Ljavax/microedition/khronos/opengles/GL11;
     invoke-direct/range {p0 .. p0}, Lcom/android/gallery3d/ui/UploadedTexture;->getBitmap()Landroid/graphics/Bitmap;
 
-    move-result-object v13
-
-    .line 218
-    .local v13, bitmap:Landroid/graphics/Bitmap;
-    if-eqz v13, :cond_5
+    move-result-object v14
 
     .line 220
+    .local v14, bitmap:Landroid/graphics/Bitmap;
+    if-eqz v14, :cond_5
+
+    .line 222
     :try_start_0
-    invoke-virtual {v13}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual {v14}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v23
+
+    .line 223
+    .local v23, bWidth:I
+    invoke-virtual {v14}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v22
 
-    .line 221
-    .local v22, bWidth:I
-    invoke-virtual {v13}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v21
-
-    .line 222
-    .local v21, bHeight:I
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    mul-int/lit8 v1, v1, 0x2
-
-    add-int v25, v22, v1
-
-    .line 223
-    .local v25, width:I
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    mul-int/lit8 v1, v1, 0x2
-
-    add-int v24, v21, v1
-
     .line 224
-    .local v24, height:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/UploadedTexture;->getTextureWidth()I
+    .local v22, bHeight:I
+    move-object/from16 v0, p0
 
-    move-result v4
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    mul-int/lit8 v2, v2, 0x2
+
+    add-int v26, v23, v2
 
     .line 225
-    .local v4, texWidth:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/UploadedTexture;->getTextureHeight()I
+    .local v26, width:I
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    mul-int/lit8 v2, v2, 0x2
+
+    add-int v25, v22, v2
+
+    .line 226
+    .local v25, height:I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/BasicTexture;->getTextureWidth()I
 
     move-result v5
 
     .line 227
-    .local v5, texHeight:I
-    move/from16 v0, v22
+    .local v5, texWidth:I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/BasicTexture;->getTextureHeight()I
 
-    if-gt v0, v4, :cond_1
+    move-result v6
 
-    move/from16 v0, v21
+    .line 229
+    .local v6, texHeight:I
+    move/from16 v0, v23
 
     if-gt v0, v5, :cond_1
 
-    const/4 v1, 0x1
+    move/from16 v0, v22
 
-    :goto_0
-    invoke-static {v1}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
-
-    .line 233
-    sget-object v1, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
-
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    int-to-float v6, v6
-
-    aput v6, v1, v2
-
-    .line 234
-    sget-object v1, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+    if-gt v0, v6, :cond_1
 
     const/4 v2, 0x1
 
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    add-int v6, v6, v21
-
-    int-to-float v6, v6
-
-    aput v6, v1, v2
+    :goto_0
+    invoke-static {v2}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
 
     .line 235
-    sget-object v1, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
 
-    const/4 v2, 0x2
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    int-to-float v7, v7
+
+    aput v7, v2, v3
+
+    .line 236
+    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    add-int v7, v7, v22
+
+    int-to-float v7, v7
+
+    aput v7, v2, v3
+
+    .line 237
+    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+
+    const/4 v3, 0x2
+
+    move/from16 v0, v23
+
+    int-to-float v7, v0
+
+    aput v7, v2, v3
+
+    .line 238
+    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+
+    const/4 v3, 0x3
 
     move/from16 v0, v22
 
-    int-to-float v6, v0
+    neg-int v7, v0
 
-    aput v6, v1, v2
+    int-to-float v7, v7
 
-    .line 236
-    sget-object v1, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
-
-    const/4 v2, 0x3
-
-    move/from16 v0, v21
-
-    neg-int v6, v0
-
-    int-to-float v6, v6
-
-    aput v6, v1, v2
-
-    .line 239
-    const/4 v1, 0x1
-
-    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
-
-    const/4 v6, 0x0
-
-    invoke-static {v1, v2, v6}, Lcom/android/gallery3d/ui/GLId;->glGenTextures(I[II)V
-
-    .line 240
-    const/16 v1, 0xde1
-
-    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
-
-    const/4 v6, 0x0
-
-    aget v2, v2, v6
-
-    invoke-static {v1, v2}, Landroid/opengl/GLES20;->glBindTexture(II)V
+    aput v7, v2, v3
 
     .line 241
-    const/16 v1, 0xde1
+    const/4 v2, 0x1
 
-    const v2, 0x8b9d
-
-    sget-object v6, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
+    sget-object v3, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
 
     const/4 v7, 0x0
 
-    invoke-static {v1, v2, v6, v7}, Landroid/opengl/GLES20;->glTexParameterfv(II[FI)V
+    invoke-static {v2, v3, v7}, Lcom/android/gallery3d/ui/GLId;->glGenTextures(I[II)V
+
+    .line 242
+    const/16 v2, 0xde1
+
+    sget-object v3, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
+
+    const/4 v7, 0x0
+
+    aget v3, v3, v7
+
+    invoke-interface {v1, v2, v3}, Ljavax/microedition/khronos/opengles/GL11;->glBindTexture(II)V
 
     .line 243
-    const/16 v1, 0xde1
+    const/16 v2, 0xde1
 
-    const/16 v2, 0x2802
+    const v3, 0x8b9d
 
-    const v6, 0x812f
+    sget-object v7, Lcom/android/gallery3d/ui/UploadedTexture;->sCropRect:[F
 
-    invoke-static {v1, v2, v6}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+    const/4 v8, 0x0
+
+    invoke-interface {v1, v2, v3, v7, v8}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterfv(II[FI)V
 
     .line 245
-    const/16 v1, 0xde1
+    const/16 v2, 0xde1
 
-    const/16 v2, 0x2803
+    const/16 v3, 0x2802
 
-    const v6, 0x812f
+    const v7, 0x812f
 
-    invoke-static {v1, v2, v6}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+    invoke-interface {v1, v2, v3, v7}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteri(III)V
 
     .line 247
-    const/16 v1, 0xde1
+    const/16 v2, 0xde1
 
-    const/16 v2, 0x2801
+    const/16 v3, 0x2803
 
-    const v6, 0x46180400
+    const v7, 0x812f
 
-    invoke-static {v1, v2, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+    invoke-interface {v1, v2, v3, v7}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteri(III)V
 
     .line 249
-    const/16 v1, 0xde1
+    const/16 v2, 0xde1
 
-    const/16 v2, 0x2800
+    const/16 v3, 0x2801
 
-    const v6, 0x46180400
+    const v7, 0x46180400
 
-    invoke-static {v1, v2, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+    invoke-interface {v1, v2, v3, v7}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterf(IIF)V
 
-    .line 252
-    move/from16 v0, v22
+    .line 251
+    const/16 v2, 0xde1
 
-    if-ne v0, v4, :cond_2
+    const/16 v3, 0x2800
 
-    move/from16 v0, v21
+    const v7, 0x46180400
+
+    invoke-interface {v1, v2, v3, v7}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterf(IIF)V
+
+    .line 254
+    move/from16 v0, v23
 
     if-ne v0, v5, :cond_2
 
-    .line 253
-    const/16 v1, 0xde1
+    move/from16 v0, v22
 
-    const/4 v2, 0x0
+    if-ne v0, v6, :cond_2
 
-    const/4 v6, 0x0
+    .line 255
+    const/16 v2, 0xde1
 
-    invoke-static {v1, v2, v13, v6}, Landroid/opengl/GLUtils;->texImage2D(IILandroid/graphics/Bitmap;I)V
+    const/4 v3, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-static {v2, v3, v14, v7}, Landroid/opengl/GLUtils;->texImage2D(IILandroid/graphics/Bitmap;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 291
+    .line 293
     :cond_0
     :goto_1
     invoke-direct/range {p0 .. p0}, Lcom/android/gallery3d/ui/UploadedTexture;->freeBitmap()V
 
-    .line 294
-    invoke-virtual/range {p0 .. p1}, Lcom/android/gallery3d/ui/UploadedTexture;->setAssociatedCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
-
-    .line 295
-    sget-object v1, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
-
-    const/4 v2, 0x0
-
-    aget v1, v1, v2
-
-    move-object/from16 v0, p0
-
-    iput v1, v0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
-
     .line 296
-    const/4 v1, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v1, v0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
+    invoke-virtual/range {p0 .. p1}, Lcom/android/gallery3d/ui/BasicTexture;->setAssociatedCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
 
     .line 297
-    const/4 v1, 0x1
+    sget-object v2, Lcom/android/gallery3d/ui/UploadedTexture;->sTextureId:[I
+
+    const/4 v3, 0x0
+
+    aget v2, v2, v3
 
     move-object/from16 v0, p0
 
-    iput-boolean v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mContentValid:Z
+    iput v2, v0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
 
-    .line 302
+    .line 298
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
+
+    .line 299
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mContentValid:Z
+
+    .line 304
     return-void
 
-    .line 227
+    .line 229
     :cond_1
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
-    .line 255
+    .line 257
     :cond_2
     :try_start_1
-    invoke-static {v13}, Landroid/opengl/GLUtils;->getInternalFormat(Landroid/graphics/Bitmap;)I
+    invoke-static {v14}, Landroid/opengl/GLUtils;->getInternalFormat(Landroid/graphics/Bitmap;)I
 
-    move-result v3
+    move-result v4
 
-    .line 256
-    .local v3, format:I
-    invoke-static {v13}, Landroid/opengl/GLUtils;->getType(Landroid/graphics/Bitmap;)I
+    .line 258
+    .local v4, format:I
+    invoke-static {v14}, Landroid/opengl/GLUtils;->getType(Landroid/graphics/Bitmap;)I
 
-    move-result v8
-
-    .line 257
-    .local v8, type:I
-    invoke-virtual {v13}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
-
-    move-result-object v23
+    move-result v9
 
     .line 259
-    .local v23, config:Landroid/graphics/Bitmap$Config;
-    const/16 v1, 0xde1
+    .local v9, type:I
+    invoke-virtual {v14}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
-    const/4 v2, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v9, 0x0
-
-    move v7, v3
-
-    invoke-static/range {v1 .. v9}, Landroid/opengl/GLES20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
+    move-result-object v24
 
     .line 261
-    const/16 v9, 0xde1
+    .local v24, config:Landroid/graphics/Bitmap$Config;
+    const/16 v2, 0xde1
+
+    const/4 v3, 0x0
+
+    const/4 v7, 0x0
 
     const/4 v10, 0x0
 
-    move-object/from16 v0, p0
+    move v8, v4
 
-    iget v11, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+    invoke-interface/range {v1 .. v10}, Ljavax/microedition/khronos/opengles/GL11;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
+
+    .line 263
+    const/16 v10, 0xde1
+
+    const/4 v11, 0x0
 
     move-object/from16 v0, p0
 
     iget v12, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
 
-    move v14, v3
-
-    move v15, v8
-
-    invoke-static/range {v9 .. v15}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
-
-    .line 264
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+    iget v13, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
 
-    if-lez v1, :cond_3
+    move v15, v4
+
+    move/from16 v16, v9
+
+    invoke-static/range {v10 .. v16}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
 
     .line 266
-    const/4 v1, 0x1
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v23
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
 
-    invoke-static {v1, v0, v5}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
+    if-lez v2, :cond_3
 
-    move-result-object v18
+    .line 268
+    const/4 v2, 0x1
 
-    .line 267
-    .local v18, line:Landroid/graphics/Bitmap;
-    const/16 v14, 0xde1
+    move-object/from16 v0, v24
 
-    const/4 v15, 0x0
+    invoke-static {v2, v0, v6}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
 
-    const/16 v16, 0x0
+    move-result-object v19
 
-    const/16 v17, 0x0
-
-    move/from16 v19, v3
-
-    move/from16 v20, v8
-
-    invoke-static/range {v14 .. v20}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
-
-    .line 271
-    const/4 v1, 0x0
-
-    move-object/from16 v0, v23
-
-    invoke-static {v1, v0, v4}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
-
-    move-result-object v18
-
-    .line 272
-    const/16 v14, 0xde1
-
-    const/4 v15, 0x0
+    .line 269
+    .local v19, line:Landroid/graphics/Bitmap;
+    const/16 v15, 0xde1
 
     const/16 v16, 0x0
 
     const/16 v17, 0x0
 
-    move/from16 v19, v3
+    const/16 v18, 0x0
 
-    move/from16 v20, v8
+    move/from16 v20, v4
 
-    invoke-static/range {v14 .. v20}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
+    move/from16 v21, v9
 
-    .line 277
-    .end local v18           #line:Landroid/graphics/Bitmap;
+    invoke-static/range {v15 .. v21}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
+
+    .line 273
+    const/4 v2, 0x0
+
+    move-object/from16 v0, v24
+
+    invoke-static {v2, v0, v5}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
+
+    move-result-object v19
+
+    .line 274
+    const/16 v15, 0xde1
+
+    const/16 v16, 0x0
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
+
+    move/from16 v20, v4
+
+    move/from16 v21, v9
+
+    invoke-static/range {v15 .. v21}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
+
+    .line 279
+    .end local v19           #line:Landroid/graphics/Bitmap;
     :cond_3
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
 
-    add-int v1, v1, v22
+    add-int v2, v2, v23
 
-    if-ge v1, v4, :cond_4
+    if-ge v2, v5, :cond_4
 
-    .line 278
-    const/4 v1, 0x1
+    .line 280
+    const/4 v2, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    invoke-static {v1, v0, v5}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
+    invoke-static {v2, v0, v6}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
 
-    move-result-object v18
+    move-result-object v19
 
-    .line 279
-    .restart local v18       #line:Landroid/graphics/Bitmap;
-    const/16 v14, 0xde1
-
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    add-int v16, v1, v22
-
-    const/16 v17, 0x0
-
-    move/from16 v19, v3
-
-    move/from16 v20, v8
-
-    invoke-static/range {v14 .. v20}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
-
-    .line 284
-    .end local v18           #line:Landroid/graphics/Bitmap;
-    :cond_4
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
-
-    add-int v1, v1, v21
-
-    if-ge v1, v5, :cond_0
-
-    .line 285
-    const/4 v1, 0x0
-
-    move-object/from16 v0, v23
-
-    invoke-static {v1, v0, v4}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
-
-    move-result-object v18
-
-    .line 286
-    .restart local v18       #line:Landroid/graphics/Bitmap;
-    const/16 v14, 0xde1
-
-    const/4 v15, 0x0
+    .line 281
+    .restart local v19       #line:Landroid/graphics/Bitmap;
+    const/16 v15, 0xde1
 
     const/16 v16, 0x0
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
 
-    add-int v17, v1, v21
+    add-int v17, v2, v23
 
-    move/from16 v19, v3
+    const/16 v18, 0x0
 
-    move/from16 v20, v8
+    move/from16 v20, v4
 
-    invoke-static/range {v14 .. v20}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
+    move/from16 v21, v9
+
+    invoke-static/range {v15 .. v21}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
+
+    .line 286
+    .end local v19           #line:Landroid/graphics/Bitmap;
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    add-int v2, v2, v22
+
+    if-ge v2, v6, :cond_0
+
+    .line 287
+    const/4 v2, 0x0
+
+    move-object/from16 v0, v24
+
+    invoke-static {v2, v0, v5}, Lcom/android/gallery3d/ui/UploadedTexture;->getBorderLine(ZLandroid/graphics/Bitmap$Config;I)Landroid/graphics/Bitmap;
+
+    move-result-object v19
+
+    .line 288
+    .restart local v19       #line:Landroid/graphics/Bitmap;
+    const/16 v15, 0xde1
+
+    const/16 v16, 0x0
+
+    const/16 v17, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/gallery3d/ui/UploadedTexture;->mBorder:I
+
+    add-int v18, v2, v22
+
+    move/from16 v20, v4
+
+    move/from16 v21, v9
+
+    invoke-static/range {v15 .. v21}, Landroid/opengl/GLUtils;->texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto/16 :goto_1
 
-    .line 291
-    .end local v3           #format:I
-    .end local v4           #texWidth:I
-    .end local v5           #texHeight:I
-    .end local v8           #type:I
-    .end local v18           #line:Landroid/graphics/Bitmap;
-    .end local v21           #bHeight:I
-    .end local v22           #bWidth:I
-    .end local v23           #config:Landroid/graphics/Bitmap$Config;
-    .end local v24           #height:I
-    .end local v25           #width:I
+    .line 293
+    .end local v4           #format:I
+    .end local v5           #texWidth:I
+    .end local v6           #texHeight:I
+    .end local v9           #type:I
+    .end local v19           #line:Landroid/graphics/Bitmap;
+    .end local v22           #bHeight:I
+    .end local v23           #bWidth:I
+    .end local v24           #config:Landroid/graphics/Bitmap$Config;
+    .end local v25           #height:I
+    .end local v26           #width:I
     :catchall_0
-    move-exception v1
+    move-exception v2
 
     invoke-direct/range {p0 .. p0}, Lcom/android/gallery3d/ui/UploadedTexture;->freeBitmap()V
 
-    throw v1
+    throw v2
 
-    .line 299
+    .line 301
     :cond_5
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
     move-object/from16 v0, p0
 
-    iput v1, v0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
+    iput v2, v0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
 
-    .line 300
-    new-instance v1, Ljava/lang/RuntimeException;
+    .line 302
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v2, "Texture load fail, no bitmap"
+    const-string v3, "Texture load fail, no bitmap"
 
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 .end method
 
 
@@ -840,11 +846,11 @@
     return v0
 .end method
 
-.method public getTarget()I
+.method protected getTarget()I
     .locals 1
 
     .prologue
-    .line 312
+    .line 314
     const/16 v0, 0xde1
 
     return v0
@@ -904,7 +910,7 @@
 
     .prologue
     .line 180
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->isLoaded()Z
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/BasicTexture;->isLoaded()Z
 
     move-result v0
 
@@ -929,21 +935,21 @@
     .locals 1
 
     .prologue
-    .line 320
+    .line 322
     iget-boolean v0, p0, Lcom/android/gallery3d/ui/UploadedTexture;->mOpaque:Z
 
     return v0
 .end method
 
-.method public onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
+.method protected onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
     .locals 1
     .parameter "canvas"
 
     .prologue
-    .line 306
+    .line 308
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/ui/UploadedTexture;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 307
+    .line 309
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->isContentValid()Z
 
     move-result v0
@@ -961,17 +967,17 @@
     .locals 1
 
     .prologue
-    .line 325
+    .line 327
     invoke-super {p0}, Lcom/android/gallery3d/ui/BasicTexture;->recycle()V
 
-    .line 326
+    .line 328
     iget-object v0, p0, Lcom/android/gallery3d/ui/UploadedTexture;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->freeBitmap()V
 
-    .line 327
+    .line 329
     :cond_0
     return-void
 .end method
@@ -981,10 +987,10 @@
     .parameter "isOpaque"
 
     .prologue
-    .line 316
+    .line 318
     iput-boolean p1, p0, Lcom/android/gallery3d/ui/UploadedTexture;->mOpaque:Z
 
-    .line 317
+    .line 319
     return-void
 .end method
 
@@ -996,7 +1002,7 @@
     const/16 v0, 0xde1
 
     .line 188
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->isLoaded()Z
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/BasicTexture;->isLoaded()Z
 
     move-result v1
 
@@ -1053,9 +1059,13 @@
 
     .line 197
     .local v6, type:I
-    iget v1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getGLInstance()Ljavax/microedition/khronos/opengles/GL11;
 
-    invoke-static {v0, v1}, Landroid/opengl/GLES20;->glBindTexture(II)V
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
+
+    invoke-interface {v1, v0, v2}, Ljavax/microedition/khronos/opengles/GL11;->glBindTexture(II)V
 
     .line 198
     const/4 v1, 0x0

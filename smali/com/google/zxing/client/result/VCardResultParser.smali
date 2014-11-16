@@ -277,7 +277,6 @@
 
 .method private static formatNames(Ljava/lang/Iterable;)V
     .locals 10
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1259,7 +1258,6 @@
 
 .method private static toPrimaryValue(Ljava/util/List;)Ljava/lang/String;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1302,7 +1300,6 @@
 
 .method private static toPrimaryValues(Ljava/util/Collection;)[Ljava/lang/String;
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1412,7 +1409,6 @@
 
 .method private static toTypes(Ljava/util/Collection;)[Ljava/lang/String;
     .locals 9
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

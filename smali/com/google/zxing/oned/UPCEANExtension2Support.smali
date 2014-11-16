@@ -15,7 +15,7 @@
 
     .prologue
     .line 32
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
     const/4 v0, 0x4
@@ -36,7 +36,6 @@
 
 .method private static parseExtensionString(Ljava/lang/String;)Ljava/util/Map;
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

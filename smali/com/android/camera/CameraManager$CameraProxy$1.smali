@@ -32,14 +32,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/camera/CameraManager$CameraProxy;Landroid/hardware/Camera$ShutterCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
-    .line 423
+    .line 337
     iput-object p1, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->this$1:Lcom/android/camera/CameraManager$CameraProxy;
 
     iput-object p2, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->val$shutter:Landroid/hardware/Camera$ShutterCallback;
@@ -50,7 +45,7 @@
 
     iput-object p5, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->val$jpeg:Landroid/hardware/Camera$PictureCallback;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -61,13 +56,13 @@
     .locals 5
 
     .prologue
-    .line 426
+    .line 340
     iget-object v0, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->this$1:Lcom/android/camera/CameraManager$CameraProxy;
 
     iget-object v0, v0, Lcom/android/camera/CameraManager$CameraProxy;->this$0:Lcom/android/camera/CameraManager;
 
-    #getter for: Lcom/android/camera/CameraManager;->mCamera:Lcom/android/camera/hardware/CameraHardware;
-    invoke-static {v0}, Lcom/android/camera/CameraManager;->access$000(Lcom/android/camera/CameraManager;)Lcom/android/camera/hardware/CameraHardware;
+    #getter for: Lcom/android/camera/CameraManager;->mCamera:Landroid/hardware/Camera;
+    invoke-static {v0}, Lcom/android/camera/CameraManager;->access$000(Lcom/android/camera/CameraManager;)Landroid/hardware/Camera;
 
     move-result-object v0
 
@@ -79,20 +74,20 @@
 
     iget-object v4, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->val$jpeg:Landroid/hardware/Camera$PictureCallback;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/camera/hardware/CameraHardware;->takePicture(Landroid/hardware/Camera$ShutterCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/hardware/Camera;->takePicture(Landroid/hardware/Camera$ShutterCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;)V
 
-    .line 427
+    .line 341
     iget-object v0, p0, Lcom/android/camera/CameraManager$CameraProxy$1;->this$1:Lcom/android/camera/CameraManager$CameraProxy;
 
     iget-object v0, v0, Lcom/android/camera/CameraManager$CameraProxy;->this$0:Lcom/android/camera/CameraManager;
 
     #getter for: Lcom/android/camera/CameraManager;->mSig:Landroid/os/ConditionVariable;
-    invoke-static {v0}, Lcom/android/camera/CameraManager;->access$900(Lcom/android/camera/CameraManager;)Landroid/os/ConditionVariable;
+    invoke-static {v0}, Lcom/android/camera/CameraManager;->access$400(Lcom/android/camera/CameraManager;)Landroid/os/ConditionVariable;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/ConditionVariable;->open()V
 
-    .line 428
+    .line 342
     return-void
 .end method

@@ -1,12 +1,12 @@
 version: 1.5.2
-apkFileName: Camera.apk
+apkFileName: MIUICamera44-3.apk
 isFrameworkApk: false
 usesFramework:
   ids:
   - 1
 sdkInfo:
-  minSdkVersion: '18'
-  targetSdkVersion: '18'
+  minSdkVersion: '16'
+  targetSdkVersion: '16'
 packageInfo:
   cur_package: com.android.camera
   orig_package: com.android.camera

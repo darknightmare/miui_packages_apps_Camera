@@ -33,7 +33,7 @@
     const/4 v0, -0x1
 
     .line 50
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 51
     iput v0, p0, Lcom/android/gallery3d/data/BitmapPool;->mWidth:I
@@ -68,7 +68,7 @@
 
     .prologue
     .line 41
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput p1, p0, Lcom/android/gallery3d/data/BitmapPool;->mWidth:I
@@ -269,7 +269,7 @@
 
     const-string v4, "decode fail with a given bitmap, try decode to a new bitmap"
 
-    invoke-static {v2, v4}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Lcom/android/gallery3d/ui/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 129
     iget-object v2, p5, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;

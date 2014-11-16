@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -331,7 +330,6 @@
     .locals 5
     .parameter "rowNumber"
     .parameter "row"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",

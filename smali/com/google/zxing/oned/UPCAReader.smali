@@ -87,7 +87,6 @@
 .method public decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
     .locals 1
     .parameter "image"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,7 +111,7 @@
     .local p2, hints:Ljava/util/Map;,"Ljava/util/Map<Lcom/google/zxing/DecodeHintType;*>;"
     iget-object v0, p0, Lcom/google/zxing/oned/UPCAReader;->ean13Reader:Lcom/google/zxing/oned/UPCEANReader;
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/zxing/oned/UPCEANReader;->decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
+    invoke-virtual {v0, p1, p2}, Lcom/google/zxing/oned/OneDReader;->decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
 
     move-result-object v0
 
@@ -149,7 +148,6 @@
     .locals 1
     .parameter "rowNumber"
     .parameter "row"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -191,7 +189,6 @@
     .parameter "rowNumber"
     .parameter "row"
     .parameter "startGuardRange"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",

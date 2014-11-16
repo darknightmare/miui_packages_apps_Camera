@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/camera/ui/SettingView;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 200
+    .line 172
     iput-object p1, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,23 +40,23 @@
     .locals 2
 
     .prologue
-    .line 203
+    .line 175
     iget-object v0, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/camera/ui/SettingView;->mIsAnimating:Z
 
-    .line 204
+    .line 176
     iget-object v0, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
-    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitView:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitArea:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
-    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitView:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitArea:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
@@ -65,16 +64,16 @@
 
     if-nez v0, :cond_0
 
-    .line 205
+    .line 177
     iget-object v0, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
-    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitView:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/camera/ui/SettingView;->mExitArea:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    .line 207
+    .line 179
     :cond_0
     iget-object v0, p0, Lcom/android/camera/ui/SettingView$1;->this$0:Lcom/android/camera/ui/SettingView;
 
@@ -82,6 +81,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/camera/ui/SettingView;->updateExitLayout(Z)V
 
-    .line 208
+    .line 180
     return-void
 .end method

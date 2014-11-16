@@ -890,7 +890,6 @@
     .locals 1
     .parameter "rowNumber"
     .parameter "row"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -930,7 +929,6 @@
     .parameter "rowNumber"
     .parameter "row"
     .parameter "startGuardRange"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",

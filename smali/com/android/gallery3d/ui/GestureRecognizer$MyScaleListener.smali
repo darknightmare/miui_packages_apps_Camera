@@ -21,10 +21,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 216
+    .line 106
     iput-object p1, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyScaleListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     invoke-direct {p0}, Landroid/view/ScaleGestureDetector$SimpleOnScaleGestureListener;-><init>()V
@@ -38,7 +37,7 @@
     .parameter "x1"
 
     .prologue
-    .line 216
+    .line 106
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/GestureRecognizer$MyScaleListener;-><init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
 
     return-void
@@ -51,7 +50,7 @@
     .parameter "detector"
 
     .prologue
-    .line 226
+    .line 116
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyScaleListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -83,7 +82,7 @@
     .parameter "detector"
 
     .prologue
-    .line 220
+    .line 110
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyScaleListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -111,7 +110,7 @@
     .parameter "detector"
 
     .prologue
-    .line 232
+    .line 122
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyScaleListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -121,6 +120,6 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onScaleEnd()V
 
-    .line 233
+    .line 123
     return-void
 .end method

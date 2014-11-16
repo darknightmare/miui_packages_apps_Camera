@@ -67,7 +67,7 @@
 
     .prologue
     .line 47
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
     iput-object p1, p0, Lcom/google/zxing/Result;->text:Ljava/lang/String;
@@ -215,7 +215,6 @@
 
 .method public putAllMetadata(Ljava/util/Map;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -256,8 +255,6 @@
 
 .method public putMetadata(Lcom/google/zxing/ResultMetadataType;Ljava/lang/Object;)V
     .locals 2
-    .parameter
-    .parameter
 
     .prologue
     .line 96

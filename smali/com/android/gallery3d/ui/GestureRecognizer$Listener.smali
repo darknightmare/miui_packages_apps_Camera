@@ -21,7 +21,7 @@
 .method public abstract onDown(FF)V
 .end method
 
-.method public abstract onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+.method public abstract onFling(FF)Z
 .end method
 
 .method public abstract onLongPress(Landroid/view/MotionEvent;)V
@@ -40,9 +40,6 @@
 .end method
 
 .method public abstract onSingleTapUp(FF)Z
-.end method
-
-.method public abstract onSlide(Landroid/graphics/Point;Landroid/graphics/Point;Z)Z
 .end method
 
 .method public abstract onUp()V

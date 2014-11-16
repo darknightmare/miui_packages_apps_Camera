@@ -10,8 +10,6 @@
 
 .field private static final KEY_IMEI:Ljava/lang/String; = "imei"
 
-.field private static final MIUI_VERSION:Ljava/lang/String; = "_miui_version_"
-
 .field private static final TAG:Ljava/lang/String; = "XIAOMIANALYTICS"
 
 .field private static final TIMED_EVENT:Ljava/lang/String; = "_timed_event_"
@@ -47,7 +45,7 @@
     .locals 1
 
     .prologue
-    .line 22
+    .line 20
     new-instance v0, Lmiui/analytics/XiaomiAnalytics;
 
     invoke-direct {v0}, Lmiui/analytics/XiaomiAnalytics;-><init>()V
@@ -65,25 +63,25 @@
 
     const/4 v0, 0x0
 
-    .line 39
+    .line 36
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
+    .line 30
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
-    .line 34
+    .line 31
     iput-boolean v1, p0, Lmiui/analytics/XiaomiAnalytics;->mUseHttps:Z
 
-    .line 35
+    .line 32
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
 
-    .line 36
+    .line 33
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
-    .line 37
+    .line 34
     iput v1, p0, Lmiui/analytics/XiaomiAnalytics;->mCount:I
 
-    .line 40
+    .line 37
     return-void
 .end method
 
@@ -91,10 +89,10 @@
     .locals 6
 
     .prologue
-    .line 297
+    .line 274
     const-string v3, ""
 
-    .line 299
+    .line 276
     .local v3, version:Ljava/lang/String;
     :try_start_0
     iget-object v4, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
@@ -103,7 +101,7 @@
 
     move-result-object v2
 
-    .line 300
+    .line 277
     .local v2, manager:Landroid/content/pm/PackageManager;
     iget-object v4, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
 
@@ -117,23 +115,23 @@
 
     move-result-object v1
 
-    .line 301
+    .line 278
     .local v1, info:Landroid/content/pm/PackageInfo;
     iget-object v3, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 306
+    .line 283
     .end local v1           #info:Landroid/content/pm/PackageInfo;
     .end local v2           #manager:Landroid/content/pm/PackageManager;
     :goto_0
     return-object v3
 
-    .line 302
+    .line 279
     :catch_0
     move-exception v0
 
-    .line 303
+    .line 280
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -144,7 +142,7 @@
     .locals 1
 
     .prologue
-    .line 43
+    .line 40
     sget-object v0, Lmiui/analytics/XiaomiAnalytics;->sInstance:Lmiui/analytics/XiaomiAnalytics;
 
     return-object v0
@@ -154,22 +152,22 @@
     .locals 2
 
     .prologue
-    .line 289
+    .line 266
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     if-nez v0, :cond_0
 
-    .line 290
+    .line 267
     const-string v0, "XIAOMIANALYTICS"
 
     const-string v1, "method: startSession should be called before tracking events"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 291
+    .line 268
     const/4 v0, 0x0
 
-    .line 293
+    .line 270
     :goto_0
     return v0
 
@@ -185,7 +183,7 @@
     .locals 5
 
     .prologue
-    .line 66
+    .line 63
     monitor-enter p0
 
     :try_start_0
@@ -201,7 +199,7 @@
 
     if-nez v0, :cond_0
 
-    .line 67
+    .line 64
     invoke-direct {p0}, Lmiui/analytics/XiaomiAnalytics;->isTrackedReady()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -210,14 +208,14 @@
 
     if-nez v0, :cond_1
 
-    .line 77
+    .line 74
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 70
+    .line 67
     :cond_1
     :try_start_1
     const-string v0, "XIAOMIANALYTICS"
@@ -244,27 +242,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 71
+    .line 68
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
 
-    .line 72
+    .line 69
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     invoke-virtual {v0}, Lmiui/analytics/PersistenceHelper;->close()V
 
-    .line 73
+    .line 70
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
-    .line 74
+    .line 71
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 75
+    .line 72
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
@@ -273,7 +271,7 @@
 
     goto :goto_0
 
-    .line 66
+    .line 63
     :catchall_0
     move-exception v0
 
@@ -287,28 +285,28 @@
     .parameter "eventId"
 
     .prologue
-    .line 246
+    .line 223
     iget-object v6, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
     if-nez v6, :cond_1
 
-    .line 247
+    .line 224
     const-string v6, "XIAOMIANALYTICS"
 
     const-string v7, "there is no timed event"
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 266
+    .line 243
     :cond_0
     :goto_0
     return-void
 
-    .line 250
+    .line 227
     :cond_1
     const/4 v3, 0x0
 
-    .line 251
+    .line 228
     .local v3, flag:Z
     iget-object v6, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
@@ -324,14 +322,14 @@
 
     if-eqz v6, :cond_3
 
-    .line 252
+    .line 229
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lmiui/analytics/TrackEvent;
 
-    .line 253
+    .line 230
     .local v2, event:Lmiui/analytics/TrackEvent;
     invoke-virtual {v2}, Lmiui/analytics/TrackEvent;->getEventId()Ljava/lang/String;
 
@@ -343,27 +341,27 @@
 
     if-eqz v6, :cond_2
 
-    .line 254
+    .line 231
     const/4 v3, 0x1
 
-    .line 255
+    .line 232
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 256
+    .line 233
     .local v0, currentTime:J
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
-    .line 257
+    .line 234
     .local v5, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v6, "_timed_event_id_"
 
     invoke-interface {v5, v6, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 258
+    .line 235
     const-string v6, "_timed_event_"
 
     invoke-virtual {v2}, Lmiui/analytics/TrackEvent;->getTrackTime()J
@@ -374,17 +372,17 @@
 
     invoke-virtual {p0, v6, v5, v7, v8}, Lmiui/analytics/XiaomiAnalytics;->trackEvent(Ljava/lang/String;Ljava/util/Map;J)V
 
-    .line 259
+    .line 236
     invoke-interface {v4}, Ljava/util/Iterator;->remove()V
 
-    .line 263
+    .line 240
     .end local v0           #currentTime:J
     .end local v2           #event:Lmiui/analytics/TrackEvent;
     .end local v5           #parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_3
     if-nez v3, :cond_0
 
-    .line 264
+    .line 241
     const-string v6, "XIAOMIANALYTICS"
 
     const-string v7, "the ended event (%s) is not timed"
@@ -410,18 +408,18 @@
     .locals 2
 
     .prologue
-    .line 272
+    .line 249
     invoke-direct {p0}, Lmiui/analytics/XiaomiAnalytics;->isTrackedReady()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 276
+    .line 253
     :goto_0
     return-void
 
-    .line 275
+    .line 252
     :cond_0
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
@@ -439,15 +437,15 @@
     .parameter "useHttps"
 
     .prologue
-    .line 283
+    .line 260
     iget-boolean v0, p0, Lmiui/analytics/XiaomiAnalytics;->mUseHttps:Z
 
     if-eq p1, v0, :cond_0
 
-    .line 284
+    .line 261
     iput-boolean p1, p0, Lmiui/analytics/XiaomiAnalytics;->mUseHttps:Z
 
-    .line 286
+    .line 263
     :cond_0
     return-void
 .end method
@@ -457,7 +455,7 @@
     .parameter "context"
 
     .prologue
-    .line 52
+    .line 49
     monitor-enter p0
 
     if-eqz p1, :cond_0
@@ -471,28 +469,28 @@
 
     if-nez v0, :cond_0
 
-    .line 53
+    .line 50
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
 
-    .line 54
+    .line 51
     new-instance v0, Lmiui/analytics/PersistenceHelper;
 
     invoke-direct {v0}, Lmiui/analytics/PersistenceHelper;-><init>()V
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
-    .line 55
+    .line 52
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     iget-object v1, p0, Lmiui/analytics/XiaomiAnalytics;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Lmiui/analytics/PersistenceHelper;->writeOpen(Landroid/content/Context;)V
 
-    .line 56
+    .line 53
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -503,7 +501,7 @@
 
     iput-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
-    .line 58
+    .line 55
     const-string v0, "XIAOMIANALYTICS"
 
     const-string v1, "start session(%s)"
@@ -530,13 +528,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 60
+    .line 57
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 52
+    .line 49
     :catchall_0
     move-exception v0
 
@@ -552,7 +550,7 @@
     .parameter "errorClass"
 
     .prologue
-    .line 86
+    .line 83
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -565,7 +563,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 87
+    .line 84
     :cond_0
     const-string v0, "XIAOMIANALYTICS"
 
@@ -573,12 +571,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 97
+    .line 94
     :cond_1
     :goto_0
     return-void
 
-    .line 90
+    .line 87
     :cond_2
     invoke-direct {p0}, Lmiui/analytics/XiaomiAnalytics;->isTrackedReady()Z
 
@@ -586,13 +584,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 93
+    .line 90
     if-nez p2, :cond_3
 
-    .line 94
+    .line 91
     const-string p2, ""
 
-    .line 96
+    .line 93
     :cond_3
     iget-object v0, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
@@ -610,7 +608,7 @@
     .parameter "eventId"
 
     .prologue
-    .line 106
+    .line 102
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -623,7 +621,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
-    .line 107
+    .line 103
     return-void
 .end method
 
@@ -633,7 +631,7 @@
     .parameter "value"
 
     .prologue
-    .line 117
+    .line 112
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -646,7 +644,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
-    .line 118
+    .line 113
     return-void
 .end method
 
@@ -656,12 +654,12 @@
     .parameter "parameter"
 
     .prologue
-    .line 194
+    .line 176
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 195
+    .line 177
     .local v0, params:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v1, "_event_default_param_"
 
@@ -671,17 +669,16 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 196
+    .line 178
     invoke-virtual {p0, p1, v0}, Lmiui/analytics/XiaomiAnalytics;->trackEvent(Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 197
+    .line 179
     return-void
 .end method
 
 .method public trackEvent(Ljava/lang/String;Ljava/util/Map;)V
     .locals 6
     .parameter "eventId"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -695,7 +692,7 @@
     .end annotation
 
     .prologue
-    .line 129
+    .line 122
     .local p2, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
@@ -709,7 +706,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
-    .line 130
+    .line 123
     return-void
 .end method
 
@@ -731,7 +728,7 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 133
     .local p2, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
@@ -745,7 +742,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
-    .line 143
+    .line 134
     return-void
 .end method
 
@@ -767,7 +764,7 @@
     .end annotation
 
     .prologue
-    .line 182
+    .line 166
     .local p2, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-wide/16 v4, 0x0
 
@@ -781,7 +778,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
-    .line 183
+    .line 167
     return-void
 .end method
 
@@ -804,7 +801,7 @@
     .end annotation
 
     .prologue
-    .line 213
+    .line 191
     .local p2, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -812,19 +809,19 @@
 
     if-eqz v3, :cond_1
 
-    .line 214
+    .line 192
     const-string v3, "XIAOMIANALYTICS"
 
     const-string v4, "the id of tracked event is null or empty"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 239
+    .line 216
     :cond_0
     :goto_0
     return-void
 
-    .line 217
+    .line 195
     :cond_1
     invoke-direct {p0}, Lmiui/analytics/XiaomiAnalytics;->isTrackedReady()Z
 
@@ -832,7 +829,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 222
+    .line 200
     :try_start_0
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -842,7 +839,7 @@
 
     move-result-object v1
 
-    .line 223
+    .line 201
     .local v1, imei:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -850,14 +847,14 @@
 
     if-eqz v3, :cond_2
 
-    .line 224
+    .line 202
     const-string v1, "null"
 
-    .line 226
+    .line 204
     :cond_2
     if-nez p2, :cond_3
 
-    .line 227
+    .line 205
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
@@ -866,47 +863,40 @@
     .local v2, parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     move-object p2, v2
 
-    .line 229
+    .line 207
     .end local v2           #parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .restart local p2       #parameters:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_3
     const-string v3, "imei"
 
     invoke-interface {p2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 230
-    const-string v3, "_miui_version_"
-
-    sget-object v4, Landroid/os/Build$VERSION;->INCREMENTAL:Ljava/lang/String;
-
-    invoke-interface {p2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 234
+    .line 211
     .end local v1           #imei:Ljava/lang/String;
     :goto_1
     new-instance v0, Lmiui/analytics/TrackEvent;
 
     invoke-direct {v0, p1, p2, p4, p5}, Lmiui/analytics/TrackEvent;-><init>(Ljava/lang/String;Ljava/util/Map;J)V
 
-    .line 235
+    .line 212
     .local v0, event:Lmiui/analytics/TrackEvent;
     iget-object v3, p0, Lmiui/analytics/XiaomiAnalytics;->mPersistenceHelper:Lmiui/analytics/PersistenceHelper;
 
     invoke-virtual {v3, v0}, Lmiui/analytics/PersistenceHelper;->writeEvent(Lmiui/analytics/Event;)V
 
-    .line 236
+    .line 213
     if-eqz p3, :cond_0
 
-    .line 237
+    .line 214
     iget-object v3, p0, Lmiui/analytics/XiaomiAnalytics;->mTimedEvents:Ljava/util/List;
 
     invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 231
+    .line 208
     .end local v0           #event:Lmiui/analytics/TrackEvent;
     :catch_0
     move-exception v3
@@ -918,6 +908,30 @@
     .locals 6
     .parameter "eventId"
     .parameter "timed"
+
+    .prologue
+    .line 144
+    const/4 v2, 0x0
+
+    const-wide/16 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v3, p2
+
+    invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
+
+    .line 145
+    return-void
+.end method
+
+.method public trackTimedEvent(Ljava/lang/String;ZJ)V
+    .locals 6
+    .parameter "eventId"
+    .parameter "timed"
+    .parameter "value"
 
     .prologue
     .line 155
@@ -934,29 +948,5 @@
     invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
 
     .line 156
-    return-void
-.end method
-
-.method public trackTimedEvent(Ljava/lang/String;ZJ)V
-    .locals 6
-    .parameter "eventId"
-    .parameter "timed"
-    .parameter "value"
-
-    .prologue
-    .line 168
-    const/4 v2, 0x0
-
-    const-wide/16 v4, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v3, p2
-
-    invoke-virtual/range {v0 .. v5}, Lmiui/analytics/XiaomiAnalytics;->trackTimedEvent(Ljava/lang/String;Ljava/util/Map;ZJ)V
-
-    .line 169
     return-void
 .end method

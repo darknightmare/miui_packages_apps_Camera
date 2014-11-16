@@ -44,7 +44,7 @@
 
     .prologue
     .line 24
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 28
     new-instance v0, Lcom/google/zxing/oned/UPCEANExtension2Support;

@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/zxing/ui/QRCodeFragment;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 268
     iput-object p1, p0, Lcom/android/zxing/ui/QRCodeFragment$2;->this$0:Lcom/android/zxing/ui/QRCodeFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -178,7 +177,7 @@
     .line 285
     iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragment$2;->this$0:Lcom/android/zxing/ui/QRCodeFragment;
 
-    #calls: Lcom/android/zxing/ui/QRCodeFragment;->connectWiFi()V
+    #calls: Lcom/android/zxing/ui/QRCodeFragment;->connectToWifi()V
     invoke-static {v0}, Lcom/android/zxing/ui/QRCodeFragment;->access$800(Lcom/android/zxing/ui/QRCodeFragment;)V
 
     goto :goto_0

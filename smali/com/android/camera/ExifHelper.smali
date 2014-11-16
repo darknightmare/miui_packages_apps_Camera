@@ -70,7 +70,7 @@
 
     .prologue
     .line 12
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -82,7 +82,7 @@
     .prologue
     const-wide/high16 v9, 0x404e
 
-    .line 75
+    .line 77
     invoke-static {p0, p1}, Ljava/lang/Math;->abs(D)D
 
     move-result-wide v5
@@ -93,7 +93,7 @@
 
     double-to-int v0, v5
 
-    .line 76
+    .line 78
     .local v0, degrees:I
     invoke-static {p0, p1}, Ljava/lang/Math;->abs(D)D
 
@@ -109,7 +109,7 @@
 
     move-result-wide v1
 
-    .line 77
+    .line 79
     .local v1, minutes:D
     invoke-static {p0, p1}, Ljava/lang/Math;->abs(D)D
 
@@ -131,7 +131,7 @@
 
     move-result-wide v3
 
-    .line 78
+    .line 80
     .local v3, seconds:D
     const-wide/16 v5, 0x0
 
@@ -139,7 +139,7 @@
 
     if-gez v5, :cond_0
 
-    .line 79
+    .line 81
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -184,7 +184,7 @@
 
     move-result-object v5
 
-    .line 81
+    .line 83
     :goto_0
     return-object v5
 
@@ -235,10 +235,10 @@
     .parameter "orientation"
 
     .prologue
-    .line 85
+    .line 87
     sparse-switch p0, :sswitch_data_0
 
-    .line 95
+    .line 97
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -263,7 +263,7 @@
 
     throw v0
 
-    .line 87
+    .line 89
     :sswitch_0
     const/4 v0, 0x1
 
@@ -271,11 +271,11 @@
 
     move-result-object v0
 
-    .line 93
+    .line 95
     :goto_0
     return-object v0
 
-    .line 89
+    .line 91
     :sswitch_1
     const/4 v0, 0x6
 
@@ -285,7 +285,7 @@
 
     goto :goto_0
 
-    .line 91
+    .line 93
     :sswitch_2
     const/4 v0, 0x3
 
@@ -295,7 +295,7 @@
 
     goto :goto_0
 
-    .line 93
+    .line 95
     :sswitch_3
     const/16 v0, 0x8
 
@@ -305,7 +305,7 @@
 
     goto :goto_0
 
-    .line 85
+    .line 87
     nop
 
     :sswitch_data_0
@@ -343,7 +343,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -358,7 +358,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -373,7 +373,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -458,7 +458,7 @@
     .end local v3           #longValue:D
     :cond_0
     :goto_1
-    sget-boolean v5, Lcom/android/camera/Device;->IS_MI1:Z
+    sget-boolean v5, Lcom/android/camera/Device;->IS_MIONE:Z
 
     if-eqz v5, :cond_3
 
@@ -480,11 +480,11 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 64
+    .line 66
     :goto_2
     invoke-virtual {v0}, Landroid/media/ExifInterface;->saveAttributes()V
 
-    .line 68
+    .line 70
     .end local v0           #exif:Landroid/media/ExifInterface;
     :goto_3
     return-void
@@ -502,7 +502,7 @@
 
     goto :goto_0
 
-    .line 65
+    .line 67
     .end local v0           #exif:Landroid/media/ExifInterface;
     .end local v1           #latValue:D
     .end local v3           #longValue:D
@@ -524,19 +524,19 @@
 
     goto :goto_1
 
-    .line 58
+    .line 59
     .end local v1           #latValue:D
     .end local v3           #longValue:D
     :cond_3
-    sget-boolean v5, Lcom/android/camera/Device;->IS_MI2:Z
+    sget-boolean v5, Lcom/android/camera/Device;->IS_MITWO:Z
 
     if-nez v5, :cond_4
 
-    sget-boolean v5, Lcom/android/camera/Device;->IS_MI2A:Z
+    sget-boolean v5, Lcom/android/camera/Device;->IS_MITWO_A:Z
 
     if-eqz v5, :cond_5
 
-    .line 59
+    .line 60
     :cond_4
     const-string v5, "Model"
 
@@ -544,7 +544,8 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 60
+    .line 64
+    :goto_4
     const-string v5, "FocalLength"
 
     const-string v6, "354/100"
@@ -567,5 +568,5 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2
+    goto :goto_4
 .end method

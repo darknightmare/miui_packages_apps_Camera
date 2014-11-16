@@ -21,13 +21,13 @@
     .parameter "prefix"
 
     .prologue
-    .line 30
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 29
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
+    .line 30
     iput-object p1, p0, Lcom/android/gallery3d/data/MediaSource;->mPrefix:Ljava/lang/String;
 
-    .line 32
+    .line 31
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .parameter "type"
 
     .prologue
-    .line 39
+    .line 38
     const/4 v0, 0x0
 
     return-object v0
@@ -52,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 35
+    .line 34
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaSource;->mPrefix:Ljava/lang/String;
 
     return-object v0
@@ -75,13 +75,13 @@
     .end annotation
 
     .prologue
-    .line 78
+    .line 77
     .local p1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/MediaSource$PathId;>;"
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 79
+    .line 78
     .local v1, n:I
     const/4 v0, 0x0
 
@@ -89,14 +89,14 @@
     :goto_0
     if-ge v0, v1, :cond_2
 
-    .line 80
+    .line 79
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/gallery3d/data/MediaSource$PathId;
 
-    .line 81
+    .line 80
     .local v3, pid:Lcom/android/gallery3d/data/MediaSource$PathId;
     iget-object v5, v3, Lcom/android/gallery3d/data/MediaSource$PathId;->path:Lcom/android/gallery3d/data/Path;
 
@@ -104,11 +104,11 @@
 
     move-result-object v2
 
-    .line 82
+    .line 81
     .local v2, obj:Lcom/android/gallery3d/data/MediaObject;
     if-nez v2, :cond_0
 
-    .line 84
+    .line 83
     :try_start_0
     iget-object v5, v3, Lcom/android/gallery3d/data/MediaSource$PathId;->path:Lcom/android/gallery3d/data/Path;
 
@@ -118,12 +118,12 @@
 
     move-result-object v2
 
-    .line 89
+    .line 88
     :cond_0
     :goto_1
     if-eqz v2, :cond_1
 
-    .line 90
+    .line 89
     iget v5, v3, Lcom/android/gallery3d/data/MediaSource$PathId;->id:I
 
     check-cast v2, Lcom/android/gallery3d/data/MediaItem;
@@ -131,18 +131,18 @@
     .end local v2           #obj:Lcom/android/gallery3d/data/MediaObject;
     invoke-interface {p2, v5, v2}, Lcom/android/gallery3d/data/MediaSet$ItemConsumer;->consume(ILcom/android/gallery3d/data/MediaItem;)V
 
-    .line 79
+    .line 78
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 85
+    .line 84
     .restart local v2       #obj:Lcom/android/gallery3d/data/MediaObject;
     :catch_0
     move-exception v4
 
-    .line 86
+    .line 85
     .local v4, th:Ljava/lang/Throwable;
     const-string v5, "MediaSource"
 
@@ -166,11 +166,11 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6, v4}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v6, v4}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
-    .line 93
+    .line 92
     .end local v2           #obj:Lcom/android/gallery3d/data/MediaObject;
     .end local v3           #pid:Lcom/android/gallery3d/data/MediaSource$PathId;
     .end local v4           #th:Ljava/lang/Throwable;
@@ -182,7 +182,7 @@
     .locals 0
 
     .prologue
-    .line 45
+    .line 44
     return-void
 .end method
 
@@ -190,6 +190,6 @@
     .locals 0
 
     .prologue
-    .line 48
+    .line 47
     return-void
 .end method

@@ -34,13 +34,12 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/app/PhotoDataAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 927
+    .line 914
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +50,7 @@
     .parameter "x1"
 
     .prologue
-    .line 927
+    .line 914
     invoke-direct {p0, p1}, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;-><init>(Lcom/android/gallery3d/app/PhotoDataAdapter;)V
 
     return-void
@@ -63,7 +62,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 930
+    .line 917
     iget-object v4, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mContentStart:I
@@ -83,7 +82,7 @@
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 931
+    .line 918
     iget-object v4, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mData:[Lcom/android/gallery3d/data/MediaItem;
@@ -97,18 +96,18 @@
 
     if-nez v4, :cond_1
 
-    .line 934
+    .line 921
     :cond_0
     :goto_1
     return v3
 
-    .line 930
+    .line 917
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 933
+    .line 920
     :cond_2
     iget-object v4, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -128,11 +127,11 @@
 
     aget-object v0, v4, v5
 
-    .line 934
+    .line 921
     .local v0, current:Lcom/android/gallery3d/data/MediaItem;
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/data/MediaItem;->getPath()Lcom/android/gallery3d/data/Path;
+    invoke-virtual {v0}, Lcom/android/gallery3d/data/MediaObject;->getPath()Lcom/android/gallery3d/data/Path;
 
     move-result-object v4
 
@@ -161,14 +160,14 @@
     .end annotation
 
     .prologue
-    .line 940
+    .line 927
     new-instance v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;-><init>(Lcom/android/gallery3d/app/PhotoDataAdapter$1;)V
 
-    .line 941
+    .line 928
     .local v0, info:Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -179,14 +178,14 @@
 
     iput-wide v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->version:J
 
-    .line 942
+    .line 929
     invoke-direct {p0}, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->needContentReload()Z
 
     move-result v1
 
     iput-boolean v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->reloadContent:Z
 
-    .line 943
+    .line 930
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mItemPath:Lcom/android/gallery3d/data/Path;
@@ -196,7 +195,7 @@
 
     iput-object v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->target:Lcom/android/gallery3d/data/Path;
 
-    .line 944
+    .line 931
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mCurrentIndex:I
@@ -206,7 +205,7 @@
 
     iput v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->indexHint:I
 
-    .line 945
+    .line 932
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mContentStart:I
@@ -216,7 +215,7 @@
 
     iput v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->contentStart:I
 
-    .line 946
+    .line 933
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mContentEnd:I
@@ -226,7 +225,7 @@
 
     iput v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->contentEnd:I
 
-    .line 947
+    .line 934
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     #getter for: Lcom/android/gallery3d/app/PhotoDataAdapter;->mSize:I
@@ -236,7 +235,7 @@
 
     iput v1, v0, Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;->size:I
 
-    .line 948
+    .line 935
     return-object v0
 .end method
 
@@ -249,7 +248,7 @@
     .end annotation
 
     .prologue
-    .line 927
+    .line 914
     invoke-virtual {p0}, Lcom/android/gallery3d/app/PhotoDataAdapter$GetUpdateInfo;->call()Lcom/android/gallery3d/app/PhotoDataAdapter$UpdateInfo;
 
     move-result-object v0

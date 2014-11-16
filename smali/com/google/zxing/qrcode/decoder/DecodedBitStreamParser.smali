@@ -78,7 +78,7 @@
 
     .prologue
     .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
     return-void
@@ -89,7 +89,6 @@
     .parameter "bytes"
     .parameter "version"
     .parameter "ecLevel"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -410,7 +409,7 @@
     .end local v2           #count:I
     .end local v4           #byteSegments:Ljava/util/List;,"Ljava/util/List<[B>;"
     :cond_e
-    invoke-virtual/range {p2 .. p2}, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->toString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -595,8 +594,6 @@
     .parameter "result"
     .parameter "count"
     .parameter "currentCharacterSetECI"
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -696,7 +693,7 @@
     .line 231
     .end local v0           #encoding:Ljava/lang/String;
     :cond_2
-    invoke-virtual {p3}, Lcom/google/zxing/common/CharacterSetECI;->name()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v0
 

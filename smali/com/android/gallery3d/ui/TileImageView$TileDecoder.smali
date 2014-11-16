@@ -36,15 +36,14 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/TileImageView;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 746
+    .line 744
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 748
+    .line 746
     new-instance v0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder$1;
 
     invoke-direct {v0, p0}, Lcom/android/gallery3d/ui/TileImageView$TileDecoder$1;-><init>(Lcom/android/gallery3d/ui/TileImageView$TileDecoder;)V
@@ -60,7 +59,7 @@
     .parameter "x1"
 
     .prologue
-    .line 746
+    .line 744
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;-><init>(Lcom/android/gallery3d/ui/TileImageView;)V
 
     return-void
@@ -73,7 +72,7 @@
     .parameter "x0"
 
     .prologue
-    .line 746
+    .line 744
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->run(Lcom/android/gallery3d/util/ThreadPool$JobContext;)Ljava/lang/Void;
 
     move-result-object v0
@@ -86,17 +85,17 @@
     .parameter "jc"
 
     .prologue
-    .line 759
+    .line 757
     const/4 v1, 0x0
 
     invoke-interface {p1, v1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->setMode(I)Z
 
-    .line 760
+    .line 758
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->mNotifier:Lcom/android/gallery3d/util/ThreadPool$CancelListener;
 
     invoke-interface {p1, v1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->setCancelListener(Lcom/android/gallery3d/util/ThreadPool$CancelListener;)V
 
-    .line 761
+    .line 759
     :cond_0
     :goto_0
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
@@ -105,16 +104,16 @@
 
     if-nez v1, :cond_2
 
-    .line 762
+    .line 760
     const/4 v0, 0x0
 
-    .line 763
+    .line 761
     .local v0, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     iget-object v2, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     monitor-enter v2
 
-    .line 764
+    .line 762
     :try_start_0
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
@@ -127,7 +126,7 @@
 
     move-result-object v0
 
-    .line 765
+    .line 763
     if-nez v0, :cond_1
 
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
@@ -136,21 +135,21 @@
 
     if-nez v1, :cond_1
 
-    .line 766
+    .line 764
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     invoke-static {v1}, Lcom/android/gallery3d/common/Utils;->waitWithoutInterrupt(Ljava/lang/Object;)V
 
-    .line 768
+    .line 766
     :cond_1
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 769
+    .line 767
     if-eqz v0, :cond_0
 
-    .line 770
+    .line 768
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     invoke-virtual {v1, v0}, Lcom/android/gallery3d/ui/TileImageView;->decodeTile(Lcom/android/gallery3d/ui/TileImageView$Tile;)Z
@@ -165,7 +164,7 @@
 
     goto :goto_0
 
-    .line 768
+    .line 766
     :catchall_0
     move-exception v1
 
@@ -176,7 +175,7 @@
 
     throw v1
 
-    .line 772
+    .line 770
     .end local v0           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_2
     const/4 v1, 0x0

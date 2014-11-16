@@ -52,94 +52,73 @@
     .end annotation
 .end field
 
-.field public static SUPPORT_SHARE:Z
-
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    .line 25
-    sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
-
-    if-eqz v0, :cond_0
-
-    sget-boolean v0, Lmiui/os/Build;->IS_HK_BUILD:Z
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lmiui/os/Build;->IS_TW_BUILD:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    sput-boolean v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->SUPPORT_SHARE:Z
-
-    .line 129
+    .line 117
     const/4 v0, 0x3
 
-    new-array v3, v0, [Ljava/lang/String;
+    new-array v1, v0, [Ljava/lang/String;
 
-    const-string v0, "http://mij.cc/[a-z]+/[a-zA-Z0-9\\-_]{16}#a"
+    const/4 v0, 0x0
 
-    aput-object v0, v3, v1
+    const-string v2, "http://mij.cc/[a-z]+/[a-zA-Z0-9\\-_]{16}#a"
 
-    const-string v0, "http://mi1.cc/[a-zA-Z0-9\\-_]{16}#a"
+    aput-object v2, v1, v0
 
-    aput-object v0, v3, v2
+    const/4 v0, 0x1
 
-    const/4 v1, 0x2
+    const-string v2, "http://mi1.cc/[a-zA-Z0-9\\-_]{16}#a"
+
+    aput-object v2, v1, v0
+
+    const/4 v2, 0x2
 
     const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/String;
 
-    aput-object v0, v3, v1
+    aput-object v0, v1, v2
 
-    sput-object v3, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URLS:[Ljava/lang/String;
+    sput-object v1, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URLS:[Ljava/lang/String;
 
-    .line 135
+    .line 123
     sget-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URLS:[Ljava/lang/String;
 
     sput-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URLS:[Ljava/lang/String;
 
-    .line 137
+    .line 125
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     sput-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URL_PATTERNS:Ljava/util/ArrayList;
 
-    .line 138
+    .line 126
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     sput-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URL_STRICT_PATTERNS:Ljava/util/ArrayList;
 
-    .line 139
+    .line 127
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     sput-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URL_PATTERNS:Ljava/util/ArrayList;
 
-    .line 140
+    .line 128
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     sput-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URL_STRICT_PATTERNS:Ljava/util/ArrayList;
 
-    .line 143
+    .line 131
     sget-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URLS:[Ljava/lang/String;
 
     sget-object v1, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URL_PATTERNS:Ljava/util/ArrayList;
@@ -148,7 +127,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->initPatterns([Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    .line 144
+    .line 132
     sget-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URLS:[Ljava/lang/String;
 
     sget-object v1, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URL_PATTERNS:Ljava/util/ArrayList;
@@ -157,22 +136,16 @@
 
     invoke-static {v0, v1, v2}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->initPatterns([Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    .line 145
+    .line 133
     return-void
-
-    :cond_1
-    move v0, v1
-
-    .line 25
-    goto :goto_0
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 20
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 18
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -197,19 +170,19 @@
     .local p0, patterns:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/regex/Pattern;>;"
     const/4 v2, 0x0
 
-    .line 290
+    .line 263
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 300
+    .line 273
     :cond_0
     :goto_0
     return v2
 
-    .line 294
+    .line 267
     :cond_1
     invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -229,7 +202,7 @@
 
     check-cast v1, Ljava/util/regex/Pattern;
 
-    .line 295
+    .line 268
     .local v1, p:Ljava/util/regex/Pattern;
     invoke-virtual {v1, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
@@ -241,7 +214,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 296
+    .line 269
     const/4 v2, 0x1
 
     goto :goto_0
@@ -250,8 +223,6 @@
 .method private static initPatterns([Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 7
     .parameter "strs"
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -268,7 +239,7 @@
     .end annotation
 
     .prologue
-    .line 148
+    .line 136
     .local p1, patterns:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/regex/Pattern;>;"
     .local p2, strictPatterns:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/regex/Pattern;>;"
     move-object v0, p0
@@ -285,18 +256,18 @@
 
     aget-object v3, v0, v1
 
-    .line 149
+    .line 137
     .local v3, p:Ljava/lang/String;
     if-eqz v3, :cond_0
 
-    .line 150
+    .line 138
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v4
 
     invoke-virtual {p1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 151
+    .line 139
     const-string v4, "^%s$"
 
     const/4 v5, 0x1
@@ -317,13 +288,13 @@
 
     invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 148
+    .line 136
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 154
+    .line 142
     .end local v3           #p:Ljava/lang/String;
     :cond_1
     return-void
@@ -334,26 +305,14 @@
     .parameter "url"
 
     .prologue
-    .line 276
-    sget-boolean v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->SUPPORT_SHARE:Z
-
-    if-nez v0, :cond_0
-
-    .line 277
-    const/4 v0, 0x0
-
-    .line 279
-    :goto_0
-    return v0
-
-    :cond_0
+    .line 255
     sget-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_BARCODE_URL_STRICT_PATTERNS:Ljava/util/ArrayList;
 
     invoke-static {v0, p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->hasMatch(Ljava/util/ArrayList;Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_0
+    return v0
 .end method
 
 .method public static isAlbumShareInvitationUrl(Ljava/lang/String;)Z
@@ -361,60 +320,42 @@
     .parameter "url"
 
     .prologue
-    .line 264
-    sget-boolean v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->SUPPORT_SHARE:Z
-
-    if-nez v0, :cond_0
-
-    .line 265
-    const/4 v0, 0x0
-
-    .line 267
-    :goto_0
-    return v0
-
-    :cond_0
+    .line 246
     sget-object v0, Lcom/miui/gallery/lib/MiuiGalleryUtils;->ALBUM_SHARE_INVITATION_URL_STRICT_PATTERNS:Ljava/util/ArrayList;
 
     invoke-static {v0, p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->hasMatch(Ljava/util/ArrayList;Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_0
+    return v0
 .end method
 
 .method public static isAlbumShareUrl(Ljava/lang/String;)Z
-    .locals 2
+    .locals 1
     .parameter "url"
 
     .prologue
-    const/4 v0, 0x0
+    .line 259
+    invoke-static {p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->isAlbumShareInvitationUrl(Ljava/lang/String;)Z
 
-    .line 283
-    sget-boolean v1, Lcom/miui/gallery/lib/MiuiGalleryUtils;->SUPPORT_SHARE:Z
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_0
 
-    .line 286
+    invoke-static {p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->isAlbumShareBarcodeUrl(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
     :cond_0
+    const/4 v0, 0x1
+
     :goto_0
     return v0
 
     :cond_1
-    invoke-static {p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->isAlbumShareInvitationUrl(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    invoke-static {p0}, Lcom/miui/gallery/lib/MiuiGalleryUtils;->isAlbumShareBarcodeUrl(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    :cond_2
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

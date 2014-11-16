@@ -918,7 +918,7 @@
     const/4 v9, 0x1
 
     .line 698
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddCounts()[I
 
     move-result-object v10
 
@@ -928,7 +928,7 @@
 
     .line 699
     .local v8, oddSum:I
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenCounts()[I
 
     move-result-object v10
 
@@ -1182,11 +1182,11 @@
 
     .line 771
     :cond_13
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddCounts()[I
 
     move-result-object v9
 
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddRoundingErrors()[F
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddRoundingErrors()[F
 
     move-result-object v10
 
@@ -1197,11 +1197,11 @@
     if-eqz v1, :cond_15
 
     .line 774
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddCounts()[I
 
     move-result-object v9
 
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddRoundingErrors()[F
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddRoundingErrors()[F
 
     move-result-object v10
 
@@ -1223,11 +1223,11 @@
 
     .line 780
     :cond_16
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenCounts()[I
 
     move-result-object v9
 
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddRoundingErrors()[F
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddRoundingErrors()[F
 
     move-result-object v10
 
@@ -1238,11 +1238,11 @@
     if-eqz v0, :cond_18
 
     .line 783
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenCounts()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenCounts()[I
 
     move-result-object v9
 
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenRoundingErrors()[F
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenRoundingErrors()[F
 
     move-result-object v10
 
@@ -1654,7 +1654,6 @@
 
 .method static constructResult(Ljava/util/List;)Lcom/google/zxing/Result;
     .locals 11
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1795,7 +1794,7 @@
     .prologue
     .line 467
     .local p2, previousPairs:Ljava/util/List;,"Ljava/util/List<Lcom/google/zxing/oned/rss/expanded/ExpandedPair;>;"
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getDecodeFinderCounters()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getDecodeFinderCounters()[I
 
     move-result-object v1
 
@@ -2212,8 +2211,6 @@
 
 .method private static isPartialRow(Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
     .locals 9
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2343,7 +2340,6 @@
 
 .method private static isValidSequence(Ljava/util/List;)Z
     .locals 8
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2520,7 +2516,7 @@
     .end local v8           #firstElementStart:I
     .local v4, end:I
     :goto_1
-    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getDecodeFinderCounters()[I
+    invoke-virtual {p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getDecodeFinderCounters()[I
 
     move-result-object v6
 
@@ -2612,8 +2608,6 @@
 
 .method private static removePartialRows(Ljava/util/List;Ljava/util/List;)V
     .locals 10
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2934,7 +2928,7 @@
 
     .prologue
     .line 591
-    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getDataCharacterCounters()[I
+    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getDataCharacterCounters()[I
 
     move-result-object v5
 
@@ -3150,25 +3144,25 @@
     .restart local v11       #expectedElementWidth:F
     .restart local v16       #numModules:I
     :cond_2
-    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddCounts()[I
+    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddCounts()[I
 
     move-result-object v18
 
     .line 623
     .local v18, oddCounts:[I
-    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenCounts()[I
+    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenCounts()[I
 
     move-result-object v8
 
     .line 624
     .local v8, evenCounts:[I
-    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getOddRoundingErrors()[F
+    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getOddRoundingErrors()[F
 
     move-result-object v19
 
     .line 625
     .local v19, oddRoundingErrors:[F
-    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/expanded/RSSExpandedReader;->getEvenRoundingErrors()[F
+    invoke-virtual/range {p0 .. p0}, Lcom/google/zxing/oned/rss/AbstractRSSReader;->getEvenRoundingErrors()[F
 
     move-result-object v9
 
@@ -3578,7 +3572,6 @@
     .locals 2
     .parameter "rowNumber"
     .parameter "row"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",

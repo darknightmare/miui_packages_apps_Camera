@@ -39,13 +39,13 @@
     .parameter "baseSet"
 
     .prologue
-    .line 190
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 198
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 191
+    .line 199
     iput-object p1, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mBaseSet:Lcom/android/gallery3d/data/MediaSet;
 
-    .line 192
+    .line 200
     return-void
 .end method
 
@@ -56,14 +56,14 @@
     .parameter "index"
 
     .prologue
-    .line 199
+    .line 207
     const/4 v1, 0x0
 
-    .line 200
+    .line 208
     .local v1, needLoading:Z
     const/4 v0, 0x0
 
-    .line 201
+    .line 209
     .local v0, cache:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/MediaItem;>;"
     iget-object v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mCacheRef:Ljava/lang/ref/SoftReference;
 
@@ -79,16 +79,16 @@
 
     if-lt p1, v2, :cond_4
 
-    .line 203
+    .line 211
     :cond_0
     const/4 v1, 0x1
 
-    .line 211
+    .line 219
     :cond_1
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 212
+    .line 220
     iget-object v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mBaseSet:Lcom/android/gallery3d/data/MediaSet;
 
     const/16 v3, 0x40
@@ -97,17 +97,17 @@
 
     move-result-object v0
 
-    .line 213
+    .line 221
     new-instance v2, Ljava/lang/ref/SoftReference;
 
     invoke-direct {v2, v0}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mCacheRef:Ljava/lang/ref/SoftReference;
 
-    .line 214
+    .line 222
     iput p1, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mStartPos:I
 
-    .line 217
+    .line 225
     :cond_2
     iget v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mStartPos:I
 
@@ -123,35 +123,35 @@
 
     if-lt p1, v2, :cond_5
 
-    .line 218
+    .line 226
     :cond_3
     const/4 v2, 0x0
 
-    .line 221
+    .line 229
     :goto_1
     return-object v2
 
-    .line 205
+    .line 213
     :cond_4
     iget-object v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mCacheRef:Ljava/lang/ref/SoftReference;
 
-    invoke-virtual {v2}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
     .end local v0           #cache:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/MediaItem;>;"
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 206
+    .line 214
     .restart local v0       #cache:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/MediaItem;>;"
     if-nez v0, :cond_1
 
-    .line 207
+    .line 215
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 221
+    .line 229
     :cond_5
     iget v2, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mStartPos:I
 
@@ -170,11 +170,11 @@
     .locals 1
 
     .prologue
-    .line 195
+    .line 203
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalMergeAlbum$FetchCache;->mCacheRef:Ljava/lang/ref/SoftReference;
 
-    .line 196
+    .line 204
     return-void
 .end method

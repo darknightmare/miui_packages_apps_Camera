@@ -23,7 +23,7 @@
 
     .prologue
     .line 35
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     invoke-virtual {p1}, Lcom/google/zxing/common/BitMatrix;->getHeight()I

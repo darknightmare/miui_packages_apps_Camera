@@ -25,8 +25,6 @@
 
 .field private mLock:Ljava/lang/Object;
 
-.field private mSettingsFlag:Z
-
 .field private mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
 
 
@@ -41,14 +39,9 @@
     .line 34
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/camera/CameraAppImpl;->mLock:Ljava/lang/Object;
-
-    .line 37
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraAppImpl;->mSettingsFlag:Z
 
     return-void
 .end method
@@ -57,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 40
+    .line 39
     sget-object v0, Lcom/android/camera/CameraAppImpl;->sContext:Lcom/android/camera/CameraAppImpl;
 
     return-object v0
@@ -70,14 +63,14 @@
     .parameter "activity"
 
     .prologue
-    .line 99
+    .line 89
     if-nez p1, :cond_0
 
-    .line 103
+    .line 93
     :goto_0
     return-void
 
-    .line 102
+    .line 92
     :cond_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
@@ -91,14 +84,14 @@
     .parameter "current"
 
     .prologue
-    .line 113
+    .line 103
     const/4 v0, 0x0
 
-    .line 114
+    .line 104
     .local v0, activity:Landroid/app/Activity;
     const/4 v1, 0x0
 
-    .line 115
+    .line 105
     .local v1, i:I
     const/4 v2, 0x0
 
@@ -110,35 +103,35 @@
 
     if-ge v2, v3, :cond_1
 
-    .line 116
+    .line 106
     invoke-virtual {p0, v1}, Lcom/android/camera/CameraAppImpl;->getActivity(I)Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 117
+    .line 107
     if-eq v0, p1, :cond_0
 
-    .line 118
+    .line 108
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 119
+    .line 109
     iget-object v3, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
-    invoke-virtual {v3, v0}, Ljava/util/Stack;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/Vector;->remove(Ljava/lang/Object;)Z
 
-    .line 115
+    .line 105
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 121
+    .line 111
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 124
+    .line 114
     :cond_1
     return-void
 .end method
@@ -148,7 +141,7 @@
     .parameter "index"
 
     .prologue
-    .line 54
+    .line 52
     if-ltz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/camera/CameraAppImpl;->getActivityCount()I
@@ -157,18 +150,18 @@
 
     if-lt p1, v0, :cond_1
 
-    .line 55
+    .line 53
     :cond_0
     const/4 v0, 0x0
 
-    .line 57
+    .line 55
     :goto_0
     return-object v0
 
     :cond_1
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
-    invoke-virtual {v0, p1}, Ljava/util/Stack;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -181,10 +174,10 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 85
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v0}, Ljava/util/Vector;->size()I
 
     move-result v0
 
@@ -195,7 +188,7 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 60
     monitor-enter p0
 
     :try_start_0
@@ -203,19 +196,19 @@
 
     if-nez v0, :cond_0
 
-    .line 71
+    .line 61
     new-instance v0, Lcom/android/gallery3d/data/DataManager;
 
     invoke-direct {v0, p0}, Lcom/android/gallery3d/data/DataManager;-><init>(Lcom/android/camera/CameraAppImpl;)V
 
     iput-object v0, p0, Lcom/android/camera/CameraAppImpl;->mDataManager:Lcom/android/gallery3d/data/DataManager;
 
-    .line 72
+    .line 62
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mDataManager:Lcom/android/gallery3d/data/DataManager;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/data/DataManager;->initializeSourceMap()V
 
-    .line 74
+    .line 64
     :cond_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mDataManager:Lcom/android/gallery3d/data/DataManager;
     :try_end_0
@@ -225,7 +218,7 @@
 
     return-object v0
 
-    .line 70
+    .line 60
     :catchall_0
     move-exception v0
 
@@ -238,18 +231,18 @@
     .locals 3
 
     .prologue
-    .line 79
+    .line 69
     iget-object v1, p0, Lcom/android/camera/CameraAppImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 80
+    .line 70
     :try_start_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mImageCacheService:Lcom/android/gallery3d/data/ImageCacheService;
 
     if-nez v0, :cond_0
 
-    .line 81
+    .line 71
     new-instance v0, Lcom/android/gallery3d/data/ImageCacheService;
 
     invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
@@ -260,7 +253,7 @@
 
     iput-object v0, p0, Lcom/android/camera/CameraAppImpl;->mImageCacheService:Lcom/android/gallery3d/data/ImageCacheService;
 
-    .line 83
+    .line 73
     :cond_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mImageCacheService:Lcom/android/gallery3d/data/ImageCacheService;
 
@@ -268,7 +261,7 @@
 
     return-object v0
 
-    .line 84
+    .line 74
     :catchall_0
     move-exception v0
 
@@ -279,21 +272,11 @@
     throw v0
 .end method
 
-.method public getSettingsFlag()Z
-    .locals 1
-
-    .prologue
-    .line 66
-    iget-boolean v0, p0, Lcom/android/camera/CameraAppImpl;->mSettingsFlag:Z
-
-    return v0
-.end method
-
 .method public declared-synchronized getThreadPool()Lcom/android/gallery3d/util/ThreadPool;
     .locals 1
 
     .prologue
-    .line 88
+    .line 78
     monitor-enter p0
 
     :try_start_0
@@ -301,14 +284,14 @@
 
     if-nez v0, :cond_0
 
-    .line 89
+    .line 79
     new-instance v0, Lcom/android/gallery3d/util/ThreadPool;
 
     invoke-direct {v0}, Lcom/android/gallery3d/util/ThreadPool;-><init>()V
 
     iput-object v0, p0, Lcom/android/camera/CameraAppImpl;->mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
 
-    .line 91
+    .line 81
     :cond_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
     :try_end_0
@@ -318,7 +301,7 @@
 
     return-object v0
 
-    .line 88
+    .line 78
     :catchall_0
     move-exception v0
 
@@ -331,31 +314,26 @@
     .locals 1
 
     .prologue
-    .line 45
+    .line 44
     sput-object p0, Lcom/android/camera/CameraAppImpl;->sContext:Lcom/android/camera/CameraAppImpl;
 
-    .line 46
+    .line 45
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
 
-    .line 47
+    .line 46
     invoke-static {p0}, Lcom/android/camera/Util;->initialize(Landroid/content/Context;)V
 
-    .line 48
+    .line 47
     invoke-static {p0}, Lcom/android/gallery3d/util/GalleryUtils;->initialize(Landroid/content/Context;)V
 
-    .line 49
+    .line 48
     new-instance v0, Ljava/util/Stack;
 
     invoke-direct {v0}, Ljava/util/Stack;-><init>()V
 
     iput-object v0, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
-    .line 50
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraAppImpl;->mSettingsFlag:Z
-
-    .line 51
+    .line 49
     return-void
 .end method
 
@@ -364,31 +342,18 @@
     .parameter "activity"
 
     .prologue
-    .line 106
+    .line 96
     if-nez p1, :cond_0
 
-    .line 110
+    .line 100
     :goto_0
     return-void
 
-    .line 109
+    .line 99
     :cond_0
     iget-object v0, p0, Lcom/android/camera/CameraAppImpl;->mActivities:Ljava/util/Stack;
 
-    invoke-virtual {v0, p1}, Ljava/util/Stack;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/Vector;->remove(Ljava/lang/Object;)Z
 
     goto :goto_0
-.end method
-
-.method public resetSettingFlag()V
-    .locals 1
-
-    .prologue
-    .line 62
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraAppImpl;->mSettingsFlag:Z
-
-    .line 63
-    return-void
 .end method

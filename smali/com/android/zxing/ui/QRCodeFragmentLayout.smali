@@ -38,7 +38,7 @@
 
     .prologue
     .line 40
-    invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -65,17 +65,17 @@
 
     .prologue
     .line 59
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->clearAnimation()V
+    invoke-virtual {p0}, Landroid/view/View;->clearAnimation()V
 
     .line 60
     iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragmentLayout;->mFadeHide:Landroid/view/animation/Animation;
 
-    invoke-virtual {p0, v0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 61
     const/16 v0, 0x8
 
-    invoke-virtual {p0, v0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 62
     return-void
@@ -86,12 +86,12 @@
 
     .prologue
     .line 66
-    invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
+    invoke-super {p0}, Landroid/view/View;->onFinishInflate()V
 
     .line 67
-    iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragmentLayout;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f050006
+    const v1, 0x7f050005
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -100,9 +100,9 @@
     iput-object v0, p0, Lcom/android/zxing/ui/QRCodeFragmentLayout;->mFadeShow:Landroid/view/animation/Animation;
 
     .line 68
-    iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragmentLayout;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f050005
+    const v1, 0x7f050004
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -131,17 +131,17 @@
 
     .prologue
     .line 53
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->clearAnimation()V
+    invoke-virtual {p0}, Landroid/view/View;->clearAnimation()V
 
     .line 54
     iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragmentLayout;->mFadeShow:Landroid/view/animation/Animation;
 
-    invoke-virtual {p0, v0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 55
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/zxing/ui/QRCodeFragmentLayout;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 56
     return-void

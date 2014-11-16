@@ -34,17 +34,17 @@
     .parameter "handler"
 
     .prologue
-    .line 328
+    .line 331
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 324
+    .line 327
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/data/DataManager$NotifyBroker;->mNotifiers:Ljava/util/WeakHashMap;
 
-    .line 329
+    .line 332
     return-void
 .end method
 
@@ -55,7 +55,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 337
+    .line 340
     monitor-enter p0
 
     :try_start_0
@@ -83,7 +83,7 @@
 
     check-cast v1, Lcom/android/gallery3d/data/ChangeNotifier;
 
-    .line 338
+    .line 341
     .local v1, notifier:Lcom/android/gallery3d/data/ChangeNotifier;
     invoke-virtual {v1, p1}, Lcom/android/gallery3d/data/ChangeNotifier;->onChange(Z)V
     :try_end_0
@@ -91,7 +91,7 @@
 
     goto :goto_0
 
-    .line 337
+    .line 340
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #notifier:Lcom/android/gallery3d/data/ChangeNotifier;
     :catchall_0
@@ -101,7 +101,7 @@
 
     throw v2
 
-    .line 340
+    .line 343
     .restart local v0       #i$:Ljava/util/Iterator;
     :cond_0
     monitor-exit p0
@@ -114,7 +114,7 @@
     .parameter "notifier"
 
     .prologue
-    .line 332
+    .line 335
     monitor-enter p0
 
     :try_start_0
@@ -126,12 +126,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 333
+    .line 336
     monitor-exit p0
 
     return-void
 
-    .line 332
+    .line 335
     :catchall_0
     move-exception v0
 

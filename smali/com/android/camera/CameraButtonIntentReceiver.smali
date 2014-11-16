@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 33
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -18,66 +18,64 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter
-    .parameter
 
     .prologue
-    .line 42
+    .line 38
     invoke-static {}, Lcom/android/camera/CameraHolder;->instance()Lcom/android/camera/CameraHolder;
 
     move-result-object v0
 
-    .line 43
-    invoke-static {}, Lcom/android/camera/preferences/CameraSettingPreferences;->instance()Lcom/android/camera/preferences/CameraSettingPreferences;
+    .line 39
+    invoke-static {}, Lcom/android/camera/ComboPreferences;->instance()Lcom/android/camera/ComboPreferences;
 
     move-result-object v1
 
-    .line 44
+    .line 40
     invoke-static {v1}, Lcom/android/camera/CameraSettings;->readPreferredCameraId(Landroid/content/SharedPreferences;)I
 
     move-result v1
 
-    .line 45
+    .line 41
     invoke-virtual {v0, v1}, Lcom/android/camera/CameraHolder;->tryOpen(I)Lcom/android/camera/CameraManager$CameraProxy;
 
     move-result-object v1
 
     if-nez v1, :cond_0
 
-    .line 55
+    .line 51
     :goto_0
     return-void
 
-    .line 48
+    .line 44
     :cond_0
     invoke-virtual {v0}, Lcom/android/camera/CameraHolder;->keep()V
 
-    .line 49
+    .line 45
     invoke-virtual {v0}, Lcom/android/camera/CameraHolder;->release()V
 
-    .line 50
+    .line 46
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MAIN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 51
-    const-class v1, Lcom/android/camera/module/CameraModule;
+    .line 47
+    const-class v1, Lcom/android/camera/Camera;
 
     invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 52
+    .line 48
     const-string v1, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 53
+    .line 49
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 54
+    .line 50
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0

@@ -63,7 +63,6 @@
     return-object v3
 
     .line 42
-    :cond_0
     long-to-float v0, p1
 
     .line 43
@@ -74,7 +73,7 @@
     .local v1, suffix:I
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_0
 
     .line 45
     const v1, 0x60c0015
@@ -83,10 +82,10 @@
     div-float/2addr v0, v5
 
     .line 48
-    :cond_1
+    :cond_0
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_1
 
     .line 49
     const v1, 0x60c0023
@@ -95,10 +94,10 @@
     div-float/2addr v0, v5
 
     .line 52
-    :cond_2
+    :cond_1
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_2
 
     .line 53
     const v1, 0x60c0010
@@ -107,10 +106,10 @@
     div-float/2addr v0, v5
 
     .line 56
-    :cond_3
+    :cond_2
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_3
 
     .line 57
     const v1, 0x60c0032
@@ -119,10 +118,10 @@
     div-float/2addr v0, v5
 
     .line 60
-    :cond_4
+    :cond_3
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_4
 
     .line 61
     const v1, 0x60c0024
@@ -131,12 +130,12 @@
     div-float/2addr v0, v5
 
     .line 65
-    :cond_5
+    :cond_4
     const/high16 v3, 0x3f80
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_6
+    if-gez v3, :cond_5
 
     .line 66
     const-string v3, "%.2f"
@@ -182,15 +181,15 @@
 
     .line 67
     .end local v2           #value:Ljava/lang/String;
-    :cond_6
+    :cond_5
     const/high16 v3, 0x4120
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_8
+    if-gez v3, :cond_7
 
     .line 68
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_6
 
     .line 69
     const-string v3, "%.1f"
@@ -212,7 +211,7 @@
 
     .line 71
     .end local v2           #value:Ljava/lang/String;
-    :cond_7
+    :cond_6
     const-string v3, "%.2f"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -232,15 +231,15 @@
 
     .line 73
     .end local v2           #value:Ljava/lang/String;
-    :cond_8
+    :cond_7
     const/high16 v3, 0x42c8
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_a
+    if-gez v3, :cond_9
 
     .line 74
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_8
 
     .line 75
     const-string v3, "%.0f"
@@ -262,7 +261,7 @@
 
     .line 77
     .end local v2           #value:Ljava/lang/String;
-    :cond_9
+    :cond_8
     const-string v3, "%.2f"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -282,7 +281,7 @@
 
     .line 80
     .end local v2           #value:Ljava/lang/String;
-    :cond_a
+    :cond_9
     const-string v3, "%.0f"
 
     new-array v4, v7, [Ljava/lang/Object;

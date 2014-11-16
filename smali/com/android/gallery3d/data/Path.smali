@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 28
+    .line 27
     new-instance v0, Lcom/android/gallery3d/data/Path;
 
     const/4 v1, 0x0
@@ -61,39 +61,38 @@
     .parameter "segment"
 
     .prologue
-    .line 35
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 34
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
+    .line 35
     iput-object p1, p0, Lcom/android/gallery3d/data/Path;->mParent:Lcom/android/gallery3d/data/Path;
 
-    .line 37
+    .line 36
     iput-object p2, p0, Lcom/android/gallery3d/data/Path;->mSegment:Ljava/lang/String;
 
-    .line 38
+    .line 37
     return-void
 .end method
 
 .method public static fromString(Ljava/lang/String;)Lcom/android/gallery3d/data/Path;
     .locals 5
-    .parameter
 
     .prologue
-    .line 96
+    .line 95
     const-class v2, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v2
 
-    .line 97
+    .line 96
     :try_start_0
     invoke-static {p0}, Lcom/android/gallery3d/data/Path;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 98
+    .line 97
     sget-object v1, Lcom/android/gallery3d/data/Path;->sRoot:Lcom/android/gallery3d/data/Path;
 
-    .line 99
+    .line 98
     const/4 v0, 0x0
 
     :goto_0
@@ -101,25 +100,25 @@
 
     if-ge v0, v4, :cond_0
 
-    .line 100
+    .line 99
     aget-object v4, v3, v0
 
     invoke-virtual {v1, v4}, Lcom/android/gallery3d/data/Path;->getChild(Ljava/lang/String;)Lcom/android/gallery3d/data/Path;
 
     move-result-object v1
 
-    .line 99
+    .line 98
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 102
+    .line 101
     :cond_0
     monitor-exit v2
 
     return-object v1
 
-    .line 103
+    .line 102
     :catchall_0
     move-exception v0
 
@@ -139,22 +138,22 @@
 
     const/4 v7, 0x0
 
-    .line 122
+    .line 121
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    .line 123
+    .line 122
     .local v4, n:I
     if-nez v4, :cond_0
 
     new-array v5, v7, [Ljava/lang/String;
 
-    .line 146
+    .line 145
     :goto_0
     return-object v5
 
-    .line 124
+    .line 123
     :cond_0
     invoke-virtual {p0, v7}, Ljava/lang/String;->charAt(I)C
 
@@ -162,7 +161,7 @@
 
     if-eq v7, v8, :cond_1
 
-    .line 125
+    .line 124
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -187,25 +186,25 @@
 
     throw v7
 
-    .line 127
+    .line 126
     :cond_1
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 128
+    .line 127
     .local v6, segments:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v2, 0x1
 
-    .line 129
+    .line 128
     .local v2, i:I
     :goto_1
     if-ge v2, v4, :cond_7
 
-    .line 130
+    .line 129
     const/4 v0, 0x0
 
-    .line 132
+    .line 131
     .local v0, brace:I
     move v3, v2
 
@@ -213,12 +212,12 @@
     :goto_2
     if-ge v3, v4, :cond_5
 
-    .line 133
+    .line 132
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 134
+    .line 133
     .local v1, c:C
     const/16 v7, 0x7b
 
@@ -226,14 +225,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    .line 132
+    .line 131
     :cond_2
     :goto_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 135
+    .line 134
     :cond_3
     const/16 v7, 0x7d
 
@@ -243,18 +242,18 @@
 
     goto :goto_3
 
-    .line 136
+    .line 135
     :cond_4
     if-nez v0, :cond_2
 
     if-ne v1, v8, :cond_2
 
-    .line 138
+    .line 137
     .end local v1           #c:C
     :cond_5
     if-eqz v0, :cond_6
 
-    .line 139
+    .line 138
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -279,7 +278,7 @@
 
     throw v7
 
-    .line 141
+    .line 140
     :cond_6
     invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -287,13 +286,13 @@
 
     invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 142
+    .line 141
     add-int/lit8 v2, v3, 0x1
 
-    .line 143
+    .line 142
     goto :goto_1
 
-    .line 144
+    .line 143
     .end local v0           #brace:I
     .end local v3           #j:I
     :cond_7
@@ -303,7 +302,7 @@
 
     new-array v5, v7, [Ljava/lang/String;
 
-    .line 145
+    .line 144
     .local v5, result:[Ljava/lang/String;
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -319,12 +318,12 @@
 
     const/16 v8, 0x7b
 
-    .line 152
+    .line 151
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    .line 153
+    .line 152
     .local v4, n:I
     const/4 v7, 0x0
 
@@ -342,7 +341,7 @@
 
     if-eq v7, v9, :cond_1
 
-    .line 154
+    .line 153
     :cond_0
     new-instance v7, Ljava/lang/RuntimeException;
 
@@ -368,27 +367,27 @@
 
     throw v7
 
-    .line 156
+    .line 155
     :cond_1
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 157
+    .line 156
     .local v6, segments:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v2, 0x1
 
-    .line 158
+    .line 157
     .local v2, i:I
     :goto_0
     add-int/lit8 v7, v4, -0x1
 
     if-ge v2, v7, :cond_7
 
-    .line 159
+    .line 158
     const/4 v0, 0x0
 
-    .line 161
+    .line 160
     .local v0, brace:I
     move v3, v2
 
@@ -398,25 +397,25 @@
 
     if-ge v3, v7, :cond_5
 
-    .line 162
+    .line 161
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 163
+    .line 162
     .local v1, c:C
     if-ne v1, v8, :cond_3
 
     add-int/lit8 v0, v0, 0x1
 
-    .line 161
+    .line 160
     :cond_2
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 164
+    .line 163
     :cond_3
     if-ne v1, v9, :cond_4
 
@@ -424,7 +423,7 @@
 
     goto :goto_2
 
-    .line 165
+    .line 164
     :cond_4
     if-nez v0, :cond_2
 
@@ -432,12 +431,12 @@
 
     if-ne v1, v7, :cond_2
 
-    .line 167
+    .line 166
     .end local v1           #c:C
     :cond_5
     if-eqz v0, :cond_6
 
-    .line 168
+    .line 167
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -462,7 +461,7 @@
 
     throw v7
 
-    .line 170
+    .line 169
     :cond_6
     invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -470,13 +469,13 @@
 
     invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 171
+    .line 170
     add-int/lit8 v2, v3, 0x1
 
-    .line 172
+    .line 171
     goto :goto_0
 
-    .line 173
+    .line 172
     .end local v0           #brace:I
     .end local v3           #j:I
     :cond_7
@@ -486,11 +485,11 @@
 
     new-array v5, v7, [Ljava/lang/String;
 
-    .line 174
+    .line 173
     .local v5, result:[Ljava/lang/String;
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    .line 175
+    .line 174
     return-object v5
 .end method
 
@@ -501,7 +500,7 @@
     .parameter "segment"
 
     .prologue
-    .line 62
+    .line 61
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
@@ -518,7 +517,7 @@
     .parameter "segment"
 
     .prologue
-    .line 66
+    .line 65
     invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v0
@@ -532,45 +531,44 @@
 
 .method public getChild(Ljava/lang/String;)Lcom/android/gallery3d/data/Path;
     .locals 3
-    .parameter
 
     .prologue
-    .line 41
+    .line 40
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 42
+    .line 41
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mChildren:Lcom/android/gallery3d/util/IdentityCache;
 
     if-nez v0, :cond_1
 
-    .line 43
+    .line 42
     new-instance v0, Lcom/android/gallery3d/util/IdentityCache;
 
     invoke-direct {v0}, Lcom/android/gallery3d/util/IdentityCache;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/data/Path;->mChildren:Lcom/android/gallery3d/util/IdentityCache;
 
-    .line 49
+    .line 48
     :cond_0
     new-instance v0, Lcom/android/gallery3d/data/Path;
 
     invoke-direct {v0, p0, p1}, Lcom/android/gallery3d/data/Path;-><init>(Lcom/android/gallery3d/data/Path;Ljava/lang/String;)V
 
-    .line 50
+    .line 49
     iget-object v2, p0, Lcom/android/gallery3d/data/Path;->mChildren:Lcom/android/gallery3d/util/IdentityCache;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/gallery3d/util/IdentityCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 51
+    .line 50
     monitor-exit v1
 
     :goto_0
     return-object v0
 
-    .line 45
+    .line 44
     :cond_1
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mChildren:Lcom/android/gallery3d/util/IdentityCache;
 
@@ -580,14 +578,14 @@
 
     check-cast v0, Lcom/android/gallery3d/data/Path;
 
-    .line 46
+    .line 45
     if-eqz v0, :cond_0
 
     monitor-exit v1
 
     goto :goto_0
 
-    .line 52
+    .line 51
     :catchall_0
     move-exception v0
 
@@ -602,12 +600,12 @@
     .locals 2
 
     .prologue
-    .line 77
+    .line 76
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 78
+    .line 77
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mObject:Ljava/lang/ref/WeakReference;
 
@@ -623,7 +621,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mObject:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -631,7 +629,7 @@
 
     goto :goto_0
 
-    .line 79
+    .line 78
     :catchall_0
     move-exception v0
 
@@ -646,12 +644,12 @@
     .locals 2
 
     .prologue
-    .line 56
+    .line 55
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 57
+    .line 56
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mParent:Lcom/android/gallery3d/data/Path;
 
@@ -659,7 +657,7 @@
 
     return-object v0
 
-    .line 58
+    .line 57
     :catchall_0
     move-exception v0
 
@@ -674,14 +672,14 @@
     .locals 1
 
     .prologue
-    .line 179
+    .line 178
     sget-object v0, Lcom/android/gallery3d/data/Path;->sRoot:Lcom/android/gallery3d/data/Path;
 
     if-ne p0, v0, :cond_0
 
     const-string v0, ""
 
-    .line 180
+    .line 179
     :goto_0
     return-object v0
 
@@ -699,25 +697,25 @@
     .locals 3
 
     .prologue
-    .line 184
+    .line 183
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 186
+    .line 185
     :try_start_0
     sget-object v0, Lcom/android/gallery3d/data/Path;->sRoot:Lcom/android/gallery3d/data/Path;
 
     if-ne p0, v0, :cond_0
 
-    .line 187
+    .line 186
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 193
+    .line 192
     :catchall_0
     move-exception v0
 
@@ -727,7 +725,7 @@
 
     throw v0
 
-    .line 189
+    .line 188
     :cond_0
     :goto_0
     :try_start_1
@@ -737,12 +735,12 @@
 
     if-eq v0, v2, :cond_1
 
-    .line 190
+    .line 189
     iget-object p0, p0, Lcom/android/gallery3d/data/Path;->mParent:Lcom/android/gallery3d/data/Path;
 
     goto :goto_0
 
-    .line 192
+    .line 191
     :cond_1
     monitor-exit v1
     :try_end_1
@@ -755,7 +753,7 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 197
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mSegment:Ljava/lang/String;
 
     return-object v0
@@ -763,15 +761,14 @@
 
 .method public setObject(Lcom/android/gallery3d/data/MediaObject;)V
     .locals 2
-    .parameter
 
     .prologue
-    .line 70
+    .line 69
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 71
+    .line 70
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mObject:Ljava/lang/ref/WeakReference;
 
@@ -779,7 +776,7 @@
 
     iget-object v0, p0, Lcom/android/gallery3d/data/Path;->mObject:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -791,26 +788,26 @@
     :goto_0
     invoke-static {v0}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
 
-    .line 72
+    .line 71
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/data/Path;->mObject:Ljava/lang/ref/WeakReference;
 
-    .line 73
+    .line 72
     monitor-exit v1
 
-    .line 74
+    .line 73
     return-void
 
-    .line 71
+    .line 70
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 73
+    .line 72
     :catchall_0
     move-exception v0
 
@@ -825,67 +822,67 @@
     .locals 5
 
     .prologue
-    .line 107
+    .line 106
     const-class v2, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v2
 
-    .line 108
+    .line 107
     const/4 v0, 0x0
 
     move v1, v0
 
     move-object v0, p0
 
-    .line 109
+    .line 108
     :goto_0
     :try_start_0
     sget-object v3, Lcom/android/gallery3d/data/Path;->sRoot:Lcom/android/gallery3d/data/Path;
 
     if-eq v0, v3, :cond_0
 
-    .line 110
+    .line 109
     add-int/lit8 v1, v1, 0x1
 
-    .line 109
+    .line 108
     iget-object v0, v0, Lcom/android/gallery3d/data/Path;->mParent:Lcom/android/gallery3d/data/Path;
 
     goto :goto_0
 
-    .line 112
+    .line 111
     :cond_0
     new-array v3, v1, [Ljava/lang/String;
 
-    .line 113
+    .line 112
     add-int/lit8 v0, v1, -0x1
 
-    .line 114
+    .line 113
     :goto_1
     sget-object v1, Lcom/android/gallery3d/data/Path;->sRoot:Lcom/android/gallery3d/data/Path;
 
     if-eq p0, v1, :cond_1
 
-    .line 115
+    .line 114
     add-int/lit8 v1, v0, -0x1
 
     iget-object v4, p0, Lcom/android/gallery3d/data/Path;->mSegment:Ljava/lang/String;
 
     aput-object v4, v3, v0
 
-    .line 114
+    .line 113
     iget-object p0, p0, Lcom/android/gallery3d/data/Path;->mParent:Lcom/android/gallery3d/data/Path;
 
     move v0, v1
 
     goto :goto_1
 
-    .line 117
+    .line 116
     :cond_1
     monitor-exit v2
 
     return-object v3
 
-    .line 118
+    .line 117
     :catchall_0
     move-exception v0
 
@@ -900,23 +897,23 @@
     .locals 5
 
     .prologue
-    .line 84
+    .line 83
     const-class v1, Lcom/android/gallery3d/data/Path;
 
     monitor-enter v1
 
-    .line 85
+    .line 84
     :try_start_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 86
+    .line 85
     invoke-virtual {p0}, Lcom/android/gallery3d/data/Path;->split()[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 87
+    .line 86
     const/4 v0, 0x0
 
     :goto_0
@@ -924,22 +921,22 @@
 
     if-ge v0, v4, :cond_0
 
-    .line 88
+    .line 87
     const-string v4, "/"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 89
+    .line 88
     aget-object v4, v3, v0
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 87
+    .line 86
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 91
+    .line 90
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -949,7 +946,7 @@
 
     return-object v0
 
-    .line 92
+    .line 91
     :catchall_0
     move-exception v0
 

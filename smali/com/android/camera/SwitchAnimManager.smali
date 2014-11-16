@@ -20,49 +20,36 @@
     .locals 1
 
     .prologue
-    .line 51
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 50
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
+    .line 46
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
 
-    .line 52
+    .line 51
     return-void
 .end method
 
 
 # virtual methods
-.method public clearAnimation()V
-    .locals 2
-
-    .prologue
-    .line 73
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Lcom/android/camera/SwitchAnimManager;->mAnimStartTime:J
-
-    .line 74
-    return-void
-.end method
-
 .method public continueAnimation(I)V
     .locals 2
     .parameter "orientation"
 
     .prologue
-    .line 77
+    .line 72
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/camera/SwitchAnimManager;->mAnimStartTime:J
 
-    .line 78
+    .line 73
     iput p1, p0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
 
-    .line 79
+    .line 74
     return-void
 .end method
 
@@ -77,7 +64,7 @@
     .parameter "review"
 
     .prologue
-    .line 86
+    .line 81
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
@@ -88,7 +75,7 @@
 
     sub-long v21, v2, v6
 
-    .line 87
+    .line 82
     .local v21, timeDiff:J
     move-wide/from16 v0, v21
 
@@ -102,11 +89,11 @@
 
     const/4 v2, 0x0
 
-    .line 133
+    .line 127
     :goto_0
     return v2
 
-    .line 88
+    .line 83
     :cond_0
     move-wide/from16 v0, v21
 
@@ -116,7 +103,7 @@
 
     div-float v16, v2, v3
 
-    .line 91
+    .line 86
     .local v16, fraction:F
     move/from16 v0, p2
 
@@ -132,7 +119,7 @@
 
     add-float v14, v2, v3
 
-    .line 92
+    .line 87
     .local v14, centerX:F
     move/from16 v0, p3
 
@@ -148,7 +135,7 @@
 
     add-float v15, v2, v3
 
-    .line 94
+    .line 89
     .local v15, centerY:F
     const/high16 v2, 0x3f00
 
@@ -156,7 +143,7 @@
 
     if-gez v2, :cond_1
 
-    .line 95
+    .line 90
     const/high16 v2, 0x3f80
 
     const v3, 0x3e4ccccd
@@ -169,7 +156,7 @@
 
     sub-float v17, v2, v3
 
-    .line 96
+    .line 91
     .local v17, previewAnimScale:F
     move/from16 v0, p4
 
@@ -177,7 +164,7 @@
 
     mul-float v19, v2, v17
 
-    .line 97
+    .line 92
     .local v19, previewWidth:F
     move/from16 v0, p5
 
@@ -185,7 +172,7 @@
 
     mul-float v18, v2, v17
 
-    .line 98
+    .line 93
     .local v18, previewHeight:F
     const/high16 v2, 0x4000
 
@@ -197,7 +184,7 @@
 
     move-result v4
 
-    .line 99
+    .line 94
     .local v4, previewX:I
     const/high16 v2, 0x4000
 
@@ -209,7 +196,7 @@
 
     move-result v5
 
-    .line 101
+    .line 96
     .local v5, previewY:I
     invoke-static/range {v19 .. v19}, Ljava/lang/Math;->round(F)I
 
@@ -225,14 +212,14 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/gallery3d/ui/RawTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
 
-    .line 133
+    .line 127
     .end local v17           #previewAnimScale:F
     :goto_1
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 104
+    .line 99
     .end local v4           #previewX:I
     .end local v5           #previewY:I
     .end local v18           #previewHeight:F
@@ -246,7 +233,7 @@
 
     mul-float v19, v2, v3
 
-    .line 105
+    .line 100
     .restart local v19       #previewWidth:F
     move/from16 v0, p5
 
@@ -256,7 +243,7 @@
 
     mul-float v18, v2, v3
 
-    .line 107
+    .line 102
     .restart local v18       #previewHeight:F
     const/high16 v2, 0x4000
 
@@ -268,7 +255,7 @@
 
     move-result v4
 
-    .line 108
+    .line 103
     .restart local v4       #previewX:I
     const/high16 v2, 0x4000
 
@@ -280,7 +267,7 @@
 
     move-result v5
 
-    .line 110
+    .line 105
     .restart local v5       #previewY:I
     const/high16 v2, 0x3f00
 
@@ -290,16 +277,8 @@
 
     div-float v20, v2, v3
 
-    .line 111
+    .line 106
     .local v20, rate:F
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
-
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_2
-
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
@@ -314,28 +293,22 @@
 
     if-ne v2, v3, :cond_4
 
-    .line 113
+    .line 107
     :cond_2
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    move-object/from16 v0, p1
 
-    const/4 v3, 0x0
+    invoke-interface {v0, v14, v2}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v14, v3}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 114
+    .line 108
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
 
     if-nez v2, :cond_3
 
-    .line 115
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v6
-
+    .line 109
     const/high16 v2, 0x42b4
 
     mul-float v7, v20, v2
@@ -354,21 +327,21 @@
 
     const v13, 0x44bb8000
 
-    invoke-virtual/range {v6 .. v13}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v6, p1
 
-    .line 119
+    invoke-interface/range {v6 .. v13}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
+
+    .line 113
     :goto_2
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    neg-float v2, v14
 
-    move-result-object v2
+    const/4 v3, 0x0
 
-    neg-float v3, v14
+    move-object/from16 v0, p1
 
-    const/4 v6, 0x0
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v3, v6}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 129
+    .line 123
     :goto_3
     invoke-static/range {v19 .. v19}, Ljava/lang/Math;->round(F)I
 
@@ -386,12 +359,8 @@
 
     goto :goto_1
 
-    .line 117
+    .line 111
     :cond_3
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v6
-
     move/from16 v0, v20
 
     neg-float v2, v0
@@ -414,21 +383,21 @@
 
     const v13, 0x44bb8000
 
-    invoke-virtual/range {v6 .. v13}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v6, p1
+
+    invoke-interface/range {v6 .. v13}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
 
     goto :goto_2
 
-    .line 121
+    .line 115
     :cond_4
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    move-object/from16 v0, p1
 
-    const/4 v3, 0x0
+    invoke-interface {v0, v2, v15}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v3, v15}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 122
+    .line 116
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
@@ -437,11 +406,7 @@
 
     if-ne v2, v3, :cond_5
 
-    .line 123
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v6
-
+    .line 117
     const/high16 v2, 0x42b4
 
     mul-float v7, v20, v2
@@ -460,28 +425,24 @@
 
     const v13, 0x44bb8000
 
-    invoke-virtual/range {v6 .. v13}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v6, p1
 
-    .line 127
+    invoke-interface/range {v6 .. v13}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
+
+    .line 121
     :goto_4
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    neg-float v3, v15
 
-    const/4 v3, 0x0
+    move-object/from16 v0, p1
 
-    neg-float v6, v15
-
-    invoke-virtual {v2, v3, v6}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
     goto :goto_3
 
-    .line 125
+    .line 119
     :cond_5
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v6
-
     move/from16 v0, v20
 
     neg-float v2, v0
@@ -504,7 +465,9 @@
 
     const v13, 0x44bb8000
 
-    invoke-virtual/range {v6 .. v13}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v6, p1
+
+    invoke-interface/range {v6 .. v13}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
 
     goto :goto_4
 .end method
@@ -520,7 +483,7 @@
     .parameter "reviewNext"
 
     .prologue
-    .line 138
+    .line 132
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
@@ -531,7 +494,7 @@
 
     sub-long v19, v2, v6
 
-    .line 139
+    .line 133
     .local v19, timeDiff:J
     move-wide/from16 v0, v19
 
@@ -545,11 +508,11 @@
 
     const/4 v2, 0x0
 
-    .line 184
+    .line 177
     :goto_0
     return v2
 
-    .line 140
+    .line 134
     :cond_0
     move-wide/from16 v0, v19
 
@@ -559,7 +522,7 @@
 
     div-float v12, v2, v3
 
-    .line 143
+    .line 137
     .local v12, fraction:F
     move/from16 v0, p2
 
@@ -575,7 +538,7 @@
 
     add-float v10, v2, v3
 
-    .line 144
+    .line 138
     .local v10, centerX:F
     move/from16 v0, p3
 
@@ -591,7 +554,7 @@
 
     add-float v11, v2, v3
 
-    .line 146
+    .line 140
     .local v11, centerY:F
     const/high16 v2, 0x3f00
 
@@ -599,7 +562,7 @@
 
     if-gez v2, :cond_5
 
-    .line 147
+    .line 141
     move/from16 v0, p4
 
     int-to-float v2, v0
@@ -608,7 +571,7 @@
 
     mul-float v15, v2, v3
 
-    .line 148
+    .line 142
     .local v15, previewWidth:F
     move/from16 v0, p5
 
@@ -618,7 +581,7 @@
 
     mul-float v14, v2, v3
 
-    .line 150
+    .line 144
     .local v14, previewHeight:F
     const/high16 v2, 0x4000
 
@@ -630,7 +593,7 @@
 
     move-result v16
 
-    .line 151
+    .line 145
     .local v16, previewX:I
     const/high16 v2, 0x4000
 
@@ -642,22 +605,14 @@
 
     move-result v17
 
-    .line 153
+    .line 147
     .local v17, previewY:I
     const/high16 v2, 0x3f00
 
     div-float v18, v12, v2
 
-    .line 154
+    .line 148
     .local v18, rate:F
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
-
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_1
-
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
@@ -672,35 +627,29 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 156
+    .line 149
     :cond_1
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    move-object/from16 v0, p1
 
-    const/4 v3, 0x0
+    invoke-interface {v0, v10, v2}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v10, v3}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 157
+    .line 150
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
 
     if-nez v2, :cond_2
 
-    .line 158
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    .line 151
+    const/high16 v2, 0x42b4
 
-    move-result-object v2
+    mul-float v2, v2, v18
 
-    const/high16 v3, 0x42b4
+    const/high16 v3, 0x4387
 
-    mul-float v3, v3, v18
-
-    const/high16 v6, 0x4387
-
-    add-float/2addr v3, v6
+    add-float/2addr v3, v2
 
     const/4 v4, 0x0
 
@@ -710,27 +659,27 @@
 
     const/4 v7, 0x0
 
-    div-int/lit8 v8, p5, 0x2
+    div-int/lit8 v2, p5, 0x2
 
-    int-to-float v8, v8
+    int-to-float v8, v2
 
     const v9, 0x44bb8000
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v2, p1
 
-    .line 162
+    invoke-interface/range {v2 .. v9}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
+
+    .line 155
     :goto_1
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    neg-float v2, v10
 
-    move-result-object v2
+    const/4 v3, 0x0
 
-    neg-float v3, v10
+    move-object/from16 v0, p1
 
-    const/4 v6, 0x0
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v3, v6}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 172
+    .line 165
     :goto_2
     invoke-static {v15}, Ljava/lang/Math;->round(F)I
 
@@ -750,7 +699,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/gallery3d/ui/RawTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
 
-    .line 184
+    .line 177
     .end local v16           #previewX:I
     .end local v17           #previewY:I
     .end local v18           #rate:F
@@ -759,24 +708,20 @@
 
     goto/16 :goto_0
 
-    .line 160
+    .line 153
     .restart local v16       #previewX:I
     .restart local v17       #previewY:I
     .restart local v18       #rate:F
     :cond_2
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/high16 v2, 0x42b4
 
-    move-result-object v2
+    mul-float v2, v2, v18
 
-    const/high16 v3, 0x42b4
+    const/high16 v3, 0x4387
 
-    mul-float v3, v3, v18
+    add-float/2addr v2, v3
 
-    const/high16 v6, 0x4387
-
-    add-float/2addr v3, v6
-
-    neg-float v3, v3
+    neg-float v3, v2
 
     const/4 v4, 0x0
 
@@ -786,27 +731,27 @@
 
     const/4 v7, 0x0
 
-    div-int/lit8 v8, p5, 0x2
+    div-int/lit8 v2, p5, 0x2
 
-    int-to-float v8, v8
+    int-to-float v8, v2
 
     const v9, 0x44bb8000
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v2, p1
+
+    invoke-interface/range {v2 .. v9}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
 
     goto :goto_1
 
-    .line 164
+    .line 157
     :cond_3
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    move-object/from16 v0, p1
 
-    const/4 v3, 0x0
+    invoke-interface {v0, v2, v11}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    invoke-virtual {v2, v3, v11}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 165
+    .line 158
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
@@ -815,18 +760,14 @@
 
     if-ne v2, v3, :cond_4
 
-    .line 166
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    .line 159
+    const/high16 v2, 0x42b4
 
-    move-result-object v2
+    mul-float v2, v2, v18
 
-    const/high16 v3, 0x42b4
+    const/high16 v3, 0x4387
 
-    mul-float v3, v3, v18
-
-    const/high16 v6, 0x4387
-
-    add-float/2addr v3, v6
+    add-float/2addr v3, v2
 
     const/high16 v4, 0x3f80
 
@@ -842,37 +783,33 @@
 
     const v9, 0x44bb8000
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v2, p1
 
-    .line 170
+    invoke-interface/range {v2 .. v9}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
+
+    .line 163
     :goto_4
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    neg-float v3, v11
 
-    const/4 v3, 0x0
+    move-object/from16 v0, p1
 
-    neg-float v6, v11
-
-    invoke-virtual {v2, v3, v6}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
     goto :goto_2
 
-    .line 168
+    .line 161
     :cond_4
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/high16 v2, 0x42b4
 
-    move-result-object v2
+    mul-float v2, v2, v18
 
-    const/high16 v3, 0x42b4
+    const/high16 v3, 0x4387
 
-    mul-float v3, v3, v18
+    add-float/2addr v2, v3
 
-    const/high16 v6, 0x4387
-
-    add-float/2addr v3, v6
-
-    neg-float v3, v3
+    neg-float v3, v2
 
     const/high16 v4, 0x3f80
 
@@ -888,11 +825,13 @@
 
     const v9, 0x44bb8000
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/camera/effect/GLCanvasState;->projection(FFFFFFF)V
+    move-object/from16 v2, p1
+
+    invoke-interface/range {v2 .. v9}, Lcom/android/gallery3d/ui/GLCanvas;->rotateProjectionToXOY(FFFFFFF)V
 
     goto :goto_4
 
-    .line 175
+    .line 168
     .end local v14           #previewHeight:F
     .end local v15           #previewWidth:F
     .end local v16           #previewX:I
@@ -915,7 +854,7 @@
 
     sub-float v13, v2, v3
 
-    .line 176
+    .line 169
     .local v13, previewAnimScale:F
     move/from16 v0, p4
 
@@ -923,7 +862,7 @@
 
     mul-float v15, v2, v13
 
-    .line 177
+    .line 170
     .restart local v15       #previewWidth:F
     move/from16 v0, p5
 
@@ -931,7 +870,7 @@
 
     mul-float v14, v2, v13
 
-    .line 178
+    .line 171
     .restart local v14       #previewHeight:F
     const/high16 v2, 0x4000
 
@@ -943,7 +882,7 @@
 
     move-result v4
 
-    .line 179
+    .line 172
     .local v4, previewX:I
     const/high16 v2, 0x4000
 
@@ -955,7 +894,7 @@
 
     move-result v5
 
-    .line 181
+    .line 174
     .local v5, previewY:I
     invoke-static {v15}, Ljava/lang/Math;->round(F)I
 
@@ -984,7 +923,7 @@
     .parameter "review"
 
     .prologue
-    .line 190
+    .line 183
     int-to-float v1, p2
 
     move/from16 v0, p4
@@ -997,7 +936,7 @@
 
     add-float v8, v1, v2
 
-    .line 191
+    .line 184
     .local v8, centerX:F
     move/from16 v0, p3
 
@@ -1013,17 +952,17 @@
 
     add-float v9, v1, v2
 
-    .line 192
+    .line 185
     .local v9, centerY:F
     const/high16 v12, 0x3f80
 
-    .line 193
+    .line 186
     .local v12, scaleRatio:F
     iget v1, p0, Lcom/android/camera/SwitchAnimManager;->mPreviewFrameLayoutWidth:I
 
     if-eqz v1, :cond_0
 
-    .line 194
+    .line 187
     move/from16 v0, p4
 
     int-to-float v1, v0
@@ -1034,7 +973,7 @@
 
     div-float v12, v1, v2
 
-    .line 198
+    .line 191
     :goto_0
     iget v1, p0, Lcom/android/camera/SwitchAnimManager;->mReviewDrawingWidth:I
 
@@ -1042,7 +981,7 @@
 
     mul-float v11, v1, v12
 
-    .line 199
+    .line 192
     .local v11, reviewWidth:F
     iget v1, p0, Lcom/android/camera/SwitchAnimManager;->mReviewDrawingHeight:I
 
@@ -1050,7 +989,7 @@
 
     mul-float v10, v1, v12
 
-    .line 200
+    .line 193
     .local v10, reviewHeight:F
     const/high16 v1, 0x4000
 
@@ -1062,7 +1001,7 @@
 
     move-result v3
 
-    .line 201
+    .line 194
     .local v3, reviewX:I
     const/high16 v1, 0x4000
 
@@ -1074,17 +1013,13 @@
 
     move-result v4
 
-    .line 204
+    .line 197
     .local v4, reviewY:I
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/camera/effect/GLCanvasState;->getAlpha()F
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getAlpha()F
 
     move-result v7
 
-    .line 205
+    .line 198
     .local v7, alpha:F
     invoke-static {v11}, Ljava/lang/Math;->round(F)I
 
@@ -1100,19 +1035,15 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/gallery3d/ui/RawTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
 
-    .line 207
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    .line 200
+    invoke-interface {p1, v7}, Lcom/android/gallery3d/ui/GLCanvas;->setAlpha(F)V
 
-    move-result-object v1
-
-    invoke-virtual {v1, v7}, Lcom/android/camera/effect/GLCanvasState;->setAlpha(F)V
-
-    .line 208
+    .line 201
     const/4 v1, 0x1
 
     return v1
 
-    .line 196
+    .line 189
     .end local v3           #reviewX:I
     .end local v4           #reviewY:I
     .end local v7           #alpha:F
@@ -1134,10 +1065,10 @@
     .parameter "height"
 
     .prologue
-    .line 63
+    .line 62
     iput p1, p0, Lcom/android/camera/SwitchAnimManager;->mPreviewFrameLayoutWidth:I
 
-    .line 64
+    .line 63
     return-void
 .end method
 
@@ -1147,13 +1078,13 @@
     .parameter "height"
 
     .prologue
-    .line 55
+    .line 54
     iput p1, p0, Lcom/android/camera/SwitchAnimManager;->mReviewDrawingWidth:I
 
-    .line 56
+    .line 55
     iput p2, p0, Lcom/android/camera/SwitchAnimManager;->mReviewDrawingHeight:I
 
-    .line 57
+    .line 56
     return-void
 .end method
 
@@ -1162,16 +1093,16 @@
     .parameter "orientation"
 
     .prologue
-    .line 68
+    .line 67
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/camera/SwitchAnimManager;->mAnimStartTime:J
 
-    .line 69
+    .line 68
     iput p1, p0, Lcom/android/camera/SwitchAnimManager;->mOrientation:I
 
-    .line 70
+    .line 69
     return-void
 .end method

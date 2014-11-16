@@ -40,15 +40,15 @@
     .parameter "item"
 
     .prologue
-    .line 681
+    .line 668
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 682
+    .line 669
     iput-object p2, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->mItem:Lcom/android/gallery3d/data/MediaItem;
 
-    .line 683
+    .line 670
     return-void
 .end method
 
@@ -63,25 +63,25 @@
 
     const/4 v5, 0x1
 
-    .line 689
+    .line 676
     iget-object v3, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->mItem:Lcom/android/gallery3d/data/MediaItem;
 
     invoke-virtual {v3}, Lcom/android/gallery3d/data/MediaItem;->getScreenNail()Lcom/android/gallery3d/ui/ScreenNail;
 
     move-result-object v1
 
-    .line 690
+    .line 677
     .local v1, s:Lcom/android/gallery3d/ui/ScreenNail;
     if-eqz v1, :cond_1
 
     move-object v2, v1
 
-    .line 704
+    .line 691
     :cond_0
     :goto_0
     return-object v2
 
-    .line 694
+    .line 681
     :cond_1
     iget-object v3, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
@@ -94,7 +94,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 695
+    .line 682
     iget-object v2, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->this$0:Lcom/android/gallery3d/app/PhotoDataAdapter;
 
     iget-object v3, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->mItem:Lcom/android/gallery3d/data/MediaItem;
@@ -106,7 +106,7 @@
 
     goto :goto_0
 
-    .line 698
+    .line 685
     :cond_2
     iget-object v3, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->mItem:Lcom/android/gallery3d/data/MediaItem;
 
@@ -120,7 +120,7 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    .line 699
+    .line 686
     .local v0, bitmap:Landroid/graphics/Bitmap;
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
 
@@ -128,10 +128,10 @@
 
     if-nez v3, :cond_0
 
-    .line 700
+    .line 687
     if-eqz v0, :cond_3
 
-    .line 701
+    .line 688
     iget-object v3, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->mItem:Lcom/android/gallery3d/data/MediaItem;
 
     invoke-virtual {v3}, Lcom/android/gallery3d/data/MediaItem;->getRotation()I
@@ -150,7 +150,7 @@
 
     move-result-object v0
 
-    .line 704
+    .line 691
     :cond_3
     if-eqz v0, :cond_0
 
@@ -166,7 +166,7 @@
     .parameter "x0"
 
     .prologue
-    .line 678
+    .line 665
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/app/PhotoDataAdapter$ScreenNailJob;->run(Lcom/android/gallery3d/util/ThreadPool$JobContext;)Lcom/android/gallery3d/ui/ScreenNail;
 
     move-result-object v0

@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/camera/ui/HorizontalSettingPopup;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 59
+    .line 60
     iput-object p1, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +41,7 @@
     .parameter "v"
 
     .prologue
-    .line 61
+    .line 62
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
@@ -53,7 +52,7 @@
 
     move-result v0
 
-    .line 62
+    .line 63
     .local v0, index:I
     iget-object v1, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
@@ -64,22 +63,22 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 66
+    .line 67
     :cond_0
     :goto_0
     return-void
 
-    .line 63
+    .line 64
     :cond_1
     iget-object v1, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
     #setter for: Lcom/android/camera/ui/HorizontalSettingPopup;->mSelectedIndex:I
     invoke-static {v1, v0}, Lcom/android/camera/ui/HorizontalSettingPopup;->access$002(Lcom/android/camera/ui/HorizontalSettingPopup;I)I
 
-    .line 64
+    .line 65
     iget-object v1, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
-    iget-object v1, v1, Lcom/android/camera/ui/AbstractSettingPopup;->mPreference:Lcom/android/camera/preferences/IconListPreference;
+    iget-object v1, v1, Lcom/android/camera/ui/AbstractSettingPopup;->mPreference:Lcom/android/camera/IconListPreference;
 
     iget-object v2, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
@@ -88,9 +87,9 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Lcom/android/camera/preferences/IconListPreference;->setValueIndex(I)V
+    invoke-virtual {v1, v2}, Lcom/android/camera/ListPreference;->setValueIndex(I)V
 
-    .line 65
+    .line 66
     iget-object v1, p0, Lcom/android/camera/ui/HorizontalSettingPopup$1;->this$0:Lcom/android/camera/ui/HorizontalSettingPopup;
 
     iget-object v1, v1, Lcom/android/camera/ui/AbstractSettingPopup;->mListener:Lcom/android/camera/ui/AbstractSettingPopup$Listener;

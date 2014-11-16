@@ -47,7 +47,7 @@
     .prologue
     .line 41
     .local p3, byteSegments:Ljava/util/List;,"Ljava/util/List<[B>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput-object p1, p0, Lcom/google/zxing/common/DecoderResult;->rawBytes:[B

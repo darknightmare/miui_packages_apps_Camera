@@ -8,6 +8,6 @@
         <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
             <GridView android:id="@id/settings_grid" android:choiceMode="singleChoice" style="@style/SettingItemGrid" />
         </FrameLayout>
-        <View android:id="@id/settings_grid_under_line" style="@style/PopupTitleSeperator" />
+        <View style="@style/PopupTitleSeperator" />
     </LinearLayout>
 </com.android.camera.ui.GridSettingPopup>

@@ -48,41 +48,41 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 62
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 60
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
+    .line 47
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
 
-    .line 51
+    .line 49
     iput-boolean v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
-    .line 56
+    .line 54
     iput v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
-    .line 60
+    .line 58
     iput-boolean v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mRotationLockedSetting:Z
 
-    .line 63
+    .line 61
     iput-object p1, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
-    .line 64
+    .line 62
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
-    .line 65
+    .line 63
     new-instance v0, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;
 
     invoke-direct {v0, p0, p1}, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;-><init>(Lcom/android/gallery3d/app/OrientationManager;Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationListener:Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;
 
-    .line 66
+    .line 64
     return-void
 .end method
 
@@ -91,7 +91,7 @@
     .parameter "x0"
 
     .prologue
-    .line 35
+    .line 33
     iget v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
 
     return v0
@@ -103,7 +103,7 @@
     .parameter "x1"
 
     .prologue
-    .line 35
+    .line 33
     iput p1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
 
     return p1
@@ -115,7 +115,7 @@
     .parameter "x1"
 
     .prologue
-    .line 35
+    .line 33
     invoke-static {p0, p1}, Lcom/android/gallery3d/app/OrientationManager;->roundOrientation(II)I
 
     move-result v0
@@ -128,7 +128,7 @@
     .parameter "x0"
 
     .prologue
-    .line 35
+    .line 33
     iget-boolean v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
     return v0
@@ -139,7 +139,7 @@
     .parameter "x0"
 
     .prologue
-    .line 35
+    .line 33
     invoke-direct {p0}, Lcom/android/gallery3d/app/OrientationManager;->updateCompensation()V
 
     return-void
@@ -149,20 +149,20 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 141
     iget v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
     if-eqz v0, :cond_0
 
-    .line 144
+    .line 142
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
-    .line 145
+    .line 143
     invoke-direct {p0}, Lcom/android/gallery3d/app/OrientationManager;->notifyListeners()V
 
-    .line 147
+    .line 145
     :cond_0
     return-void
 .end method
@@ -174,7 +174,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 202
+    .line 200
     invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v2
@@ -187,34 +187,34 @@
 
     move-result v0
 
-    .line 204
+    .line 202
     .local v0, rotation:I
     packed-switch v0, :pswitch_data_0
 
-    .line 210
+    .line 208
     :goto_0
     :pswitch_0
     return v1
 
-    .line 206
+    .line 204
     :pswitch_1
     const/16 v1, 0x5a
 
     goto :goto_0
 
-    .line 207
+    .line 205
     :pswitch_2
     const/16 v1, 0xb4
 
     goto :goto_0
 
-    .line 208
+    .line 206
     :pswitch_3
     const/16 v1, 0x10e
 
     goto :goto_0
 
-    .line 204
+    .line 202
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -228,12 +228,12 @@
     .locals 4
 
     .prologue
-    .line 150
+    .line 148
     iget-object v3, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 151
+    .line 149
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -248,7 +248,7 @@
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 152
+    .line 150
     iget-object v2, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -259,19 +259,19 @@
 
     invoke-interface {v2}, Lcom/android/gallery3d/app/OrientationManager$Listener;->onOrientationCompensationChanged()V
 
-    .line 151
+    .line 149
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 154
+    .line 152
     :cond_0
     monitor-exit v3
 
-    .line 155
+    .line 153
     return-void
 
-    .line 154
+    .line 152
     .end local v1           #n:I
     :catchall_0
     move-exception v2
@@ -289,23 +289,23 @@
     .parameter "orientationHistory"
 
     .prologue
-    .line 187
+    .line 185
     const/4 v0, 0x0
 
-    .line 188
+    .line 186
     .local v0, changeOrientation:Z
     const/4 v2, -0x1
 
     if-ne p1, v2, :cond_1
 
-    .line 189
+    .line 187
     const/4 v0, 0x1
 
-    .line 195
+    .line 193
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 194
     add-int/lit8 v2, p0, 0x2d
 
     div-int/lit8 v2, v2, 0x5a
@@ -314,12 +314,12 @@
 
     rem-int/lit16 p1, v2, 0x168
 
-    .line 198
+    .line 196
     .end local p1
     :cond_0
     return p1
 
-    .line 191
+    .line 189
     .restart local p1
     :cond_1
     sub-int v2, p0, p1
@@ -328,7 +328,7 @@
 
     move-result v1
 
-    .line 192
+    .line 190
     .local v1, dist:I
     rsub-int v2, v1, 0x168
 
@@ -336,7 +336,7 @@
 
     move-result v1
 
-    .line 193
+    .line 191
     const/16 v2, 0x32
 
     if-lt v1, v2, :cond_2
@@ -356,19 +356,19 @@
     .locals 3
 
     .prologue
-    .line 128
+    .line 126
     iget v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
 
     const/4 v2, -0x1
 
     if-ne v1, v2, :cond_1
 
-    .line 139
+    .line 137
     :cond_0
     :goto_0
     return-void
 
-    .line 132
+    .line 130
     :cond_1
     iget v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
 
@@ -382,16 +382,16 @@
 
     rem-int/lit16 v0, v1, 0x168
 
-    .line 135
+    .line 133
     .local v0, orientationCompensation:I
     iget v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
     if-eq v1, v0, :cond_0
 
-    .line 136
+    .line 134
     iput v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
-    .line 137
+    .line 135
     invoke-direct {p0}, Lcom/android/gallery3d/app/OrientationManager;->notifyListeners()V
 
     goto :goto_0
@@ -404,24 +404,24 @@
     .parameter "listener"
 
     .prologue
-    .line 80
+    .line 78
     iget-object v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v1
 
-    .line 81
+    .line 79
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 82
+    .line 80
     monitor-exit v1
 
-    .line 83
+    .line 81
     return-void
 
-    .line 82
+    .line 80
     :catchall_0
     move-exception v0
 
@@ -436,7 +436,7 @@
     .locals 1
 
     .prologue
-    .line 183
+    .line 181
     iget v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationCompensation:I
 
     return v0
@@ -446,7 +446,7 @@
     .locals 1
 
     .prologue
-    .line 178
+    .line 176
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
     invoke-static {v0}, Lcom/android/gallery3d/app/OrientationManager;->getDisplayRotation(Landroid/app/Activity;)I
@@ -462,23 +462,23 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 102
+    .line 100
     iget-boolean v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
     if-eqz v0, :cond_0
 
-    .line 113
+    .line 111
     :goto_0
     return-void
 
-    .line 103
+    .line 101
     :cond_0
     iput-boolean v2, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
-    .line 104
+    .line 102
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -492,35 +492,35 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 106
+    .line 104
     const-string v0, "OrientationManager"
 
     const-string v1, "lock orientation to landscape"
 
-    invoke-static {v0, v1}, Lcom/android/gallery3d/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/gallery3d/app/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
+    .line 105
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setRequestedOrientation(I)V
 
-    .line 112
+    .line 110
     :goto_1
     invoke-direct {p0}, Lcom/android/gallery3d/app/OrientationManager;->updateCompensation()V
 
     goto :goto_0
 
-    .line 109
+    .line 107
     :cond_1
     const-string v0, "OrientationManager"
 
     const-string v1, "lock orientation to portrait"
 
-    invoke-static {v0, v1}, Lcom/android/gallery3d/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/gallery3d/app/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 110
+    .line 108
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v0, v2}, Landroid/app/Activity;->setRequestedOrientation(I)V
@@ -532,12 +532,12 @@
     .locals 1
 
     .prologue
-    .line 76
+    .line 74
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationListener:Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;->disable()V
+    invoke-virtual {v0}, Landroid/view/OrientationEventListener;->disable()V
 
-    .line 77
+    .line 75
     return-void
 .end method
 
@@ -546,24 +546,24 @@
     .parameter "listener"
 
     .prologue
-    .line 86
+    .line 84
     iget-object v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v1
 
-    .line 87
+    .line 85
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 88
+    .line 86
     monitor-exit v1
 
-    .line 89
+    .line 87
     return-void
 
-    .line 88
+    .line 86
     :catchall_0
     move-exception v0
 
@@ -582,14 +582,14 @@
 
     const/4 v2, 0x0
 
-    .line 69
+    .line 67
     iget-object v3, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 70
+    .line 68
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v3, "accelerometer_rotation"
 
@@ -602,18 +602,18 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mRotationLockedSetting:Z
 
-    .line 72
+    .line 70
     iget-object v1, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationListener:Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;
 
-    invoke-virtual {v1}, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;->enable()V
+    invoke-virtual {v1}, Landroid/view/OrientationEventListener;->enable()V
 
-    .line 73
+    .line 71
     return-void
 
     :cond_0
     move v1, v2
 
-    .line 70
+    .line 68
     goto :goto_0
 .end method
 
@@ -621,42 +621,42 @@
     .locals 2
 
     .prologue
-    .line 118
+    .line 116
     iget-boolean v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
     if-nez v0, :cond_1
 
-    .line 124
+    .line 122
     :cond_0
     :goto_0
     return-void
 
-    .line 119
+    .line 117
     :cond_1
     iget-boolean v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mRotationLockedSetting:Z
 
     if-nez v0, :cond_0
 
-    .line 120
+    .line 118
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z
 
-    .line 121
+    .line 119
     const-string v0, "OrientationManager"
 
     const-string v1, "unlock orientation"
 
-    invoke-static {v0, v1}, Lcom/android/gallery3d/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/gallery3d/app/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
+    .line 120
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager;->mActivity:Landroid/app/Activity;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setRequestedOrientation(I)V
 
-    .line 123
+    .line 121
     invoke-direct {p0}, Lcom/android/gallery3d/app/OrientationManager;->disableCompensation()V
 
     goto :goto_0

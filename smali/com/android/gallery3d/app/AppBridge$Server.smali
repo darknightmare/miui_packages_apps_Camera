@@ -24,9 +24,6 @@
 .method public abstract setCameraRelativeFrame(Landroid/graphics/Rect;)V
 .end method
 
-.method public abstract setGesture(I)V
-.end method
-
 .method public abstract setSecure(Z)V
 .end method
 

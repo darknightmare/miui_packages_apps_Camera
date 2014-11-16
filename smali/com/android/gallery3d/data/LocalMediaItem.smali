@@ -82,7 +82,7 @@
     const/4 v7, 0x1
 
     .line 84
-    invoke-super {p0}, Lcom/android/gallery3d/data/MediaItem;->getDetails()Lcom/android/gallery3d/data/MediaDetails;
+    invoke-super {p0}, Lcom/android/gallery3d/data/MediaObject;->getDetails()Lcom/android/gallery3d/data/MediaDetails;
 
     move-result-object v0
 
@@ -120,29 +120,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
-    .line 89
-    const/4 v2, 0x5
-
-    iget v3, p0, Lcom/android/gallery3d/data/LocalMediaItem;->width:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
-
     .line 90
-    const/4 v2, 0x6
-
-    iget v3, p0, Lcom/android/gallery3d/data/LocalMediaItem;->height:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
-
-    .line 92
     iget-wide v2, p0, Lcom/android/gallery3d/data/LocalMediaItem;->latitude:D
 
     iget-wide v4, p0, Lcom/android/gallery3d/data/LocalMediaItem;->longitude:D
@@ -153,7 +131,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 93
+    .line 91
     const/4 v2, 0x4
 
     const/4 v3, 0x2
@@ -172,7 +150,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
-    .line 95
+    .line 93
     :cond_0
     iget-wide v2, p0, Lcom/android/gallery3d/data/LocalMediaItem;->fileSize:J
 
@@ -192,7 +170,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
-    .line 96
+    .line 94
     :cond_1
     return-object v0
 .end method
@@ -234,7 +212,7 @@
     .locals 2
 
     .prologue
-    .line 105
+    .line 103
     iget-wide v0, p0, Lcom/android/gallery3d/data/LocalMediaItem;->fileSize:J
 
     return-wide v0

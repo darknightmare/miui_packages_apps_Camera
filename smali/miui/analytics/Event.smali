@@ -52,7 +52,6 @@
 
 .method public static setDispatcher(Ljava/util/List;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

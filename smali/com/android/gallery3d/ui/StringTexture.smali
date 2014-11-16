@@ -1,4 +1,4 @@
-.class public Lcom/android/gallery3d/ui/StringTexture;
+.class Lcom/android/gallery3d/ui/StringTexture;
 .super Lcom/android/gallery3d/ui/CanvasTexture;
 .source "StringTexture.java"
 
@@ -52,22 +52,22 @@
 
     .line 47
     .local v0, paint:Landroid/text/TextPaint;
-    invoke-virtual {v0, p0}, Landroid/text/TextPaint;->setTextSize(F)V
+    invoke-virtual {v0, p0}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 48
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setAntiAlias(Z)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 49
-    invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setColor(I)V
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 50
     const/high16 v1, 0x4000
 
     const/high16 v2, -0x100
 
-    invoke-virtual {v0, v1, v3, v3, v2}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
+    invoke-virtual {v0, v1, v3, v3, v2}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 51
     return-object v0
@@ -117,7 +117,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 66
     :cond_0
@@ -154,13 +154,13 @@
 
     .prologue
     .line 74
-    invoke-virtual {p1}, Landroid/text/TextPaint;->getFontMetricsInt()Landroid/graphics/Paint$FontMetricsInt;
+    invoke-virtual {p1}, Landroid/graphics/Paint;->getFontMetricsInt()Landroid/graphics/Paint$FontMetricsInt;
 
     move-result-object v3
 
     .line 75
     .local v3, metrics:Landroid/graphics/Paint$FontMetricsInt;
-    invoke-virtual {p1, p0}, Landroid/text/TextPaint;->measureText(Ljava/lang/String;)F
+    invoke-virtual {p1, p0}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
 
     move-result v0
 
@@ -205,79 +205,6 @@
 
 
 # virtual methods
-.method public bridge synthetic getHeight()I
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->getHeight()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getTarget()I
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->getTarget()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getWidth()I
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->getWidth()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic isContentValid()Z
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->isContentValid()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic isOpaque()Z
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->isOpaque()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 32
-    invoke-super {p0, p1}, Lcom/android/gallery3d/ui/CanvasTexture;->onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method protected onDraw(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
     .locals 3
     .parameter "canvas"
@@ -293,14 +220,6 @@
 
     neg-int v0, v0
 
-    iget-object v1, p0, Lcom/android/gallery3d/ui/StringTexture;->mMetrics:Landroid/graphics/Paint$FontMetricsInt;
-
-    iget v1, v1, Landroid/graphics/Paint$FontMetricsInt;->descent:I
-
-    div-int/lit8 v1, v1, 0x2
-
-    add-int/2addr v0, v1
-
     int-to-float v0, v0
 
     invoke-virtual {p1, v2, v0}, Landroid/graphics/Canvas;->translate(FF)V
@@ -313,37 +232,5 @@
     invoke-virtual {p1, v0, v2, v2, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 87
-    return-void
-.end method
-
-.method public bridge synthetic recycle()V
-    .locals 0
-
-    .prologue
-    .line 32
-    invoke-super {p0}, Lcom/android/gallery3d/ui/CanvasTexture;->recycle()V
-
-    return-void
-.end method
-
-.method public bridge synthetic setOpaque(Z)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 32
-    invoke-super {p0, p1}, Lcom/android/gallery3d/ui/CanvasTexture;->setOpaque(Z)V
-
-    return-void
-.end method
-
-.method public bridge synthetic updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 32
-    invoke-super {p0, p1}, Lcom/android/gallery3d/ui/CanvasTexture;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
-
     return-void
 .end method

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 118
+    .line 117
     iput-object p1, p0, Lcom/android/gallery3d/app/SlideshowPage$2;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
     invoke-direct {p0, p2}, Lcom/android/gallery3d/ui/SynchronizedHandler;-><init>(Lcom/android/gallery3d/app/GalleryActivity;)V
@@ -40,30 +40,30 @@
     .parameter "message"
 
     .prologue
-    .line 121
+    .line 120
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 128
+    .line 127
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    .line 123
+    .line 122
     :pswitch_0
     iget-object v0, p0, Lcom/android/gallery3d/app/SlideshowPage$2;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
     #calls: Lcom/android/gallery3d/app/SlideshowPage;->showPendingBitmap()V
     invoke-static {v0}, Lcom/android/gallery3d/app/SlideshowPage;->access$100(Lcom/android/gallery3d/app/SlideshowPage;)V
 
-    .line 130
+    .line 129
     :goto_0
     return-void
 
-    .line 126
+    .line 125
     :pswitch_1
     iget-object v0, p0, Lcom/android/gallery3d/app/SlideshowPage$2;->this$0:Lcom/android/gallery3d/app/SlideshowPage;
 
@@ -72,7 +72,7 @@
 
     goto :goto_0
 
-    .line 121
+    .line 120
     nop
 
     :pswitch_data_0

@@ -13,7 +13,7 @@
 
     .prologue
     .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     new-instance v0, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;
@@ -172,7 +172,6 @@
 .method public decode(Lcom/google/zxing/common/BitMatrix;Ljava/util/Map;)Lcom/google/zxing/common/DecoderResult;
     .locals 9
     .parameter "bits"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

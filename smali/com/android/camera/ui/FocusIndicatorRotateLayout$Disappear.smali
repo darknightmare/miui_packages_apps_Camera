@@ -24,13 +24,12 @@
 # direct methods
 .method private constructor <init>(Lcom/android/camera/ui/FocusIndicatorRotateLayout;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 97
+    .line 90
     iput-object p1, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout$Disappear;->this$0:Lcom/android/camera/ui/FocusIndicatorRotateLayout;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +40,7 @@
     .parameter "x1"
 
     .prologue
-    .line 97
+    .line 90
     invoke-direct {p0, p1}, Lcom/android/camera/ui/FocusIndicatorRotateLayout$Disappear;-><init>(Lcom/android/camera/ui/FocusIndicatorRotateLayout;)V
 
     return-void
@@ -53,7 +52,7 @@
     .locals 2
 
     .prologue
-    .line 100
+    .line 93
     iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout$Disappear;->this$0:Lcom/android/camera/ui/FocusIndicatorRotateLayout;
 
     iget-object v0, v0, Lcom/android/camera/ui/RotateLayout;->mChild:Landroid/view/View;
@@ -62,14 +61,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 101
+    .line 94
     iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout$Disappear;->this$0:Lcom/android/camera/ui/FocusIndicatorRotateLayout;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
-    invoke-static {v0, v1}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->access$202(Lcom/android/camera/ui/FocusIndicatorRotateLayout;I)I
+    invoke-static {v0, v1}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->access$302(Lcom/android/camera/ui/FocusIndicatorRotateLayout;I)I
 
-    .line 102
+    .line 95
     return-void
 .end method

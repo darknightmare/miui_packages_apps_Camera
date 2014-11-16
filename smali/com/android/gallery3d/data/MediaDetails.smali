@@ -58,360 +58,214 @@
     .locals 1
 
     .prologue
-    .line 31
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 29
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
+    .line 33
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mDetails:Ljava/util/TreeMap;
 
-    .line 36
+    .line 34
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mUnits:Ljava/util/HashMap;
 
-    .line 63
+    .line 61
     return-void
 .end method
 
 .method public static extractExifInfo(Lcom/android/gallery3d/data/MediaDetails;Ljava/lang/String;)V
-    .locals 7
+    .locals 9
     .parameter "details"
     .parameter "filePath"
 
     .prologue
-    const/16 v6, 0x67
+    const-wide/16 v7, 0x0
+
+    .line 122
+    :try_start_0
+    new-instance v3, Landroid/media/ExifInterface;
+
+    invoke-direct {v3, p1}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
+
+    .line 123
+    .local v3, exif:Landroid/media/ExifInterface;
+    const-string v4, "Flash"
+
+    const/16 v5, 0x66
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 124
+    const-string v4, "ImageWidth"
+
+    const/4 v5, 0x5
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 125
+    const-string v4, "ImageLength"
+
+    const/4 v5, 0x6
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 127
+    const-string v4, "Make"
+
+    const/16 v5, 0x64
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 128
+    const-string v4, "Model"
+
+    const/16 v5, 0x65
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 129
+    const-string v4, "FNumber"
+
+    const/16 v5, 0x69
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 130
+    const-string v4, "ISOSpeedRatings"
+
+    const/16 v5, 0x6c
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+
+    .line 131
+    const-string v4, "WhiteBalance"
+
+    const/16 v5, 0x68
+
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
 
     .line 133
-    new-instance v1, Lcom/android/gallery3d/exif/ExifInterface;
+    const-string v4, "ExposureTime"
 
-    invoke-direct {v1}, Lcom/android/gallery3d/exif/ExifInterface;-><init>()V
+    const/16 v5, 0x6b
 
-    .line 135
-    .local v1, exif:Lcom/android/gallery3d/exif/ExifInterface;
-    :try_start_0
-    invoke-virtual {v1, p1}, Lcom/android/gallery3d/exif/ExifInterface;->readExif(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-
-    .line 142
-    :goto_0
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_FLASH:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x66
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 144
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_IMAGE_WIDTH:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/4 v4, 0x5
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 146
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_IMAGE_LENGTH:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/4 v4, 0x6
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 148
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_MAKE:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x64
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 150
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_MODEL:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x65
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 152
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_APERTURE_VALUE:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x69
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 154
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_ISO_SPEED_RATINGS:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x6c
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 156
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_WHITE_BALANCE:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x68
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 158
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_EXPOSURE_TIME:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v3
-
-    const/16 v4, 0x6b
-
-    invoke-static {p0, v3, v4}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-
-    .line 160
-    sget v3, Lcom/android/gallery3d/exif/ExifInterface;->TAG_FOCAL_LENGTH:I
-
-    invoke-virtual {v1, v3}, Lcom/android/gallery3d/exif/ExifInterface;->getTag(I)Lcom/android/gallery3d/exif/ExifTag;
-
-    move-result-object v2
-
-    .line 162
-    .local v2, focalTag:Lcom/android/gallery3d/exif/ExifTag;
-    if-eqz v2, :cond_0
-
-    .line 163
-    const-wide/16 v3, 0x0
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/gallery3d/exif/ExifTag;->getValueAsRational(J)Lcom/android/gallery3d/exif/Rational;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/gallery3d/exif/Rational;->toDouble()D
-
-    move-result-wide v3
-
-    invoke-static {v3, v4}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v6, v3}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
-
-    .line 165
-    const v3, 0x7f0d018c
-
-    invoke-virtual {p0, v6, v3}, Lcom/android/gallery3d/data/MediaDetails;->setUnit(II)V
-
-    .line 167
-    :cond_0
-    return-void
+    invoke-static {p0, v3, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
 
     .line 136
-    .end local v2           #focalTag:Lcom/android/gallery3d/exif/ExifTag;
-    :catch_0
-    move-exception v0
+    const-string v4, "FocalLength"
+
+    const-wide/16 v5, 0x0
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/media/ExifInterface;->getAttributeDouble(Ljava/lang/String;D)D
+
+    move-result-wide v0
 
     .line 137
-    .local v0, e:Ljava/io/FileNotFoundException;
-    const-string v3, "MediaDetails"
+    .local v0, data:D
+    cmpl-double v4, v0, v7
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Could not find file to read exif: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4, v0}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_0
+    if-eqz v4, :cond_0
 
     .line 138
-    .end local v0           #e:Ljava/io/FileNotFoundException;
-    :catch_1
-    move-exception v0
+    const/16 v4, 0x67
+
+    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
     .line 139
-    .local v0, e:Ljava/io/IOException;
-    const-string v3, "MediaDetails"
+    const/16 v4, 0x67
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const v5, 0x7f0d019a
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p0, v4, v5}, Lcom/android/gallery3d/data/MediaDetails;->setUnit(II)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string v5, "Could not read exif from file: "
+    .line 145
+    .end local v0           #data:D
+    .end local v3           #exif:Landroid/media/ExifInterface;
+    :cond_0
+    :goto_0
+    return-void
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 141
+    :catch_0
+    move-exception v2
 
-    move-result-object v4
+    .line 143
+    .local v2, ex:Ljava/io/IOException;
+    const-string v4, "MediaDetails"
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, ""
 
-    move-result-object v4
+    invoke-static {v4, v5, v2}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4, v0}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
-.method private static setExifData(Lcom/android/gallery3d/data/MediaDetails;Lcom/android/gallery3d/exif/ExifTag;I)V
-    .locals 6
+.method private static setExifData(Lcom/android/gallery3d/data/MediaDetails;Landroid/media/ExifInterface;Ljava/lang/String;I)V
+    .locals 3
     .parameter "details"
+    .parameter "exif"
     .parameter "tag"
     .parameter "key"
 
     .prologue
-    const-wide/16 v4, 0x0
+    .line 108
+    invoke-virtual {p1, p2}, Landroid/media/ExifInterface;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 109
+    .local v1, value:Ljava/lang/String;
+    if-eqz v1, :cond_0
+
+    .line 110
+    const/16 v2, 0x66
+
+    if-ne p3, v2, :cond_1
 
     .line 111
-    if-eqz p1, :cond_1
-
-    .line 112
-    const/4 v2, 0x0
-
-    .line 113
-    .local v2, value:Ljava/lang/String;
-    invoke-virtual {p1}, Lcom/android/gallery3d/exif/ExifTag;->getDataType()S
-
-    move-result v1
-
-    .line 114
-    .local v1, type:I
-    const/4 v3, 0x5
-
-    if-eq v1, v3, :cond_0
-
-    const/16 v3, 0xa
-
-    if-ne v1, v3, :cond_2
-
-    .line 115
-    :cond_0
-    invoke-virtual {p1, v4, v5}, Lcom/android/gallery3d/exif/ExifTag;->getValueAsRational(J)Lcom/android/gallery3d/exif/Rational;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/gallery3d/exif/Rational;->toDouble()D
-
-    move-result-wide v3
-
-    invoke-static {v3, v4}, Ljava/lang/String;->valueOf(D)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 121
-    :goto_0
-    const/16 v3, 0x66
-
-    if-ne p2, v3, :cond_4
-
-    .line 122
     new-instance v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;
 
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v0, v3}, Lcom/android/gallery3d/data/MediaDetails$FlashState;-><init>(I)V
+    invoke-direct {v0, v2}, Lcom/android/gallery3d/data/MediaDetails$FlashState;-><init>(I)V
 
-    .line 124
+    .line 113
     .local v0, state:Lcom/android/gallery3d/data/MediaDetails$FlashState;
-    invoke-virtual {p0, p2, v0}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
+    invoke-virtual {p0, p3, v0}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
-    .line 129
+    .line 118
     .end local v0           #state:Lcom/android/gallery3d/data/MediaDetails$FlashState;
-    .end local v1           #type:I
-    .end local v2           #value:Ljava/lang/String;
-    :cond_1
-    :goto_1
+    :cond_0
+    :goto_0
     return-void
 
-    .line 116
-    .restart local v1       #type:I
-    .restart local v2       #value:Ljava/lang/String;
-    :cond_2
-    const/4 v3, 0x2
-
-    if-ne v1, v3, :cond_3
-
-    .line 117
-    invoke-virtual {p1}, Lcom/android/gallery3d/exif/ExifTag;->getValueAsString()Ljava/lang/String;
-
-    move-result-object v2
+    .line 115
+    :cond_1
+    invoke-virtual {p0, p3, v1}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
 
     goto :goto_0
-
-    .line 119
-    :cond_3
-    invoke-virtual {p1, v4, v5}, Lcom/android/gallery3d/exif/ExifTag;->forceGetValueAsLong(J)J
-
-    move-result-wide v3
-
-    invoke-static {v3, v4}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_0
-
-    .line 126
-    :cond_4
-    invoke-virtual {p0, p2, v2}, Lcom/android/gallery3d/data/MediaDetails;->addDetail(ILjava/lang/Object;)V
-
-    goto :goto_1
 .end method
 
 
@@ -422,7 +276,7 @@
     .parameter "value"
 
     .prologue
-    .line 81
+    .line 79
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mDetails:Ljava/util/TreeMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -431,7 +285,7 @@
 
     invoke-virtual {v0, v1, p2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
+    .line 80
     return-void
 .end method
 
@@ -440,7 +294,7 @@
     .parameter "index"
 
     .prologue
-    .line 85
+    .line 83
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mDetails:Ljava/util/TreeMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -459,7 +313,7 @@
     .parameter "index"
 
     .prologue
-    .line 106
+    .line 103
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mUnits:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -484,7 +338,7 @@
     .parameter "index"
 
     .prologue
-    .line 102
+    .line 99
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mUnits:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -514,7 +368,7 @@
     .end annotation
 
     .prologue
-    .line 94
+    .line 91
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mDetails:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
@@ -534,7 +388,7 @@
     .parameter "unit"
 
     .prologue
-    .line 98
+    .line 95
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mUnits:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -547,7 +401,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 99
+    .line 96
     return-void
 .end method
 
@@ -555,7 +409,7 @@
     .locals 1
 
     .prologue
-    .line 89
+    .line 87
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaDetails;->mDetails:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->size()I

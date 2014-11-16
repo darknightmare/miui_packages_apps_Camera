@@ -4,10 +4,10 @@
 
 
 # static fields
-.field private static sMap:Ljava/util/WeakHashMap;
+.field private static sMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/WeakHashMap",
+            "Ljava/util/HashMap",
             "<",
             "Landroid/content/Context;",
             "Lcom/android/camera/AutoLockManager;",
@@ -35,11 +35,11 @@
 
     .prologue
     .line 21
-    new-instance v0, Ljava/util/WeakHashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v0, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/WeakHashMap;
+    sput-object v0, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/HashMap;
 
     return-void
 .end method
@@ -50,7 +50,7 @@
 
     .prologue
     .line 24
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 16
     const-wide/16 v0, 0x3a98
@@ -111,9 +111,9 @@
 
     .prologue
     .line 36
-    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/WeakHashMap;
+    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -131,9 +131,9 @@
 
     .line 39
     .restart local v0       #instance:Lcom/android/camera/AutoLockManager;
-    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/WeakHashMap;
+    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p0, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 41
     :cond_0
@@ -158,7 +158,7 @@
 
     .line 74
     .local v0, handlerThread:Landroid/os/HandlerThread;
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 75
     new-instance v1, Lcom/android/camera/AutoLockManager$1;
@@ -215,9 +215,9 @@
 
     .prologue
     .line 45
-    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/WeakHashMap;
+    sget-object v1, Lcom/android/camera/AutoLockManager;->sMap:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

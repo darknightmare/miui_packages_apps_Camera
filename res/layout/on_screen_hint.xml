@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/control_panel_bottom" android:layout_below="@id/control_panel_top"
+<LinearLayout android:orientation="horizontal" android:id="@id/on_screen_hint" android:background="@drawable/on_screen_hint_frame" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/control_panel_bottom" android:layout_centerHorizontal="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:id="@id/on_screen_hint" android:background="@drawable/on_screen_hint_frame" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
-        <TextView android:textAppearance="@style/OnScreenHintTextAppearance.Small" android:textColor="#ffffffff" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="#bb000000" android:shadowRadius="2.75" android:layout_weight="1.0" />
-    </LinearLayout>
-    <com.android.camera.ui.RotateLayout android:id="@id/warning_message_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <TextView android:textAppearance="@style/OnScreenHintTextAppearance.Small" android:textColor="#ffffffff" android:id="@id/warning_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="60.0dip" android:layout_marginRight="60.0dip" android:layout_marginBottom="100.0dip" android:shadowColor="#bb000000" android:shadowRadius="2.75" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-    </com.android.camera.ui.RotateLayout>
-    <com.android.camera.ui.RotateImageView android:id="@id/capture_delay_number" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="30.0dip" android:layout_centerInParent="true" />
-</RelativeLayout>
+    <TextView android:textAppearance="@style/OnScreenHintTextAppearance.Small" android:textColor="#ffffffff" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="#bb000000" android:shadowRadius="2.75" android:layout_weight="1.0" />
+</LinearLayout>

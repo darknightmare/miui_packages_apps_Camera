@@ -32,8 +32,8 @@
     .locals 0
 
     .prologue
-    .line 263
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 248
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "x0"
 
     .prologue
-    .line 263
+    .line 248
     invoke-direct {p0}, Lcom/android/gallery3d/data/LocalSource$IdComparator;-><init>()V
 
     return-void
@@ -57,14 +57,14 @@
     .parameter "p2"
 
     .prologue
-    .line 265
+    .line 250
     iget-object v4, p1, Lcom/android/gallery3d/data/MediaSource$PathId;->path:Lcom/android/gallery3d/data/Path;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/data/Path;->getSuffix()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 266
+    .line 251
     .local v2, s1:Ljava/lang/String;
     iget-object v4, p2, Lcom/android/gallery3d/data/MediaSource$PathId;->path:Lcom/android/gallery3d/data/Path;
 
@@ -72,39 +72,39 @@
 
     move-result-object v3
 
-    .line 267
+    .line 252
     .local v3, s2:Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .line 268
+    .line 253
     .local v0, len1:I
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    .line 269
+    .line 254
     .local v1, len2:I
     if-ge v0, v1, :cond_0
 
-    .line 270
+    .line 255
     const/4 v4, -0x1
 
-    .line 274
+    .line 259
     :goto_0
     return v4
 
-    .line 271
+    .line 256
     :cond_0
     if-le v0, v1, :cond_1
 
-    .line 272
+    .line 257
     const/4 v4, 0x1
 
     goto :goto_0
 
-    .line 274
+    .line 259
     :cond_1
     invoke-virtual {v2, v3}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
@@ -119,7 +119,7 @@
     .parameter "x1"
 
     .prologue
-    .line 263
+    .line 248
     check-cast p1, Lcom/android/gallery3d/data/MediaSource$PathId;
 
     .end local p1

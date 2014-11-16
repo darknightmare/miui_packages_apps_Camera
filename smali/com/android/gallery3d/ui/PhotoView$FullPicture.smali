@@ -38,38 +38,38 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/gallery3d/ui/PhotoView;)V
+.method public constructor <init>(Lcom/android/gallery3d/ui/PhotoView;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 568
+    .line 560
     iput-object p1, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 574
+    .line 557
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mLoadingState:I
 
-    .line 575
+    .line 558
     new-instance v0, Lcom/android/gallery3d/ui/PhotoView$Size;
 
     invoke-direct {v0}, Lcom/android/gallery3d/ui/PhotoView$Size;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mSize:Lcom/android/gallery3d/ui/PhotoView$Size;
 
+    .line 562
     return-void
 .end method
 
 .method private drawTileView(Lcom/android/gallery3d/ui/GLCanvas;Landroid/graphics/Rect;)V
-    .locals 21
+    .locals 20
     .parameter "canvas"
     .parameter "r"
 
     .prologue
-    .line 659
+    .line 655
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
@@ -83,51 +83,51 @@
 
     move-result v7
 
-    .line 660
+    .line 656
     .local v7, imageScale:F
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
-    invoke-virtual {v2}, Lcom/android/gallery3d/ui/PhotoView;->getWidth()I
+    invoke-virtual {v2}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v5
 
-    .line 661
+    .line 657
     .local v5, viewW:I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
-    invoke-virtual {v2}, Lcom/android/gallery3d/ui/PhotoView;->getHeight()I
+    invoke-virtual {v2}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v6
 
-    .line 662
+    .line 658
     .local v6, viewH:I
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Rect;->exactCenterX()F
 
     move-result v3
 
-    .line 663
+    .line 659
     .local v3, cx:F
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Rect;->exactCenterY()F
 
     move-result v4
 
-    .line 664
+    .line 660
     .local v4, cy:F
     const/high16 v16, 0x3f80
 
-    .line 666
+    .line 662
     .local v16, scale:F
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v2, 0x3
 
-    move-result-object v2
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
+    invoke-interface {v0, v2}, Lcom/android/gallery3d/ui/GLCanvas;->save(I)V
 
-    .line 667
+    .line 663
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
@@ -141,7 +141,7 @@
 
     move-result v10
 
-    .line 668
+    .line 664
     .local v10, filmRatio:F
     move-object/from16 v0, p0
 
@@ -172,7 +172,7 @@
 
     const/16 v17, 0x1
 
-    .line 670
+    .line 666
     .local v17, wantsCardEffect:Z
     :goto_0
     move-object/from16 v0, p0
@@ -199,30 +199,30 @@
 
     const/16 v18, 0x1
 
-    .line 672
+    .line 668
     .local v18, wantsOffsetEffect:Z
     :goto_1
     if-eqz v17, :cond_7
 
-    .line 674
+    .line 670
     move-object/from16 v0, p2
 
     iget v11, v0, Landroid/graphics/Rect;->left:I
 
-    .line 675
+    .line 671
     .local v11, left:I
     move-object/from16 v0, p2
 
     iget v14, v0, Landroid/graphics/Rect;->right:I
 
-    .line 676
+    .line 672
     .local v14, right:I
     #calls: Lcom/android/gallery3d/ui/PhotoView;->calculateMoveOutProgress(III)F
     invoke-static {v11, v14, v5}, Lcom/android/gallery3d/ui/PhotoView;->access$2400(III)F
 
     move-result v13
 
-    .line 677
+    .line 673
     .local v13, progress:F
     const/high16 v2, -0x4080
 
@@ -234,14 +234,14 @@
 
     move-result v13
 
-    .line 681
+    .line 677
     const/4 v2, 0x0
 
     cmpg-float v2, v13, v2
 
     if-gez v2, :cond_0
 
-    .line 682
+    .line 678
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
@@ -251,7 +251,7 @@
 
     move-result v16
 
-    .line 683
+    .line 679
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
@@ -261,7 +261,7 @@
 
     move-result v8
 
-    .line 684
+    .line 680
     .local v8, alpha:F
     const/high16 v2, 0x3f80
 
@@ -272,7 +272,7 @@
 
     move-result v16
 
-    .line 685
+    .line 681
     const/high16 v2, 0x3f80
 
     #calls: Lcom/android/gallery3d/ui/PhotoView;->interpolate(FFF)F
@@ -280,29 +280,27 @@
 
     move-result v8
 
-    .line 687
+    .line 683
     mul-float v7, v7, v16
 
-    .line 688
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    .line 684
+    move-object/from16 v0, p1
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lcom/android/gallery3d/ui/GLCanvas;->multiplyAlpha(F)V
 
-    invoke-virtual {v2, v8}, Lcom/android/camera/effect/GLCanvasState;->multiplyAlpha(F)V
-
-    .line 691
+    .line 687
     sub-int v2, v14, v11
 
     if-gt v2, v5, :cond_6
 
-    .line 694
+    .line 690
     int-to-float v2, v5
 
     const/high16 v19, 0x4000
 
     div-float v9, v2, v19
 
-    .line 701
+    .line 697
     .local v9, cxPage:F
     :goto_2
     #calls: Lcom/android/gallery3d/ui/PhotoView;->interpolate(FFF)F
@@ -319,10 +317,10 @@
     :goto_3
     move-object/from16 v2, p0
 
-    .line 710
+    .line 706
     invoke-direct/range {v2 .. v7}, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->setTileViewPosition(FFIIF)V
 
-    .line 711
+    .line 707
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
@@ -342,16 +340,20 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v2, v0, v1}, Lcom/android/gallery3d/ui/PhotoView;->renderChild(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/GLView;)V
+    invoke-virtual {v2, v0, v1}, Lcom/android/gallery3d/ui/GLView;->renderChild(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/GLView;)V
 
-    .line 714
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    .line 710
+    const/high16 v2, 0x3f00
 
-    move-result-object v2
+    add-float/2addr v2, v3
+
+    float-to-int v2, v2
+
+    int-to-float v2, v2
 
     const/high16 v19, 0x3f00
 
-    add-float v19, v19, v3
+    add-float v19, v19, v4
 
     move/from16 v0, v19
 
@@ -365,29 +367,13 @@
 
     move/from16 v19, v0
 
-    const/high16 v20, 0x3f00
+    move-object/from16 v0, p1
 
-    add-float v20, v20, v4
+    move/from16 v1, v19
 
-    move/from16 v0, v20
+    invoke-interface {v0, v2, v1}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
-    float-to-int v0, v0
-
-    move/from16 v20, v0
-
-    move/from16 v0, v20
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    move/from16 v0, v19
-
-    move/from16 v1, v20
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 715
+    .line 711
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Rect;->width()I
 
     move-result v2
@@ -412,7 +398,7 @@
 
     float-to-int v15, v2
 
-    .line 716
+    .line 712
     .local v15, s:I
     move-object/from16 v0, p0
 
@@ -429,7 +415,7 @@
     #calls: Lcom/android/gallery3d/ui/PhotoView;->drawVideoPlayIcon(Lcom/android/gallery3d/ui/GLCanvas;I)V
     invoke-static {v2, v0, v15}, Lcom/android/gallery3d/ui/PhotoView;->access$2900(Lcom/android/gallery3d/ui/PhotoView;Lcom/android/gallery3d/ui/GLCanvas;I)V
 
-    .line 717
+    .line 713
     :cond_1
     move-object/from16 v0, p0
 
@@ -441,7 +427,7 @@
 
     if-ne v2, v0, :cond_3
 
-    .line 718
+    .line 714
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsCamera:Z
@@ -463,7 +449,7 @@
 
     if-nez v2, :cond_3
 
-    .line 719
+    .line 715
     :cond_2
     move-object/from16 v0, p0
 
@@ -474,18 +460,14 @@
     #calls: Lcom/android/gallery3d/ui/PhotoView;->drawLoadingFailMessage(Lcom/android/gallery3d/ui/GLCanvas;)V
     invoke-static {v2, v0}, Lcom/android/gallery3d/ui/PhotoView;->access$3000(Lcom/android/gallery3d/ui/PhotoView;Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 727
+    .line 723
     :cond_3
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/camera/effect/GLCanvasState;->popState()V
-
-    .line 728
+    .line 724
     return-void
 
-    .line 668
+    .line 664
     .end local v15           #s:I
     .end local v17           #wantsCardEffect:Z
     .end local v18           #wantsOffsetEffect:Z
@@ -494,14 +476,14 @@
 
     goto/16 :goto_0
 
-    .line 670
+    .line 666
     .restart local v17       #wantsCardEffect:Z
     :cond_5
     const/16 v18, 0x0
 
     goto/16 :goto_1
 
-    .line 699
+    .line 695
     .restart local v8       #alpha:F
     .restart local v11       #left:I
     .restart local v13       #progress:F
@@ -521,7 +503,7 @@
     .restart local v9       #cxPage:F
     goto/16 :goto_2
 
-    .line 703
+    .line 699
     .end local v8           #alpha:F
     .end local v9           #cxPage:F
     .end local v11           #left:I
@@ -530,7 +512,7 @@
     :cond_7
     if-eqz v18, :cond_0
 
-    .line 704
+    .line 700
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Rect;->centerY()I
 
     move-result v2
@@ -547,7 +529,7 @@
 
     div-float v12, v2, v19
 
-    .line 705
+    .line 701
     .local v12, offset:F
     move-object/from16 v0, p0
 
@@ -558,13 +540,11 @@
 
     move-result v8
 
-    .line 706
+    .line 702
     .restart local v8       #alpha:F
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    move-object/from16 v0, p1
 
-    move-result-object v2
-
-    invoke-virtual {v2, v8}, Lcom/android/camera/effect/GLCanvasState;->multiplyAlpha(F)V
+    invoke-interface {v0, v8}, Lcom/android/gallery3d/ui/GLCanvas;->multiplyAlpha(F)V
 
     goto/16 :goto_3
 .end method
@@ -578,7 +558,7 @@
     .parameter "scale"
 
     .prologue
-    .line 734
+    .line 730
     iget-object v9, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mPositionController:Lcom/android/gallery3d/ui/PositionController;
@@ -590,7 +570,7 @@
 
     move-result v4
 
-    .line 735
+    .line 731
     .local v4, imageW:I
     iget-object v9, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -603,7 +583,7 @@
 
     move-result v3
 
-    .line 736
+    .line 732
     .local v3, imageH:I
     int-to-float v9, v4
 
@@ -621,10 +601,16 @@
 
     div-float v10, v10, p5
 
-    add-float v1, v9, v10
+    add-float/2addr v9, v10
 
-    .line 737
-    .local v1, centerX:F
+    const/high16 v10, 0x3f00
+
+    add-float/2addr v9, v10
+
+    float-to-int v1, v9
+
+    .line 733
+    .local v1, centerX:I
     int-to-float v9, v3
 
     const/high16 v10, 0x4000
@@ -643,27 +629,29 @@
 
     div-float v10, v10, p5
 
-    add-float v2, v9, v10
+    add-float/2addr v9, v10
 
-    .line 739
-    .local v2, centerY:F
-    int-to-float v9, v4
+    const/high16 v10, 0x3f00
 
-    sub-float v5, v9, v1
+    add-float/2addr v9, v10
 
-    .line 740
-    .local v5, inverseX:F
-    int-to-float v9, v3
+    float-to-int v2, v9
 
-    sub-float v6, v9, v2
+    .line 735
+    .local v2, centerY:I
+    sub-int v5, v4, v1
 
-    .line 742
-    .local v6, inverseY:F
+    .line 736
+    .local v5, inverseX:I
+    sub-int v6, v3, v2
+
+    .line 738
+    .local v6, inverseY:I
     iget v9, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mRotation:I
 
     sparse-switch v9, :sswitch_data_0
 
-    .line 748
+    .line 744
     new-instance v9, Ljava/lang/RuntimeException;
 
     iget v10, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mRotation:I
@@ -676,15 +664,15 @@
 
     throw v9
 
-    .line 743
+    .line 739
     :sswitch_0
     move v7, v1
 
-    .local v7, x:F
+    .local v7, x:I
     move v8, v2
 
-    .line 750
-    .local v8, y:F
+    .line 746
+    .local v8, y:I
     :goto_0
     iget-object v9, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -697,48 +685,48 @@
 
     move/from16 v0, p5
 
-    invoke-virtual {v9, v7, v8, v0, v10}, Lcom/android/gallery3d/ui/TileImageView;->setPosition(FFFI)Z
+    invoke-virtual {v9, v7, v8, v0, v10}, Lcom/android/gallery3d/ui/TileImageView;->setPosition(IIFI)Z
 
-    .line 751
+    .line 747
     return-void
 
-    .line 744
-    .end local v7           #x:F
-    .end local v8           #y:F
+    .line 740
+    .end local v7           #x:I
+    .end local v8           #y:I
     :sswitch_1
     move v7, v2
 
-    .restart local v7       #x:F
+    .restart local v7       #x:I
     move v8, v5
 
-    .restart local v8       #y:F
+    .restart local v8       #y:I
     goto :goto_0
 
-    .line 745
-    .end local v7           #x:F
-    .end local v8           #y:F
+    .line 741
+    .end local v7           #x:I
+    .end local v8           #y:I
     :sswitch_2
     move v7, v5
 
-    .restart local v7       #x:F
+    .restart local v7       #x:I
     move v8, v6
 
-    .restart local v8       #y:F
-    goto :goto_0
-
-    .line 746
-    .end local v7           #x:F
-    .end local v8           #y:F
-    :sswitch_3
-    move v7, v6
-
-    .restart local v7       #x:F
-    move v8, v1
-
-    .restart local v8       #y:F
+    .restart local v8       #y:I
     goto :goto_0
 
     .line 742
+    .end local v7           #x:I
+    .end local v8           #y:I
+    :sswitch_3
+    move v7, v6
+
+    .restart local v7       #x:I
+    move v8, v1
+
+    .restart local v8       #y:I
+    goto :goto_0
+
+    .line 738
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0
@@ -752,12 +740,12 @@
     .locals 4
 
     .prologue
-    .line 603
+    .line 594
     iget-boolean v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsPanorama:Z
 
     if-eqz v2, :cond_0
 
-    .line 604
+    .line 595
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #calls: Lcom/android/gallery3d/ui/PhotoView;->getPanoramaRotation()I
@@ -767,7 +755,7 @@
 
     iput v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mRotation:I
 
-    .line 611
+    .line 602
     :goto_0
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -778,7 +766,7 @@
 
     iget v1, v2, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
 
-    .line 612
+    .line 603
     .local v1, w:I
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -789,7 +777,7 @@
 
     iget v0, v2, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
 
-    .line 613
+    .line 604
     .local v0, h:I
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mSize:Lcom/android/gallery3d/ui/PhotoView$Size;
 
@@ -802,7 +790,7 @@
 
     iput v3, v2, Lcom/android/gallery3d/ui/PhotoView$Size;->width:I
 
-    .line 614
+    .line 605
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mSize:Lcom/android/gallery3d/ui/PhotoView$Size;
 
     iget v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mRotation:I
@@ -814,10 +802,10 @@
 
     iput v3, v2, Lcom/android/gallery3d/ui/PhotoView$Size;->height:I
 
-    .line 615
+    .line 606
     return-void
 
-    .line 605
+    .line 596
     .end local v0           #h:I
     .end local v1           #w:I
     :cond_0
@@ -825,7 +813,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 606
+    .line 597
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #calls: Lcom/android/gallery3d/ui/PhotoView;->getCameraRotation()I
@@ -837,7 +825,7 @@
 
     goto :goto_0
 
-    .line 608
+    .line 599
     :cond_1
     iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -867,10 +855,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 619
+    .line 610
     invoke-direct {p0, p1, p2}, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->drawTileView(Lcom/android/gallery3d/ui/GLCanvas;Landroid/graphics/Rect;)V
 
-    .line 628
+    .line 619
     iget-object v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mHolding:I
@@ -882,11 +870,11 @@
 
     if-eqz v3, :cond_0
 
-    .line 641
+    .line 637
     :goto_0
     return-void
 
-    .line 630
+    .line 621
     :cond_0
     iget-object v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -899,13 +887,13 @@
 
     move-result v1
 
-    .line 631
+    .line 622
     .local v1, isCenter:Z
     iget-boolean v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsCamera:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -914,22 +902,22 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
     const/4 v0, 0x1
 
-    .line 633
+    .line 624
     .local v0, isCameraCenter:Z
     :goto_1
     iget-boolean v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mWasCameraCenter:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-boolean v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsCamera:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     iget-object v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
@@ -938,25 +926,48 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4
 
-    .line 640
+    .line 631
     :cond_1
     :goto_2
+    if-eqz v0, :cond_2
+
+    iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
+
+    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mFilmMode:Z
+    invoke-static {v2}, Lcom/android/gallery3d/ui/PhotoView;->access$2200(Lcom/android/gallery3d/ui/PhotoView;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    .line 633
+    iget-object v2, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
+
+    #getter for: Lcom/android/gallery3d/ui/PhotoView;->mListener:Lcom/android/gallery3d/ui/PhotoView$Listener;
+    invoke-static {v2}, Lcom/android/gallery3d/ui/PhotoView;->access$000(Lcom/android/gallery3d/ui/PhotoView;)Lcom/android/gallery3d/ui/PhotoView$Listener;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lcom/android/gallery3d/ui/PhotoView$Listener;->lockOrientation()V
+
+    .line 636
+    :cond_2
     iput-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mWasCameraCenter:Z
 
     goto :goto_0
 
     .end local v0           #isCameraCenter:Z
-    :cond_2
+    :cond_3
     move v0, v2
 
-    .line 631
+    .line 622
     goto :goto_1
 
-    .line 636
+    .line 627
     .restart local v0       #isCameraCenter:Z
-    :cond_3
+    :cond_4
     iget-boolean v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mWasCameraCenter:Z
 
     if-nez v3, :cond_1
@@ -972,7 +983,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 637
+    .line 628
     iget-object v3, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #calls: Lcom/android/gallery3d/ui/PhotoView;->setFilmMode(Z)V
@@ -985,10 +996,10 @@
     .locals 3
 
     .prologue
-    .line 598
+    .line 589
     invoke-direct {p0}, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->updateSize()V
 
-    .line 599
+    .line 590
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mPositionController:Lcom/android/gallery3d/ui/PositionController;
@@ -1002,7 +1013,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/gallery3d/ui/PositionController;->forceImageSize(ILcom/android/gallery3d/ui/PhotoView$Size;)V
 
-    .line 600
+    .line 591
     return-void
 .end method
 
@@ -1010,7 +1021,7 @@
     .locals 1
 
     .prologue
-    .line 593
+    .line 584
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mSize:Lcom/android/gallery3d/ui/PhotoView$Size;
 
     return-object v0
@@ -1020,7 +1031,7 @@
     .locals 1
 
     .prologue
-    .line 650
+    .line 646
     iget-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsCamera:Z
 
     return v0
@@ -1030,7 +1041,7 @@
     .locals 1
 
     .prologue
-    .line 655
+    .line 651
     iget-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsDeletable:Z
 
     return v0
@@ -1042,7 +1053,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 580
+    .line 571
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mTileView:Lcom/android/gallery3d/ui/TileImageView;
@@ -1052,7 +1063,7 @@
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/TileImageView;->notifyModelInvalidated()V
 
-    .line 582
+    .line 573
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1066,7 +1077,7 @@
 
     iput-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsCamera:Z
 
-    .line 583
+    .line 574
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1080,7 +1091,7 @@
 
     iput-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsPanorama:Z
 
-    .line 584
+    .line 575
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1094,7 +1105,7 @@
 
     iput-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsVideo:Z
 
-    .line 585
+    .line 576
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1108,7 +1119,7 @@
 
     iput-boolean v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mIsDeletable:Z
 
-    .line 586
+    .line 577
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1122,7 +1133,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->mLoadingState:I
 
-    .line 587
+    .line 578
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mModel:Lcom/android/gallery3d/ui/PhotoView$Model;
@@ -1136,10 +1147,10 @@
 
     invoke-virtual {p0, v0}, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->setScreenNail(Lcom/android/gallery3d/ui/ScreenNail;)V
 
-    .line 588
+    .line 579
     invoke-direct {p0}, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->updateSize()V
 
-    .line 589
+    .line 580
     return-void
 .end method
 
@@ -1148,7 +1159,7 @@
     .parameter "s"
 
     .prologue
-    .line 645
+    .line 641
     iget-object v0, p0, Lcom/android/gallery3d/ui/PhotoView$FullPicture;->this$0:Lcom/android/gallery3d/ui/PhotoView;
 
     #getter for: Lcom/android/gallery3d/ui/PhotoView;->mTileView:Lcom/android/gallery3d/ui/TileImageView;
@@ -1158,6 +1169,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/gallery3d/ui/TileImageView;->setScreenNail(Lcom/android/gallery3d/ui/ScreenNail;)V
 
-    .line 646
+    .line 642
     return-void
 .end method

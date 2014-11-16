@@ -21,5 +21,11 @@
 .method public abstract onDeviceBecomeStable()V
 .end method
 
+.method public abstract onDeviceBeginMoving()V
+.end method
+
 .method public abstract onDeviceKeepMoving(D)V
+.end method
+
+.method public abstract onDeviceKeepStable()V
 .end method

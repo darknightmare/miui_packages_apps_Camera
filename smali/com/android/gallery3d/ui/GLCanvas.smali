@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract beginBindFrameBuffer(Lcom/android/camera/effect/FrameBuffer;)V
+.method public abstract beginRenderTarget(Lcom/android/gallery3d/ui/RawTexture;)V
 .end method
 
 .method public abstract clearBuffer()V
@@ -13,29 +13,65 @@
 .method public abstract deleteBuffer(I)V
 .end method
 
-.method public abstract deleteFrameBuffer(I)V
+.method public abstract deleteRecycledResources()V
 .end method
 
-.method public abstract deleteProgram(I)V
+.method public abstract drawMesh(Lcom/android/gallery3d/ui/BasicTexture;IIIIII)V
 .end method
 
-.method public abstract deleteTexture(Lcom/android/gallery3d/ui/BasicTexture;)Z
+.method public abstract drawMixed(Lcom/android/gallery3d/ui/BasicTexture;IFIIII)V
 .end method
 
-.method public abstract draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+.method public abstract drawTexture(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
 .end method
 
-.method public abstract endBindFrameBuffer()V
+.method public abstract drawTexture(Lcom/android/gallery3d/ui/BasicTexture;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
 .end method
 
-.method public abstract getState()Lcom/android/camera/effect/GLCanvasState;
+.method public abstract drawTexture(Lcom/android/gallery3d/ui/BasicTexture;[FIIII)V
 .end method
 
-.method public abstract recycledResources()V
+.method public abstract endRenderTarget()V
 .end method
 
-.method public abstract setPreviewSize(II)V
+.method public abstract fillRect(FFFFI)V
+.end method
+
+.method public abstract getAlpha()F
+.end method
+
+.method public abstract getGLInstance()Ljavax/microedition/khronos/opengles/GL11;
+.end method
+
+.method public abstract multiplyAlpha(F)V
+.end method
+
+.method public abstract multiplyMatrix([FI)V
+.end method
+
+.method public abstract restore()V
+.end method
+
+.method public abstract rotate(FFFF)V
+.end method
+
+.method public abstract rotateProjectionToXOY(FFFFFFF)V
+.end method
+
+.method public abstract save(I)V
+.end method
+
+.method public abstract scale(FFF)V
+.end method
+
+.method public abstract setAlpha(F)V
 .end method
 
 .method public abstract setSize(II)V
+.end method
+
+.method public abstract translate(FF)V
+.end method
+
+.method public abstract unloadTexture(Lcom/android/gallery3d/ui/BasicTexture;)Z
 .end method

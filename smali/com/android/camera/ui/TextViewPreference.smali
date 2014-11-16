@@ -30,9 +30,9 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 17
-    const v0, 0x7f040027
+    const v0, 0x7f04001e
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/ui/TextViewPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 18
     return-void

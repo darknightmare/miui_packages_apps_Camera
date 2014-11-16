@@ -28,7 +28,7 @@
 
     .prologue
     .line 619
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 620
     iput p1, p0, Lcom/google/zxing/aztec/detector/Detector$Point;->x:I

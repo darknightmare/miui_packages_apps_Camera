@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 289
+    .line 282
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     invoke-direct {p0, p2}, Lcom/android/gallery3d/ui/SynchronizedHandler;-><init>(Lcom/android/gallery3d/app/GalleryActivity;)V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 292
+    .line 285
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 321
+    .line 314
     new-instance v0, Ljava/lang/AssertionError;
 
     iget v1, p1, Landroid/os/Message;->what:I
@@ -56,18 +56,18 @@
 
     throw v0
 
-    .line 294
+    .line 287
     :pswitch_0
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     #calls: Lcom/android/gallery3d/app/PhotoPage;->hideBars()V
     invoke-static {v0}, Lcom/android/gallery3d/app/PhotoPage;->access$1200(Lcom/android/gallery3d/app/PhotoPage;)V
 
-    .line 323
+    .line 316
     :goto_0
     return-void
 
-    .line 298
+    .line 291
     :pswitch_1
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -80,7 +80,7 @@
 
     goto :goto_0
 
-    .line 302
+    .line 295
     :pswitch_2
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -93,7 +93,7 @@
 
     goto :goto_0
 
-    .line 306
+    .line 299
     :pswitch_3
     iget-object v1, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -116,7 +116,7 @@
 
     goto :goto_1
 
-    .line 310
+    .line 303
     :pswitch_4
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -125,7 +125,7 @@
 
     goto :goto_0
 
-    .line 314
+    .line 307
     :pswitch_5
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -134,7 +134,7 @@
 
     goto :goto_0
 
-    .line 318
+    .line 311
     :pswitch_6
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$3;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
@@ -148,7 +148,7 @@
 
     goto :goto_0
 
-    .line 292
+    .line 285
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

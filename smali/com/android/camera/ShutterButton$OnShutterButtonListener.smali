@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract onFlingOut(IIII)V
-.end method
-
 .method public abstract onShutterButtonClick()V
 .end method
 

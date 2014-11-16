@@ -3,10 +3,6 @@
 .source "RotateTextToast.java"
 
 
-# static fields
-.field private static sRotateTextToast:Lcom/android/camera/ui/RotateTextToast;
-
-
 # instance fields
 .field mHandler:Landroid/os/Handler;
 
@@ -18,158 +14,118 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/app/Activity;)V
-    .locals 4
-    .parameter "activity"
-
-    .prologue
-    .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 60
-    new-instance v2, Lcom/android/camera/ui/RotateTextToast$1;
-
-    invoke-direct {v2, p0}, Lcom/android/camera/ui/RotateTextToast$1;-><init>(Lcom/android/camera/ui/RotateTextToast;)V
-
-    iput-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mRunnable:Ljava/lang/Runnable;
-
-    .line 53
-    new-instance v2, Landroid/os/Handler;
-
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
-
-    iput-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mHandler:Landroid/os/Handler;
-
-    .line 54
-    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/ViewGroup;
-
-    iput-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mLayoutRoot:Landroid/view/ViewGroup;
-
-    .line 55
-    invoke-virtual {p1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    .line 56
-    .local v0, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x7f040032
-
-    iget-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mLayoutRoot:Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 57
-    .local v1, v:Landroid/view/View;
-    const v2, 0x7f0c00ac
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/camera/ui/RotateLayout;
-
-    iput-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
-
-    .line 58
-    return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/camera/ui/RotateTextToast;)Lcom/android/camera/ui/RotateTextToast;
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 29
-    sput-object p0, Lcom/android/camera/ui/RotateTextToast;->sRotateTextToast:Lcom/android/camera/ui/RotateTextToast;
-
-    return-object p0
-.end method
-
-.method public static getInstance(Landroid/app/Activity;)Lcom/android/camera/ui/RotateTextToast;
-    .locals 1
-    .parameter "activity"
-
-    .prologue
-    .line 37
-    sget-object v0, Lcom/android/camera/ui/RotateTextToast;->sRotateTextToast:Lcom/android/camera/ui/RotateTextToast;
-
-    if-nez v0, :cond_0
-
-    .line 38
-    new-instance v0, Lcom/android/camera/ui/RotateTextToast;
-
-    invoke-direct {v0, p0}, Lcom/android/camera/ui/RotateTextToast;-><init>(Landroid/app/Activity;)V
-
-    sput-object v0, Lcom/android/camera/ui/RotateTextToast;->sRotateTextToast:Lcom/android/camera/ui/RotateTextToast;
-
-    .line 40
-    :cond_0
-    sget-object v0, Lcom/android/camera/ui/RotateTextToast;->sRotateTextToast:Lcom/android/camera/ui/RotateTextToast;
-
-    return-object v0
-.end method
-
-
-# virtual methods
-.method public show(II)V
+.method public constructor <init>(Landroid/app/Activity;II)V
     .locals 5
+    .parameter "activity"
     .parameter "textResourceId"
     .parameter "orientation"
 
     .prologue
-    const/4 v3, 0x0
+    .line 35
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
-    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
+    .line 46
+    new-instance v3, Lcom/android/camera/ui/RotateTextToast$1;
 
-    const v2, 0x7f0c005b
+    invoke-direct {v3, p0}, Lcom/android/camera/ui/RotateTextToast$1;-><init>(Lcom/android/camera/ui/RotateTextToast;)V
 
-    invoke-virtual {v1, v2}, Lcom/android/camera/ui/RotateLayout;->findViewById(I)Landroid/view/View;
+    iput-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mRunnable:Ljava/lang/Runnable;
+
+    .line 36
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/ViewGroup;
+
+    iput-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mLayoutRoot:Landroid/view/ViewGroup;
+
+    .line 37
+    invoke-virtual {p1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    .line 38
+    .local v0, inflater:Landroid/view/LayoutInflater;
+    const v3, 0x7f040029
 
-    .line 45
-    .local v0, tv:Landroid/widget/TextView;
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
+    iget-object v4, p0, Lcom/android/camera/ui/RotateTextToast;->mLayoutRoot:Landroid/view/ViewGroup;
 
-    .line 46
-    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
+    invoke-virtual {v0, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    invoke-virtual {v1, p2, v3}, Lcom/android/camera/ui/RotateLayout;->setOrientation(IZ)V
+    move-result-object v2
 
-    .line 47
-    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
+    .line 39
+    .local v2, v:Landroid/view/View;
+    const v3, 0x7f0c0091
 
-    invoke-virtual {v1, v3}, Lcom/android/camera/ui/RotateLayout;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 48
-    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mHandler:Landroid/os/Handler;
+    move-result-object v3
 
-    iget-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mRunnable:Ljava/lang/Runnable;
+    check-cast v3, Lcom/android/camera/ui/RotateLayout;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    iput-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
 
-    .line 49
-    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mHandler:Landroid/os/Handler;
+    .line 40
+    iget-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
 
-    iget-object v2, p0, Lcom/android/camera/ui/RotateTextToast;->mRunnable:Ljava/lang/Runnable;
+    const v4, 0x7f0c004a
 
-    const-wide/16 v3, 0x1388
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    move-result-object v1
 
-    .line 50
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 41
+    .local v1, tv:Landroid/widget/TextView;
+    invoke-virtual {v1, p2}, Landroid/widget/TextView;->setText(I)V
+
+    .line 42
+    iget-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, p3, v4}, Lcom/android/camera/ui/RotateLayout;->setOrientation(IZ)V
+
+    .line 43
+    new-instance v3, Landroid/os/Handler;
+
+    invoke-direct {v3}, Landroid/os/Handler;-><init>()V
+
+    iput-object v3, p0, Lcom/android/camera/ui/RotateTextToast;->mHandler:Landroid/os/Handler;
+
+    .line 44
+    return-void
+.end method
+
+
+# virtual methods
+.method public show()V
+    .locals 4
+
+    .prologue
+    .line 56
+    iget-object v0, p0, Lcom/android/camera/ui/RotateTextToast;->mToast:Lcom/android/camera/ui/RotateLayout;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 57
+    iget-object v0, p0, Lcom/android/camera/ui/RotateTextToast;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/camera/ui/RotateTextToast;->mRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x1388
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 58
     return-void
 .end method

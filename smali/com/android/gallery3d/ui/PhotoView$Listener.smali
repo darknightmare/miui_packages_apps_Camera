@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract canIgnoreAnimation()Z
-.end method
-
 .method public abstract createCameraScreenNail()Z
 .end method
 
@@ -45,10 +42,7 @@
 .method public abstract onFullScreenChanged(Z)V
 .end method
 
-.method public abstract onLeftFling()V
-.end method
-
-.method public abstract onLongPress(II)V
+.method public abstract onLongPress(Landroid/view/MotionEvent;)V
 .end method
 
 .method public abstract onScale(FFF)Z
@@ -57,13 +51,7 @@
 .method public abstract onScaleBegin(FF)Z
 .end method
 
-.method public abstract onScaleEnd()V
-.end method
-
 .method public abstract onSingleTapUp(II)V
-.end method
-
-.method public abstract onSlideTrack(Landroid/graphics/RectF;Z)Z
 .end method
 
 .method public abstract onUndoDeleteImage()V

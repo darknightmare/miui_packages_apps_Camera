@@ -59,7 +59,7 @@
     const/4 v1, 0x0
 
     .line 60
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v2
 
@@ -73,7 +73,7 @@
 
     if-gtz v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v2
 
@@ -137,7 +137,7 @@
 
     int-to-float v4, v4
 
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v5
 
@@ -155,7 +155,7 @@
 
     int-to-float v4, v4
 
-    invoke-virtual {p0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual {p0}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v5
 

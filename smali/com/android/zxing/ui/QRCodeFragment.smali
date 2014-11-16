@@ -350,7 +350,7 @@
 
     .prologue
     .line 49
-    invoke-direct {p0}, Lcom/android/zxing/ui/QRCodeFragment;->connectWiFi()V
+    invoke-direct {p0}, Lcom/android/zxing/ui/QRCodeFragment;->connectToWifi()V
 
     return-void
 .end method
@@ -366,7 +366,7 @@
     return v0
 .end method
 
-.method private connectWiFi()V
+.method private connectToWifi()V
     .locals 7
 
     .prologue
@@ -416,7 +416,7 @@
     .line 544
     new-instance v0, Lcom/android/zxing/WiFiConManager;
 
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -430,7 +430,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWifiConManager:Lcom/android/zxing/WiFiConManager;
 
-    invoke-virtual {v0}, Lcom/android/zxing/WiFiConManager;->openAndConnectWiFi()V
+    invoke-virtual {v0}, Lcom/android/zxing/WiFiConManager;->connectInBackground()V
 
     .line 550
     return-void
@@ -449,7 +449,7 @@
 
     .prologue
     .line 353
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -468,11 +468,11 @@
     invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setText(Ljava/lang/CharSequence;)V
 
     .line 356
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f0d01fe
+    const v2, 0x7f0d020a
 
     const/4 v3, 0x0
 
@@ -511,7 +511,7 @@
     invoke-virtual {v1, p1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 465
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -543,7 +543,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 469
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -554,11 +554,11 @@
 
     .prologue
     .line 489
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
@@ -615,9 +615,9 @@
 
     iget-object v6, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v6, v6, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v6, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -628,7 +628,7 @@
     .line 497
     iget-object v5, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     .line 501
     .end local v0           #i$:Ljava/util/Iterator;
@@ -976,7 +976,7 @@
     invoke-virtual {v10, v9}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 422
-    invoke-virtual/range {p0 .. p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v23
 
@@ -1026,7 +1026,7 @@
     invoke-virtual {v10, v0}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
     .line 426
-    invoke-virtual/range {p0 .. p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v23
 
@@ -1048,11 +1048,11 @@
 
     .prologue
     .line 505
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
@@ -1137,7 +1137,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 532
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1187,7 +1187,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 522
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1214,7 +1214,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1269,7 +1269,7 @@
 
     .line 452
     :goto_0
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     .line 458
     :goto_1
@@ -1311,7 +1311,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 456
-    invoke-virtual {p0, v1}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 .end method
@@ -1357,7 +1357,7 @@
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 480
-    invoke-virtual {p0, v2}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1390,7 +1390,7 @@
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 484
-    invoke-virtual {p0, v2}, Lcom/android/zxing/ui/QRCodeFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -1494,11 +1494,11 @@
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "invitation_type"
 
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1519,11 +1519,11 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 437
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1548,7 +1548,7 @@
 
     .prologue
     .line 80
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
@@ -1562,16 +1562,16 @@
     if-eqz v1, :cond_0
 
     .line 83
-    invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v1}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 85
     :cond_0
-    const v10, 0x7f060007
+    const v10, 0x7f060006
 
-    invoke-virtual {p0, v10}, Lcom/android/zxing/ui/QRCodeFragment;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v10}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 86
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
@@ -1662,7 +1662,7 @@
 
     check-cast v10, Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, v10}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v1, v10}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v10
 
@@ -1681,28 +1681,28 @@
     .line 104
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f020157
+    const v11, 0x7f0200f6
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 105
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f020158
+    const v11, 0x7f0200f7
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 106
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01f6
+    const v11, 0x7f0d0202
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 107
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f3
+    const v11, 0x7f0d01ff
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -1718,28 +1718,28 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 111
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 112
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 113
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 237
     .end local v2           #i$:Ljava/util/Iterator;
@@ -1757,35 +1757,35 @@
     .line 116
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f02015d
+    const v11, 0x7f0200fc
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 117
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f02015e
+    const v11, 0x7f0200fd
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 118
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01f7
+    const v11, 0x7f0d0203
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 119
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f2
+    const v11, 0x7f0d01fe
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 120
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
-    const v11, 0x7f0d020a
+    const v11, 0x7f0d0216
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -1794,35 +1794,35 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 123
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 124
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 125
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 229
     :cond_5
     :goto_2
     const-string v10, "pref_text_content_key"
 
-    invoke-virtual {v1, v10}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v1, v10}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v10
 
@@ -1844,72 +1844,72 @@
     .line 127
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f02015d
+    const v11, 0x7f0200fc
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 128
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f02015e
+    const v11, 0x7f0200fd
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 129
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f2
+    const v11, 0x7f0d01fe
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 130
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
-    const v11, 0x7f0d020b
+    const v11, 0x7f0d0217
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 131
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
-    const v11, 0x7f0d01f8
+    const v11, 0x7f0d0204
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 132
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
-    const v11, 0x7f0d01f9
+    const v11, 0x7f0d0205
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 134
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 135
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 136
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 137
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_2
 
@@ -1922,21 +1922,21 @@
     .line 139
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f020151
+    const v11, 0x7f0200f0
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 140
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f020152
+    const v11, 0x7f0200f1
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 141
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f1
+    const v11, 0x7f0d01fd
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -1950,37 +1950,37 @@
     .line 143
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01fc
+    const v11, 0x7f0d0208
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 145
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 146
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 147
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 148
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_2
 
@@ -2002,14 +2002,14 @@
     .line 151
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f02015f
+    const v11, 0x7f0200fe
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 152
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f020160
+    const v11, 0x7f0200ff
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2021,15 +2021,15 @@
     .line 155
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01fa
+    const v11, 0x7f0d0206
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 160
     :goto_3
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f4
+    const v11, 0x7f0d0200
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -2038,28 +2038,28 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 163
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 164
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 165
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_2
 
@@ -2067,9 +2067,9 @@
     :cond_9
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01fb
+    const v11, 0x7f0d0207
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_3
 
@@ -2082,21 +2082,21 @@
     .line 167
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f02015b
+    const v11, 0x7f0200fa
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 168
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f02015c
+    const v11, 0x7f0200fb
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 169
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d01f5
+    const v11, 0x7f0d0201
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -2110,37 +2110,37 @@
     .line 171
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d01fd
+    const v11, 0x7f0d0209
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 173
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 174
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 175
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 176
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_2
 
@@ -2153,65 +2153,65 @@
     .line 178
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f020161
+    const v11, 0x7f020100
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 179
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f020162
+    const v11, 0x7f020101
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 180
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d020f
+    const v11, 0x7f0d021b
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 181
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
-    const v11, 0x7f0d0214
+    const v11, 0x7f0d0220
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 182
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d0210
+    const v11, 0x7f0d021c
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 184
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mWarningText:Landroid/widget/TextView;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 185
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 186
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 187
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 189
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2232,13 +2232,13 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
-    const v12, 0x7f0d020c
+    const v12, 0x7f0d0218
 
-    invoke-virtual {v11, v12}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
@@ -2268,13 +2268,13 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
-    const v12, 0x7f0d020e
+    const v12, 0x7f0d021a
 
-    invoke-virtual {v11, v12}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
@@ -2304,13 +2304,13 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
-    const v12, 0x7f0d020d
+    const v12, 0x7f0d0219
 
-    invoke-virtual {v11, v12}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
@@ -2389,14 +2389,14 @@
     .line 203
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f020159
+    const v11, 0x7f0200f8
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 204
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f02015a
+    const v11, 0x7f0200f9
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2408,15 +2408,15 @@
     .line 206
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d0212
+    const v11, 0x7f0d021e
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 210
     :goto_4
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d0211
+    const v11, 0x7f0d021d
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -2425,28 +2425,28 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 213
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 214
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 215
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_2
 
@@ -2454,9 +2454,9 @@
     :cond_d
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d0213
+    const v11, 0x7f0d021f
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_4
 
@@ -2469,28 +2469,28 @@
     .line 217
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
-    const v11, 0x7f020155
+    const v11, 0x7f0200f4
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 218
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
-    const v11, 0x7f020156
+    const v11, 0x7f0200f5
 
     invoke-virtual {v10, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 220
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v11, 0x7f0d0216
+    const v11, 0x7f0d0222
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 221
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
-    const v11, 0x7f0d0215
+    const v11, 0x7f0d0221
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -2499,28 +2499,28 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 224
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 225
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 226
     iget-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_2
 
@@ -2536,7 +2536,7 @@
     iput-object v10, p0, Lcom/android/zxing/ui/QRCodeFragment;->mType:Lcom/android/zxing/QRCodeType;
 
     .line 235
-    invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v1}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     goto/16 :goto_1
 .end method
@@ -2557,7 +2557,7 @@
 
     .prologue
     .line 242
-    const v1, 0x7f04002c
+    const v1, 0x7f040023
 
     const/4 v2, 0x0
 
@@ -2569,36 +2569,36 @@
 
     .line 243
     .local v0, parent:Landroid/view/ViewGroup;
-    const v1, 0x7f0c008d
+    const v1, 0x7f0c0072
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewBackground:Landroid/view/View;
 
     .line 244
-    const v1, 0x7f0c008e
+    const v1, 0x7f0c0073
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mViewSymbol:Landroid/view/View;
 
     .line 245
-    const v1, 0x7f0c008f
+    const v1, 0x7f0c0074
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mBackView:Landroid/view/View;
 
     .line 246
-    const v1, 0x7f0c0093
+    const v1, 0x7f0c0078
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -2607,9 +2607,9 @@
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeft:Landroid/widget/Button;
 
     .line 247
-    const v1, 0x7f0c0094
+    const v1, 0x7f0c0079
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -2618,9 +2618,9 @@
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     .line 248
-    const v1, 0x7f0c0095
+    const v1, 0x7f0c007a
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -2629,9 +2629,9 @@
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     .line 249
-    const v1, 0x7f0c0091
+    const v1, 0x7f0c0076
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -2640,9 +2640,9 @@
     iput-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mContentTitle:Landroid/widget/TextView;
 
     .line 250
-    const v1, 0x7f0c0092
+    const v1, 0x7f0c0077
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -2662,21 +2662,21 @@
 
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonLeftListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 254
     iget-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenterListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 255
     iget-object v1, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRight:Landroid/widget/Button;
 
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonRightListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 256
     return-object v0
@@ -2690,7 +2690,7 @@
     invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStart()V
 
     .line 303
-    invoke-virtual {p0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -2735,9 +2735,9 @@
     .line 309
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v3, 0x7f0d01fa
+    const v3, 0x7f0d0206
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     .line 326
     .end local v1           #isWeChatInstalled:Z
@@ -2750,9 +2750,9 @@
     :cond_1
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v3, 0x7f0d01fb
+    const v3, 0x7f0d0207
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 
@@ -2789,9 +2789,9 @@
     .line 319
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v3, 0x7f0d0212
+    const v3, 0x7f0d021e
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 
@@ -2799,9 +2799,9 @@
     :cond_3
     iget-object v2, p0, Lcom/android/zxing/ui/QRCodeFragment;->mButtonCenter:Landroid/widget/Button;
 
-    const v3, 0x7f0d0213
+    const v3, 0x7f0d021f
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 .end method

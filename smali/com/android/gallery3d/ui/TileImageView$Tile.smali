@@ -39,26 +39,26 @@
     .parameter "level"
 
     .prologue
-    .line 650
+    .line 648
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     invoke-direct {p0}, Lcom/android/gallery3d/ui/UploadedTexture;-><init>()V
 
-    .line 648
+    .line 646
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 651
+    .line 649
     iput p2, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mX:I
 
-    .line 652
+    .line 650
     iput p3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mY:I
 
-    .line 653
+    .line 651
     iput p4, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileLevel:I
 
-    .line 654
+    .line 652
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 665
+    .line 663
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
@@ -105,7 +105,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 670
+    .line 668
     :goto_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
@@ -116,21 +116,21 @@
     :goto_1
     return v0
 
-    .line 667
+    .line 665
     :catch_0
     move-exception v7
 
-    .line 668
+    .line 666
     .local v7, t:Ljava/lang/Throwable;
     const-string v0, "TileImageView"
 
     const-string v1, "fail to decode tile"
 
-    invoke-static {v0, v1, v7}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v7}, Lcom/android/gallery3d/ui/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 670
+    .line 668
     .end local v7           #t:Ljava/lang/Throwable;
     :cond_0
     const/4 v0, 0x0
@@ -142,7 +142,7 @@
     .locals 5
 
     .prologue
-    .line 711
+    .line 709
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileLevel:I
 
     add-int/lit8 v3, v3, 0x1
@@ -155,11 +155,11 @@
 
     const/4 v3, 0x0
 
-    .line 715
+    .line 713
     :goto_0
     return-object v3
 
-    .line 712
+    .line 710
     :cond_0
     const/16 v3, 0xfe
 
@@ -169,7 +169,7 @@
 
     shl-int v0, v3, v4
 
-    .line 713
+    .line 711
     .local v0, size:I
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mX:I
 
@@ -177,7 +177,7 @@
 
     mul-int v1, v0, v3
 
-    .line 714
+    .line 712
     .local v1, x:I
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mY:I
 
@@ -185,7 +185,7 @@
 
     mul-int v2, v0, v3
 
-    .line 715
+    .line 713
     .local v2, y:I
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
@@ -205,7 +205,7 @@
     .locals 1
 
     .prologue
-    .line 700
+    .line 698
     const/16 v0, 0x100
 
     return v0
@@ -215,7 +215,7 @@
     .locals 1
 
     .prologue
-    .line 695
+    .line 693
     const/16 v0, 0x100
 
     return v0
@@ -226,14 +226,14 @@
     .parameter "bitmap"
 
     .prologue
-    .line 658
+    .line 656
     invoke-static {}, Lcom/android/gallery3d/ui/TileImageView;->access$400()Lcom/android/gallery3d/data/BitmapPool;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 659
+    .line 657
     return-void
 .end method
 
@@ -245,7 +245,7 @@
 
     const/4 v4, 0x1
 
-    .line 675
+    .line 673
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
     const/16 v5, 0x8
@@ -257,7 +257,7 @@
     :goto_0
     invoke-static {v3}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
 
-    .line 679
+    .line 677
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     iget v3, v3, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
@@ -272,7 +272,7 @@
 
     add-int/lit8 v2, v3, 0x1
 
-    .line 680
+    .line 678
     .local v2, rightEdge:I
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
@@ -288,7 +288,7 @@
 
     add-int/lit8 v1, v3, 0x1
 
-    .line 681
+    .line 679
     .local v1, bottomEdge:I
     invoke-static {v6, v2}, Ljava/lang/Math;->min(II)I
 
@@ -298,24 +298,24 @@
 
     move-result v5
 
-    invoke-virtual {p0, v3, v5}, Lcom/android/gallery3d/ui/TileImageView$Tile;->setSize(II)V
+    invoke-virtual {p0, v3, v5}, Lcom/android/gallery3d/ui/BasicTexture;->setSize(II)V
 
-    .line 683
+    .line 681
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
-    .line 684
+    .line 682
     .local v0, bitmap:Landroid/graphics/Bitmap;
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
-    .line 685
+    .line 683
     iput v4, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 686
+    .line 684
     return-object v0
 
-    .line 675
+    .line 673
     .end local v0           #bitmap:Landroid/graphics/Bitmap;
     .end local v1           #bottomEdge:I
     .end local v2           #rightEdge:I
@@ -329,7 +329,7 @@
     .locals 4
 
     .prologue
-    .line 720
+    .line 718
     const-string v0, "tile(%s, %s, %s / %s)"
 
     const/4 v1, 0x4
@@ -401,18 +401,18 @@
     .parameter "level"
 
     .prologue
-    .line 704
+    .line 702
     iput p1, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mX:I
 
-    .line 705
+    .line 703
     iput p2, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mY:I
 
-    .line 706
+    .line 704
     iput p3, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileLevel:I
 
-    .line 707
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView$Tile;->invalidateContent()V
+    .line 705
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->invalidateContent()V
 
-    .line 708
+    .line 706
     return-void
 .end method

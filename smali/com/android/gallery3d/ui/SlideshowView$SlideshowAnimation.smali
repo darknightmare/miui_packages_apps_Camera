@@ -88,7 +88,7 @@
     .line 137
     const/16 v0, 0xdac
 
-    invoke-virtual {p0, v0}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->setDuration(I)V
+    invoke-virtual {p0, v0}, Lcom/android/gallery3d/anim/Animation;->setDuration(I)V
 
     .line 138
     return-void
@@ -104,7 +104,7 @@
     .line 142
     iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->this$0:Lcom/android/gallery3d/ui/SlideshowView;
 
-    invoke-virtual {v6}, Lcom/android/gallery3d/ui/SlideshowView;->getWidth()I
+    invoke-virtual {v6}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v5
 
@@ -112,7 +112,7 @@
     .local v5, viewWidth:I
     iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->this$0:Lcom/android/gallery3d/ui/SlideshowView;
 
-    invoke-virtual {v6}, Lcom/android/gallery3d/ui/SlideshowView;->getHeight()I
+    invoke-virtual {v6}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v4
 
@@ -192,23 +192,25 @@
 
     .line 152
     .local v1, centerY:F
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0, v1}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+    invoke-interface {p1, v0, v1}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
 
     .line 153
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    const/4 v6, 0x0
 
-    move-result-object v6
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, v3, v3, v7}, Lcom/android/camera/effect/GLCanvasState;->scale(FFF)V
+    invoke-interface {p1, v3, v3, v6}, Lcom/android/gallery3d/ui/GLCanvas;->scale(FFF)V
 
     .line 154
     return-void
+.end method
+
+.method public getCanvasSaveFlags()I
+    .locals 1
+
+    .prologue
+    .line 158
+    const/4 v0, 0x2
+
+    return v0
 .end method
 
 .method protected onCalculate(F)V
@@ -216,9 +218,9 @@
     .parameter "progress"
 
     .prologue
-    .line 158
+    .line 163
     iput p1, p0, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->mProgress:F
 
-    .line 159
+    .line 164
     return-void
 .end method

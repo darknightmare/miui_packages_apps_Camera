@@ -35,27 +35,27 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 62
     const/4 v0, 0x1
 
     sput v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_FIRED_MASK:I
 
-    .line 65
+    .line 63
     const/4 v0, 0x6
 
     sput v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_RETURN_MASK:I
 
-    .line 66
+    .line 64
     const/16 v0, 0x18
 
     sput v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_MODE_MASK:I
 
-    .line 67
+    .line 65
     const/16 v0, 0x20
 
     sput v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_FUNCTION_MASK:I
 
-    .line 68
+    .line 66
     const/16 v0, 0x40
 
     sput v0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_RED_EYE_MASK:I
@@ -68,13 +68,13 @@
     .parameter "state"
 
     .prologue
-    .line 71
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 69
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
+    .line 70
     iput p1, p0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->mState:I
 
-    .line 73
+    .line 71
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .locals 2
 
     .prologue
-    .line 76
+    .line 74
     iget v0, p0, Lcom/android/gallery3d/data/MediaDetails$FlashState;->mState:I
 
     sget v1, Lcom/android/gallery3d/data/MediaDetails$FlashState;->FLASH_FIRED_MASK:I

@@ -27,15 +27,15 @@
     .parameter "bit"
 
     .prologue
-    .line 85
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 84
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 86
+    .line 85
     iput p1, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageFetch;->indexOffset:I
 
-    .line 87
+    .line 86
     iput p2, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageFetch;->imageBit:I
 
-    .line 88
+    .line 87
     return-void
 .end method

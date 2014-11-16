@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 159
+    .line 157
     iput-object p1, p0, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;->this$0:Lcom/android/gallery3d/app/OrientationManager;
 
-    .line 160
+    .line 158
     invoke-direct {p0, p2}, Landroid/view/OrientationEventListener;-><init>(Landroid/content/Context;)V
 
-    .line 161
+    .line 159
     return-void
 .end method
 
@@ -42,23 +42,17 @@
     .parameter "orientation"
 
     .prologue
-    .line 168
+    .line 166
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
-    invoke-static {}, Lcom/android/camera/Device;->isUseMiuiGallery()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 173
+    .line 171
     :cond_0
     :goto_0
     return-void
 
-    .line 169
+    .line 167
     :cond_1
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;->this$0:Lcom/android/gallery3d/app/OrientationManager;
 
@@ -77,7 +71,7 @@
     #setter for: Lcom/android/gallery3d/app/OrientationManager;->mOrientation:I
     invoke-static {v0, v1}, Lcom/android/gallery3d/app/OrientationManager;->access$002(Lcom/android/gallery3d/app/OrientationManager;I)I
 
-    .line 172
+    .line 170
     iget-object v0, p0, Lcom/android/gallery3d/app/OrientationManager$MyOrientationEventListener;->this$0:Lcom/android/gallery3d/app/OrientationManager;
 
     #getter for: Lcom/android/gallery3d/app/OrientationManager;->mOrientationLocked:Z

@@ -21,10 +21,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 185
+    .line 75
     iput-object p1, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -38,7 +37,7 @@
     .parameter "x1"
 
     .prologue
-    .line 185
+    .line 75
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;-><init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
 
     return-void
@@ -51,7 +50,7 @@
     .parameter "e"
 
     .prologue
-    .line 194
+    .line 84
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -82,7 +81,7 @@
     .parameter "velocityY"
 
     .prologue
-    .line 207
+    .line 97
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -90,7 +89,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+    invoke-interface {v0, p3, p4}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onFling(FF)Z
 
     move-result v0
 
@@ -102,7 +101,7 @@
     .parameter "e"
 
     .prologue
-    .line 212
+    .line 102
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -112,7 +111,7 @@
 
     invoke-interface {v0, p1}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onLongPress(Landroid/view/MotionEvent;)V
 
-    .line 213
+    .line 103
     return-void
 .end method
 
@@ -124,7 +123,7 @@
     .parameter "dy"
 
     .prologue
-    .line 200
+    .line 90
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -164,7 +163,7 @@
     .parameter "e"
 
     .prologue
-    .line 189
+    .line 79
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyGestureListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;

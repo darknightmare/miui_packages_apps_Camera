@@ -17,6 +17,3 @@
 # virtual methods
 .method public abstract onSettingChanged()V
 .end method
-
-.method public abstract onSettingValueChanged(Ljava/lang/String;)V
-.end method

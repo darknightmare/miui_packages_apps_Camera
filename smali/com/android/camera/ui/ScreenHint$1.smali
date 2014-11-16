@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/ui/ScreenHint;->showFirstUseHint(Lcom/android/camera/preferences/CameraSettingPreferences;Z)V
+    value = Lcom/android/camera/ui/ScreenHint;->showFirstUseHint(Lcom/android/camera/ComboPreferences;Lcom/android/camera/LocationManager;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,27 +20,28 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/ui/ScreenHint;
 
-.field final synthetic val$focusAreaSupported:Z
+.field final synthetic val$front:Z
 
-.field final synthetic val$preferences:Lcom/android/camera/preferences/CameraSettingPreferences;
+.field final synthetic val$locationManager:Lcom/android/camera/LocationManager;
+
+.field final synthetic val$preferences:Lcom/android/camera/ComboPreferences;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/ui/ScreenHint;Lcom/android/camera/preferences/CameraSettingPreferences;Z)V
+.method constructor <init>(Lcom/android/camera/ui/ScreenHint;Lcom/android/camera/ComboPreferences;Lcom/android/camera/LocationManager;Z)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
-    .line 94
+    .line 75
     iput-object p1, p0, Lcom/android/camera/ui/ScreenHint$1;->this$0:Lcom/android/camera/ui/ScreenHint;
 
-    iput-object p2, p0, Lcom/android/camera/ui/ScreenHint$1;->val$preferences:Lcom/android/camera/preferences/CameraSettingPreferences;
+    iput-object p2, p0, Lcom/android/camera/ui/ScreenHint$1;->val$preferences:Lcom/android/camera/ComboPreferences;
 
-    iput-boolean p3, p0, Lcom/android/camera/ui/ScreenHint$1;->val$focusAreaSupported:Z
+    iput-object p3, p0, Lcom/android/camera/ui/ScreenHint$1;->val$locationManager:Lcom/android/camera/LocationManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-boolean p4, p0, Lcom/android/camera/ui/ScreenHint$1;->val$front:Z
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,21 +49,23 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
     .prologue
-    .line 97
+    .line 78
     iget-object v0, p0, Lcom/android/camera/ui/ScreenHint$1;->this$0:Lcom/android/camera/ui/ScreenHint;
 
-    iget-object v1, p0, Lcom/android/camera/ui/ScreenHint$1;->val$preferences:Lcom/android/camera/preferences/CameraSettingPreferences;
+    iget-object v1, p0, Lcom/android/camera/ui/ScreenHint$1;->val$preferences:Lcom/android/camera/ComboPreferences;
 
-    iget-boolean v2, p0, Lcom/android/camera/ui/ScreenHint$1;->val$focusAreaSupported:Z
+    iget-object v2, p0, Lcom/android/camera/ui/ScreenHint$1;->val$locationManager:Lcom/android/camera/LocationManager;
 
     const/4 v3, 0x1
 
-    #calls: Lcom/android/camera/ui/ScreenHint;->updateFirstUseHintState(Lcom/android/camera/preferences/CameraSettingPreferences;ZZ)V
-    invoke-static {v0, v1, v2, v3}, Lcom/android/camera/ui/ScreenHint;->access$000(Lcom/android/camera/ui/ScreenHint;Lcom/android/camera/preferences/CameraSettingPreferences;ZZ)V
+    iget-boolean v4, p0, Lcom/android/camera/ui/ScreenHint$1;->val$front:Z
 
-    .line 98
+    #calls: Lcom/android/camera/ui/ScreenHint;->updateFirstUseHintState(Lcom/android/camera/ComboPreferences;Lcom/android/camera/LocationManager;ZZ)V
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/camera/ui/ScreenHint;->access$000(Lcom/android/camera/ui/ScreenHint;Lcom/android/camera/ComboPreferences;Lcom/android/camera/LocationManager;ZZ)V
+
+    .line 79
     return-void
 .end method

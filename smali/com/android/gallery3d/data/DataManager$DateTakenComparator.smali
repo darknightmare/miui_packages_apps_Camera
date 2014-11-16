@@ -32,8 +32,8 @@
     .locals 0
 
     .prologue
-    .line 88
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 89
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "x0"
 
     .prologue
-    .line 88
+    .line 89
     invoke-direct {p0}, Lcom/android/gallery3d/data/DataManager$DateTakenComparator;-><init>()V
 
     return-void
@@ -57,7 +57,7 @@
     .parameter "item2"
 
     .prologue
-    .line 90
+    .line 91
     invoke-virtual {p1}, Lcom/android/gallery3d/data/MediaItem;->getDateInMs()J
 
     move-result-wide v0
@@ -81,7 +81,7 @@
     .parameter "x1"
 
     .prologue
-    .line 88
+    .line 89
     check-cast p1, Lcom/android/gallery3d/data/MediaItem;
 
     .end local p1

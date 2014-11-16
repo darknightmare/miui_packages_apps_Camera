@@ -25,10 +25,10 @@
     .locals 0
 
     .prologue
-    .line 38
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 37
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
+    .line 38
     return-void
 .end method
 
@@ -36,7 +36,7 @@
     .locals 3
 
     .prologue
-    .line 94
+    .line 93
     const/4 v0, 0x0
 
     iget v1, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
@@ -70,7 +70,7 @@
     .parameter "own"
 
     .prologue
-    .line 79
+    .line 78
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     if-eqz v0, :cond_0
@@ -79,19 +79,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 80
+    .line 79
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/ScreenNail;->recycle()V
 
-    .line 82
+    .line 81
     :cond_0
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    .line 83
+    .line 82
     iput-boolean p2, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mOwnScreenNail:Z
 
-    .line 84
+    .line 83
     return-void
 .end method
 
@@ -101,7 +101,7 @@
     .locals 2
 
     .prologue
-    .line 52
+    .line 51
     monitor-enter p0
 
     const/4 v0, 0x0
@@ -111,34 +111,34 @@
     :try_start_0
     invoke-direct {p0, v0, v1}, Lcom/android/gallery3d/ui/TileImageViewAdapter;->updateScreenNail(Lcom/android/gallery3d/ui/ScreenNail;Z)V
 
-    .line 53
+    .line 52
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
 
-    .line 54
+    .line 53
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageHeight:I
 
-    .line 55
+    .line 54
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mLevelCount:I
 
-    .line 56
+    .line 55
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mRegionDecoder:Landroid/graphics/BitmapRegionDecoder;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 57
+    .line 56
     monitor-exit p0
 
     return-void
 
-    .line 52
+    .line 51
     :catchall_0
     move-exception v0
 
@@ -151,7 +151,7 @@
     .locals 1
 
     .prologue
-    .line 169
+    .line 168
     iget v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageHeight:I
 
     return v0
@@ -161,7 +161,7 @@
     .locals 1
 
     .prologue
-    .line 174
+    .line 173
     iget v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
 
     return v0
@@ -171,7 +171,7 @@
     .locals 1
 
     .prologue
-    .line 179
+    .line 178
     iget v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mLevelCount:I
 
     return v0
@@ -181,7 +181,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 163
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     return-object v0
@@ -197,14 +197,14 @@
     .parameter "pool"
 
     .prologue
-    .line 112
+    .line 111
     shl-int v1, p5, p1
 
-    .line 113
+    .line 112
     .local v1, b:I
     shl-int v7, p4, p1
 
-    .line 115
+    .line 114
     .local v7, t:I
     new-instance v8, Landroid/graphics/Rect;
 
@@ -222,31 +222,31 @@
 
     invoke-direct {v8, v9, v10, v11, v12}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 118
+    .line 117
     .local v8, wantRegion:Landroid/graphics/Rect;
     const/4 v5, 0x0
 
-    .line 120
+    .line 119
     .local v5, regionDecoder:Landroid/graphics/BitmapRegionDecoder;
     monitor-enter p0
 
-    .line 121
+    .line 120
     :try_start_0
     iget-object v5, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mRegionDecoder:Landroid/graphics/BitmapRegionDecoder;
 
-    .line 122
+    .line 121
     if-nez v5, :cond_1
 
     const/4 v2, 0x0
 
     monitor-exit p0
 
-    .line 159
+    .line 158
     :cond_0
     :goto_0
     return-object v2
 
-    .line 126
+    .line 125
     :cond_1
     new-instance v9, Landroid/graphics/Rect;
 
@@ -268,76 +268,76 @@
 
     const/4 v3, 0x1
 
-    .line 128
+    .line 127
     .local v3, needClear:Z
     :goto_1
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 130
+    .line 129
     if-nez p6, :cond_6
 
     const/4 v2, 0x0
 
-    .line 131
+    .line 130
     .local v2, bitmap:Landroid/graphics/Bitmap;
     :goto_2
     if-eqz v2, :cond_7
 
-    .line 132
+    .line 131
     if-eqz v3, :cond_2
 
     const/4 v9, 0x0
 
     invoke-virtual {v2, v9}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
-    .line 138
+    .line 137
     :cond_2
     :goto_3
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 139
+    .line 138
     .local v4, options:Landroid/graphics/BitmapFactory$Options;
     sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     iput-object v9, v4, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
 
-    .line 140
+    .line 139
     const/4 v9, 0x1
 
     iput-boolean v9, v4, Landroid/graphics/BitmapFactory$Options;->inPreferQualityOverSpeed:Z
 
-    .line 141
+    .line 140
     const/4 v9, 0x1
 
     shl-int/2addr v9, p1
 
     iput v9, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    .line 142
+    .line 141
     iput-object v2, v4, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
 
-    .line 146
+    .line 145
     :try_start_1
     monitor-enter v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
-    .line 147
+    .line 146
     :try_start_2
     invoke-virtual {v5, v8, v4}, Landroid/graphics/BitmapRegionDecoder;->decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 148
+    .line 147
     monitor-exit v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 150
+    .line 149
     iget-object v9, v4, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
 
     if-eq v9, v2, :cond_4
@@ -346,7 +346,7 @@
 
     if-eqz v9, :cond_4
 
-    .line 151
+    .line 150
     if-eqz p6, :cond_3
 
     iget-object v9, v4, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
@@ -355,26 +355,26 @@
 
     invoke-virtual {v0, v9}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 152
+    .line 151
     :cond_3
     const/4 v9, 0x0
 
     iput-object v9, v4, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
 
-    .line 156
+    .line 155
     :cond_4
     if-nez v2, :cond_0
 
-    .line 157
+    .line 156
     const-string v9, "TileImageViewAdapter"
 
     const-string v10, "fail in decoding region"
 
-    invoke-static {v9, v10}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Lcom/android/gallery3d/ui/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 126
+    .line 125
     .end local v2           #bitmap:Landroid/graphics/Bitmap;
     .end local v3           #needClear:Z
     .end local v4           #options:Landroid/graphics/BitmapFactory$Options;
@@ -383,7 +383,7 @@
 
     goto :goto_1
 
-    .line 128
+    .line 127
     :catchall_0
     move-exception v9
 
@@ -394,7 +394,7 @@
 
     throw v9
 
-    .line 130
+    .line 129
     .restart local v3       #needClear:Z
     :cond_6
     invoke-virtual/range {p6 .. p6}, Lcom/android/gallery3d/data/BitmapPool;->getBitmap()Landroid/graphics/Bitmap;
@@ -403,14 +403,14 @@
 
     goto :goto_2
 
-    .line 134
+    .line 133
     .restart local v2       #bitmap:Landroid/graphics/Bitmap;
     :cond_7
     mul-int/lit8 v9, p5, 0x2
 
     add-int v6, p4, v9
 
-    .line 135
+    .line 134
     .local v6, s:I
     sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
@@ -420,7 +420,7 @@
 
     goto :goto_3
 
-    .line 148
+    .line 147
     .end local v6           #s:I
     .restart local v4       #options:Landroid/graphics/BitmapFactory$Options;
     :catchall_1
@@ -436,7 +436,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    .line 150
+    .line 149
     :catchall_2
     move-exception v9
 
@@ -448,7 +448,7 @@
 
     if-eqz v10, :cond_9
 
-    .line 151
+    .line 150
     if-eqz p6, :cond_8
 
     iget-object v10, v4, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
@@ -457,7 +457,7 @@
 
     invoke-virtual {v0, v10}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 152
+    .line 151
     :cond_8
     const/4 v10, 0x0
 
@@ -472,7 +472,7 @@
     .parameter "decoder"
 
     .prologue
-    .line 87
+    .line 86
     monitor-enter p0
 
     :try_start_0
@@ -484,21 +484,21 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mRegionDecoder:Landroid/graphics/BitmapRegionDecoder;
 
-    .line 88
+    .line 87
     invoke-virtual {p1}, Landroid/graphics/BitmapRegionDecoder;->getWidth()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
 
-    .line 89
+    .line 88
     invoke-virtual {p1}, Landroid/graphics/BitmapRegionDecoder;->getHeight()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageHeight:I
 
-    .line 90
+    .line 89
     invoke-direct {p0}, Lcom/android/gallery3d/ui/TileImageViewAdapter;->calculateLevelCount()I
 
     move-result v0
@@ -507,12 +507,66 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 91
+    .line 90
     monitor-exit p0
 
     return-void
 
-    .line 87
+    .line 86
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public declared-synchronized setScreenNail(Landroid/graphics/Bitmap;II)V
+    .locals 2
+    .parameter "bitmap"
+    .parameter "width"
+    .parameter "height"
+
+    .prologue
+    .line 59
+    monitor-enter p0
+
+    :try_start_0
+    invoke-static {p1}, Lcom/android/gallery3d/common/Utils;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 60
+    new-instance v0, Lcom/android/gallery3d/ui/BitmapScreenNail;
+
+    invoke-direct {v0, p1}, Lcom/android/gallery3d/ui/BitmapScreenNail;-><init>(Landroid/graphics/Bitmap;)V
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/gallery3d/ui/TileImageViewAdapter;->updateScreenNail(Lcom/android/gallery3d/ui/ScreenNail;Z)V
+
+    .line 61
+    iput p2, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
+
+    .line 62
+    iput p3, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageHeight:I
+
+    .line 63
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mRegionDecoder:Landroid/graphics/BitmapRegionDecoder;
+
+    .line 64
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mLevelCount:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 65
+    monitor-exit p0
+
+    return-void
+
+    .line 59
     :catchall_0
     move-exception v0
 
@@ -528,41 +582,41 @@
     .parameter "height"
 
     .prologue
-    .line 70
+    .line 69
     monitor-enter p0
 
     :try_start_0
     invoke-static {p1}, Lcom/android/gallery3d/common/Utils;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 71
+    .line 70
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/gallery3d/ui/TileImageViewAdapter;->updateScreenNail(Lcom/android/gallery3d/ui/ScreenNail;Z)V
 
-    .line 72
+    .line 71
     iput p2, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageWidth:I
 
-    .line 73
+    .line 72
     iput p3, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mImageHeight:I
 
-    .line 74
+    .line 73
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mRegionDecoder:Landroid/graphics/BitmapRegionDecoder;
 
-    .line 75
+    .line 74
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageViewAdapter;->mLevelCount:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 76
+    .line 75
     monitor-exit p0
 
     return-void
 
-    .line 70
+    .line 69
     :catchall_0
     move-exception v0
 

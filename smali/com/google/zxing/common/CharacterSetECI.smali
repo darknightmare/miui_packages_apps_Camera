@@ -985,7 +985,7 @@
     :cond_0
     sget-object v9, Lcom/google/zxing/common/CharacterSetECI;->NAME_TO_ECI:Ljava/util/Map;
 
-    invoke-virtual {v2}, Lcom/google/zxing/common/CharacterSetECI;->name()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v10
 
@@ -1192,7 +1192,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/common/CharacterSetECI;
     .locals 1
-    .parameter
 
     .prologue
     .line 30
@@ -1214,7 +1213,7 @@
     .line 30
     sget-object v0, Lcom/google/zxing/common/CharacterSetECI;->$VALUES:[Lcom/google/zxing/common/CharacterSetECI;
 
-    invoke-virtual {v0}, [Lcom/google/zxing/common/CharacterSetECI;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

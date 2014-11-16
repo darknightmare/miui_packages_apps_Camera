@@ -15,10 +15,10 @@
     .parameter "context"
 
     .prologue
-    .line 15
+    .line 16
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 16
+    .line 17
     return-void
 .end method
 
@@ -28,10 +28,10 @@
     .parameter "attrs"
 
     .prologue
-    .line 23
+    .line 24
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 24
+    .line 25
     return-void
 .end method
 
@@ -42,10 +42,10 @@
     .parameter "defStyle"
 
     .prologue
-    .line 19
+    .line 20
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 20
+    .line 21
     return-void
 .end method
 
@@ -57,13 +57,13 @@
     .parameter "column"
 
     .prologue
-    .line 27
+    .line 28
     iput p2, p0, Lcom/android/camera/ui/SplitLineDrawer;->mColumnCount:I
 
-    .line 28
+    .line 29
     iput p1, p0, Lcom/android/camera/ui/SplitLineDrawer;->mRowCount:I
 
-    .line 29
+    .line 30
     return-void
 .end method
 
@@ -72,28 +72,28 @@
     .parameter "canvas"
 
     .prologue
-    .line 33
+    .line 34
     new-instance v5, Landroid/graphics/Paint;
 
     invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
 
-    .line 34
+    .line 35
     .local v5, paint:Landroid/graphics/Paint;
     const v0, 0x15ffffff
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 35
-    invoke-virtual {p0}, Lcom/android/camera/ui/SplitLineDrawer;->getWidth()I
+    .line 36
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v8
 
     .local v8, w:I
-    invoke-virtual {p0}, Lcom/android/camera/ui/SplitLineDrawer;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v6
 
-    .line 36
+    .line 37
     .local v6, h:I
     const/4 v7, 0x1
 
@@ -103,7 +103,7 @@
 
     if-ge v7, v0, :cond_0
 
-    .line 37
+    .line 38
     mul-int v0, v7, v8
 
     iget v1, p0, Lcom/android/camera/ui/SplitLineDrawer;->mColumnCount:I
@@ -130,12 +130,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    .line 36
+    .line 37
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
-    .line 39
+    .line 40
     :cond_0
     const/4 v7, 0x1
 
@@ -144,7 +144,7 @@
 
     if-ge v7, v0, :cond_1
 
-    .line 40
+    .line 41
     const/high16 v1, 0x4000
 
     mul-int v0, v7, v6
@@ -171,15 +171,15 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    .line 39
+    .line 40
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    .line 42
+    .line 43
     :cond_1
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 43
+    .line 44
     return-void
 .end method

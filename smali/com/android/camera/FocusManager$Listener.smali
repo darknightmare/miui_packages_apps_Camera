@@ -38,6 +38,3 @@
 
 .method public abstract stopFaceDetection(Z)V
 .end method
-
-.method public abstract stopObjectTracking(Z)V
-.end method

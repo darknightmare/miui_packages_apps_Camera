@@ -15,17 +15,14 @@
 
 
 # virtual methods
-.method public abstract animateSwitchCameraAfter()V
-.end method
-
 .method public abstract getOrientation()I
 .end method
 
 .method public abstract onPreviewTextureCopied()V
 .end method
 
-.method public abstract onSwitchAnimationDone()V
+.method public abstract requestRender()V
 .end method
 
-.method public abstract requestRender()V
+.method public abstract switchModeLayout()V
 .end method

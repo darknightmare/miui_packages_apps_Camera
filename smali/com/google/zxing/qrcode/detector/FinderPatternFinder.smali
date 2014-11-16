@@ -42,7 +42,7 @@
 
     .prologue
     .line 62
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 63
     iput-object p1, p0, Lcom/google/zxing/qrcode/detector/FinderPatternFinder;->image:Lcom/google/zxing/common/BitMatrix;
@@ -878,11 +878,11 @@
     iput-boolean v7, p0, Lcom/google/zxing/qrcode/detector/FinderPatternFinder;->hasSkipped:Z
 
     .line 449
-    invoke-virtual {v1}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual {v1}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v4
 
-    invoke-virtual {v0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual {v0}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v5
 
@@ -892,11 +892,11 @@
 
     move-result v4
 
-    invoke-virtual {v1}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual {v1}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v5
 
-    invoke-virtual {v0}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual {v0}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v6
 
@@ -1630,7 +1630,6 @@
 # virtual methods
 .method final find(Ljava/util/Map;)Lcom/google/zxing/qrcode/detector/FinderPatternInfo;
     .locals 14
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

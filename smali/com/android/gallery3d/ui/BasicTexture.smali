@@ -1,4 +1,4 @@
-.class public abstract Lcom/android/gallery3d/ui/BasicTexture;
+.class abstract Lcom/android/gallery3d/ui/BasicTexture;
 .super Ljava/lang/Object;
 .source "BasicTexture.java"
 
@@ -20,15 +20,6 @@
 .end field
 
 .field private static sInFinalizer:Ljava/lang/ThreadLocal;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/lang/ThreadLocal",
-            "<",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 
 # instance fields
@@ -54,14 +45,14 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 50
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     sput-object v0, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
-    .line 51
+    .line 52
     new-instance v0, Ljava/lang/ThreadLocal;
 
     invoke-direct {v0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -77,12 +68,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 63
+    .line 64
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, v1, v1}, Lcom/android/gallery3d/ui/BasicTexture;-><init>(Lcom/android/gallery3d/ui/GLCanvas;II)V
 
-    .line 64
+    .line 65
     return-void
 .end method
 
@@ -97,33 +88,33 @@
 
     const/4 v0, -0x1
 
-    .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 40
-    iput v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
+    .line 54
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
+    iput v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
+
+    .line 42
     iput v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHeight:I
 
-    .line 48
+    .line 49
     iput-object v1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mCanvasRef:Lcom/android/gallery3d/ui/GLCanvas;
 
-    .line 54
+    .line 55
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/ui/BasicTexture;->setAssociatedCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 55
+    .line 56
     iput p2, p0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
 
-    .line 56
+    .line 57
     iput p3, p0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
 
-    .line 57
+    .line 58
     sget-object v1, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
     monitor-enter v1
 
-    .line 58
+    .line 59
     :try_start_0
     sget-object v0, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
@@ -131,13 +122,13 @@
 
     invoke-virtual {v0, p0, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
+    .line 60
     monitor-exit v1
 
-    .line 60
+    .line 61
     return-void
 
-    .line 59
+    .line 60
     :catchall_0
     move-exception v0
 
@@ -152,10 +143,10 @@
     .locals 2
 
     .prologue
-    .line 161
+    .line 162
     iget-object v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mCanvasRef:Lcom/android/gallery3d/ui/GLCanvas;
 
-    .line 162
+    .line 163
     .local v0, canvas:Lcom/android/gallery3d/ui/GLCanvas;
     if-eqz v0, :cond_0
 
@@ -165,21 +156,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 163
-    invoke-interface {v0, p0}, Lcom/android/gallery3d/ui/GLCanvas;->deleteTexture(Lcom/android/gallery3d/ui/BasicTexture;)Z
+    .line 164
+    invoke-interface {v0, p0}, Lcom/android/gallery3d/ui/GLCanvas;->unloadTexture(Lcom/android/gallery3d/ui/BasicTexture;)Z
 
-    .line 165
+    .line 166
     :cond_0
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
 
-    .line 166
+    .line 167
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/gallery3d/ui/BasicTexture;->setAssociatedCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 167
+    .line 168
     return-void
 .end method
 
@@ -187,7 +178,7 @@
     .locals 1
 
     .prologue
-    .line 180
+    .line 181
     sget-object v0, Lcom/android/gallery3d/ui/BasicTexture;->sInFinalizer:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -211,12 +202,12 @@
     .locals 4
 
     .prologue
-    .line 192
+    .line 193
     sget-object v3, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
     monitor-enter v3
 
-    .line 193
+    .line 194
     :try_start_0
     sget-object v2, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
@@ -242,20 +233,20 @@
 
     check-cast v1, Lcom/android/gallery3d/ui/BasicTexture;
 
-    .line 194
+    .line 195
     .local v1, t:Lcom/android/gallery3d/ui/BasicTexture;
     const/4 v2, 0x0
 
     iput v2, v1, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
 
-    .line 195
+    .line 196
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lcom/android/gallery3d/ui/BasicTexture;->setAssociatedCanvas(Lcom/android/gallery3d/ui/GLCanvas;)V
 
     goto :goto_0
 
-    .line 197
+    .line 198
     .end local v1           #t:Lcom/android/gallery3d/ui/BasicTexture;
     :catchall_0
     move-exception v2
@@ -272,7 +263,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 198
+    .line 199
     return-void
 .end method
 
@@ -280,12 +271,12 @@
     .locals 4
 
     .prologue
-    .line 184
+    .line 185
     sget-object v3, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
     monitor-enter v3
 
-    .line 185
+    .line 186
     :try_start_0
     sget-object v2, Lcom/android/gallery3d/ui/BasicTexture;->sAllTextures:Ljava/util/WeakHashMap;
 
@@ -311,13 +302,13 @@
 
     check-cast v1, Lcom/android/gallery3d/ui/BasicTexture;
 
-    .line 186
+    .line 187
     .local v1, t:Lcom/android/gallery3d/ui/BasicTexture;
     invoke-virtual {v1}, Lcom/android/gallery3d/ui/BasicTexture;->yield()V
 
     goto :goto_0
 
-    .line 188
+    .line 189
     .end local v1           #t:Lcom/android/gallery3d/ui/BasicTexture;
     :catchall_0
     move-exception v2
@@ -334,7 +325,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 189
+    .line 190
     return-void
 .end method
 
@@ -347,9 +338,7 @@
     .parameter "y"
 
     .prologue
-    .line 127
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;
-
+    .line 128
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/BasicTexture;->getWidth()I
 
     move-result v4
@@ -358,17 +347,17 @@
 
     move-result v5
 
+    move-object v0, p1
+
     move-object v1, p0
 
     move v2, p2
 
     move v3, p3
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
-
-    .line 128
+    .line 129
     return-void
 .end method
 
@@ -381,8 +370,8 @@
     .parameter "h"
 
     .prologue
-    .line 131
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;
+    .line 132
+    move-object v0, p1
 
     move-object v1, p0
 
@@ -394,11 +383,9 @@
 
     move v5, p5
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
-
-    .line 132
+    .line 133
     return-void
 .end method
 
@@ -406,24 +393,24 @@
     .locals 2
 
     .prologue
-    .line 171
+    .line 172
     sget-object v0, Lcom/android/gallery3d/ui/BasicTexture;->sInFinalizer:Ljava/lang/ThreadLocal;
 
     const-class v1, Lcom/android/gallery3d/ui/BasicTexture;
 
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 172
+    .line 173
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/BasicTexture;->recycle()V
 
-    .line 173
+    .line 174
     sget-object v0, Lcom/android/gallery3d/ui/BasicTexture;->sInFinalizer:Ljava/lang/ThreadLocal;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 174
+    .line 175
     return-void
 .end method
 
@@ -431,7 +418,7 @@
     .locals 1
 
     .prologue
-    .line 94
+    .line 95
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHeight:I
 
     return v0
@@ -441,20 +428,20 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 87
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mId:I
 
     return v0
 .end method
 
-.method public abstract getTarget()I
+.method protected abstract getTarget()I
 .end method
 
 .method public getTextureHeight()I
     .locals 1
 
     .prologue
-    .line 104
+    .line 105
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mTextureHeight:I
 
     return v0
@@ -464,7 +451,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 100
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mTextureWidth:I
 
     return v0
@@ -474,8 +461,18 @@
     .locals 1
 
     .prologue
-    .line 90
+    .line 91
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
+
+    return v0
+.end method
+
+.method public hasBorder()Z
+    .locals 1
+
+    .prologue
+    .line 120
+    iget-boolean v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHasBorder:Z
 
     return v0
 .end method
@@ -486,7 +483,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 142
+    .line 143
     iget v1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mState:I
 
     if-ne v1, v0, :cond_0
@@ -500,17 +497,17 @@
     goto :goto_0
 .end method
 
-.method public abstract onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
+.method protected abstract onBind(Lcom/android/gallery3d/ui/GLCanvas;)Z
 .end method
 
 .method public recycle()V
     .locals 0
 
     .prologue
-    .line 148
+    .line 149
     invoke-direct {p0}, Lcom/android/gallery3d/ui/BasicTexture;->freeResource()V
 
-    .line 149
+    .line 150
     return-void
 .end method
 
@@ -519,10 +516,10 @@
     .parameter "canvas"
 
     .prologue
-    .line 67
+    .line 68
     iput-object p1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mCanvasRef:Lcom/android/gallery3d/ui/GLCanvas;
 
-    .line 68
+    .line 69
     return-void
 .end method
 
@@ -531,10 +528,10 @@
     .parameter "hasBorder"
 
     .prologue
-    .line 123
+    .line 124
     iput-boolean p1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHasBorder:Z
 
-    .line 124
+    .line 125
     return-void
 .end method
 
@@ -544,25 +541,29 @@
     .parameter "height"
 
     .prologue
-    const/16 v1, 0x1000
-
-    .line 75
-    iput p1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
+    const/16 v1, 0x800
 
     .line 76
-    iput p2, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHeight:I
+    iput p1, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
 
     .line 77
-    iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mWidth:I
+    iput p2, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHeight:I
+
+    .line 78
+    invoke-static {p1}, Lcom/android/gallery3d/common/Utils;->nextPowerOf2(I)I
+
+    move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mTextureWidth:I
 
-    .line 78
-    iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mHeight:I
+    .line 79
+    invoke-static {p2}, Lcom/android/gallery3d/common/Utils;->nextPowerOf2(I)I
+
+    move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mTextureHeight:I
 
-    .line 79
+    .line 80
     iget v0, p0, Lcom/android/gallery3d/ui/BasicTexture;->mTextureWidth:I
 
     if-gt v0, v1, :cond_0
@@ -571,7 +572,7 @@
 
     if-le v0, v1, :cond_1
 
-    .line 80
+    .line 81
     :cond_0
     const-string v0, "BasicTexture"
 
@@ -609,9 +610,9 @@
 
     invoke-direct {v2}, Ljava/lang/Exception;-><init>()V
 
-    invoke-static {v0, v1, v2}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v2}, Lcom/android/gallery3d/ui/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 83
+    .line 84
     :cond_1
     return-void
 .end method
@@ -620,9 +621,9 @@
     .locals 0
 
     .prologue
-    .line 157
+    .line 158
     invoke-direct {p0}, Lcom/android/gallery3d/ui/BasicTexture;->freeResource()V
 
-    .line 158
+    .line 159
     return-void
 .end method

@@ -39,7 +39,7 @@
     .prologue
     .line 32
     .local p1, pairs:Ljava/util/List;,"Ljava/util/List<Lcom/google/zxing/oned/rss/expanded/ExpandedPair;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
     new-instance v0, Ljava/util/ArrayList;
@@ -165,7 +165,6 @@
 
 .method isEquivalent(Ljava/util/List;)Z
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

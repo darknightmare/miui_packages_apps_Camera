@@ -25,18 +25,18 @@
     .parameter "height"
 
     .prologue
-    .line 63
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 59
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 49
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
-    .line 64
+    .line 60
     invoke-direct {p0, p1, p2}, Lcom/android/gallery3d/ui/BitmapScreenNail;->setSize(II)V
 
-    .line 65
+    .line 61
     return-void
 .end method
 
@@ -45,32 +45,32 @@
     .parameter "bitmap"
 
     .prologue
-    .line 55
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 51
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 49
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
-    .line 56
+    .line 52
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mWidth:I
 
-    .line 57
+    .line 53
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mHeight:I
 
-    .line 58
+    .line 54
     iput-object p1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 61
+    .line 57
     return-void
 .end method
 
@@ -80,7 +80,7 @@
     .prologue
     const/high16 v5, 0x3f80
 
-    .line 198
+    .line 194
     invoke-static {}, Lcom/android/gallery3d/ui/BitmapScreenNail;->now()J
 
     move-result-wide v1
@@ -95,7 +95,7 @@
 
     div-float v0, v1, v2
 
-    .line 199
+    .line 195
     .local v0, r:F
     sub-float v1, v5, v0
 
@@ -112,7 +112,7 @@
     .locals 2
 
     .prologue
-    .line 194
+    .line 190
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->get()J
 
     move-result-wide v0
@@ -126,19 +126,19 @@
     .parameter "height"
 
     .prologue
-    .line 68
+    .line 64
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 69
+    .line 65
     :cond_0
     const/16 p1, 0x280
 
-    .line 70
+    .line 66
     const/16 p2, 0x1e0
 
-    .line 72
+    .line 68
     :cond_1
     const/high16 v1, 0x3f80
 
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    .line 73
+    .line 69
     .local v0, scale:F
     int-to-float v1, p1
 
@@ -168,7 +168,7 @@
 
     iput v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mWidth:I
 
-    .line 74
+    .line 70
     int-to-float v1, p2
 
     mul-float/2addr v1, v0
@@ -179,7 +179,7 @@
 
     iput v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mHeight:I
 
-    .line 75
+    .line 71
     return-void
 .end method
 
@@ -192,57 +192,57 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 80
+    .line 76
     if-nez p1, :cond_0
 
-    .line 108
+    .line 104
     .end local p0
     :goto_0
     return-object p0
 
-    .line 84
+    .line 80
     .restart local p0
     :cond_0
     instance-of v1, p1, Lcom/android/gallery3d/ui/BitmapScreenNail;
 
     if-nez v1, :cond_1
 
-    .line 85
+    .line 81
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/BitmapScreenNail;->recycle()V
 
     move-object p0, p1
 
-    .line 86
+    .line 82
     goto :goto_0
 
     :cond_1
     move-object v0, p1
 
-    .line 91
+    .line 87
     check-cast v0, Lcom/android/gallery3d/ui/BitmapScreenNail;
 
-    .line 92
+    .line 88
     .local v0, newer:Lcom/android/gallery3d/ui/BitmapScreenNail;
     iget v1, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mWidth:I
 
     iput v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mWidth:I
 
-    .line 93
+    .line 89
     iget v1, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mHeight:I
 
     iput v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mHeight:I
 
-    .line 94
+    .line 90
     iget-object v1, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v1, :cond_3
 
-    .line 95
+    .line 91
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v1, :cond_2
 
-    .line 96
+    .line 92
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getThumbPool()Lcom/android/gallery3d/data/BitmapPool;
 
     move-result-object v1
@@ -251,29 +251,29 @@
 
     invoke-virtual {v1, v2}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 98
+    .line 94
     :cond_2
     iget-object v1, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     iput-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 99
+    .line 95
     iput-object v3, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 101
+    .line 97
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-eqz v1, :cond_3
 
-    .line 102
+    .line 98
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v1}, Lcom/android/gallery3d/ui/BitmapTexture;->recycle()V
 
-    .line 103
+    .line 99
     iput-object v3, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 107
+    .line 103
     :cond_3
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapScreenNail;->recycle()V
 
@@ -289,12 +289,12 @@
     .parameter "height"
 
     .prologue
-    .line 145
+    .line 141
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_1
 
-    .line 146
+    .line 142
     iget-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
     const-wide/16 v2, -0x1
@@ -303,15 +303,13 @@
 
     if-nez v0, :cond_0
 
-    .line 147
+    .line 143
     const-wide/16 v0, -0x2
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
-    .line 149
+    .line 145
     :cond_0
-    new-instance v0, Lcom/android/camera/effect/draw_mode/FillRectAttribute;
-
     int-to-float v1, p2
 
     int-to-float v2, p3
@@ -322,21 +320,21 @@
 
     const v5, -0xddddde
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/FillRectAttribute;-><init>(FFFFI)V
+    move-object v0, p1
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->fillRect(FFFFI)V
 
-    .line 167
+    .line 163
     :goto_0
     return-void
 
-    .line 153
+    .line 149
     :cond_1
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-nez v0, :cond_2
 
-    .line 154
+    .line 150
     new-instance v0, Lcom/android/gallery3d/ui/BitmapTexture;
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
@@ -345,7 +343,7 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 157
+    .line 153
     :cond_2
     iget-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
@@ -355,14 +353,14 @@
 
     if-nez v0, :cond_3
 
-    .line 158
+    .line 154
     invoke-static {}, Lcom/android/gallery3d/ui/BitmapScreenNail;->now()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
-    .line 161
+    .line 157
     :cond_3
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/BitmapScreenNail;->isAnimating()Z
 
@@ -370,9 +368,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 162
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawMixedAttribute;
-
+    .line 158
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     const v2, -0xddddde
@@ -381,21 +377,21 @@
 
     move-result v3
 
-    int-to-float v4, p2
+    move-object v0, p1
 
-    int-to-float v5, p3
+    move v4, p2
 
-    int-to-float v6, p4
+    move v5, p3
 
-    int-to-float v7, p5
+    move v6, p4
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/camera/effect/draw_mode/DrawMixedAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IFFFFF)V
+    move v7, p5
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface/range {v0 .. v7}, Lcom/android/gallery3d/ui/GLCanvas;->drawMixed(Lcom/android/gallery3d/ui/BasicTexture;IFIIII)V
 
     goto :goto_0
 
-    .line 165
+    .line 161
     :cond_4
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
@@ -421,14 +417,12 @@
     .parameter "dest"
 
     .prologue
-    .line 171
+    .line 167
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_0
 
-    .line 172
-    new-instance v0, Lcom/android/camera/effect/draw_mode/FillRectAttribute;
-
+    .line 168
     iget v1, p3, Landroid/graphics/RectF;->left:F
 
     iget v2, p3, Landroid/graphics/RectF;->top:F
@@ -443,21 +437,21 @@
 
     const v5, -0xddddde
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/FillRectAttribute;-><init>(FFFFI)V
+    move-object v0, p1
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->fillRect(FFFFI)V
 
-    .line 182
+    .line 178
     :goto_0
     return-void
 
-    .line 177
+    .line 173
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-nez v0, :cond_1
 
-    .line 178
+    .line 174
     new-instance v0, Lcom/android/gallery3d/ui/BitmapTexture;
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
@@ -466,15 +460,11 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 181
+    .line 177
     :cond_1
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawRectFTexAttribute;
+    iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    iget-object v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
-    invoke-direct {v0, v1, p2, p3}, Lcom/android/camera/effect/draw_mode/DrawRectFTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface {p1, v0, p2, p3}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
 
     goto :goto_0
 .end method
@@ -483,7 +473,7 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 120
     iget v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mHeight:I
 
     return v0
@@ -493,7 +483,7 @@
     .locals 1
 
     .prologue
-    .line 119
+    .line 115
     iget v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mWidth:I
 
     return v0
@@ -505,7 +495,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 185
+    .line 181
     iget-wide v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
     const-wide/16 v3, 0x0
@@ -514,11 +504,11 @@
 
     if-gez v1, :cond_0
 
-    .line 190
+    .line 186
     :goto_0
     return v0
 
-    .line 186
+    .line 182
     :cond_0
     invoke-static {}, Lcom/android/gallery3d/ui/BitmapScreenNail;->now()J
 
@@ -534,14 +524,14 @@
 
     if-ltz v1, :cond_1
 
-    .line 187
+    .line 183
     const-wide/16 v1, -0x3
 
     iput-wide v1, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mAnimationStartTime:J
 
     goto :goto_0
 
-    .line 190
+    .line 186
     :cond_1
     const/4 v0, 0x1
 
@@ -552,7 +542,7 @@
     .locals 1
 
     .prologue
-    .line 203
+    .line 199
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
@@ -579,7 +569,7 @@
     .locals 0
 
     .prologue
-    .line 129
+    .line 125
     return-void
 .end method
 
@@ -589,26 +579,26 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 133
+    .line 129
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-eqz v0, :cond_0
 
-    .line 134
+    .line 130
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapTexture;->recycle()V
 
-    .line 135
+    .line 131
     iput-object v2, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 137
+    .line 133
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_1
 
-    .line 138
+    .line 134
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getThumbPool()Lcom/android/gallery3d/data/BitmapPool;
 
     move-result-object v0
@@ -617,10 +607,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 139
+    .line 135
     iput-object v2, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 141
+    .line 137
     :cond_1
     return-void
 .end method
@@ -631,23 +621,23 @@
     .parameter "height"
 
     .prologue
-    .line 112
+    .line 108
     iget-object v0, p0, Lcom/android/gallery3d/ui/BitmapScreenNail;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_1
 
-    .line 115
+    .line 111
     :cond_0
     :goto_0
     return-void
 
-    .line 113
+    .line 109
     :cond_1
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
-    .line 114
+    .line 110
     invoke-direct {p0, p1, p2}, Lcom/android/gallery3d/ui/BitmapScreenNail;->setSize(II)V
 
     goto :goto_0

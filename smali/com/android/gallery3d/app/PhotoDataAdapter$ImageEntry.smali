@@ -55,16 +55,16 @@
     .prologue
     const-wide/16 v0, -0x1
 
-    .line 886
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 873
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 891
+    .line 878
     iput-wide v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageEntry;->requestedScreenNail:J
 
-    .line 892
+    .line 879
     iput-wide v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageEntry;->requestedFullImage:J
 
-    .line 893
+    .line 880
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageEntry;->failToLoad:Z
@@ -77,7 +77,7 @@
     .parameter "x0"
 
     .prologue
-    .line 886
+    .line 873
     invoke-direct {p0}, Lcom/android/gallery3d/app/PhotoDataAdapter$ImageEntry;-><init>()V
 
     return-void

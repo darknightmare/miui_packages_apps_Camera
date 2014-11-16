@@ -28,7 +28,7 @@
     const/4 v7, 0x4
 
     .line 206
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 207
     invoke-virtual {p1}, Lcom/android/gallery3d/ui/NinePatchTexture;->getNinePatchChunk()Lcom/android/gallery3d/ui/NinePatchChunk;
@@ -95,7 +95,7 @@
     .local v4, divV:[F
     iget-object v0, v8, Lcom/android/gallery3d/ui/NinePatchChunk;->mDivX:[I
 
-    invoke-virtual {p1}, Lcom/android/gallery3d/ui/NinePatchTexture;->getWidth()I
+    invoke-virtual {p1}, Lcom/android/gallery3d/ui/ResourceTexture;->getWidth()I
 
     move-result v7
 
@@ -107,7 +107,7 @@
     .local v5, nx:I
     iget-object v0, v8, Lcom/android/gallery3d/ui/NinePatchChunk;->mDivY:[I
 
-    invoke-virtual {p1}, Lcom/android/gallery3d/ui/NinePatchTexture;->getHeight()I
+    invoke-virtual {p1}, Lcom/android/gallery3d/ui/ResourceTexture;->getHeight()I
 
     move-result v7
 
@@ -149,106 +149,112 @@
 .end method
 
 .method private prepareBuffers(Lcom/android/gallery3d/ui/GLCanvas;)V
-    .locals 6
+    .locals 7
     .parameter "canvas"
 
     .prologue
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    const v3, 0x88e4
+    const v4, 0x88e4
 
-    const v2, 0x8892
+    const v3, 0x8892
 
     .line 399
-    new-array v0, v5, [I
+    new-array v1, v6, [I
 
-    iput-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+    iput-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     .line 400
-    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getGLInstance()Ljavax/microedition/khronos/opengles/GL11;
 
-    invoke-static {v5, v0, v1}, Lcom/android/gallery3d/ui/GLId;->glGenBuffers(I[II)V
+    move-result-object v0
 
-    .line 402
-    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
-
-    aget v0, v0, v1
-
-    invoke-static {v2, v0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
-
-    .line 403
-    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
-
-    invoke-virtual {v0}, Ljava/nio/FloatBuffer;->capacity()I
-
-    move-result v0
-
-    mul-int/lit8 v0, v0, 0x4
-
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
-
-    invoke-static {v2, v0, v1, v3}, Landroid/opengl/GLES20;->glBufferData(IILjava/nio/Buffer;I)V
-
-    .line 407
-    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
-
-    const/4 v1, 0x1
-
-    aget v0, v0, v1
-
-    invoke-static {v2, v0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
-
-    .line 408
-    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
-
-    invoke-virtual {v0}, Ljava/nio/FloatBuffer;->capacity()I
-
-    move-result v0
-
-    mul-int/lit8 v0, v0, 0x4
-
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
-
-    invoke-static {v2, v0, v1, v3}, Landroid/opengl/GLES20;->glBufferData(IILjava/nio/Buffer;I)V
-
-    .line 412
-    const v0, 0x8893
-
+    .line 401
+    .local v0, gl:Ljavax/microedition/khronos/opengles/GL11;
     iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
-    const/4 v2, 0x2
+    invoke-static {v6, v1, v2}, Lcom/android/gallery3d/ui/GLId;->glGenBuffers(I[II)V
+
+    .line 403
+    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     aget v1, v1, v2
 
-    invoke-static {v0, v1}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+    invoke-interface {v0, v3, v1}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
-    .line 413
-    const v0, 0x8893
+    .line 404
+    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
 
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIndexBuffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v1}, Ljava/nio/Buffer;->capacity()I
 
     move-result v1
 
+    mul-int/lit8 v1, v1, 0x4
+
+    iget-object v2, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
+
+    invoke-interface {v0, v3, v1, v2, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
+
+    .line 408
+    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+
+    const/4 v2, 0x1
+
+    aget v1, v1, v2
+
+    invoke-interface {v0, v3, v1}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+
+    .line 409
+    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
+
+    invoke-virtual {v1}, Ljava/nio/Buffer;->capacity()I
+
+    move-result v1
+
+    mul-int/lit8 v1, v1, 0x4
+
+    iget-object v2, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
+
+    invoke-interface {v0, v3, v1, v2, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
+
+    .line 413
+    const v1, 0x8893
+
+    iget-object v2, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+
+    const/4 v3, 0x2
+
+    aget v2, v2, v3
+
+    invoke-interface {v0, v1, v2}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+
+    .line 414
+    const v1, 0x8893
+
     iget-object v2, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIndexBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {v0, v1, v2, v3}, Landroid/opengl/GLES20;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-virtual {v2}, Ljava/nio/Buffer;->capacity()I
 
-    .line 418
-    iput-object v4, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIndexBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-interface {v0, v1, v2, v3, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 419
-    iput-object v4, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
+    iput-object v5, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mXyBuffer:Ljava/nio/FloatBuffer;
 
     .line 420
-    iput-object v4, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIndexBuffer:Ljava/nio/ByteBuffer;
+    iput-object v5, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mUvBuffer:Ljava/nio/FloatBuffer;
 
     .line 421
+    iput-object v5, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIndexBuffer:Ljava/nio/ByteBuffer;
+
+    .line 422
     return-void
 .end method
 
@@ -634,7 +640,7 @@
 
     const/16 v25, 0x0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual/range {v24 .. v25}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
     .line 390
     move-object/from16 v0, p0
@@ -661,7 +667,7 @@
 
     const/16 v25, 0x0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual/range {v24 .. v25}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
     .line 391
     move-object/from16 v0, p0
@@ -682,7 +688,7 @@
 
     const/16 v25, 0x0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual/range {v24 .. v25}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
     .line 392
     return-void
@@ -987,49 +993,47 @@
     .parameter "y"
 
     .prologue
-    .line 424
+    .line 425
     iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     if-nez v0, :cond_0
 
-    .line 425
+    .line 426
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/NinePatchInstance;->prepareBuffers(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 427
+    .line 428
     :cond_0
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawMeshAttribute;
+    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
-    int-to-float v2, p3
+    const/4 v1, 0x0
 
-    int-to-float v3, p4
+    aget v4, v0, v1
 
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
-    const/4 v4, 0x0
+    const/4 v1, 0x1
 
-    aget v4, v1, v4
+    aget v5, v0, v1
 
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
+    iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
-    const/4 v5, 0x1
+    const/4 v1, 0x2
 
-    aget v5, v1, v5
-
-    iget-object v1, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
-
-    const/4 v6, 0x2
-
-    aget v6, v1, v6
+    aget v6, v0, v1
 
     iget v7, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mIdxCount:I
 
+    move-object v0, p1
+
     move-object v1, p2
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/camera/effect/draw_mode/DrawMeshAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;FFIIII)V
+    move v2, p3
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    move v3, p4
 
-    .line 429
+    invoke-interface/range {v0 .. v7}, Lcom/android/gallery3d/ui/GLCanvas;->drawMesh(Lcom/android/gallery3d/ui/BasicTexture;IIIIII)V
+
+    .line 430
     return-void
 .end method
 
@@ -1038,12 +1042,12 @@
     .parameter "canvas"
 
     .prologue
-    .line 432
+    .line 433
     iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     if-eqz v0, :cond_0
 
-    .line 433
+    .line 434
     iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     const/4 v1, 0x0
@@ -1052,7 +1056,7 @@
 
     invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->deleteBuffer(I)V
 
-    .line 434
+    .line 435
     iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     const/4 v1, 0x1
@@ -1061,7 +1065,7 @@
 
     invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->deleteBuffer(I)V
 
-    .line 435
+    .line 436
     iget-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
     const/4 v1, 0x2
@@ -1070,12 +1074,12 @@
 
     invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->deleteBuffer(I)V
 
-    .line 436
+    .line 437
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/NinePatchInstance;->mBufferNames:[I
 
-    .line 438
+    .line 439
     :cond_0
     return-void
 .end method

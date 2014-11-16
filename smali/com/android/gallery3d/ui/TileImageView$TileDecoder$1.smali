@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/gallery3d/ui/TileImageView$TileDecoder;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 748
+    .line 746
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder$1;->this$1:Lcom/android/gallery3d/ui/TileImageView$TileDecoder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,14 +40,14 @@
     .locals 2
 
     .prologue
-    .line 751
+    .line 749
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder$1;->this$1:Lcom/android/gallery3d/ui/TileImageView$TileDecoder;
 
     iget-object v1, v0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;->this$0:Lcom/android/gallery3d/ui/TileImageView;
 
     monitor-enter v1
 
-    .line 752
+    .line 750
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView$TileDecoder$1;->this$1:Lcom/android/gallery3d/ui/TileImageView$TileDecoder;
 
@@ -56,13 +55,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 753
+    .line 751
     monitor-exit v1
 
-    .line 754
+    .line 752
     return-void
 
-    .line 753
+    .line 751
     :catchall_0
     move-exception v0
 

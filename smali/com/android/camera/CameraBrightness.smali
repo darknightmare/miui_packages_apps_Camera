@@ -2,479 +2,229 @@
 .super Ljava/lang/Object;
 .source "CameraBrightness.java"
 
-# interfaces
-.implements Landroid/hardware/SensorEventListener;
+
+# static fields
+.field private static sIsUserSetBrightness:Z
 
 
 # instance fields
-.field private mBrightness:I
+.field private mCurrentBrightness:I
 
-.field private mCurrentActivity:Landroid/app/Activity;
-
-.field private mFocused:Z
-
-.field private mLight:F
-
-.field private final mLightSensor:Landroid/hardware/Sensor;
-
-.field private final mSensorManager:Landroid/hardware/SensorManager;
-
-.field private mUseDefaultValue:Z
+.field private mLastBrightness:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;)V
-    .locals 2
-    .parameter "activity"
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 27
-    iput-object p1, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    .line 28
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    const-string v1, "sensor"
-
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/SensorManager;
-
-    iput-object v0, p0, Lcom/android/camera/CameraBrightness;->mSensorManager:Landroid/hardware/SensorManager;
-
-    .line 29
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mSensorManager:Landroid/hardware/SensorManager;
-
-    const/4 v1, 0x5
-
-    invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/camera/CameraBrightness;->mLightSensor:Landroid/hardware/Sensor;
-
-    .line 30
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    .line 31
+    .line 8
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mFocused:Z
+    sput-boolean v0, Lcom/android/camera/CameraBrightness;->sIsUserSetBrightness:Z
 
-    .line 32
-    const/high16 v0, -0x4080
-
-    iput v0, p0, Lcom/android/camera/CameraBrightness;->mLight:F
-
-    .line 33
     return-void
 .end method
 
-.method private adjustBrightness()V
-    .locals 7
+.method public constructor <init>()V
+    .locals 1
 
     .prologue
-    const/high16 v6, 0x437f
+    const/4 v0, -0x1
 
-    .line 36
-    invoke-static {}, Lcom/android/camera/Device;->adjustScreenLight()Z
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-result v3
+    .line 6
+    iput v0, p0, Lcom/android/camera/CameraBrightness;->mLastBrightness:I
 
-    if-eqz v3, :cond_1
+    .line 7
+    iput v0, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
 
-    iget-object v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    if-eqz v3, :cond_1
-
-    .line 37
-    iget-boolean v3, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    if-nez v3, :cond_0
-
-    .line 39
-    :try_start_0
-    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "screen_brightness_mode"
-
-    invoke-static {v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result v0
-
-    .line 42
-    .local v0, brightnessMode:I
-    const/4 v3, 0x1
-
-    if-ne v0, v3, :cond_2
-
-    .line 43
-    const/high16 v3, 0x3f80
-
-    iget-object v4, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "screen_auto_brightness_adj"
-
-    invoke-static {v4, v5}, Landroid/provider/Settings$System;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
-
-    move-result v4
-
-    add-float/2addr v3, v4
-
-    mul-float/2addr v3, v6
-
-    const/high16 v4, 0x4000
-
-    div-float/2addr v3, v4
-
-    float-to-int v3, v3
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 56
-    .end local v0           #brightnessMode:I
-    :goto_0
-    iget-object v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    instance-of v3, v3, Lcom/android/camera/BasePreferenceActivity;
-
-    if-eqz v3, :cond_3
-
-    .line 57
-    const/16 v3, 0x14
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    .line 61
-    :goto_1
-    iget v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    const/4 v4, 0x0
-
-    const/16 v5, 0xff
-
-    invoke-static {v3, v4, v5}, Lcom/android/camera/Util;->clamp(III)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    .line 64
-    :cond_0
-    iget-object v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    invoke-virtual {v3}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v2
-
-    .line 66
-    .local v2, localLayoutParams:Landroid/view/WindowManager$LayoutParams;
-    iget-boolean v3, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    if-eqz v3, :cond_4
-
-    const/high16 v3, -0x4080
-
-    :goto_2
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-
-    .line 69
-    iget-object v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    invoke-virtual {v3}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
-
-    .line 71
-    .end local v2           #localLayoutParams:Landroid/view/WindowManager$LayoutParams;
-    :cond_1
+    .line 12
     return-void
-
-    .line 46
-    .restart local v0       #brightnessMode:I
-    :cond_2
-    :try_start_1
-    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "screen_brightness"
-
-    invoke-static {v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-    :try_end_1
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_0
-
-    .line 50
-    .end local v0           #brightnessMode:I
-    :catch_0
-    move-exception v1
-
-    .line 51
-    .local v1, localException:Landroid/provider/Settings$SettingNotFoundException;
-    invoke-virtual {v1}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
-
-    .line 54
-    const/16 v3, 0x7f
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    goto :goto_0
-
-    .line 59
-    .end local v1           #localException:Landroid/provider/Settings$SettingNotFoundException;
-    :cond_3
-    iget v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    add-int/lit8 v3, v3, 0x2d
-
-    iput v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    goto :goto_1
-
-    .line 66
-    .restart local v2       #localLayoutParams:Landroid/view/WindowManager$LayoutParams;
-    :cond_4
-    iget v3, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
-
-    int-to-float v3, v3
-
-    div-float/2addr v3, v6
-
-    goto :goto_2
 .end method
 
 
 # virtual methods
-.method public getCurrentBrightness()I
+.method public onDestroy()V
     .locals 1
 
     .prologue
-    .line 84
-    iget v0, p0, Lcom/android/camera/CameraBrightness;->mBrightness:I
+    .line 57
+    const/4 v0, 0x0
 
-    return v0
-.end method
+    sput-boolean v0, Lcom/android/camera/CameraBrightness;->sIsUserSetBrightness:Z
 
-.method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .locals 0
-    .parameter "sensor"
-    .parameter "accuracy"
-
-    .prologue
-    .line 116
+    .line 58
     return-void
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 5
 
     .prologue
-    .line 98
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
+    .line 34
+    invoke-static {}, Lcom/android/camera/Device;->adjustScreenLight()Z
 
-    instance-of v0, v0, Lcom/android/camera/BasePreferenceActivity;
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 99
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mSensorManager:Landroid/hardware/SensorManager;
+    sget-boolean v2, Lcom/android/camera/CameraBrightness;->sIsUserSetBrightness:Z
 
-    invoke-virtual {v0, p0}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
+    if-nez v2, :cond_0
 
-    .line 101
+    .line 35
+    const/4 v0, 0x0
+
+    .line 37
+    .local v0, current:I
+    :try_start_0
+    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "screen_brightness"
+
+    invoke-static {v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 45
+    :goto_0
+    iget v2, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
+
+    if-ne v0, v2, :cond_1
+
+    .line 46
+    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "screen_brightness"
+
+    iget v4, p0, Lcom/android/camera/CameraBrightness;->mLastBrightness:I
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 54
+    .end local v0           #current:I
     :cond_0
+    :goto_1
     return-void
+
+    .line 41
+    .restart local v0       #current:I
+    :catch_0
+    move-exception v1
+
+    .line 42
+    .local v1, localException:Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+
+    goto :goto_0
+
+    .line 51
+    .end local v1           #localException:Ljava/lang/Exception;
+    :cond_1
+    const/4 v2, 0x1
+
+    sput-boolean v2, Lcom/android/camera/CameraBrightness;->sIsUserSetBrightness:Z
+
+    goto :goto_1
 .end method
 
 .method public onResume()V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 88
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
+    const/16 v3, 0xff
 
-    instance-of v0, v0, Lcom/android/camera/BasePreferenceActivity;
+    .line 14
+    invoke-static {}, Lcom/android/camera/Device;->adjustScreenLight()Z
 
-    if-eqz v0, :cond_0
-
-    .line 89
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mSensorManager:Landroid/hardware/SensorManager;
-
-    iget-object v1, p0, Lcom/android/camera/CameraBrightness;->mLightSensor:Landroid/hardware/Sensor;
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v0, p0, v1, v2}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
-
-    .line 90
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    .line 94
-    :goto_0
-    invoke-direct {p0}, Lcom/android/camera/CameraBrightness;->adjustBrightness()V
-
-    .line 95
-    return-void
-
-    .line 92
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    goto :goto_0
-.end method
-
-.method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 3
-    .parameter "event"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 105
-    iget v1, p0, Lcom/android/camera/CameraBrightness;->mLight:F
-
-    const/high16 v2, -0x4080
-
-    cmpl-float v1, v1, v2
-
-    if-nez v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/camera/CameraBrightness;->mFocused:Z
+    move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 106
-    iget-object v1, p1, Landroid/hardware/SensorEvent;->values:[F
+    sget-boolean v1, Lcom/android/camera/CameraBrightness;->sIsUserSetBrightness:Z
 
-    aget v1, v1, v0
+    if-nez v1, :cond_1
 
-    iput v1, p0, Lcom/android/camera/CameraBrightness;->mLight:F
+    .line 16
+    :try_start_0
+    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
 
-    .line 107
-    const/high16 v1, 0x4248
+    move-result-object v1
 
-    iget v2, p0, Lcom/android/camera/CameraBrightness;->mLight:F
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    cmpg-float v1, v1, v2
+    move-result-object v1
 
-    if-gtz v1, :cond_0
+    const-string v2, "screen_brightness"
 
-    const/4 v0, 0x1
+    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    .line 108
-    .local v0, shouldDefault:Z
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
+    move-result v1
 
-    if-eq v1, v0, :cond_1
+    iput v1, p0, Lcom/android/camera/CameraBrightness;->mLastBrightness:I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 109
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    .line 110
-    invoke-direct {p0}, Lcom/android/camera/CameraBrightness;->adjustBrightness()V
-
-    .line 113
-    .end local v0           #shouldDefault:Z
-    :cond_1
-    return-void
-.end method
-
-.method public onWindowFocusChanged(Z)V
-    .locals 1
-    .parameter "hasFocus"
-
-    .prologue
-    .line 74
-    iput-boolean p1, p0, Lcom/android/camera/CameraBrightness;->mFocused:Z
-
-    .line 76
-    iget-object v0, p0, Lcom/android/camera/CameraBrightness;->mCurrentActivity:Landroid/app/Activity;
-
-    instance-of v0, v0, Lcom/android/camera/BasePreferenceActivity;
-
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
-
-    if-eqz v0, :cond_1
-
-    .line 77
-    :cond_0
-    if-nez p1, :cond_2
-
-    const/4 v0, 0x1
-
+    .line 23
     :goto_0
-    iput-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mUseDefaultValue:Z
+    iget v1, p0, Lcom/android/camera/CameraBrightness;->mLastBrightness:I
 
-    .line 78
-    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness;->mFocused:Z
+    add-int/lit8 v1, v1, 0x2d
 
-    if-eqz v0, :cond_3
+    iput v1, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
 
-    const/high16 v0, -0x4080
+    .line 24
+    iget v1, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
 
-    :goto_1
-    iput v0, p0, Lcom/android/camera/CameraBrightness;->mLight:F
+    if-le v1, v3, :cond_0
 
-    .line 79
-    invoke-direct {p0}, Lcom/android/camera/CameraBrightness;->adjustBrightness()V
+    .line 25
+    iput v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
 
-    .line 81
+    .line 27
+    :cond_0
+    invoke-static {}, Lcom/android/camera/CameraAppImpl;->sGetAndroidContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "screen_brightness"
+
+    iget v3, p0, Lcom/android/camera/CameraBrightness;->mCurrentBrightness:I
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 31
     :cond_1
     return-void
 
-    .line 77
-    :cond_2
-    const/4 v0, 0x0
+    .line 20
+    :catch_0
+    move-exception v0
+
+    .line 21
+    .local v0, localException:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
-
-    .line 78
-    :cond_3
-    iget v0, p0, Lcom/android/camera/CameraBrightness;->mLight:F
-
-    goto :goto_1
 .end method

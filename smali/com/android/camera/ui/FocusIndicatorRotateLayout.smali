@@ -11,7 +11,7 @@
     value = {
         Lcom/android/camera/ui/FocusIndicatorRotateLayout$1;,
         Lcom/android/camera/ui/FocusIndicatorRotateLayout$Disappear;,
-        Lcom/android/camera/ui/FocusIndicatorRotateLayout$StartAction;
+        Lcom/android/camera/ui/FocusIndicatorRotateLayout$EndAction;
     }
 .end annotation
 
@@ -19,7 +19,7 @@
 # instance fields
 .field private mDisappear:Ljava/lang/Runnable;
 
-.field private mStartAction:Ljava/lang/Runnable;
+.field private mEndAction:Ljava/lang/Runnable;
 
 .field private mState:I
 
@@ -44,28 +44,28 @@
     iput-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
 
     .line 35
-    new-instance v0, Lcom/android/camera/ui/FocusIndicatorRotateLayout$StartAction;
+    new-instance v0, Lcom/android/camera/ui/FocusIndicatorRotateLayout$EndAction;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/camera/ui/FocusIndicatorRotateLayout$StartAction;-><init>(Lcom/android/camera/ui/FocusIndicatorRotateLayout;Lcom/android/camera/ui/FocusIndicatorRotateLayout$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/camera/ui/FocusIndicatorRotateLayout$EndAction;-><init>(Lcom/android/camera/ui/FocusIndicatorRotateLayout;Lcom/android/camera/ui/FocusIndicatorRotateLayout$1;)V
 
-    iput-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mStartAction:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mEndAction:Ljava/lang/Runnable;
 
     .line 41
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/camera/ui/FocusIndicatorRotateLayout;)I
+.method static synthetic access$200(Lcom/android/camera/ui/FocusIndicatorRotateLayout;)Ljava/lang/Runnable;
     .locals 1
     .parameter "x0"
 
     .prologue
     .line 25
-    iget v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
+    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
 
-    return v0
+    return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/camera/ui/FocusIndicatorRotateLayout;I)I
+.method static synthetic access$302(Lcom/android/camera/ui/FocusIndicatorRotateLayout;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -85,7 +85,7 @@
     .line 44
     iget-object v0, p0, Lcom/android/camera/ui/RotateLayout;->mChild:Landroid/view/View;
 
-    invoke-virtual {p0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -102,138 +102,135 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 80
-    invoke-virtual {p0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    const/high16 v1, 0x3f80
+
+    .line 75
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    .line 81
+    .line 76
     iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 82
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mStartAction:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    .line 83
+    .line 77
     iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 84
+    .line 78
+    invoke-virtual {p0, v1}, Landroid/view/View;->setScaleX(F)V
+
+    .line 79
+    invoke-virtual {p0, v1}, Landroid/view/View;->setScaleY(F)V
+
+    .line 80
     return-void
 .end method
 
-.method public showFail(ZZ)V
-    .locals 3
+.method public showFail(Z)V
+    .locals 2
     .parameter "timeout"
-    .parameter "isTouchFocus"
 
     .prologue
-    .line 71
+    .line 67
     iget v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 72
-    if-eqz p1, :cond_0
+    .line 68
+    const v0, 0x7f0200a2
 
-    .line 73
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
+    invoke-direct {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->setDrawable(I)V
 
-    const-wide/16 v1, 0x1f4
+    .line 69
+    const/4 v0, 0x2
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->postDelayed(Ljava/lang/Runnable;J)Z
+    iput v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
 
-    .line 76
+    .line 71
     :cond_0
     return-void
 .end method
 
-.method public showStart(ZZ)V
-    .locals 3
-    .parameter "timeout"
-    .parameter "isTouchFocus"
+.method public showStart()V
+    .locals 4
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
+    const/high16 v3, 0x3f40
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
+    .line 49
+    iget v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
+
+    if-nez v0, :cond_0
 
     .line 50
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mStartAction:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    .line 51
-    const v0, 0x7f0200e6
+    const v0, 0x7f0200a4
 
     invoke-direct {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->setDrawable(I)V
 
-    .line 52
+    .line 51
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->withLayer()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0xc8
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
+
+    .line 53
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
 
-    .line 53
-    if-eqz p1, :cond_0
-
-    .line 54
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mStartAction:Ljava/lang/Runnable;
-
-    const-wide/16 v1, 0xbb8
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 56
+    .line 55
     :cond_0
     return-void
 .end method
 
-.method public showSuccess(ZZ)V
-    .locals 3
+.method public showSuccess(Z)V
+    .locals 2
     .parameter "timeout"
-    .parameter "isTouchFocus"
 
     .prologue
-    .line 60
+    .line 59
     iget v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 61
-    const v0, 0x7f0200e5
+    .line 60
+    const v0, 0x7f0200a3
 
     invoke-direct {p0, v0}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->setDrawable(I)V
 
-    .line 62
+    .line 61
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mState:I
 
     .line 63
-    if-eqz p1, :cond_0
-
-    .line 64
-    iget-object v0, p0, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->mDisappear:Ljava/lang/Runnable;
-
-    const-wide/16 v1, 0x1f4
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/camera/ui/FocusIndicatorRotateLayout;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 67
     :cond_0
     return-void
 .end method

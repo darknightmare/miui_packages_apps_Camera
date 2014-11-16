@@ -24,13 +24,12 @@
 # direct methods
 .method private constructor <init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 236
+    .line 126
     iput-object p1, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyDownUpListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +40,7 @@
     .parameter "x1"
 
     .prologue
-    .line 236
+    .line 126
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/GestureRecognizer$MyDownUpListener;-><init>(Lcom/android/gallery3d/ui/GestureRecognizer;)V
 
     return-void
@@ -54,7 +53,7 @@
     .parameter "e"
 
     .prologue
-    .line 239
+    .line 129
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyDownUpListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -72,7 +71,7 @@
 
     invoke-interface {v0, v1, v2}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onDown(FF)V
 
-    .line 240
+    .line 130
     return-void
 .end method
 
@@ -81,7 +80,7 @@
     .parameter "e"
 
     .prologue
-    .line 244
+    .line 134
     iget-object v0, p0, Lcom/android/gallery3d/ui/GestureRecognizer$MyDownUpListener;->this$0:Lcom/android/gallery3d/ui/GestureRecognizer;
 
     #getter for: Lcom/android/gallery3d/ui/GestureRecognizer;->mListener:Lcom/android/gallery3d/ui/GestureRecognizer$Listener;
@@ -91,6 +90,6 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GestureRecognizer$Listener;->onUp()V
 
-    .line 245
+    .line 135
     return-void
 .end method

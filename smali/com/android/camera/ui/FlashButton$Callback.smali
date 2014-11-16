@@ -18,5 +18,5 @@
 .method public abstract dismissSettingView()V
 .end method
 
-.method public abstract exitMutexModeStatus()V
+.method public abstract exitHDR()V
 .end method

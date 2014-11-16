@@ -37,22 +37,22 @@
     .parameter "targetSize"
 
     .prologue
-    .line 38
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 37
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
+    .line 38
     iput-object p1, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mApplication:Lcom/android/camera/CameraAppImpl;
 
-    .line 40
+    .line 39
     iput-object p2, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mPath:Lcom/android/gallery3d/data/Path;
 
-    .line 41
+    .line 40
     iput p3, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mType:I
 
-    .line 42
+    .line 41
     iput p4, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mTargetSize:I
 
-    .line 43
+    .line 42
     return-void
 .end method
 
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    .line 47
+    .line 46
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -104,7 +104,7 @@
 
     move-result-object v10
 
-    .line 50
+    .line 49
     .local v10, debugTag:Ljava/lang/String;
     iget-object v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mApplication:Lcom/android/camera/CameraAppImpl;
 
@@ -112,7 +112,7 @@
 
     move-result-object v9
 
-    .line 52
+    .line 51
     .local v9, cacheService:Lcom/android/gallery3d/data/ImageCacheService;
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getBytesBufferPool()Lcom/android/gallery3d/data/BytesBufferPool;
 
@@ -122,7 +122,7 @@
 
     move-result-object v8
 
-    .line 54
+    .line 53
     .local v8, buffer:Lcom/android/gallery3d/data/BytesBufferPool$BytesBuffer;
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mPath:Lcom/android/gallery3d/data/Path;
@@ -133,7 +133,7 @@
 
     move-result v11
 
-    .line 55
+    .line 54
     .local v11, found:Z
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
     :try_end_0
@@ -143,7 +143,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 73
+    .line 72
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getBytesBufferPool()Lcom/android/gallery3d/data/BytesBufferPool;
 
     move-result-object v0
@@ -152,11 +152,11 @@
 
     move-object v7, v1
 
-    .line 94
+    .line 93
     :goto_1
     return-object v7
 
-    .line 47
+    .line 46
     .end local v8           #buffer:Lcom/android/gallery3d/data/BytesBufferPool$BytesBuffer;
     .end local v9           #cacheService:Lcom/android/gallery3d/data/ImageCacheService;
     .end local v10           #debugTag:Ljava/lang/String;
@@ -175,7 +175,7 @@
 
     goto :goto_0
 
-    .line 56
+    .line 55
     .restart local v8       #buffer:Lcom/android/gallery3d/data/BytesBufferPool$BytesBuffer;
     .restart local v9       #cacheService:Lcom/android/gallery3d/data/ImageCacheService;
     .restart local v10       #debugTag:Ljava/lang/String;
@@ -183,24 +183,24 @@
     :cond_2
     if-eqz v11, :cond_5
 
-    .line 57
+    .line 56
     :try_start_1
     new-instance v5, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v5}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 58
+    .line 57
     .local v5, options:Landroid/graphics/BitmapFactory$Options;
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     iput-object v0, v5, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
 
-    .line 60
+    .line 59
     iget v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mType:I
 
     if-ne v0, v4, :cond_4
 
-    .line 61
+    .line 60
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getMicroThumbPool()Lcom/android/gallery3d/data/BitmapPool;
 
     move-result-object v0
@@ -217,7 +217,7 @@
 
     move-result-object v7
 
-    .line 67
+    .line 66
     .local v7, bitmap:Landroid/graphics/Bitmap;
     :goto_2
     if-nez v7, :cond_3
@@ -228,7 +228,7 @@
 
     if-nez v0, :cond_3
 
-    .line 68
+    .line 67
     const-string v0, "ImageCacheRequest"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -249,11 +249,11 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 73
+    .line 72
     :cond_3
     invoke-static {}, Lcom/android/gallery3d/data/MediaItem;->getBytesBufferPool()Lcom/android/gallery3d/data/BytesBufferPool;
 
@@ -263,7 +263,7 @@
 
     goto :goto_1
 
-    .line 64
+    .line 63
     .end local v7           #bitmap:Landroid/graphics/Bitmap;
     :cond_4
     :try_start_2
@@ -288,7 +288,7 @@
     .restart local v7       #bitmap:Landroid/graphics/Bitmap;
     goto :goto_2
 
-    .line 73
+    .line 72
     .end local v5           #options:Landroid/graphics/BitmapFactory$Options;
     .end local v7           #bitmap:Landroid/graphics/Bitmap;
     :cond_5
@@ -298,14 +298,14 @@
 
     invoke-virtual {v0, v8}, Lcom/android/gallery3d/data/BytesBufferPool;->recycle(Lcom/android/gallery3d/data/BytesBufferPool$BytesBuffer;)V
 
-    .line 75
+    .line 74
     iget v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mType:I
 
     invoke-virtual {p0, p1, v0}, Lcom/android/gallery3d/data/ImageCacheRequest;->onDecodeOriginal(Lcom/android/gallery3d/util/ThreadPool$JobContext;I)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    .line 76
+    .line 75
     .restart local v7       #bitmap:Landroid/graphics/Bitmap;
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
 
@@ -317,7 +317,7 @@
 
     goto :goto_1
 
-    .line 73
+    .line 72
     .end local v7           #bitmap:Landroid/graphics/Bitmap;
     .end local v11           #found:Z
     :catchall_0
@@ -331,13 +331,13 @@
 
     throw v0
 
-    .line 78
+    .line 77
     .restart local v7       #bitmap:Landroid/graphics/Bitmap;
     .restart local v11       #found:Z
     :cond_6
     if-nez v7, :cond_7
 
-    .line 79
+    .line 78
     const-string v0, "ImageCacheRequest"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -358,27 +358,27 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object v7, v1
 
-    .line 80
+    .line 79
     goto/16 :goto_1
 
-    .line 83
+    .line 82
     :cond_7
     iget v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mType:I
 
     if-ne v0, v4, :cond_8
 
-    .line 84
+    .line 83
     iget v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mTargetSize:I
 
     invoke-static {v7, v0, v3}, Lcom/android/gallery3d/common/BitmapUtils;->resizeAndCropCenter(Landroid/graphics/Bitmap;IZ)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    .line 88
+    .line 87
     :goto_3
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
 
@@ -390,7 +390,7 @@
 
     goto/16 :goto_1
 
-    .line 86
+    .line 85
     :cond_8
     iget v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mTargetSize:I
 
@@ -400,13 +400,13 @@
 
     goto :goto_3
 
-    .line 90
+    .line 89
     :cond_9
     invoke-static {v7}, Lcom/android/gallery3d/common/BitmapUtils;->compressToBytes(Landroid/graphics/Bitmap;)[B
 
     move-result-object v6
 
-    .line 91
+    .line 90
     .local v6, array:[B
     invoke-interface {p1}, Lcom/android/gallery3d/util/ThreadPool$JobContext;->isCancelled()Z
 
@@ -418,7 +418,7 @@
 
     goto/16 :goto_1
 
-    .line 93
+    .line 92
     :cond_a
     iget-object v0, p0, Lcom/android/gallery3d/data/ImageCacheRequest;->mPath:Lcom/android/gallery3d/data/Path;
 
@@ -434,7 +434,7 @@
     .parameter "x0"
 
     .prologue
-    .line 29
+    .line 28
     invoke-virtual {p0, p1}, Lcom/android/gallery3d/data/ImageCacheRequest;->run(Lcom/android/gallery3d/util/ThreadPool$JobContext;)Landroid/graphics/Bitmap;
 
     move-result-object v0

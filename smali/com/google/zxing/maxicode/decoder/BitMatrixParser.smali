@@ -1418,7 +1418,7 @@
 
     .prologue
     .line 68
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 69
     iput-object p1, p0, Lcom/google/zxing/maxicode/decoder/BitMatrixParser;->bitMatrix:Lcom/google/zxing/common/BitMatrix;

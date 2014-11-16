@@ -18,7 +18,7 @@
     .locals 2
 
     .prologue
-    .line 64
+    .line 62
     const-wide/16 v0, 0x0
 
     sput-wide v0, Lcom/android/gallery3d/data/MediaObject;->sVersionSerial:J
@@ -32,19 +32,19 @@
     .parameter "version"
 
     .prologue
-    .line 70
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 68
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 69
     invoke-virtual {p1, p0}, Lcom/android/gallery3d/data/Path;->setObject(Lcom/android/gallery3d/data/MediaObject;)V
 
-    .line 72
+    .line 70
     iput-object p1, p0, Lcom/android/gallery3d/data/MediaObject;->mPath:Lcom/android/gallery3d/data/Path;
 
-    .line 73
+    .line 71
     iput-wide p2, p0, Lcom/android/gallery3d/data/MediaObject;->mDataVersion:J
 
-    .line 74
+    .line 72
     return-void
 .end method
 
@@ -53,7 +53,7 @@
     .parameter "s"
 
     .prologue
-    .line 138
+    .line 136
     const-string v0, "all"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -64,11 +64,11 @@
 
     const/4 v0, 0x6
 
-    .line 140
+    .line 138
     :goto_0
     return v0
 
-    .line 139
+    .line 137
     :cond_0
     const-string v0, "image"
 
@@ -82,7 +82,7 @@
 
     goto :goto_0
 
-    .line 140
+    .line 138
     :cond_1
     const-string v0, "video"
 
@@ -96,7 +96,7 @@
 
     goto :goto_0
 
-    .line 141
+    .line 139
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -109,7 +109,7 @@
     .locals 6
 
     .prologue
-    .line 134
+    .line 132
     const-class v1, Lcom/android/gallery3d/data/MediaObject;
 
     monitor-enter v1
@@ -143,7 +143,7 @@
     .locals 1
 
     .prologue
-    .line 105
+    .line 103
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -156,7 +156,7 @@
     .parameter "flag"
 
     .prologue
-    .line 130
+    .line 128
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -168,7 +168,7 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 83
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -180,7 +180,7 @@
     .locals 1
 
     .prologue
-    .line 118
+    .line 116
     const/4 v0, 0x0
 
     return v0
@@ -190,7 +190,7 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 91
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -202,7 +202,7 @@
     .locals 2
 
     .prologue
-    .line 114
+    .line 112
     iget-wide v0, p0, Lcom/android/gallery3d/data/MediaObject;->mDataVersion:J
 
     return-wide v0
@@ -212,12 +212,12 @@
     .locals 1
 
     .prologue
-    .line 109
+    .line 107
     new-instance v0, Lcom/android/gallery3d/data/MediaDetails;
 
     invoke-direct {v0}, Lcom/android/gallery3d/data/MediaDetails;-><init>()V
 
-    .line 110
+    .line 108
     .local v0, details:Lcom/android/gallery3d/data/MediaDetails;
     return-object v0
 .end method
@@ -226,7 +226,7 @@
     .locals 1
 
     .prologue
-    .line 101
+    .line 99
     const/4 v0, 0x1
 
     return v0
@@ -236,7 +236,7 @@
     .locals 1
 
     .prologue
-    .line 77
+    .line 75
     iget-object v0, p0, Lcom/android/gallery3d/data/MediaObject;->mPath:Lcom/android/gallery3d/data/Path;
 
     return-object v0
@@ -246,7 +246,7 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 95
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -258,7 +258,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 79
     const/4 v0, 0x0
 
     return v0
@@ -269,7 +269,7 @@
     .parameter "degrees"
 
     .prologue
-    .line 89
+    .line 87
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

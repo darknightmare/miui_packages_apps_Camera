@@ -56,7 +56,7 @@
     .locals 2
 
     .prologue
-    .line 161
+    .line 160
     const-wide/16 v0, 0xc8
 
     sput-wide v0, Lcom/android/gallery3d/ui/UndoBarView;->ANIM_TIME:J
@@ -77,15 +77,15 @@
 
     const/16 v4, 0x10
 
-    .line 58
+    .line 57
     invoke-direct {p0}, Lcom/android/gallery3d/ui/GLView;-><init>()V
 
-    .line 162
+    .line 161
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
-    .line 59
+    .line 58
     const/16 v0, 0x30
 
     invoke-static {v0}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
@@ -94,7 +94,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarHeight:I
 
-    .line 60
+    .line 59
     const/4 v0, 0x4
 
     invoke-static {v0}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
@@ -103,14 +103,14 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarMargin:I
 
-    .line 61
+    .line 60
     invoke-static {v4}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoTextMargin:I
 
-    .line 62
+    .line 61
     const/16 v0, 0x8
 
     invoke-static {v0}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
@@ -119,7 +119,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconMargin:I
 
-    .line 63
+    .line 62
     const/16 v0, 0x20
 
     invoke-static {v0}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
@@ -128,52 +128,52 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconSize:I
 
-    .line 64
+    .line 63
     invoke-static {v3}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorRightMargin:I
 
-    .line 65
+    .line 64
     invoke-static {v2}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorTopMargin:I
 
-    .line 66
+    .line 65
     invoke-static {v2}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorBottomMargin:I
 
-    .line 67
+    .line 66
     invoke-static {v5}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorWidth:I
 
-    .line 68
+    .line 67
     invoke-static {v4}, Lcom/android/gallery3d/util/GalleryUtils;->dpToPixel(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDeletedTextMargin:I
 
-    .line 70
+    .line 69
     new-instance v0, Lcom/android/gallery3d/ui/NinePatchTexture;
 
-    const v1, 0x7f02019f
+    const v1, 0x7f020139
 
     invoke-direct {v0, p1, v1}, Lcom/android/gallery3d/ui/NinePatchTexture;-><init>(Landroid/content/Context;I)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mPanel:Lcom/android/gallery3d/ui/NinePatchTexture;
 
-    .line 71
-    const v0, 0x7f0d01ab
+    .line 70
+    const v0, 0x7f0d01b9
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,8 +195,8 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoText:Lcom/android/gallery3d/ui/StringTexture;
 
-    .line 73
-    const v0, 0x7f0d01aa
+    .line 72
+    const v0, 0x7f0d01b8
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -216,16 +216,16 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDeletedText:Lcom/android/gallery3d/ui/StringTexture;
 
-    .line 76
+    .line 75
     new-instance v0, Lcom/android/gallery3d/ui/ResourceTexture;
 
-    const v1, 0x7f02013d
+    const v1, 0x7f0200e0
 
     invoke-direct {v0, p1, v1}, Lcom/android/gallery3d/ui/ResourceTexture;-><init>(Landroid/content/Context;I)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoIcon:Lcom/android/gallery3d/ui/ResourceTexture;
 
-    .line 78
+    .line 77
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarMargin:I
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoTextMargin:I
@@ -234,7 +234,7 @@
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v1}, Lcom/android/gallery3d/ui/StringTexture;->getWidth()I
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/UploadedTexture;->getWidth()I
 
     move-result v1
 
@@ -254,7 +254,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mClickRegion:I
 
-    .line 80
+    .line 79
     return-void
 .end method
 
@@ -266,18 +266,18 @@
 
     const/4 v5, 0x0
 
-    .line 191
+    .line 190
     iget-wide v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
     cmp-long v1, v1, v6
 
     if-nez v1, :cond_0
 
-    .line 205
+    .line 204
     :goto_0
     return-void
 
-    .line 193
+    .line 192
     :cond_0
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->get()J
 
@@ -295,7 +295,7 @@
 
     div-float v0, v1, v2
 
-    .line 195
+    .line 194
     .local v0, delta:F
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mFromAlpha:F
 
@@ -313,7 +313,7 @@
 
     iput v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
-    .line 196
+    .line 195
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
     const/high16 v2, 0x3f80
@@ -324,7 +324,7 @@
 
     iput v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
-    .line 198
+    .line 197
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
     iget v2, p0, Lcom/android/gallery3d/ui/UndoBarView;->mToAlpha:F
@@ -333,28 +333,28 @@
 
     if-nez v1, :cond_1
 
-    .line 199
+    .line 198
     iput-wide v6, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
-    .line 200
+    .line 199
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
     cmpl-float v1, v1, v5
 
     if-nez v1, :cond_1
 
-    .line 201
+    .line 200
     const/4 v1, 0x1
 
     invoke-super {p0, v1}, Lcom/android/gallery3d/ui/GLView;->setVisibility(I)V
 
-    .line 204
+    .line 203
     :cond_1
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->invalidate()V
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     goto :goto_0
 
-    .line 195
+    .line 194
     .restart local v0       #delta:F
     :cond_2
     neg-float v0, v0
@@ -367,7 +367,7 @@
     .parameter "visibility"
 
     .prologue
-    .line 167
+    .line 166
     if-nez p0, :cond_0
 
     const/high16 v0, 0x3f80
@@ -386,30 +386,30 @@
     .parameter "event"
 
     .prologue
-    .line 149
+    .line 148
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
 
-    .line 150
+    .line 149
     .local v2, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
-    .line 151
+    .line 150
     .local v3, y:F
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->getWidth()I
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v1
 
-    .line 152
+    .line 151
     .local v1, w:I
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->getHeight()I
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v0
 
-    .line 153
+    .line 152
     .local v0, h:I
     iget v4, p0, Lcom/android/gallery3d/ui/UndoBarView;->mClickRegion:I
 
@@ -459,12 +459,12 @@
     .prologue
     const-wide/16 v3, -0x1
 
-    .line 178
+    .line 177
     invoke-static {p1}, Lcom/android/gallery3d/ui/UndoBarView;->getTargetAlpha(I)F
 
     move-result v0
 
-    .line 179
+    .line 178
     .local v0, target:F
     iget-wide v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
@@ -478,12 +478,12 @@
 
     if-nez v1, :cond_1
 
-    .line 188
+    .line 187
     :cond_0
     :goto_0
     return-void
 
-    .line 180
+    .line 179
     :cond_1
     iget-wide v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
@@ -497,29 +497,29 @@
 
     if-eqz v1, :cond_0
 
-    .line 182
+    .line 181
     :cond_2
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
     iput v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mFromAlpha:F
 
-    .line 183
+    .line 182
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mToAlpha:F
 
-    .line 184
+    .line 183
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->startTime()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
-    .line 186
+    .line 185
     const/4 v1, 0x0
 
     invoke-super {p0, v1}, Lcom/android/gallery3d/ui/GLView;->setVisibility(I)V
 
-    .line 187
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->invalidate()V
+    .line 186
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     goto :goto_0
 .end method
@@ -530,14 +530,14 @@
     .parameter "heightSpec"
 
     .prologue
-    .line 88
+    .line 87
     const/4 v0, 0x0
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarHeight:I
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/gallery3d/ui/UndoBarView;->setMeasuredSize(II)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/gallery3d/ui/GLView;->setMeasuredSize(II)V
 
-    .line 89
+    .line 88
     return-void
 .end method
 
@@ -548,14 +548,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 128
+    .line 127
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 144
+    .line 143
     :cond_0
     :goto_0
     :pswitch_0
@@ -563,7 +563,7 @@
 
     return v0
 
-    .line 130
+    .line 129
     :pswitch_1
     invoke-direct {p0, p1}, Lcom/android/gallery3d/ui/UndoBarView;->inUndoButton(Landroid/view/MotionEvent;)Z
 
@@ -573,13 +573,13 @@
 
     goto :goto_0
 
-    .line 133
+    .line 132
     :pswitch_2
     iget-boolean v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDownOnButton:Z
 
     if-eqz v0, :cond_0
 
-    .line 134
+    .line 133
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mOnClickListener:Lcom/android/gallery3d/ui/GLView$OnClickListener;
 
     if-eqz v0, :cond_1
@@ -590,24 +590,24 @@
 
     if-eqz v0, :cond_1
 
-    .line 135
+    .line 134
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mOnClickListener:Lcom/android/gallery3d/ui/GLView$OnClickListener;
 
     invoke-interface {v0, p0}, Lcom/android/gallery3d/ui/GLView$OnClickListener;->onClick(Lcom/android/gallery3d/ui/GLView;)V
 
-    .line 137
+    .line 136
     :cond_1
     iput-boolean v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDownOnButton:Z
 
     goto :goto_0
 
-    .line 141
+    .line 140
     :pswitch_3
     iput-boolean v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDownOnButton:Z
 
     goto :goto_0
 
-    .line 128
+    .line 127
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -622,40 +622,34 @@
     .parameter "canvas"
 
     .prologue
-    .line 93
+    .line 92
     invoke-super {p0, p1}, Lcom/android/gallery3d/ui/GLView;->render(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 94
+    .line 93
     invoke-direct {p0}, Lcom/android/gallery3d/ui/UndoBarView;->advanceAnimation()V
 
+    .line 95
+    const/4 v0, 0x1
+
+    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->save(I)V
+
     .line 96
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
-    move-result-object v0
+    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->multiplyAlpha(F)V
 
-    invoke-virtual {v0}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
-
-    .line 97
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
-
-    invoke-virtual {v0, v1}, Lcom/android/camera/effect/GLCanvasState;->multiplyAlpha(F)V
-
-    .line 99
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->getWidth()I
+    .line 98
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v11
 
-    .line 100
+    .line 99
     .local v11, w:I
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->getHeight()I
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v10
 
-    .line 101
+    .line 100
     .local v10, h:I
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mPanel:Lcom/android/gallery3d/ui/NinePatchTexture;
 
@@ -675,18 +669,18 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/gallery3d/ui/NinePatchTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
 
-    .line 103
+    .line 102
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarMargin:I
 
     sub-int v2, v11, v0
 
-    .line 106
+    .line 105
     .local v2, x:I
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoTextMargin:I
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v1}, Lcom/android/gallery3d/ui/StringTexture;->getWidth()I
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/UploadedTexture;->getWidth()I
 
     move-result v1
 
@@ -694,12 +688,12 @@
 
     sub-int/2addr v2, v0
 
-    .line 107
+    .line 106
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarHeight:I
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v1}, Lcom/android/gallery3d/ui/StringTexture;->getHeight()I
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/UploadedTexture;->getHeight()I
 
     move-result v1
 
@@ -707,13 +701,13 @@
 
     div-int/lit8 v3, v0, 0x2
 
-    .line 108
+    .line 107
     .local v3, y:I
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v0, p1, v2, v3}, Lcom/android/gallery3d/ui/StringTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
+    invoke-virtual {v0, p1, v2, v3}, Lcom/android/gallery3d/ui/BasicTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
 
-    .line 110
+    .line 109
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconMargin:I
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconSize:I
@@ -722,7 +716,7 @@
 
     sub-int/2addr v2, v0
 
-    .line 111
+    .line 110
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarHeight:I
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconSize:I
@@ -731,7 +725,7 @@
 
     div-int/lit8 v3, v0, 0x2
 
-    .line 112
+    .line 111
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mUndoIcon:Lcom/android/gallery3d/ui/ResourceTexture;
 
     iget v4, p0, Lcom/android/gallery3d/ui/UndoBarView;->mIconSize:I
@@ -742,7 +736,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/gallery3d/ui/ResourceTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
 
-    .line 114
+    .line 113
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorRightMargin:I
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorWidth:I
@@ -751,12 +745,10 @@
 
     sub-int/2addr v2, v0
 
-    .line 115
+    .line 114
     iget v3, p0, Lcom/android/gallery3d/ui/UndoBarView;->mSeparatorTopMargin:I
 
-    .line 116
-    new-instance v4, Lcom/android/camera/effect/draw_mode/FillRectAttribute;
-
+    .line 115
     int-to-float v5, v2
 
     int-to-float v6, v3
@@ -779,23 +771,23 @@
 
     const v9, -0x555556
 
-    invoke-direct/range {v4 .. v9}, Lcom/android/camera/effect/draw_mode/FillRectAttribute;-><init>(FFFFI)V
+    move-object v4, p1
 
-    invoke-interface {p1, v4}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface/range {v4 .. v9}, Lcom/android/gallery3d/ui/GLCanvas;->fillRect(FFFFI)V
 
-    .line 119
+    .line 118
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarMargin:I
 
     iget v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDeletedTextMargin:I
 
     add-int v2, v0, v1
 
-    .line 120
+    .line 119
     iget v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mBarHeight:I
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDeletedText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v1}, Lcom/android/gallery3d/ui/StringTexture;->getHeight()I
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/UploadedTexture;->getHeight()I
 
     move-result v1
 
@@ -803,19 +795,15 @@
 
     div-int/lit8 v3, v0, 0x2
 
-    .line 121
+    .line 120
     iget-object v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mDeletedText:Lcom/android/gallery3d/ui/StringTexture;
 
-    invoke-virtual {v0, p1, v2, v3}, Lcom/android/gallery3d/ui/StringTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
+    invoke-virtual {v0, p1, v2, v3}, Lcom/android/gallery3d/ui/BasicTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
+
+    .line 122
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
 
     .line 123
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/effect/GLCanvasState;->popState()V
-
-    .line 124
     return-void
 .end method
 
@@ -824,10 +812,10 @@
     .parameter "listener"
 
     .prologue
-    .line 83
+    .line 82
     iput-object p1, p0, Lcom/android/gallery3d/ui/UndoBarView;->mOnClickListener:Lcom/android/gallery3d/ui/GLView$OnClickListener;
 
-    .line 84
+    .line 83
     return-void
 .end method
 
@@ -836,24 +824,24 @@
     .parameter "visibility"
 
     .prologue
-    .line 171
+    .line 170
     invoke-static {p1}, Lcom/android/gallery3d/ui/UndoBarView;->getTargetAlpha(I)F
 
     move-result v0
 
     iput v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAlpha:F
 
-    .line 172
+    .line 171
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/gallery3d/ui/UndoBarView;->mAnimationStartTime:J
 
-    .line 173
+    .line 172
     invoke-super {p0, p1}, Lcom/android/gallery3d/ui/GLView;->setVisibility(I)V
 
-    .line 174
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UndoBarView;->invalidate()V
+    .line 173
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
-    .line 175
+    .line 174
     return-void
 .end method

@@ -32,7 +32,7 @@
     .parameter "which"
 
     .prologue
-    .line 213
+    .line 212
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar$1;->this$0:Lcom/android/gallery3d/app/GalleryActionBar;
 
     #getter for: Lcom/android/gallery3d/app/GalleryActionBar;->mActivity:Lcom/android/gallery3d/app/GalleryActivity;
@@ -46,7 +46,7 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GLRoot;->lockRenderThread()V
 
-    .line 215
+    .line 214
     :try_start_0
     iget-object v1, p0, Lcom/android/gallery3d/app/GalleryActionBar$1;->val$clusterRunner:Lcom/android/gallery3d/app/GalleryActionBar$ClusterRunner;
 
@@ -66,7 +66,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 217
+    .line 216
     iget-object v0, p0, Lcom/android/gallery3d/app/GalleryActionBar$1;->this$0:Lcom/android/gallery3d/app/GalleryActionBar;
 
     #getter for: Lcom/android/gallery3d/app/GalleryActionBar;->mActivity:Lcom/android/gallery3d/app/GalleryActivity;
@@ -80,10 +80,10 @@
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/GLRoot;->unlockRenderThread()V
 
-    .line 219
+    .line 218
     return-void
 
-    .line 217
+    .line 216
     :catchall_0
     move-exception v0
 

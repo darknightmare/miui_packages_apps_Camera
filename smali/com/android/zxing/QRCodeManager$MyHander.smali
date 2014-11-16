@@ -228,9 +228,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01e8
+    const v3, 0x7f0d01f4
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -247,7 +247,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 193
     iget-object v1, p0, Lcom/android/zxing/QRCodeManager$MyHander;->this$0:Lcom/android/zxing/QRCodeManager;
@@ -298,9 +298,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01ea
+    const v3, 0x7f0d01f6
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -336,9 +336,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01e9
+    const v3, 0x7f0d01f5
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -386,9 +386,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01eb
+    const v3, 0x7f0d01f7
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -424,9 +424,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01ed
+    const v3, 0x7f0d01f9
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -462,9 +462,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01ee
+    const v3, 0x7f0d01fa
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -500,9 +500,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0217
+    const v3, 0x7f0d0223
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -526,9 +526,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01ec
+    const v3, 0x7f0d01f8
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -557,7 +557,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
@@ -603,7 +603,7 @@
     :cond_c
     iget-object v1, p0, Lcom/android/zxing/QRCodeManager$MyHander;->this$0:Lcom/android/zxing/QRCodeManager;
 
-    const/16 v2, 0x3e8
+    const/16 v2, 0x7d0
 
     #calls: Lcom/android/zxing/QRCodeManager;->sendDecodeMessageSafe(I)V
     invoke-static {v1, v2}, Lcom/android/zxing/QRCodeManager;->access$1100(Lcom/android/zxing/QRCodeManager;I)V

@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract canIgnoreAnimation()Z
-.end method
-
 .method public abstract invalidate()V
 .end method
 

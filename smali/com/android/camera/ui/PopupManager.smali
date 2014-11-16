@@ -58,7 +58,7 @@
 
     .prologue
     .line 37
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     new-instance v0, Ljava/util/ArrayList;
@@ -122,15 +122,11 @@
 
     .line 64
     .local v0, instance:Lcom/android/camera/ui/PopupManager;
-    if-eqz v0, :cond_0
-
-    .line 65
     sget-object v1, Lcom/android/camera/ui/PopupManager;->sMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
-    :cond_0
+    .line 65
     return-void
 .end method
 

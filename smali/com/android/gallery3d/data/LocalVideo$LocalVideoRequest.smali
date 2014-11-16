@@ -27,17 +27,17 @@
     .parameter "localFilePath"
 
     .prologue
-    .line 162
+    .line 161
     invoke-static {p3}, Lcom/android/gallery3d/data/MediaItem;->getTargetSize(I)I
 
     move-result v0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/gallery3d/data/ImageCacheRequest;-><init>(Lcom/android/camera/CameraAppImpl;Lcom/android/gallery3d/data/Path;II)V
 
-    .line 163
+    .line 162
     iput-object p4, p0, Lcom/android/gallery3d/data/LocalVideo$LocalVideoRequest;->mLocalFilePath:Ljava/lang/String;
 
-    .line 164
+    .line 163
     return-void
 .end method
 
@@ -49,14 +49,14 @@
     .parameter "type"
 
     .prologue
-    .line 168
+    .line 167
     iget-object v1, p0, Lcom/android/gallery3d/data/LocalVideo$LocalVideoRequest;->mLocalFilePath:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/android/gallery3d/common/BitmapUtils;->createVideoThumbnail(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 169
+    .line 168
     .local v0, bitmap:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
@@ -69,7 +69,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 170
+    .line 169
     .end local v0           #bitmap:Landroid/graphics/Bitmap;
     :cond_1
     return-object v0
@@ -80,7 +80,7 @@
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 156
     invoke-super {p0, p1}, Lcom/android/gallery3d/data/ImageCacheRequest;->run(Lcom/android/gallery3d/util/ThreadPool$JobContext;)Landroid/graphics/Bitmap;
 
     move-result-object v0

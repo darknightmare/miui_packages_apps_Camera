@@ -19,7 +19,7 @@
     const/4 v4, 0x0
 
     .line 28
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 29
     array-length v2, p2

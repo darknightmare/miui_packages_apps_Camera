@@ -232,7 +232,7 @@
 
     .prologue
     .line 79
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 80
     return-void
@@ -349,7 +349,7 @@
     :cond_4
     sget-object v6, Lcom/google/zxing/datamatrix/decoder/DecodedBitStreamParser$1;->$SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode:[I
 
-    invoke-virtual {v2}, Lcom/google/zxing/datamatrix/decoder/DecodedBitStreamParser$Mode;->ordinal()I
+    invoke-virtual {v2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v7
 
@@ -847,7 +847,6 @@
     .locals 10
     .parameter "bits"
     .parameter "result"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

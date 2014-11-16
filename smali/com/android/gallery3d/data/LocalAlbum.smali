@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 42
+    .line 41
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/String;
@@ -62,8 +62,8 @@
     .parameter "isImage"
 
     .prologue
-    .line 90
-    invoke-virtual {p2}, Lcom/android/camera/CameraAppImpl;->getContentResolver()Landroid/content/ContentResolver;
+    .line 88
+    invoke-virtual {p2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -83,7 +83,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/gallery3d/data/LocalAlbum;-><init>(Lcom/android/gallery3d/data/Path;Lcom/android/camera/CameraAppImpl;IZLjava/lang/String;)V
 
-    .line 93
+    .line 91
     return-void
 .end method
 
@@ -96,33 +96,33 @@
     .parameter "name"
 
     .prologue
-    .line 61
+    .line 60
     invoke-static {}, Lcom/android/gallery3d/data/LocalAlbum;->nextVersionNumber()J
 
     move-result-wide v0
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/gallery3d/data/MediaSet;-><init>(Lcom/android/gallery3d/data/Path;J)V
 
-    .line 57
+    .line 56
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mCachedCount:I
 
-    .line 62
+    .line 61
     iput-object p2, p0, Lcom/android/gallery3d/data/LocalAlbum;->mApplication:Lcom/android/camera/CameraAppImpl;
 
-    .line 63
-    invoke-virtual {p2}, Lcom/android/camera/CameraAppImpl;->getContentResolver()Landroid/content/ContentResolver;
+    .line 62
+    invoke-virtual {p2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mResolver:Landroid/content/ContentResolver;
 
-    .line 64
+    .line 63
     iput p3, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBucketId:I
 
-    .line 65
-    invoke-virtual {p2}, Lcom/android/camera/CameraAppImpl;->getResources()Landroid/content/res/Resources;
+    .line 64
+    invoke-virtual {p2}, Landroid/content/ContextWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -132,38 +132,38 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mName:Ljava/lang/String;
 
-    .line 66
+    .line 65
     iput-boolean p4, p0, Lcom/android/gallery3d/data/LocalAlbum;->mIsImage:Z
 
-    .line 68
+    .line 67
     if-eqz p4, :cond_0
 
-    .line 69
-    const-string v0, "bucket_id = ? and title not like \'%_ubi_0%\'"
+    .line 68
+    const-string v0, "bucket_id = ?"
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mWhereClause:Ljava/lang/String;
 
-    .line 71
+    .line 69
     const-string v0, "datetaken DESC, _id DESC"
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mOrderClause:Ljava/lang/String;
 
-    .line 73
+    .line 71
     sget-object v0, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBaseUri:Landroid/net/Uri;
 
-    .line 74
+    .line 72
     sget-object v0, Lcom/android/gallery3d/data/LocalImage;->PROJECTION:[Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mProjection:[Ljava/lang/String;
 
-    .line 75
+    .line 73
     sget-object v0, Lcom/android/gallery3d/data/LocalImage;->ITEM_PATH:Lcom/android/gallery3d/data/Path;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mItemPath:Lcom/android/gallery3d/data/Path;
 
-    .line 85
+    .line 83
     :goto_0
     new-instance v0, Lcom/android/gallery3d/data/ChangeNotifier;
 
@@ -173,31 +173,31 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mNotifier:Lcom/android/gallery3d/data/ChangeNotifier;
 
-    .line 86
+    .line 84
     return-void
 
-    .line 77
+    .line 75
     :cond_0
     const-string v0, "bucket_id = ?"
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mWhereClause:Ljava/lang/String;
 
-    .line 78
+    .line 76
     const-string v0, "datetaken DESC, _id DESC"
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mOrderClause:Ljava/lang/String;
 
-    .line 80
+    .line 78
     sget-object v0, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBaseUri:Landroid/net/Uri;
 
-    .line 81
+    .line 79
     sget-object v0, Lcom/android/gallery3d/data/LocalVideo;->PROJECTION:[Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mProjection:[Ljava/lang/String;
 
-    .line 82
+    .line 80
     sget-object v0, Lcom/android/gallery3d/data/LocalVideo;->ITEM_PATH:Lcom/android/gallery3d/data/Path;
 
     iput-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mItemPath:Lcom/android/gallery3d/data/Path;
@@ -213,7 +213,7 @@
     .parameter "id"
 
     .prologue
-    .line 219
+    .line 215
     const-string v3, "_id=?"
 
     const/4 v0, 0x1
@@ -250,33 +250,33 @@
     .parameter "name"
 
     .prologue
-    .line 277
+    .line 273
     sget v0, Lcom/android/gallery3d/util/MediaSetUtils;->CAMERA_BUCKET_ID:I
 
     if-ne p1, v0, :cond_1
 
-    .line 278
-    const v0, 0x7f0d01a6
+    .line 274
+    const v0, 0x7f0d01b4
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p2
 
-    .line 286
+    .line 282
     .end local p2
     :cond_0
     :goto_0
     return-object p2
 
-    .line 279
+    .line 275
     .restart local p2
     :cond_1
     sget v0, Lcom/android/gallery3d/util/MediaSetUtils;->DOWNLOAD_BUCKET_ID:I
 
     if-ne p1, v0, :cond_2
 
-    .line 280
-    const v0, 0x7f0d01a7
+    .line 276
+    const v0, 0x7f0d01b5
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -284,14 +284,14 @@
 
     goto :goto_0
 
-    .line 281
+    .line 277
     :cond_2
     sget v0, Lcom/android/gallery3d/util/MediaSetUtils;->IMPORTED_BUCKET_ID:I
 
     if-ne p1, v0, :cond_3
 
-    .line 282
-    const v0, 0x7f0d01a8
+    .line 278
+    const v0, 0x7f0d01b6
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -299,14 +299,14 @@
 
     goto :goto_0
 
-    .line 283
+    .line 279
     :cond_3
     sget v0, Lcom/android/gallery3d/util/MediaSetUtils;->SNAPSHOT_BUCKET_ID:I
 
     if-ne p1, v0, :cond_0
 
-    .line 284
-    const v0, 0x7f0d01a9
+    .line 280
+    const v0, 0x7f0d01b7
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -319,7 +319,6 @@
     .locals 20
     .parameter "application"
     .parameter "isImage"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -334,7 +333,7 @@
     .end annotation
 
     .prologue
-    .line 159
+    .line 155
     .local p2, ids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     invoke-virtual/range {p2 .. p2}, Ljava/util/ArrayList;->size()I
 
@@ -344,7 +343,7 @@
 
     move-object/from16 v18, v0
 
-    .line 160
+    .line 156
     .local v18, result:[Lcom/android/gallery3d/data/MediaItem;
     invoke-virtual/range {p2 .. p2}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -352,11 +351,11 @@
 
     if-eqz v5, :cond_0
 
-    .line 213
+    .line 209
     :goto_0
     return-object v18
 
-    .line 161
+    .line 157
     :cond_0
     const/4 v5, 0x0
 
@@ -372,7 +371,7 @@
 
     move-result v14
 
-    .line 162
+    .line 158
     .local v14, idLow:I
     invoke-virtual/range {p2 .. p2}, Ljava/util/ArrayList;->size()I
 
@@ -392,35 +391,35 @@
 
     move-result v13
 
-    .line 168
+    .line 164
     .local v13, idHigh:I
     if-eqz p1, :cond_1
 
-    .line 169
+    .line 165
     sget-object v3, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 170
+    .line 166
     .local v3, baseUri:Landroid/net/Uri;
     sget-object v4, Lcom/android/gallery3d/data/LocalImage;->PROJECTION:[Ljava/lang/String;
 
-    .line 171
+    .line 167
     .local v4, projection:[Ljava/lang/String;
     sget-object v16, Lcom/android/gallery3d/data/LocalImage;->ITEM_PATH:Lcom/android/gallery3d/data/Path;
 
-    .line 178
+    .line 174
     .local v16, itemPath:Lcom/android/gallery3d/data/Path;
     :goto_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/camera/CameraAppImpl;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 179
+    .line 175
     .local v2, resolver:Landroid/content/ContentResolver;
     invoke-virtual/range {p0 .. p0}, Lcom/android/camera/CameraAppImpl;->getDataManager()Lcom/android/gallery3d/data/DataManager;
 
     move-result-object v10
 
-    .line 180
+    .line 176
     .local v10, dataManager:Lcom/android/gallery3d/data/DataManager;
     const-string v5, "_id BETWEEN ? AND ?"
 
@@ -450,11 +449,11 @@
 
     move-result-object v9
 
-    .line 183
+    .line 179
     .local v9, cursor:Landroid/database/Cursor;
     if-nez v9, :cond_2
 
-    .line 184
+    .line 180
     const-string v5, "LocalAlbum"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -475,11 +474,11 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 173
+    .line 169
     .end local v2           #resolver:Landroid/content/ContentResolver;
     .end local v3           #baseUri:Landroid/net/Uri;
     .end local v4           #projection:[Ljava/lang/String;
@@ -489,18 +488,18 @@
     :cond_1
     sget-object v3, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 174
+    .line 170
     .restart local v3       #baseUri:Landroid/net/Uri;
     sget-object v4, Lcom/android/gallery3d/data/LocalVideo;->PROJECTION:[Ljava/lang/String;
 
-    .line 175
+    .line 171
     .restart local v4       #projection:[Ljava/lang/String;
     sget-object v16, Lcom/android/gallery3d/data/LocalVideo;->ITEM_PATH:Lcom/android/gallery3d/data/Path;
 
     .restart local v16       #itemPath:Lcom/android/gallery3d/data/Path;
     goto :goto_1
 
-    .line 188
+    .line 184
     .restart local v2       #resolver:Landroid/content/ContentResolver;
     .restart local v9       #cursor:Landroid/database/Cursor;
     .restart local v10       #dataManager:Lcom/android/gallery3d/data/DataManager;
@@ -510,11 +509,11 @@
 
     move-result v17
 
-    .line 189
+    .line 185
     .local v17, n:I
     const/4 v11, 0x0
 
-    .line 191
+    .line 187
     .local v11, i:I
     :cond_3
     :goto_2
@@ -528,14 +527,14 @@
 
     if-eqz v5, :cond_6
 
-    .line 192
+    .line 188
     const/4 v5, 0x0
 
     invoke-interface {v9, v5}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v12
 
-    .line 195
+    .line 191
     .local v12, id:I
     move-object/from16 v0, p2
 
@@ -551,7 +550,7 @@
 
     if-gt v5, v12, :cond_3
 
-    .line 199
+    .line 195
     :cond_4
     move-object/from16 v0, p2
 
@@ -569,19 +568,19 @@
 
     if-ge v5, v12, :cond_5
 
-    .line 200
+    .line 196
     add-int/lit8 v11, v11, 0x1
 
     move/from16 v0, v17
 
     if-lt v11, v0, :cond_4
 
-    .line 213
+    .line 209
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     goto/16 :goto_0
 
-    .line 205
+    .line 201
     :cond_5
     :try_start_1
     move-object/from16 v0, v16
@@ -590,7 +589,7 @@
 
     move-result-object v8
 
-    .line 206
+    .line 202
     .local v8, childPath:Lcom/android/gallery3d/data/Path;
     move-object/from16 v0, p0
 
@@ -600,19 +599,19 @@
 
     move-result-object v15
 
-    .line 208
+    .line 204
     .local v15, item:Lcom/android/gallery3d/data/MediaItem;
     aput-object v15, v18, v11
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 209
+    .line 205
     add-int/lit8 v11, v11, 0x1
 
-    .line 210
+    .line 206
     goto :goto_2
 
-    .line 213
+    .line 209
     .end local v8           #childPath:Lcom/android/gallery3d/data/Path;
     .end local v12           #id:I
     .end local v15           #item:Lcom/android/gallery3d/data/MediaItem;
@@ -640,32 +639,32 @@
     .parameter "isImage"
 
     .prologue
-    .line 142
+    .line 138
     invoke-virtual {p2, p0}, Lcom/android/gallery3d/data/DataManager;->peekMediaObject(Lcom/android/gallery3d/data/Path;)Lcom/android/gallery3d/data/MediaObject;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/gallery3d/data/LocalMediaItem;
 
-    .line 143
+    .line 139
     .local v0, item:Lcom/android/gallery3d/data/LocalMediaItem;
     if-nez v0, :cond_1
 
-    .line 144
+    .line 140
     if-eqz p4, :cond_0
 
-    .line 145
+    .line 141
     new-instance v0, Lcom/android/gallery3d/data/LocalImage;
 
     .end local v0           #item:Lcom/android/gallery3d/data/LocalMediaItem;
     invoke-direct {v0, p0, p3, p1}, Lcom/android/gallery3d/data/LocalImage;-><init>(Lcom/android/gallery3d/data/Path;Lcom/android/camera/CameraAppImpl;Landroid/database/Cursor;)V
 
-    .line 152
+    .line 148
     .restart local v0       #item:Lcom/android/gallery3d/data/LocalMediaItem;
     :goto_0
     return-object v0
 
-    .line 147
+    .line 143
     :cond_0
     new-instance v0, Lcom/android/gallery3d/data/LocalVideo;
 
@@ -675,7 +674,7 @@
     .restart local v0       #item:Lcom/android/gallery3d/data/LocalMediaItem;
     goto :goto_0
 
-    .line 150
+    .line 146
     :cond_1
     invoke-virtual {v0, p1}, Lcom/android/gallery3d/data/LocalMediaItem;->updateContent(Landroid/database/Cursor;)V
 
@@ -688,10 +687,10 @@
     .locals 6
 
     .prologue
-    .line 264
+    .line 260
     invoke-static {}, Lcom/android/gallery3d/util/GalleryUtils;->assertNotInRenderThread()V
 
-    .line 265
+    .line 261
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBaseUri:Landroid/net/Uri;
@@ -714,16 +713,16 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 267
+    .line 263
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mApplication:Lcom/android/camera/CameraAppImpl;
 
     invoke-virtual {v0}, Lcom/android/camera/CameraAppImpl;->getDataManager()Lcom/android/gallery3d/data/DataManager;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/data/DataManager;->broadcastDeletion()V
+    invoke-virtual {v0}, Lcom/android/gallery3d/data/DataManager;->broadcastLocalDeletion()V
 
-    .line 268
+    .line 264
     return-void
 .end method
 
@@ -731,12 +730,12 @@
     .locals 3
 
     .prologue
-    .line 97
+    .line 95
     iget-boolean v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mIsImage:Z
 
     if-eqz v0, :cond_0
 
-    .line 98
+    .line 96
     sget-object v0, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -759,7 +758,7 @@
 
     move-result-object v0
 
-    .line 102
+    .line 100
     :goto_0
     return-object v0
 
@@ -806,14 +805,14 @@
     .prologue
     const/4 v12, 0x0
 
-    .line 110
+    .line 108
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mApplication:Lcom/android/camera/CameraAppImpl;
 
     invoke-virtual {v0}, Lcom/android/camera/CameraAppImpl;->getDataManager()Lcom/android/gallery3d/data/DataManager;
 
     move-result-object v8
 
-    .line 111
+    .line 109
     .local v8, dataManager:Lcom/android/gallery3d/data/DataManager;
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBaseUri:Landroid/net/Uri;
 
@@ -853,17 +852,17 @@
 
     move-result-object v1
 
-    .line 113
+    .line 111
     .local v1, uri:Landroid/net/Uri;
     new-instance v11, Ljava/util/ArrayList;
 
     invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
 
-    .line 114
+    .line 112
     .local v11, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/gallery3d/data/MediaItem;>;"
     invoke-static {}, Lcom/android/gallery3d/util/GalleryUtils;->assertNotInRenderThread()V
 
-    .line 115
+    .line 113
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v2, p0, Lcom/android/gallery3d/data/LocalAlbum;->mProjection:[Ljava/lang/String;
@@ -888,11 +887,11 @@
 
     move-result-object v7
 
-    .line 119
+    .line 117
     .local v7, cursor:Landroid/database/Cursor;
     if-nez v7, :cond_0
 
-    .line 120
+    .line 118
     const-string v0, "LocalAlbum"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -913,13 +912,13 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
+    .line 133
     :goto_0
     return-object v11
 
-    .line 125
+    .line 123
     :cond_0
     :goto_1
     :try_start_0
@@ -929,14 +928,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 126
+    .line 124
     const/4 v0, 0x0
 
     invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v9
 
-    .line 127
+    .line 125
     .local v9, id:I
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mItemPath:Lcom/android/gallery3d/data/Path;
 
@@ -944,7 +943,7 @@
 
     move-result-object v6
 
-    .line 128
+    .line 126
     .local v6, childPath:Lcom/android/gallery3d/data/Path;
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mApplication:Lcom/android/camera/CameraAppImpl;
 
@@ -954,18 +953,15 @@
 
     move-result-object v10
 
-    .line 130
+    .line 128
     .local v10, item:Lcom/android/gallery3d/data/MediaItem;
-    if-eqz v10, :cond_0
-
-    .line 131
     invoke-virtual {v11, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
 
-    .line 135
+    .line 131
     .end local v6           #childPath:Lcom/android/gallery3d/data/Path;
     .end local v9           #id:I
     .end local v10           #item:Lcom/android/gallery3d/data/MediaItem;
@@ -988,14 +984,14 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 225
+    .line 221
     iget v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mCachedCount:I
 
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_1
 
-    .line 226
+    .line 222
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Lcom/android/gallery3d/data/LocalAlbum;->mBaseUri:Landroid/net/Uri;
@@ -1022,25 +1018,25 @@
 
     move-result-object v6
 
-    .line 229
+    .line 225
     .local v6, cursor:Landroid/database/Cursor;
     if-nez v6, :cond_0
 
-    .line 230
+    .line 226
     const-string v0, "LocalAlbum"
 
     const-string v1, "query fail"
 
-    invoke-static {v0, v1}, Lcom/android/gallery3d/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/gallery3d/data/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v7
 
-    .line 240
+    .line 236
     .end local v6           #cursor:Landroid/database/Cursor;
     :goto_0
     return v0
 
-    .line 234
+    .line 230
     .restart local v6       #cursor:Landroid/database/Cursor;
     :cond_0
     :try_start_0
@@ -1050,7 +1046,7 @@
 
     invoke-static {v0}, Lcom/android/gallery3d/common/Utils;->assertTrue(Z)V
 
-    .line 235
+    .line 231
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
@@ -1061,17 +1057,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 237
+    .line 233
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 240
+    .line 236
     .end local v6           #cursor:Landroid/database/Cursor;
     :cond_1
     iget v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mCachedCount:I
 
     goto :goto_0
 
-    .line 237
+    .line 233
     .restart local v6       #cursor:Landroid/database/Cursor;
     :catchall_0
     move-exception v0
@@ -1085,7 +1081,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 241
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mName:Ljava/lang/String;
 
     return-object v0
@@ -1095,7 +1091,7 @@
     .locals 1
 
     .prologue
-    .line 259
+    .line 255
     const/16 v0, 0x405
 
     return v0
@@ -1105,7 +1101,7 @@
     .locals 2
 
     .prologue
-    .line 250
+    .line 246
     iget-object v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mNotifier:Lcom/android/gallery3d/data/ChangeNotifier;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/data/ChangeNotifier;->isDirty()Z
@@ -1114,19 +1110,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 251
+    .line 247
     invoke-static {}, Lcom/android/gallery3d/data/LocalAlbum;->nextVersionNumber()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/gallery3d/data/MediaObject;->mDataVersion:J
 
-    .line 252
+    .line 248
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/gallery3d/data/LocalAlbum;->mCachedCount:I
 
-    .line 254
+    .line 250
     :cond_0
     iget-wide v0, p0, Lcom/android/gallery3d/data/MediaObject;->mDataVersion:J
 

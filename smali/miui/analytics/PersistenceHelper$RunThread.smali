@@ -21,10 +21,9 @@
 # direct methods
 .method private constructor <init>(Lmiui/analytics/PersistenceHelper;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 61
+    .line 58
     iput-object p1, p0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,7 +37,7 @@
     .parameter "x1"
 
     .prologue
-    .line 61
+    .line 58
     invoke-direct {p0, p1}, Lmiui/analytics/PersistenceHelper$RunThread;-><init>(Lmiui/analytics/PersistenceHelper;)V
 
     return-void
@@ -50,10 +49,10 @@
     .locals 3
 
     .prologue
-    .line 64
+    .line 61
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 66
+    .line 63
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
 
     #getter for: Lmiui/analytics/PersistenceHelper;->mSynchronized:Ljava/lang/Object;
@@ -63,7 +62,7 @@
 
     monitor-enter v1
 
-    .line 67
+    .line 64
     :try_start_0
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
 
@@ -74,7 +73,7 @@
     #setter for: Lmiui/analytics/PersistenceHelper;->mWorkHandler:Landroid/os/Handler;
     invoke-static {v0, v2}, Lmiui/analytics/PersistenceHelper;->access$102(Lmiui/analytics/PersistenceHelper;Landroid/os/Handler;)Landroid/os/Handler;
 
-    .line 88
+    .line 85
     iget-object v0, p0, Lmiui/analytics/PersistenceHelper$RunThread;->this$0:Lmiui/analytics/PersistenceHelper;
 
     #getter for: Lmiui/analytics/PersistenceHelper;->mSynchronized:Ljava/lang/Object;
@@ -84,18 +83,18 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 89
+    .line 86
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 91
+    .line 88
     invoke-static {}, Landroid/os/Looper;->loop()V
 
-    .line 92
+    .line 89
     return-void
 
-    .line 89
+    .line 86
     :catchall_0
     move-exception v0
 

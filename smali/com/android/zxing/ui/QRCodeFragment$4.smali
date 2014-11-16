@@ -24,13 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/zxing/ui/QRCodeFragment;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 343
     iput-object p1, p0, Lcom/android/zxing/ui/QRCodeFragment$4;->this$0:Lcom/android/zxing/ui/QRCodeFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +44,7 @@
     .line 346
     iget-object v0, p0, Lcom/android/zxing/ui/QRCodeFragment$4;->this$0:Lcom/android/zxing/ui/QRCodeFragment;
 
-    invoke-virtual {v0}, Lcom/android/zxing/ui/QRCodeFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

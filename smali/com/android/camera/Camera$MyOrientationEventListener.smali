@@ -25,92 +25,143 @@
     .parameter "context"
 
     .prologue
-    .line 237
+    .line 1552
     iput-object p1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
-    .line 238
+    .line 1553
     invoke-direct {p0, p2}, Landroid/view/OrientationEventListener;-><init>(Landroid/content/Context;)V
 
-    .line 239
+    .line 1554
     return-void
 .end method
 
 
 # virtual methods
 .method public onOrientationChanged(I)V
-    .locals 3
+    .locals 5
     .parameter "orientation"
 
     .prologue
-    .line 246
-    const/4 v1, -0x1
+    .line 1561
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
-    if-ne p1, v1, :cond_0
+    iget v0, v2, Lcom/android/camera/ActivityBase;->mOrientation:I
 
-    .line 258
+    .line 1562
+    .local v0, oldOrientation:I
+    const/4 v2, -0x1
+
+    if-ne p1, v2, :cond_1
+
+    .line 1580
+    :cond_0
     :goto_0
     return-void
 
-    .line 247
-    :cond_0
-    iget-object v1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    iget v2, v2, Lcom/android/camera/ActivityBase;->mOrientation:I
-
-    invoke-static {p1, v2}, Lcom/android/camera/Util;->roundOrientation(II)I
-
-    move-result v2
-
-    iput v2, v1, Lcom/android/camera/ActivityBase;->mOrientation:I
-
-    .line 250
-    iget-object v1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    iget v1, v1, Lcom/android/camera/ActivityBase;->mOrientation:I
-
-    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    invoke-static {v2}, Lcom/android/camera/Util;->getDisplayRotation(Landroid/app/Activity;)I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    rem-int/lit16 v0, v1, 0x168
-
-    .line 253
-    .local v0, orientationCompensation:I
-    iget-object v1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    iget v1, v1, Lcom/android/camera/ActivityBase;->mOrientationCompensation:I
-
-    if-eq v1, v0, :cond_1
-
-    .line 254
-    iget-object v1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
-
-    iput v0, v1, Lcom/android/camera/ActivityBase;->mOrientationCompensation:I
-
-    .line 256
+    .line 1563
     :cond_1
-    invoke-static {}, Lcom/android/camera/effect/EffectController;->getInstance()Lcom/android/camera/effect/EffectController;
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
-    move-result-object v1
+    iget-object v3, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
+    iget v3, v3, Lcom/android/camera/ActivityBase;->mOrientation:I
+
+    invoke-static {p1, v3}, Lcom/android/camera/Util;->roundOrientation(II)I
+
+    move-result v3
+
+    iput v3, v2, Lcom/android/camera/ActivityBase;->mOrientation:I
+
+    .line 1564
     iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
     iget v2, v2, Lcom/android/camera/ActivityBase;->mOrientation:I
 
-    invoke-virtual {v1, v2}, Lcom/android/camera/effect/EffectController;->setOrientation(I)V
+    if-eq v2, v0, :cond_3
 
-    .line 257
-    iget-object v1, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
 
-    iget-object v1, v1, Lcom/android/camera/ActivityBase;->mCurrentModule:Lcom/android/camera/module/Module;
+    iget-object v2, v2, Lcom/android/camera/ActivityBase;->mCameraDevice:Lcom/android/camera/CameraManager$CameraProxy;
 
-    invoke-interface {v1, p1}, Lcom/android/camera/module/Module;->onOrientationChanged(I)V
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget-object v2, v2, Lcom/android/camera/ActivityBase;->mParameters:Landroid/hardware/Camera$Parameters;
+
+    if-eqz v2, :cond_3
+
+    .line 1566
+    sget-boolean v2, Lcom/android/camera/Device;->IS_MITWO:Z
+
+    if-nez v2, :cond_2
+
+    sget-boolean v2, Lcom/android/camera/Device;->IS_MITWO_A:Z
+
+    if-eqz v2, :cond_3
+
+    .line 1567
+    :cond_2
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget-object v2, v2, Lcom/android/camera/ActivityBase;->mParameters:Landroid/hardware/Camera$Parameters;
+
+    iget-object v3, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget v3, v3, Lcom/android/camera/ActivityBase;->mOrientation:I
+
+    invoke-static {v2, v3}, Lcom/android/camera/CameraParameters;->setOrientation(Landroid/hardware/Camera$Parameters;I)V
+
+    .line 1568
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget-object v2, v2, Lcom/android/camera/ActivityBase;->mCameraDevice:Lcom/android/camera/CameraManager$CameraProxy;
+
+    iget-object v3, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget-object v3, v3, Lcom/android/camera/ActivityBase;->mParameters:Landroid/hardware/Camera$Parameters;
+
+    invoke-virtual {v2, v3}, Lcom/android/camera/CameraManager$CameraProxy;->setParameters(Landroid/hardware/Camera$Parameters;)V
+
+    .line 1574
+    :cond_3
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget v2, v2, Lcom/android/camera/ActivityBase;->mOrientation:I
+
+    iget-object v3, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    invoke-static {v3}, Lcom/android/camera/Util;->getDisplayRotation(Landroid/app/Activity;)I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    rem-int/lit16 v1, v2, 0x168
+
+    .line 1576
+    .local v1, orientationCompensation:I
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget v2, v2, Lcom/android/camera/ActivityBase;->mOrientationCompensation:I
+
+    if-eq v2, v1, :cond_0
+
+    .line 1577
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iput v1, v2, Lcom/android/camera/ActivityBase;->mOrientationCompensation:I
+
+    .line 1578
+    iget-object v2, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget-object v3, p0, Lcom/android/camera/Camera$MyOrientationEventListener;->this$0:Lcom/android/camera/Camera;
+
+    iget v3, v3, Lcom/android/camera/ActivityBase;->mOrientationCompensation:I
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/camera/Camera;->setOrientationIndicator(IZ)V
 
     goto :goto_0
 .end method

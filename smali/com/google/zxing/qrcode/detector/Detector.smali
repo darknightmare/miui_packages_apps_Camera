@@ -16,7 +16,7 @@
 
     .prologue
     .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     iput-object p1, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
@@ -906,7 +906,6 @@
 
 .method public final detect(Ljava/util/Map;)Lcom/google/zxing/common/DetectorResult;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1204,17 +1203,17 @@
     if-lez v20, :cond_1
 
     .line 105
-    invoke-virtual/range {v18 .. v18}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual/range {v18 .. v18}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v20
 
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v21
 
     sub-float v20, v20, v21
 
-    invoke-virtual {v5}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual {v5}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v21
 
@@ -1222,17 +1221,17 @@
 
     .line 106
     .local v6, bottomRightX:F
-    invoke-virtual/range {v18 .. v18}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual/range {v18 .. v18}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v20
 
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v21
 
     sub-float v20, v20, v21
 
-    invoke-virtual {v5}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual {v5}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v21
 
@@ -1254,11 +1253,11 @@
 
     .line 111
     .local v8, correctionToTopLeft:F
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v20
 
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v21
 
@@ -1274,11 +1273,11 @@
 
     .line 112
     .local v10, estAlignmentX:I
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v20
 
-    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getY()F
+    invoke-virtual/range {v17 .. v17}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v21
 

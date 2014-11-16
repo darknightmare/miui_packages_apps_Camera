@@ -34,10 +34,10 @@
     .locals 4
 
     .prologue
-    .line 30
+    .line 29
     invoke-direct {p0}, Lcom/android/gallery3d/ui/GLView;-><init>()V
 
-    .line 48
+    .line 47
     new-instance v0, Lcom/android/gallery3d/anim/FloatAnimation;
 
     const/4 v1, 0x0
@@ -50,7 +50,7 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
 
-    .line 51
+    .line 50
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
@@ -69,17 +69,17 @@
     .parameter "rotation"
 
     .prologue
-    .line 55
+    .line 54
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/anim/FloatAnimation;->start()V
+    invoke-virtual {v0}, Lcom/android/gallery3d/anim/Animation;->start()V
 
-    .line 57
+    .line 56
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-eqz v0, :cond_0
 
-    .line 58
+    .line 57
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapTexture;->getBitmap()Landroid/graphics/Bitmap;
@@ -88,45 +88,45 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 59
+    .line 58
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapTexture;->recycle()V
 
-    .line 62
+    .line 61
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 63
+    .line 62
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
-    .line 64
+    .line 63
     iget v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentRotation:I
 
     iput v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevRotation:I
 
-    .line 66
+    .line 65
     iput p2, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentRotation:I
 
-    .line 67
+    .line 66
     new-instance v0, Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-direct {v0, p1}, Lcom/android/gallery3d/ui/BitmapTexture;-><init>(Landroid/graphics/Bitmap;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 68
+    .line 67
     div-int/lit8 v0, p2, 0x5a
 
     and-int/lit8 v0, v0, 0x1
 
     if-nez v0, :cond_1
 
-    .line 69
+    .line 68
     new-instance v0, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
     iget-object v1, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
@@ -147,19 +147,19 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
-    .line 77
+    .line 76
     :goto_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->start()V
+    invoke-virtual {v0}, Lcom/android/gallery3d/anim/Animation;->start()V
+
+    .line 78
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     .line 79
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/SlideshowView;->invalidate()V
-
-    .line 80
     return-void
 
-    .line 73
+    .line 72
     :cond_1
     new-instance v0, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
@@ -190,129 +190,186 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 83
+    .line 82
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-eqz v0, :cond_0
 
-    .line 84
+    .line 83
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapTexture;->recycle()V
 
-    .line 85
+    .line 84
     iput-object v1, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 87
+    .line 86
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     if-eqz v0, :cond_1
 
-    .line 88
+    .line 87
     iget-object v0, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v0}, Lcom/android/gallery3d/ui/BitmapTexture;->recycle()V
 
-    .line 89
+    .line 88
     iput-object v1, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    .line 91
+    .line 90
     :cond_1
     return-void
 .end method
 
 .method protected render(Lcom/android/gallery3d/ui/GLCanvas;)V
-    .locals 9
+    .locals 12
     .parameter "canvas"
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v11, 0x3
 
-    const/4 v8, 0x0
+    const/4 v10, 0x1
 
-    const/high16 v4, 0x3f80
+    const/4 v9, 0x0
 
-    .line 95
+    const/high16 v5, 0x3f80
+
+    .line 94
     invoke-static {}, Lcom/android/gallery3d/ui/AnimationTime;->get()J
 
     move-result-wide v1
 
-    .line 96
+    .line 95
     .local v1, animTime:J
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
 
-    invoke-virtual {v5, v1, v2}, Lcom/android/gallery3d/anim/FloatAnimation;->calculate(J)Z
+    invoke-virtual {v6, v1, v2}, Lcom/android/gallery3d/anim/Animation;->calculate(J)Z
 
-    move-result v3
+    move-result v4
+
+    .line 96
+    .local v4, requestRender:Z
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getGLInstance()Ljavax/microedition/khronos/opengles/GL11;
+
+    move-result-object v3
 
     .line 97
-    .local v3, requestRender:Z
-    invoke-static {v6, v6}, Landroid/opengl/GLES20;->glBlendFunc(II)V
+    .local v3, gl:Ljavax/microedition/khronos/opengles/GL11;
+    invoke-interface {v3, v10, v10}, Ljavax/microedition/khronos/opengles/GL11;->glBlendFunc(II)V
 
     .line 98
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    if-nez v5, :cond_3
+    if-nez v6, :cond_3
 
-    move v0, v4
+    move v0, v5
 
     .line 100
     .local v0, alpha:F
     :goto_0
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
-    cmpl-float v5, v0, v4
+    cmpl-float v6, v0, v5
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
     .line 101
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
-    invoke-virtual {v5, v1, v2}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->calculate(J)Z
+    invoke-virtual {v6, v1, v2}, Lcom/android/gallery3d/anim/Animation;->calculate(J)Z
 
-    move-result v5
+    move-result v6
 
-    or-int/2addr v3, v5
+    or-int/2addr v4, v6
 
     .line 102
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
+    invoke-interface {p1, v11}, Lcom/android/gallery3d/ui/GLCanvas;->save(I)V
 
     .line 103
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    sub-float v6, v5, v0
 
-    move-result-object v5
-
-    sub-float v6, v4, v0
-
-    invoke-virtual {v5, v6}, Lcom/android/camera/effect/GLCanvasState;->setAlpha(F)V
+    invoke-interface {p1, v6}, Lcom/android/gallery3d/ui/GLCanvas;->setAlpha(F)V
 
     .line 104
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
 
-    invoke-virtual {v5, p1}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->apply(Lcom/android/gallery3d/ui/GLCanvas;)V
+    invoke-virtual {v6, p1}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->apply(Lcom/android/gallery3d/ui/GLCanvas;)V
 
     .line 105
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
     iget v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevRotation:I
 
     int-to-float v6, v6
 
-    invoke-virtual {v5, v6, v8, v8, v4}, Lcom/android/camera/effect/GLCanvasState;->rotate(FFFF)V
+    invoke-interface {p1, v6, v9, v9, v5}, Lcom/android/gallery3d/ui/GLCanvas;->rotate(FFFF)V
 
     .line 106
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
     iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+
+    iget-object v7, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+
+    invoke-virtual {v7}, Lcom/android/gallery3d/ui/BitmapTexture;->getWidth()I
+
+    move-result v7
+
+    neg-int v7, v7
+
+    div-int/lit8 v7, v7, 0x2
+
+    iget-object v8, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+
+    invoke-virtual {v8}, Lcom/android/gallery3d/ui/BitmapTexture;->getHeight()I
+
+    move-result v8
+
+    neg-int v8, v8
+
+    div-int/lit8 v8, v8, 0x2
+
+    invoke-virtual {v6, p1, v7, v8}, Lcom/android/gallery3d/ui/BitmapTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
+
+    .line 108
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
+
+    .line 110
+    :cond_0
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+
+    if-eqz v6, :cond_1
+
+    .line 111
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
+
+    invoke-virtual {v6, v1, v2}, Lcom/android/gallery3d/anim/Animation;->calculate(J)Z
+
+    move-result v6
+
+    or-int/2addr v4, v6
+
+    .line 112
+    invoke-interface {p1, v11}, Lcom/android/gallery3d/ui/GLCanvas;->save(I)V
+
+    .line 113
+    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->setAlpha(F)V
+
+    .line 114
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
+
+    invoke-virtual {v6, p1}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->apply(Lcom/android/gallery3d/ui/GLCanvas;)V
+
+    .line 115
+    iget v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentRotation:I
+
+    int-to-float v6, v6
+
+    invoke-interface {p1, v6, v9, v9, v5}, Lcom/android/gallery3d/ui/GLCanvas;->rotate(FFFF)V
+
+    .line 116
+    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v6}, Lcom/android/gallery3d/ui/BitmapTexture;->getWidth()I
 
@@ -322,7 +379,7 @@
 
     div-int/lit8 v6, v6, 0x2
 
-    iget-object v7, p0, Lcom/android/gallery3d/ui/SlideshowView;->mPrevTexture:Lcom/android/gallery3d/ui/BitmapTexture;
+    iget-object v7, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
 
     invoke-virtual {v7}, Lcom/android/gallery3d/ui/BitmapTexture;->getHeight()I
 
@@ -334,103 +391,20 @@
 
     invoke-virtual {v5, p1, v6, v7}, Lcom/android/gallery3d/ui/BitmapTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
 
-    .line 108
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/camera/effect/GLCanvasState;->popState()V
-
-    .line 110
-    :cond_0
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
-    if-eqz v5, :cond_1
-
-    .line 111
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
-
-    invoke-virtual {v5, v1, v2}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->calculate(J)Z
-
-    move-result v5
-
-    or-int/2addr v3, v5
-
-    .line 112
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
-
-    .line 113
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Lcom/android/camera/effect/GLCanvasState;->setAlpha(F)V
-
-    .line 114
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentAnimation:Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;
-
-    invoke-virtual {v5, p1}, Lcom/android/gallery3d/ui/SlideshowView$SlideshowAnimation;->apply(Lcom/android/gallery3d/ui/GLCanvas;)V
-
-    .line 115
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v5
-
-    iget v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentRotation:I
-
-    int-to-float v6, v6
-
-    invoke-virtual {v5, v6, v8, v8, v4}, Lcom/android/camera/effect/GLCanvasState;->rotate(FFFF)V
-
-    .line 116
-    iget-object v4, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
-    invoke-virtual {v5}, Lcom/android/gallery3d/ui/BitmapTexture;->getWidth()I
-
-    move-result v5
-
-    neg-int v5, v5
-
-    div-int/lit8 v5, v5, 0x2
-
-    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mCurrentTexture:Lcom/android/gallery3d/ui/BitmapTexture;
-
-    invoke-virtual {v6}, Lcom/android/gallery3d/ui/BitmapTexture;->getHeight()I
-
-    move-result v6
-
-    neg-int v6, v6
-
-    div-int/lit8 v6, v6, 0x2
-
-    invoke-virtual {v4, p1, v5, v6}, Lcom/android/gallery3d/ui/BitmapTexture;->draw(Lcom/android/gallery3d/ui/GLCanvas;II)V
-
     .line 118
-    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/camera/effect/GLCanvasState;->popState()V
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
 
     .line 120
     :cond_1
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/SlideshowView;->invalidate()V
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     .line 121
     :cond_2
-    const v4, 0x8588
-
     const/16 v5, 0x303
 
-    invoke-static {v4, v5}, Landroid/opengl/GLES20;->glBlendFunc(II)V
+    invoke-interface {v3, v10, v5}, Ljavax/microedition/khronos/opengles/GL11;->glBlendFunc(II)V
 
     .line 122
     return-void
@@ -438,9 +412,9 @@
     .line 98
     .end local v0           #alpha:F
     :cond_3
-    iget-object v5, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
+    iget-object v6, p0, Lcom/android/gallery3d/ui/SlideshowView;->mTransitionAnimation:Lcom/android/gallery3d/anim/FloatAnimation;
 
-    invoke-virtual {v5}, Lcom/android/gallery3d/anim/FloatAnimation;->get()F
+    invoke-virtual {v6}, Lcom/android/gallery3d/anim/FloatAnimation;->get()F
 
     move-result v0
 

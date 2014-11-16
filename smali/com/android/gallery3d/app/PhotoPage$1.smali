@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/gallery3d/app/PhotoPage;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 167
+    .line 161
     iput-object p1, p0, Lcom/android/gallery3d/app/PhotoPage$1;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     invoke-direct {p0}, Lcom/android/gallery3d/ui/GLView;-><init>()V
@@ -45,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 177
+    .line 171
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$1;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     #getter for: Lcom/android/gallery3d/app/PhotoPage;->mPhotoView:Lcom/android/gallery3d/ui/PhotoView;
@@ -57,9 +56,9 @@
 
     sub-int v2, p5, p3
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Lcom/android/gallery3d/ui/PhotoView;->layout(IIII)V
+    invoke-virtual {v0, v3, v3, v1, v2}, Lcom/android/gallery3d/ui/GLView;->layout(IIII)V
 
-    .line 178
+    .line 172
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$1;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     #getter for: Lcom/android/gallery3d/app/PhotoPage;->mShowDetails:Z
@@ -69,7 +68,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 179
+    .line 173
     iget-object v0, p0, Lcom/android/gallery3d/app/PhotoPage$1;->this$0:Lcom/android/gallery3d/app/PhotoPage;
 
     #getter for: Lcom/android/gallery3d/app/PhotoPage;->mDetailsHelper:Lcom/android/gallery3d/ui/DetailsHelper;
@@ -90,7 +89,7 @@
 
     invoke-virtual {v0, p2, v1, p4, p5}, Lcom/android/gallery3d/ui/DetailsHelper;->layout(IIII)V
 
-    .line 181
+    .line 175
     :cond_0
     return-void
 .end method
@@ -100,9 +99,9 @@
     .parameter "view"
 
     .prologue
-    .line 171
+    .line 165
     invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->clearBuffer()V
 
-    .line 172
+    .line 166
     return-void
 .end method

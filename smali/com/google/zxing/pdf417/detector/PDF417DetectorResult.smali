@@ -22,7 +22,6 @@
 .method public constructor <init>(Lcom/google/zxing/common/BitMatrix;Ljava/util/List;)V
     .locals 0
     .parameter "bits"
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,7 +36,7 @@
     .prologue
     .line 32
     .local p2, points:Ljava/util/List;,"Ljava/util/List<[Lcom/google/zxing/ResultPoint;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
     iput-object p1, p0, Lcom/google/zxing/pdf417/detector/PDF417DetectorResult;->bits:Lcom/google/zxing/common/BitMatrix;

@@ -4,9 +4,13 @@
 
 
 # instance fields
+.field private mAnimOrientation:I
+
 .field private mAnimStartTime:J
 
 .field private mAnimType:I
+
+.field private mDelta:F
 
 .field private mDrawHeight:I
 
@@ -23,7 +27,7 @@
 
     .prologue
     .line 49
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
     return-void
@@ -31,84 +35,27 @@
 
 
 # virtual methods
-.method public animateHold()V
-    .locals 1
-
-    .prologue
-    .line 71
-    const/4 v0, 0x2
-
-    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
-
-    .line 72
-    return-void
-.end method
-
 .method public animateHoldAndSlide()V
     .locals 1
 
     .prologue
-    .line 79
+    .line 97
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
 
-    .line 80
-    return-void
-.end method
-
-.method public animateSlide()V
-    .locals 2
-
-    .prologue
-    .line 63
-    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_0
-
-    .line 68
-    :goto_0
-    return-void
-
-    .line 66
-    :cond_0
-    const/4 v0, 0x3
-
-    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
-
-    .line 67
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimStartTime:J
-
-    goto :goto_0
-.end method
-
-.method public clearAnimation()V
-    .locals 1
-
-    .prologue
-    .line 75
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
-
-    .line 76
+    .line 98
     return-void
 .end method
 
 .method public drawAnimation(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/camera/CameraScreenNail;Lcom/android/gallery3d/ui/RawTexture;)Z
-    .locals 12
+    .locals 11
     .parameter "canvas"
     .parameter "preview"
     .parameter "review"
 
     .prologue
-    .line 85
+    .line 103
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -117,7 +64,7 @@
 
     sub-long v7, v0, v2
 
-    .line 87
+    .line 105
     .local v7, timeDiff:J
     iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
 
@@ -133,11 +80,11 @@
 
     const/4 v0, 0x0
 
-    .line 111
+    .line 125
     :goto_0
     return v0
 
-    .line 88
+    .line 106
     :cond_0
     iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
 
@@ -155,11 +102,11 @@
 
     goto :goto_0
 
-    .line 90
+    .line 108
     :cond_1
     iget v6, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
 
-    .line 91
+    .line 109
     .local v6, animStep:I
     iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimType:I
 
@@ -167,7 +114,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 92
+    .line 110
     const-wide/16 v0, 0x14
 
     cmp-long v0, v7, v0
@@ -176,121 +123,127 @@
 
     const/4 v6, 0x2
 
-    .line 93
+    .line 111
     :goto_1
     const/4 v0, 0x3
 
     if-ne v6, v0, :cond_2
 
-    .line 94
+    .line 112
     const-wide/16 v0, 0x14
 
     sub-long/2addr v7, v0
 
-    .line 98
+    .line 116
     :cond_2
     const/4 v0, 0x2
 
     if-ne v6, v0, :cond_4
 
-    .line 99
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;
+    .line 117
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
 
-    iget v1, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
+    float-to-int v2, v0
 
-    float-to-int v2, v1
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
 
-    iget v1, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
-
-    float-to-int v3, v1
+    float-to-int v3, v0
 
     iget v4, p0, Lcom/android/camera/CaptureAnimManager;->mDrawWidth:I
 
     iget v5, p0, Lcom/android/camera/CaptureAnimManager;->mDrawHeight:I
 
+    move-object v0, p1
+
     move-object v1, p3
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
-
-    .line 111
+    .line 125
     :goto_2
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 92
+    .line 110
     :cond_3
     const/4 v6, 0x3
 
     goto :goto_1
 
-    .line 100
+    .line 118
     :cond_4
     const/4 v0, 0x3
 
     if-ne v6, v0, :cond_5
 
-    .line 101
-    new-instance v0, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;
+    .line 119
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
 
-    iget v1, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
+    float-to-int v2, v0
 
-    float-to-int v2, v1
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
 
-    iget v1, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
-
-    float-to-int v3, v1
+    float-to-int v3, v0
 
     iget v4, p0, Lcom/android/camera/CaptureAnimManager;->mDrawWidth:I
 
     iget v5, p0, Lcom/android/camera/CaptureAnimManager;->mDrawHeight:I
 
+    move-object v0, p1
+
     move-object v1, p3
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
-
-    .line 102
-    new-instance v0, Lcom/android/camera/effect/draw_mode/FillRectAttribute;
-
+    .line 120
     iget v1, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
 
     iget v2, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
 
-    iget v3, p0, Lcom/android/camera/CaptureAnimManager;->mDrawWidth:I
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mDrawWidth:I
 
-    int-to-float v3, v3
+    int-to-float v3, v0
 
-    iget v4, p0, Lcom/android/camera/CaptureAnimManager;->mDrawHeight:I
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mDrawHeight:I
 
-    int-to-float v4, v4
+    int-to-float v4, v0
 
-    const/16 v5, 0xfc
+    const/16 v0, 0xb2
+
+    const/4 v5, 0x0
 
     const/4 v9, 0x0
 
     const/4 v10, 0x0
 
-    const/4 v11, 0x0
-
-    invoke-static {v5, v9, v10, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v0, v5, v9, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v5
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/FillRectAttribute;-><init>(FFFFI)V
+    move-object v0, p1
 
-    invoke-interface {p1, v0}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/gallery3d/ui/GLCanvas;->fillRect(FFFFI)V
 
     goto :goto_2
 
-    .line 108
+    .line 122
     :cond_5
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setOrientation(I)V
+    .locals 0
+    .parameter "animOrientation"
+
+    .prologue
+    .line 53
+    iput p1, p0, Lcom/android/camera/CaptureAnimManager;->mAnimOrientation:I
+
+    .line 54
+    return-void
 .end method
 
 .method public startAnimation(IIII)V
@@ -301,29 +254,80 @@
     .parameter "h"
 
     .prologue
-    .line 54
+    .line 58
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimStartTime:J
 
-    .line 56
+    .line 60
     iput p3, p0, Lcom/android/camera/CaptureAnimManager;->mDrawWidth:I
 
-    .line 57
+    .line 61
     iput p4, p0, Lcom/android/camera/CaptureAnimManager;->mDrawHeight:I
 
-    .line 58
+    .line 62
     int-to-float v0, p1
 
     iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mX:F
 
-    .line 59
+    .line 63
     int-to-float v0, p2
 
     iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mY:F
 
-    .line 60
+    .line 64
+    iget v0, p0, Lcom/android/camera/CaptureAnimManager;->mAnimOrientation:I
+
+    sparse-switch v0, :sswitch_data_0
+
+    .line 78
+    :goto_0
     return-void
+
+    .line 66
+    :sswitch_0
+    int-to-float v0, p3
+
+    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mDelta:F
+
+    goto :goto_0
+
+    .line 69
+    :sswitch_1
+    neg-int v0, p4
+
+    int-to-float v0, v0
+
+    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mDelta:F
+
+    goto :goto_0
+
+    .line 72
+    :sswitch_2
+    neg-int v0, p3
+
+    int-to-float v0, v0
+
+    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mDelta:F
+
+    goto :goto_0
+
+    .line 75
+    :sswitch_3
+    int-to-float v0, p4
+
+    iput v0, p0, Lcom/android/camera/CaptureAnimManager;->mDelta:F
+
+    goto :goto_0
+
+    .line 64
+    :sswitch_data_0
+    .sparse-switch
+        0x0 -> :sswitch_0
+        0x5a -> :sswitch_1
+        0xb4 -> :sswitch_2
+        0x10e -> :sswitch_3
+    .end sparse-switch
 .end method

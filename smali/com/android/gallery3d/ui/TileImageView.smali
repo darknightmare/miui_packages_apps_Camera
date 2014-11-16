@@ -36,9 +36,9 @@
 
 .field private mBackgroundTileUploaded:Z
 
-.field protected mCenterX:F
+.field protected mCenterX:I
 
-.field protected mCenterY:F
+.field protected mCenterY:I
 
 .field private final mDecodeQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
@@ -101,7 +101,7 @@
     .prologue
     const/16 v2, 0x100
 
-    .line 52
+    .line 50
     new-instance v0, Lcom/android/gallery3d/data/BitmapPool;
 
     const/16 v1, 0x80
@@ -124,68 +124,68 @@
 
     const/4 v3, 0x0
 
-    .line 151
+    .line 149
     invoke-direct {p0}, Lcom/android/gallery3d/ui/GLView;-><init>()V
 
-    .line 90
+    .line 88
     iput v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
 
-    .line 100
+    .line 98
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mSourceRect:Landroid/graphics/RectF;
 
-    .line 101
+    .line 99
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mTargetRect:Landroid/graphics/RectF;
 
-    .line 103
+    .line 101
     new-instance v0, Landroid/util/LongSparseArray;
 
     invoke-direct {v0}, Landroid/util/LongSparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
-    .line 106
+    .line 104
     new-instance v0, Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-direct {v0, v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;-><init>(Lcom/android/gallery3d/ui/TileImageView$1;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mRecycledQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
-    .line 107
+    .line 105
     new-instance v0, Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-direct {v0, v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;-><init>(Lcom/android/gallery3d/ui/TileImageView$1;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
-    .line 108
+    .line 106
     new-instance v0, Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-direct {v0, v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;-><init>(Lcom/android/gallery3d/ui/TileImageView$1;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mDecodeQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
-    .line 111
+    .line 109
     iput v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
 
-    .line 112
+    .line 110
     iput v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
 
-    .line 120
+    .line 118
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileRange:Landroid/graphics/Rect;
 
-    .line 121
+    .line 119
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/graphics/Rect;
@@ -206,21 +206,21 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveRange:[Landroid/graphics/Rect;
 
-    .line 123
+    .line 121
     new-instance v0, Lcom/android/gallery3d/ui/TileImageView$TileUploader;
 
     invoke-direct {v0, p0, v3}, Lcom/android/gallery3d/ui/TileImageView$TileUploader;-><init>(Lcom/android/gallery3d/ui/TileImageView;Lcom/android/gallery3d/ui/TileImageView$1;)V
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileUploader:Lcom/android/gallery3d/ui/TileImageView$TileUploader;
 
-    .line 152
+    .line 150
     invoke-interface {p1}, Lcom/android/gallery3d/app/GalleryContext;->getThreadPool()Lcom/android/gallery3d/util/ThreadPool;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
 
-    .line 153
+    .line 151
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
 
     new-instance v1, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;
@@ -233,7 +233,7 @@
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
-    .line 154
+    .line 152
     return-void
 .end method
 
@@ -242,7 +242,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     return-object v0
@@ -252,7 +252,7 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 37
     sget-object v0, Lcom/android/gallery3d/ui/TileImageView;->sTilePool:Lcom/android/gallery3d/data/BitmapPool;
 
     return-object v0
@@ -263,7 +263,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     return-object v0
@@ -277,7 +277,7 @@
     .parameter "x3"
 
     .prologue
-    .line 39
+    .line 37
     invoke-direct {p0, p1, p2, p3}, Lcom/android/gallery3d/ui/TileImageView;->getTile(III)Lcom/android/gallery3d/ui/TileImageView$Tile;
 
     move-result-object v0
@@ -290,7 +290,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
 
     return v0
@@ -301,7 +301,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mDecodeQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     return-object v0
@@ -314,12 +314,12 @@
     .parameter "level"
 
     .prologue
-    .line 527
+    .line 525
     invoke-static {p1, p2, p3}, Lcom/android/gallery3d/ui/TileImageView;->makeTileKey(III)J
 
     move-result-wide v0
 
-    .line 528
+    .line 526
     .local v0, key:J
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
@@ -329,34 +329,34 @@
 
     check-cast v2, Lcom/android/gallery3d/ui/TileImageView$Tile;
 
-    .line 529
+    .line 527
     .local v2, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     if-eqz v2, :cond_1
 
-    .line 530
+    .line 528
     iget v3, v2, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_0
 
-    .line 531
+    .line 529
     const/4 v3, 0x1
 
     iput v3, v2, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 537
+    .line 535
     :cond_0
     :goto_0
     return-void
 
-    .line 535
+    .line 533
     :cond_1
     invoke-direct {p0, p1, p2, p3}, Lcom/android/gallery3d/ui/TileImageView;->obtainTile(III)Lcom/android/gallery3d/ui/TileImageView$Tile;
 
     move-result-object v2
 
-    .line 536
+    .line 534
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3, v0, v1, v2}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
@@ -378,38 +378,34 @@
 
     const/high16 v3, 0x4000
 
-    .line 614
+    .line 612
     :goto_0
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView$Tile;->isContentValid()Z
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/UploadedTexture;->isContentValid()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 616
+    .line 614
     invoke-virtual {p2, v5, v5}, Landroid/graphics/RectF;->offset(FF)V
 
-    .line 617
-    new-instance v1, Lcom/android/camera/effect/draw_mode/DrawRectFTexAttribute;
+    .line 615
+    invoke-interface {p1, p0, p2, p3}, Lcom/android/gallery3d/ui/GLCanvas;->drawTexture(Lcom/android/gallery3d/ui/BasicTexture;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
 
-    invoke-direct {v1, p0, p2, p3}, Lcom/android/camera/effect/draw_mode/DrawRectFTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    invoke-interface {p1, v1}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
-
-    .line 618
+    .line 616
     const/4 v1, 0x1
 
-    .line 623
+    .line 621
     :goto_1
     return v1
 
-    .line 622
+    .line 620
     :cond_0
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView$Tile;->getParentTile()Lcom/android/gallery3d/ui/TileImageView$Tile;
 
     move-result-object v0
 
-    .line 623
+    .line 621
     .local v0, parent:Lcom/android/gallery3d/ui/TileImageView$Tile;
     if-nez v0, :cond_1
 
@@ -417,7 +413,7 @@
 
     goto :goto_1
 
-    .line 624
+    .line 622
     :cond_1
     iget v1, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mX:I
 
@@ -425,21 +421,21 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 625
+    .line 623
     iget v1, p2, Landroid/graphics/RectF;->left:F
 
     div-float/2addr v1, v3
 
     iput v1, p2, Landroid/graphics/RectF;->left:F
 
-    .line 626
+    .line 624
     iget v1, p2, Landroid/graphics/RectF;->right:F
 
     div-float/2addr v1, v3
 
     iput v1, p2, Landroid/graphics/RectF;->right:F
 
-    .line 631
+    .line 629
     :goto_2
     iget v1, p0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mY:I
 
@@ -447,28 +443,28 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 632
+    .line 630
     iget v1, p2, Landroid/graphics/RectF;->top:F
 
     div-float/2addr v1, v3
 
     iput v1, p2, Landroid/graphics/RectF;->top:F
 
-    .line 633
+    .line 631
     iget v1, p2, Landroid/graphics/RectF;->bottom:F
 
     div-float/2addr v1, v3
 
     iput v1, p2, Landroid/graphics/RectF;->bottom:F
 
-    .line 638
+    .line 636
     :goto_3
     move-object p0, v0
 
-    .line 639
+    .line 637
     goto :goto_0
 
-    .line 628
+    .line 626
     :cond_2
     iget v1, p2, Landroid/graphics/RectF;->left:F
 
@@ -478,7 +474,7 @@
 
     iput v1, p2, Landroid/graphics/RectF;->left:F
 
-    .line 629
+    .line 627
     iget v1, p2, Landroid/graphics/RectF;->right:F
 
     add-float/2addr v1, v4
@@ -489,7 +485,7 @@
 
     goto :goto_2
 
-    .line 635
+    .line 633
     :cond_3
     iget v1, p2, Landroid/graphics/RectF;->top:F
 
@@ -499,7 +495,7 @@
 
     iput v1, p2, Landroid/graphics/RectF;->top:F
 
-    .line 636
+    .line 634
     iget v1, p2, Landroid/graphics/RectF;->bottom:F
 
     add-float/2addr v1, v4
@@ -511,7 +507,7 @@
     goto :goto_3
 .end method
 
-.method private getRange(Landroid/graphics/Rect;FFIFI)V
+.method private getRange(Landroid/graphics/Rect;IIIFI)V
     .locals 25
     .parameter "out"
     .parameter "cX"
@@ -521,7 +517,7 @@
     .parameter "rotation"
 
     .prologue
-    .line 294
+    .line 292
     move/from16 v0, p6
 
     neg-int v0, v0
@@ -538,9 +534,9 @@
 
     move-result-wide v9
 
-    .line 295
+    .line 293
     .local v9, radians:D
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v19
 
@@ -550,9 +546,9 @@
 
     move-wide/from16 v16, v0
 
-    .line 296
+    .line 294
     .local v16, w:D
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v19
 
@@ -560,19 +556,19 @@
 
     int-to-double v5, v0
 
-    .line 298
+    .line 296
     .local v5, h:D
     invoke-static {v9, v10}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v3
 
-    .line 299
+    .line 297
     .local v3, cos:D
     invoke-static {v9, v10}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v12
 
-    .line 300
+    .line 298
     .local v12, sin:D
     mul-double v19, v3, v16
 
@@ -608,7 +604,7 @@
 
     move/from16 v18, v0
 
-    .line 302
+    .line 300
     .local v18, width:I
     mul-double v19, v12, v16
 
@@ -642,21 +638,27 @@
 
     double-to-int v7, v0
 
-    .line 305
+    .line 303
     .local v7, height:I
-    move/from16 v0, v18
+    move/from16 v0, p2
 
     int-to-float v0, v0
 
     move/from16 v19, v0
 
-    const/high16 v20, 0x4000
+    move/from16 v0, v18
 
-    mul-float v20, v20, p5
+    int-to-float v0, v0
 
-    div-float v19, v19, v20
+    move/from16 v20, v0
 
-    sub-float v19, p2, v19
+    const/high16 v21, 0x4000
+
+    mul-float v21, v21, p5
+
+    div-float v20, v20, v21
+
+    sub-float v19, v19, v20
 
     invoke-static/range {v19 .. v19}, Landroid/util/FloatMath;->floor(F)F
 
@@ -666,19 +668,25 @@
 
     float-to-int v8, v0
 
-    .line 306
+    .line 304
     .local v8, left:I
-    int-to-float v0, v7
+    move/from16 v0, p3
+
+    int-to-float v0, v0
 
     move/from16 v19, v0
 
-    const/high16 v20, 0x4000
+    int-to-float v0, v7
 
-    mul-float v20, v20, p5
+    move/from16 v20, v0
 
-    div-float v19, v19, v20
+    const/high16 v21, 0x4000
 
-    sub-float v19, p3, v19
+    mul-float v21, v21, p5
+
+    div-float v20, v20, v21
+
+    sub-float v19, v19, v20
 
     invoke-static/range {v19 .. v19}, Landroid/util/FloatMath;->floor(F)F
 
@@ -688,7 +696,7 @@
 
     float-to-int v15, v0
 
-    .line 307
+    .line 305
     .local v15, top:I
     int-to-float v0, v8
 
@@ -712,7 +720,7 @@
 
     float-to-int v11, v0
 
-    .line 308
+    .line 306
     .local v11, right:I
     int-to-float v0, v15
 
@@ -734,13 +742,13 @@
 
     float-to-int v2, v0
 
-    .line 311
+    .line 309
     .local v2, bottom:I
     const/16 v19, 0xfe
 
     shl-int v14, v19, p4
 
-    .line 312
+    .line 310
     .local v14, size:I
     const/16 v19, 0x0
 
@@ -752,7 +760,7 @@
 
     move-result v8
 
-    .line 313
+    .line 311
     const/16 v19, 0x0
 
     div-int v20, v15, v14
@@ -763,7 +771,7 @@
 
     move-result v15
 
-    .line 314
+    .line 312
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
@@ -776,7 +784,7 @@
 
     move-result v11
 
-    .line 315
+    .line 313
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
@@ -789,16 +797,16 @@
 
     move-result v2
 
-    .line 317
+    .line 315
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8, v15, v11, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 318
+    .line 316
     return-void
 .end method
 
-.method private getRange(Landroid/graphics/Rect;FFII)V
+.method private getRange(Landroid/graphics/Rect;IIII)V
     .locals 7
     .parameter "out"
     .parameter "cX"
@@ -807,7 +815,7 @@
     .parameter "rotation"
 
     .prologue
-    .line 282
+    .line 280
     const/high16 v0, 0x3f80
 
     const/4 v1, 0x1
@@ -832,9 +840,9 @@
 
     move v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;FFIFI)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;IIIFI)V
 
-    .line 283
+    .line 281
     return-void
 .end method
 
@@ -845,7 +853,7 @@
     .parameter "level"
 
     .prologue
-    .line 540
+    .line 538
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-static {p1, p2, p3}, Lcom/android/gallery3d/ui/TileImageView;->makeTileKey(III)J
@@ -865,7 +873,7 @@
     .locals 1
 
     .prologue
-    .line 453
+    .line 451
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     instance-of v0, v0, Lcom/android/gallery3d/ui/BitmapScreenNail;
@@ -893,7 +901,7 @@
     goto :goto_0
 .end method
 
-.method private layoutTiles(FFFI)V
+.method private layoutTiles(IIFI)V
     .locals 24
     .parameter "centerX"
     .parameter "centerY"
@@ -901,18 +909,18 @@
     .parameter "rotation"
 
     .prologue
-    .line 198
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getWidth()I
+    .line 196
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
     move-result v21
 
-    .line 199
+    .line 197
     .local v21, width:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
 
     move-result v14
 
-    .line 207
+    .line 205
     .local v14, height:I
     const/high16 v3, 0x3f80
 
@@ -936,7 +944,7 @@
 
     iput v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
 
-    .line 212
+    .line 210
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
@@ -947,12 +955,12 @@
 
     if-eq v3, v5, :cond_1
 
-    .line 213
+    .line 211
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/gallery3d/ui/TileImageView;->mTileRange:Landroid/graphics/Rect;
 
-    .line 214
+    .line 212
     .local v4, range:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
@@ -968,9 +976,9 @@
 
     move/from16 v9, p4
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;FFIFI)V
+    invoke-direct/range {v3 .. v9}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;IIIFI)V
 
-    .line 215
+    .line 213
     move/from16 v0, v21
 
     int-to-float v3, v0
@@ -981,9 +989,9 @@
 
     iget v5, v4, Landroid/graphics/Rect;->left:I
 
-    int-to-float v5, v5
+    sub-int v5, v5, p1
 
-    sub-float v5, v5, p1
+    int-to-float v5, v5
 
     mul-float v5, v5, p3
 
@@ -997,7 +1005,7 @@
 
     iput v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
 
-    .line 216
+    .line 214
     int-to-float v3, v14
 
     const/high16 v5, 0x4000
@@ -1006,9 +1014,9 @@
 
     iget v5, v4, Landroid/graphics/Rect;->top:I
 
-    int-to-float v5, v5
+    sub-int v5, v5, p2
 
-    sub-float v5, v5, p2
+    int-to-float v5, v5
 
     mul-float v5, v5, p3
 
@@ -1022,7 +1030,7 @@
 
     iput v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetY:I
 
-    .line 217
+    .line 215
     const/4 v3, 0x1
 
     move-object/from16 v0, p0
@@ -1047,7 +1055,7 @@
 
     add-int/lit8 v13, v3, -0x1
 
-    .line 225
+    .line 223
     .end local v4           #range:Landroid/graphics/Rect;
     .local v13, fromLevel:I
     :goto_0
@@ -1067,7 +1075,7 @@
 
     move-result v13
 
-    .line 226
+    .line 224
     add-int/lit8 v3, v13, 0x2
 
     move-object/from16 v0, p0
@@ -1078,13 +1086,13 @@
 
     move-result v12
 
-    .line 228
+    .line 226
     .local v12, endLevel:I
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/gallery3d/ui/TileImageView;->mActiveRange:[Landroid/graphics/Rect;
 
-    .line 229
+    .line 227
     .local v4, range:[Landroid/graphics/Rect;
     move v9, v13
 
@@ -1092,7 +1100,7 @@
     :goto_1
     if-ge v9, v12, :cond_2
 
-    .line 230
+    .line 228
     sub-int v3, v9, v13
 
     aget-object v6, v4, v3
@@ -1105,14 +1113,14 @@
 
     move/from16 v10, p4
 
-    invoke-direct/range {v5 .. v10}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;FFII)V
+    invoke-direct/range {v5 .. v10}, Lcom/android/gallery3d/ui/TileImageView;->getRange(Landroid/graphics/Rect;IIII)V
 
-    .line 229
+    .line 227
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 217
+    .line 215
     .end local v9           #i:I
     .end local v12           #endLevel:I
     .end local v13           #fromLevel:I
@@ -1124,7 +1132,7 @@
 
     goto :goto_0
 
-    .line 220
+    .line 218
     .end local v4           #range:Landroid/graphics/Rect;
     :cond_1
     move-object/from16 v0, p0
@@ -1133,7 +1141,7 @@
 
     add-int/lit8 v13, v3, -0x2
 
-    .line 221
+    .line 219
     .restart local v13       #fromLevel:I
     move/from16 v0, v21
 
@@ -1143,7 +1151,11 @@
 
     div-float/2addr v3, v5
 
-    mul-float v5, p1, p3
+    move/from16 v0, p1
+
+    int-to-float v5, v0
+
+    mul-float v5, v5, p3
 
     sub-float/2addr v3, v5
 
@@ -1155,14 +1167,18 @@
 
     iput v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
 
-    .line 222
+    .line 220
     int-to-float v3, v14
 
     const/high16 v5, 0x4000
 
     div-float/2addr v3, v5
 
-    mul-float v5, p2, p3
+    move/from16 v0, p2
+
+    int-to-float v5, v0
+
+    mul-float v5, v5, p3
 
     sub-float/2addr v3, v5
 
@@ -1176,7 +1192,7 @@
 
     goto :goto_0
 
-    .line 234
+    .line 232
     .local v4, range:[Landroid/graphics/Rect;
     .restart local v9       #i:I
     .restart local v12       #endLevel:I
@@ -1185,15 +1201,15 @@
 
     if-eqz v3, :cond_3
 
-    .line 267
+    .line 265
     :goto_2
     return-void
 
-    .line 236
+    .line 234
     :cond_3
     monitor-enter p0
 
-    .line 237
+    .line 235
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1201,21 +1217,21 @@
 
     invoke-virtual {v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 238
+    .line 236
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 239
+    .line 237
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mBackgroundTileUploaded:Z
 
-    .line 243
+    .line 241
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
@@ -1224,7 +1240,7 @@
 
     move-result v16
 
-    .line 244
+    .line 242
     .local v16, n:I
     const/4 v9, 0x0
 
@@ -1233,7 +1249,7 @@
 
     if-ge v9, v0, :cond_6
 
-    .line 245
+    .line 243
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
@@ -1244,13 +1260,13 @@
 
     check-cast v20, Lcom/android/gallery3d/ui/TileImageView$Tile;
 
-    .line 246
+    .line 244
     .local v20, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     move-object/from16 v0, v20
 
     iget v15, v0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileLevel:I
 
-    .line 247
+    .line 245
     .local v15, level:I
     if-lt v15, v13, :cond_4
 
@@ -1274,7 +1290,7 @@
 
     if-nez v3, :cond_5
 
-    .line 249
+    .line 247
     :cond_4
     move-object/from16 v0, p0
 
@@ -1282,26 +1298,26 @@
 
     invoke-virtual {v3, v9}, Landroid/util/LongSparseArray;->removeAt(I)V
 
-    .line 250
+    .line 248
     add-int/lit8 v9, v9, -0x1
 
-    .line 251
+    .line 249
     add-int/lit8 v16, v16, -0x1
 
-    .line 252
+    .line 250
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/gallery3d/ui/TileImageView;->recycleTile(Lcom/android/gallery3d/ui/TileImageView$Tile;)V
 
-    .line 244
+    .line 242
     :cond_5
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_3
 
-    .line 255
+    .line 253
     .end local v15           #level:I
     .end local v20           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_6
@@ -1309,24 +1325,24 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 257
+    .line 255
     move v9, v13
 
     :goto_4
     if-ge v9, v12, :cond_9
 
-    .line 258
+    .line 256
     const/16 v3, 0xfe
 
     shl-int v19, v3, v9
 
-    .line 259
+    .line 257
     .local v19, size:I
     sub-int v3, v9, v13
 
     aget-object v17, v4, v3
 
-    .line 260
+    .line 258
     .local v17, r:Landroid/graphics/Rect;
     move-object/from16 v0, v17
 
@@ -1345,7 +1361,7 @@
 
     if-ge v0, v11, :cond_8
 
-    .line 261
+    .line 259
     move-object/from16 v0, v17
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
@@ -1367,7 +1383,7 @@
 
     if-ge v0, v1, :cond_7
 
-    .line 262
+    .line 260
     move-object/from16 v0, p0
 
     move/from16 v1, v22
@@ -1376,12 +1392,12 @@
 
     invoke-direct {v0, v1, v2, v9}, Lcom/android/gallery3d/ui/TileImageView;->activateTile(III)V
 
-    .line 261
+    .line 259
     add-int v22, v22, v19
 
     goto :goto_6
 
-    .line 255
+    .line 253
     .end local v11           #bottom:I
     .end local v16           #n:I
     .end local v17           #r:Landroid/graphics/Rect;
@@ -1399,7 +1415,7 @@
 
     throw v3
 
-    .line 260
+    .line 258
     .restart local v11       #bottom:I
     .restart local v16       #n:I
     .restart local v17       #r:Landroid/graphics/Rect;
@@ -1412,7 +1428,7 @@
 
     goto :goto_5
 
-    .line 257
+    .line 255
     .end local v18           #right:I
     .end local v22           #x:I
     :cond_8
@@ -1420,13 +1436,13 @@
 
     goto :goto_4
 
-    .line 266
+    .line 264
     .end local v11           #bottom:I
     .end local v17           #r:Landroid/graphics/Rect;
     .end local v19           #size:I
     .end local v23           #y:I
     :cond_9
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     goto/16 :goto_2
 .end method
@@ -1440,10 +1456,10 @@
     .prologue
     const/16 v6, 0x10
 
-    .line 544
+    .line 542
     int-to-long v0, p0
 
-    .line 545
+    .line 543
     .local v0, result:J
     shl-long v2, v0, v6
 
@@ -1451,14 +1467,14 @@
 
     or-long v0, v2, v4
 
-    .line 546
+    .line 544
     shl-long v2, v0, v6
 
     int-to-long v4, p2
 
     or-long v0, v2, v4
 
-    .line 547
+    .line 545
     return-wide v0
 .end method
 
@@ -1469,7 +1485,7 @@
     .parameter "level"
 
     .prologue
-    .line 504
+    .line 502
     monitor-enter p0
 
     :try_start_0
@@ -1479,21 +1495,21 @@
 
     move-result-object v0
 
-    .line 505
+    .line 503
     .local v0, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     if-eqz v0, :cond_0
 
-    .line 506
+    .line 504
     const/4 v1, 0x1
 
     iput v1, v0, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 507
+    .line 505
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/gallery3d/ui/TileImageView$Tile;->update(III)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 510
+    .line 508
     .end local v0           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :goto_0
     monitor-exit p0
@@ -1512,7 +1528,7 @@
 
     goto :goto_0
 
-    .line 504
+    .line 502
     :catchall_0
     move-exception v1
 
@@ -1526,19 +1542,19 @@
     .parameter "canvas"
 
     .prologue
-    .line 458
+    .line 456
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mBackgroundTileUploaded:Z
 
-    .line 459
+    .line 457
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3}, Landroid/util/LongSparseArray;->size()I
 
     move-result v1
 
-    .line 460
+    .line 458
     .local v1, n:I
     const/4 v0, 0x0
 
@@ -1546,7 +1562,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 461
+    .line 459
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -1555,9 +1571,9 @@
 
     check-cast v2, Lcom/android/gallery3d/ui/TileImageView$Tile;
 
-    .line 462
+    .line 460
     .local v2, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
-    invoke-virtual {v2}, Lcom/android/gallery3d/ui/TileImageView$Tile;->isContentValid()Z
+    invoke-virtual {v2}, Lcom/android/gallery3d/ui/UploadedTexture;->isContentValid()Z
 
     move-result v3
 
@@ -1565,13 +1581,13 @@
 
     invoke-virtual {p0, v2}, Lcom/android/gallery3d/ui/TileImageView;->queueForDecode(Lcom/android/gallery3d/ui/TileImageView$Tile;)V
 
-    .line 460
+    .line 458
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 464
+    .line 462
     .end local v2           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_1
     return-void
@@ -1586,10 +1602,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 483
+    .line 481
     monitor-enter p0
 
-    .line 484
+    .line 482
     :try_start_0
     iget v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
@@ -1601,31 +1617,31 @@
 
     move v0, v1
 
-    .line 499
+    .line 497
     :goto_0
     return v0
 
-    .line 485
+    .line 483
     :cond_0
     const/4 v2, 0x4
 
     iput v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 486
+    .line 484
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 487
+    .line 485
     invoke-virtual {p1}, Lcom/android/gallery3d/ui/TileImageView$Tile;->decode()Z
 
     move-result v0
 
-    .line 488
+    .line 486
     .local v0, decodeComplete:Z
     monitor-enter p0
 
-    .line 489
+    .line 487
     :try_start_1
     iget v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
@@ -1633,35 +1649,35 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 490
+    .line 488
     const/16 v2, 0x40
 
     iput v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 491
+    .line 489
     iget-object v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
     if-eqz v2, :cond_1
 
-    .line 492
+    .line 490
     sget-object v2, Lcom/android/gallery3d/ui/TileImageView;->sTilePool:Lcom/android/gallery3d/data/BitmapPool;
 
     iget-object v3, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
     invoke-virtual {v2, v3}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 493
+    .line 491
     const/4 v2, 0x0
 
     iput-object v2, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
-    .line 495
+    .line 493
     :cond_1
     iget-object v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mRecycledQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v2, p1}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->push(Lcom/android/gallery3d/ui/TileImageView$Tile;)Z
 
-    .line 496
+    .line 494
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -1670,7 +1686,7 @@
 
     goto :goto_0
 
-    .line 486
+    .line 484
     .end local v0           #decodeComplete:Z
     :catchall_0
     move-exception v1
@@ -1682,7 +1698,7 @@
 
     throw v1
 
-    .line 498
+    .line 496
     .restart local v0       #decodeComplete:Z
     :cond_2
     if-eqz v0, :cond_3
@@ -1693,12 +1709,12 @@
     :try_start_3
     iput v1, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 499
+    .line 497
     monitor-exit p0
 
     goto :goto_0
 
-    .line 500
+    .line 498
     :catchall_1
     move-exception v1
 
@@ -1708,7 +1724,7 @@
 
     throw v1
 
-    .line 498
+    .line 496
     :cond_3
     const/16 v1, 0x10
 
@@ -1726,14 +1742,14 @@
     .parameter "length"
 
     .prologue
-    .line 578
+    .line 576
     iget-object v5, p0, Lcom/android/gallery3d/ui/TileImageView;->mSourceRect:Landroid/graphics/RectF;
 
-    .line 579
+    .line 577
     .local v5, source:Landroid/graphics/RectF;
     iget-object v6, p0, Lcom/android/gallery3d/ui/TileImageView;->mTargetRect:Landroid/graphics/RectF;
 
-    .line 580
+    .line 578
     .local v6, target:Landroid/graphics/RectF;
     add-float v8, p5, p7
 
@@ -1745,7 +1761,7 @@
 
     invoke-virtual {v6, v0, v1, v8, v9}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 581
+    .line 579
     const/4 v8, 0x0
 
     const/4 v9, 0x0
@@ -1756,47 +1772,47 @@
 
     invoke-virtual {v5, v8, v9, v10, v11}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 583
+    .line 581
     move/from16 v0, p4
 
     invoke-direct {p0, p2, p3, v0}, Lcom/android/gallery3d/ui/TileImageView;->getTile(III)Lcom/android/gallery3d/ui/TileImageView$Tile;
 
     move-result-object v7
 
-    .line 584
+    .line 582
     .local v7, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     if-eqz v7, :cond_4
 
-    .line 585
-    invoke-virtual {v7}, Lcom/android/gallery3d/ui/TileImageView$Tile;->isContentValid()Z
+    .line 583
+    invoke-virtual {v7}, Lcom/android/gallery3d/ui/UploadedTexture;->isContentValid()Z
 
     move-result v8
 
     if-nez v8, :cond_0
 
-    .line 586
+    .line 584
     iget v8, v7, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
     const/16 v9, 0x8
 
     if-ne v8, v9, :cond_3
 
-    .line 587
+    .line 585
     iget v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQuota:I
 
     if-lez v8, :cond_2
 
-    .line 588
+    .line 586
     iget v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQuota:I
 
     add-int/lit8 v8, v8, -0x1
 
     iput v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQuota:I
 
-    .line 589
-    invoke-virtual {v7, p1}, Lcom/android/gallery3d/ui/TileImageView$Tile;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
+    .line 587
+    invoke-virtual {v7, p1}, Lcom/android/gallery3d/ui/UploadedTexture;->updateContent(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 598
+    .line 596
     :cond_0
     :goto_0
     invoke-static {v7, p1, v5, v6}, Lcom/android/gallery3d/ui/TileImageView;->drawTile(Lcom/android/gallery3d/ui/TileImageView$Tile;Lcom/android/gallery3d/ui/GLCanvas;Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
@@ -1805,12 +1821,12 @@
 
     if-eqz v8, :cond_4
 
-    .line 608
+    .line 606
     :cond_1
     :goto_1
     return-void
 
-    .line 591
+    .line 589
     :cond_2
     const/4 v8, 0x0
 
@@ -1818,7 +1834,7 @@
 
     goto :goto_0
 
-    .line 593
+    .line 591
     :cond_3
     iget v8, v7, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
@@ -1826,28 +1842,28 @@
 
     if-eq v8, v9, :cond_0
 
-    .line 594
+    .line 592
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mRenderComplete:Z
 
-    .line 595
+    .line 593
     invoke-virtual {p0, v7}, Lcom/android/gallery3d/ui/TileImageView;->queueForDecode(Lcom/android/gallery3d/ui/TileImageView$Tile;)V
 
     goto :goto_0
 
-    .line 600
+    .line 598
     :cond_4
     iget-object v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     if-eqz v8, :cond_1
 
-    .line 601
+    .line 599
     const/16 v8, 0xfe
 
     shl-int v4, v8, p4
 
-    .line 602
+    .line 600
     .local v4, size:I
     iget-object v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
@@ -1863,7 +1879,7 @@
 
     div-float v2, v8, v9
 
-    .line 603
+    .line 601
     .local v2, scaleX:F
     iget-object v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
@@ -1879,7 +1895,7 @@
 
     div-float v3, v8, v9
 
-    .line 604
+    .line 602
     .local v3, scaleY:F
     int-to-float v8, p2
 
@@ -1903,7 +1919,7 @@
 
     invoke-virtual {v5, v8, v9, v10, v11}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 606
+    .line 604
     iget-object v8, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     invoke-interface {v8, p1, v5, v6}, Lcom/android/gallery3d/ui/ScreenNail;->draw(Lcom/android/gallery3d/ui/GLCanvas;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
@@ -1919,30 +1935,30 @@
 
     const/4 v5, 0x0
 
-    .line 357
+    .line 355
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mIsTextureFreed:Z
 
-    .line 359
+    .line 357
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
     if-eqz v4, :cond_0
 
-    .line 360
+    .line 358
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
     invoke-interface {v4}, Lcom/android/gallery3d/util/Future;->cancel()V
 
-    .line 361
+    .line 359
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
     invoke-interface {v4}, Lcom/android/gallery3d/util/Future;->get()Ljava/lang/Object;
 
-    .line 362
+    .line 360
     iput-object v6, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
-    .line 365
+    .line 363
     :cond_0
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
@@ -1950,7 +1966,7 @@
 
     move-result v1
 
-    .line 366
+    .line 364
     .local v1, n:I
     const/4 v0, 0x0
 
@@ -1958,7 +1974,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 367
+    .line 365
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v4, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -1967,57 +1983,57 @@
 
     check-cast v2, Lcom/android/gallery3d/ui/TileImageView$Tile;
 
-    .line 368
-    .local v2, texture:Lcom/android/gallery3d/ui/TileImageView$Tile;
-    invoke-virtual {v2}, Lcom/android/gallery3d/ui/TileImageView$Tile;->recycle()V
-
     .line 366
+    .local v2, texture:Lcom/android/gallery3d/ui/TileImageView$Tile;
+    invoke-virtual {v2}, Lcom/android/gallery3d/ui/UploadedTexture;->recycle()V
+
+    .line 364
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 370
+    .line 368
     .end local v2           #texture:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_1
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v4}, Landroid/util/LongSparseArray;->clear()V
 
-    .line 371
+    .line 369
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileRange:Landroid/graphics/Rect;
 
     invoke-virtual {v4, v5, v5, v5, v5}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 373
+    .line 371
     monitor-enter p0
 
-    .line 374
+    .line 372
     :try_start_0
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 375
+    .line 373
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mDecodeQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 376
+    .line 374
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mRecycledQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->pop()Lcom/android/gallery3d/ui/TileImageView$Tile;
 
     move-result-object v3
 
-    .line 377
+    .line 375
     .local v3, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :goto_1
     if-eqz v3, :cond_2
 
-    .line 378
-    invoke-virtual {v3}, Lcom/android/gallery3d/ui/TileImageView$Tile;->recycle()V
+    .line 376
+    invoke-virtual {v3}, Lcom/android/gallery3d/ui/UploadedTexture;->recycle()V
 
-    .line 379
+    .line 377
     iget-object v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mRecycledQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->pop()Lcom/android/gallery3d/ui/TileImageView$Tile;
@@ -2026,24 +2042,24 @@
 
     goto :goto_1
 
-    .line 381
+    .line 379
     :cond_2
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 382
+    .line 380
     invoke-virtual {p0, v6}, Lcom/android/gallery3d/ui/TileImageView;->setScreenNail(Lcom/android/gallery3d/ui/ScreenNail;)V
 
-    .line 383
+    .line 381
     sget-object v4, Lcom/android/gallery3d/ui/TileImageView;->sTilePool:Lcom/android/gallery3d/data/BitmapPool;
 
     invoke-virtual {v4}, Lcom/android/gallery3d/data/BitmapPool;->clear()V
 
-    .line 384
+    .line 382
     return-void
 
-    .line 381
+    .line 379
     .end local v3           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :catchall_0
     move-exception v4
@@ -2060,7 +2076,7 @@
     .locals 4
 
     .prologue
-    .line 270
+    .line 268
     monitor-enter p0
 
     :try_start_0
@@ -2068,19 +2084,19 @@
 
     invoke-virtual {v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 271
+    .line 269
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v3}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->clean()V
 
-    .line 273
+    .line 271
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3}, Landroid/util/LongSparseArray;->size()I
 
     move-result v1
 
-    .line 274
+    .line 272
     .local v1, n:I
     const/4 v0, 0x0
 
@@ -2088,7 +2104,7 @@
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 275
+    .line 273
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -2097,16 +2113,16 @@
 
     check-cast v2, Lcom/android/gallery3d/ui/TileImageView$Tile;
 
-    .line 276
+    .line 274
     .local v2, tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     invoke-virtual {p0, v2}, Lcom/android/gallery3d/ui/TileImageView;->recycleTile(Lcom/android/gallery3d/ui/TileImageView$Tile;)V
 
-    .line 274
+    .line 272
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 278
+    .line 276
     .end local v2           #tile:Lcom/android/gallery3d/ui/TileImageView$Tile;
     :cond_0
     iget-object v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mActiveTiles:Landroid/util/LongSparseArray;
@@ -2115,12 +2131,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 279
+    .line 277
     monitor-exit p0
 
     return-void
 
-    .line 270
+    .line 268
     .end local v0           #i:I
     .end local v1           #n:I
     :catchall_0
@@ -2137,47 +2153,47 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 166
+    .line 164
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidateTiles()V
 
-    .line 167
+    .line 165
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     if-nez v0, :cond_0
 
-    .line 168
+    .line 166
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    .line 169
+    .line 167
     iput v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
 
-    .line 170
+    .line 168
     iput v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
 
-    .line 171
+    .line 169
     iput v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mLevelCount:I
 
-    .line 178
+    .line 176
     :goto_0
-    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:F
+    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:I
 
-    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:F
+    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:I
 
     iget v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mRotation:I
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(FFFI)V
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(IIFI)V
 
-    .line 179
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidate()V
+    .line 177
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
-    .line 180
+    .line 178
     return-void
 
-    .line 173
+    .line 171
     :cond_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
@@ -2187,7 +2203,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/gallery3d/ui/TileImageView;->setScreenNail(Lcom/android/gallery3d/ui/ScreenNail;)V
 
-    .line 174
+    .line 172
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/TileImageView$Model;->getImageWidth()I
@@ -2196,7 +2212,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
 
-    .line 175
+    .line 173
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/TileImageView$Model;->getImageHeight()I
@@ -2205,7 +2221,7 @@
 
     iput v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
 
-    .line 176
+    .line 174
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     invoke-interface {v0}, Lcom/android/gallery3d/ui/TileImageView$Model;->getLevelCount()I
@@ -2226,23 +2242,23 @@
     .parameter "bottom"
 
     .prologue
-    .line 185
+    .line 183
     invoke-super/range {p0 .. p5}, Lcom/android/gallery3d/ui/GLView;->onLayout(ZIIII)V
 
-    .line 186
+    .line 184
     if-eqz p1, :cond_0
 
-    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:F
+    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:I
 
-    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:F
+    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:I
 
     iget v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mRotation:I
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(FFFI)V
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(IIFI)V
 
-    .line 187
+    .line 185
     :cond_0
     return-void
 .end method
@@ -2253,12 +2269,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 387
+    .line 385
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
     if-nez v1, :cond_0
 
-    .line 388
+    .line 386
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mThreadPool:Lcom/android/gallery3d/util/ThreadPool;
 
     new-instance v2, Lcom/android/gallery3d/ui/TileImageView$TileDecoder;
@@ -2271,29 +2287,29 @@
 
     iput-object v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileDecoder:Lcom/android/gallery3d/util/Future;
 
-    .line 390
+    .line 388
     :cond_0
     iget-boolean v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mIsTextureFreed:Z
 
     if-eqz v1, :cond_1
 
-    .line 391
-    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:F
+    .line 389
+    iget v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:I
 
-    iget v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:F
+    iget v2, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:I
 
     iget v3, p0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
     iget v4, p0, Lcom/android/gallery3d/ui/TileImageView;->mRotation:I
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(FFFI)V
+    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(IIFI)V
 
-    .line 392
+    .line 390
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mIsTextureFreed:Z
 
-    .line 393
+    .line 391
     iget-object v1, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
     if-nez v1, :cond_2
@@ -2301,11 +2317,11 @@
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/gallery3d/ui/TileImageView;->setScreenNail(Lcom/android/gallery3d/ui/ScreenNail;)V
 
-    .line 395
+    .line 393
     :cond_1
     return-void
 
-    .line 393
+    .line 391
     :cond_2
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
@@ -2321,7 +2337,7 @@
     .parameter "tile"
 
     .prologue
-    .line 476
+    .line 474
     monitor-enter p0
 
     :try_start_0
@@ -2331,12 +2347,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 477
+    .line 475
     const/4 v0, 0x2
 
     iput v0, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 478
+    .line 476
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mDecodeQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v0, p1}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->push(Lcom/android/gallery3d/ui/TileImageView$Tile;)Z
@@ -2349,13 +2365,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 480
+    .line 478
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 476
+    .line 474
     :catchall_0
     move-exception v0
 
@@ -2369,21 +2385,21 @@
     .parameter "tile"
 
     .prologue
-    .line 467
+    .line 465
     monitor-enter p0
 
-    .line 468
+    .line 466
     :try_start_0
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
     invoke-virtual {v0, p1}, Lcom/android/gallery3d/ui/TileImageView$TileQueue;->push(Lcom/android/gallery3d/ui/TileImageView$Tile;)Z
 
-    .line 469
+    .line 467
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 470
+    .line 468
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mTileUploader:Lcom/android/gallery3d/ui/TileImageView$TileUploader;
 
     iget-object v0, v0, Lcom/android/gallery3d/ui/TileImageView$TileUploader;->mActive:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -2398,8 +2414,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 471
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView;->getGLRoot()Lcom/android/gallery3d/ui/GLRoot;
+    .line 469
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->getGLRoot()Lcom/android/gallery3d/ui/GLRoot;
 
     move-result-object v0
 
@@ -2407,11 +2423,11 @@
 
     invoke-interface {v0, v1}, Lcom/android/gallery3d/ui/GLRoot;->addOnGLIdleListener(Lcom/android/gallery3d/ui/GLRoot$OnGLIdleListener;)V
 
-    .line 473
+    .line 471
     :cond_0
     return-void
 
-    .line 469
+    .line 467
     :catchall_0
     move-exception v0
 
@@ -2428,7 +2444,7 @@
     .parameter "tile"
 
     .prologue
-    .line 514
+    .line 512
     monitor-enter p0
 
     :try_start_0
@@ -2438,44 +2454,44 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 515
+    .line 513
     const/16 v0, 0x20
 
     iput v0, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 524
+    .line 522
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 518
+    .line 516
     :cond_0
     const/16 v0, 0x40
 
     :try_start_1
     iput v0, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mTileState:I
 
-    .line 519
+    .line 517
     iget-object v0, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_1
 
-    .line 520
+    .line 518
     sget-object v0, Lcom/android/gallery3d/ui/TileImageView;->sTilePool:Lcom/android/gallery3d/data/BitmapPool;
 
     iget-object v1, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, v1}, Lcom/android/gallery3d/data/BitmapPool;->recycle(Landroid/graphics/Bitmap;)V
 
-    .line 521
+    .line 519
     const/4 v0, 0x0
 
     iput-object v0, p1, Lcom/android/gallery3d/ui/TileImageView$Tile;->mDecodedTile:Landroid/graphics/Bitmap;
 
-    .line 523
+    .line 521
     :cond_1
     iget-object v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mRecycledQueue:Lcom/android/gallery3d/ui/TileImageView$TileQueue;
 
@@ -2485,7 +2501,7 @@
 
     goto :goto_0
 
-    .line 514
+    .line 512
     :catchall_0
     move-exception v0
 
@@ -2495,395 +2511,385 @@
 .end method
 
 .method protected render(Lcom/android/gallery3d/ui/GLCanvas;)V
-    .locals 23
+    .locals 24
     .parameter "canvas"
 
     .prologue
-    .line 399
-    const/4 v1, 0x1
+    .line 397
+    const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
-    iput v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQuota:I
+    iput v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mUploadQuota:I
+
+    .line 398
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mRenderComplete:Z
 
     .line 400
-    const/4 v1, 0x1
-
     move-object/from16 v0, p0
 
-    iput-boolean v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mRenderComplete:Z
+    iget v6, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
 
-    .line 402
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevel:I
-
-    .line 403
-    .local v5, level:I
+    .line 401
+    .local v6, level:I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/gallery3d/ui/TileImageView;->mRotation:I
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    .line 404
-    .local v21, rotation:I
-    const/16 v17, 0x0
+    .line 402
+    .local v22, rotation:I
+    const/16 v18, 0x0
+
+    .line 403
+    .local v18, flags:I
+    if-eqz v22, :cond_0
+
+    or-int/lit8 v18, v18, 0x2
 
     .line 405
-    .local v17, flags:I
-    if-eqz v21, :cond_0
+    :cond_0
+    if-eqz v18, :cond_1
 
-    const/16 v17, 0x1
+    .line 406
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-interface {v0, v1}, Lcom/android/gallery3d/ui/GLCanvas;->save(I)V
 
     .line 407
-    :cond_0
-    if-eqz v17, :cond_1
+    if-eqz v22, :cond_1
 
     .line 408
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getWidth()I
 
-    move-result-object v1
+    move-result v2
 
-    invoke-virtual {v1}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
+    div-int/lit8 v16, v2, 0x2
+
+    .local v16, centerX:I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->getHeight()I
+
+    move-result v2
+
+    div-int/lit8 v17, v2, 0x2
 
     .line 409
-    if-eqz v21, :cond_1
-
-    .line 410
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getWidth()I
-
-    move-result v1
-
-    div-int/lit8 v15, v1, 0x2
-
-    .local v15, centerX:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->getHeight()I
-
-    move-result v1
-
-    div-int/lit8 v16, v1, 0x2
-
-    .line 411
-    .local v16, centerY:I
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v1
-
-    int-to-float v2, v15
-
+    .local v17, centerY:I
     move/from16 v0, v16
-
-    int-to-float v9, v0
-
-    invoke-virtual {v1, v2, v9}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
-
-    .line 412
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v1
-
-    move/from16 v0, v21
 
     int-to-float v2, v0
 
-    const/4 v9, 0x0
+    move/from16 v0, v17
+
+    int-to-float v3, v0
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
+
+    .line 410
+    move/from16 v0, v22
+
+    int-to-float v2, v0
+
+    const/4 v3, 0x0
 
     const/4 v10, 0x0
 
     const/high16 v11, 0x3f80
 
-    invoke-virtual {v1, v2, v9, v10, v11}, Lcom/android/camera/effect/GLCanvasState;->rotate(FFFF)V
+    move-object/from16 v0, p1
 
-    .line 413
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    invoke-interface {v0, v2, v3, v10, v11}, Lcom/android/gallery3d/ui/GLCanvas;->rotate(FFFF)V
 
-    move-result-object v1
+    .line 411
+    move/from16 v0, v16
 
-    neg-int v2, v15
+    neg-int v2, v0
 
     int-to-float v2, v2
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    neg-int v9, v0
+    neg-int v3, v0
 
-    int-to-float v9, v9
+    int-to-float v3, v3
 
-    invoke-virtual {v1, v2, v9}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+    move-object/from16 v0, p1
 
-    .line 417
-    .end local v15           #centerX:I
-    .end local v16           #centerY:I
+    invoke-interface {v0, v2, v3}, Lcom/android/gallery3d/ui/GLCanvas;->translate(FF)V
+
+    .line 415
+    .end local v16           #centerX:I
+    .end local v17           #centerY:I
     :cond_1
     :try_start_0
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevelCount:I
+    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mLevelCount:I
 
-    if-eq v5, v1, :cond_4
+    if-eq v6, v2, :cond_4
 
     invoke-direct/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->isScreenNailAnimating()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
-    .line 418
+    .line 416
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
+    iget-object v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    .line 419
+    .line 417
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
+    iget-object v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    invoke-interface {v1}, Lcom/android/gallery3d/ui/ScreenNail;->noDraw()V
+    invoke-interface {v2}, Lcom/android/gallery3d/ui/ScreenNail;->noDraw()V
+
+    .line 420
+    :cond_2
+    const/16 v2, 0xfe
+
+    shl-int v23, v2, v6
+
+    .line 421
+    .local v23, size:I
+    move/from16 v0, v23
+
+    int-to-float v2, v0
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
+
+    mul-float v9, v2, v3
 
     .line 422
-    :cond_2
-    const/16 v1, 0xfe
-
-    shl-int v22, v1, v5
-
-    .line 423
-    .local v22, size:I
-    move/from16 v0, v22
-
-    int-to-float v1, v0
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
-
-    mul-float v8, v1, v2
-
-    .line 424
-    .local v8, length:F
+    .local v9, length:F
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/gallery3d/ui/TileImageView;->mTileRange:Landroid/graphics/Rect;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
+
+    .line 424
+    .local v21, r:Landroid/graphics/Rect;
+    move-object/from16 v0, v21
+
+    iget v5, v0, Landroid/graphics/Rect;->top:I
+
+    .local v5, ty:I
+    const/16 v19, 0x0
+
+    .local v19, i:I
+    :goto_0
+    move-object/from16 v0, v21
+
+    iget v2, v0, Landroid/graphics/Rect;->bottom:I
+
+    if-ge v5, v2, :cond_5
+
+    .line 425
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetY:I
+
+    int-to-float v2, v2
+
+    move/from16 v0, v19
+
+    int-to-float v3, v0
+
+    mul-float/2addr v3, v9
+
+    add-float v8, v2, v3
 
     .line 426
-    .local v20, r:Landroid/graphics/Rect;
-    move-object/from16 v0, v20
+    .local v8, y:F
+    move-object/from16 v0, v21
 
-    iget v4, v0, Landroid/graphics/Rect;->top:I
+    iget v4, v0, Landroid/graphics/Rect;->left:I
 
-    .local v4, ty:I
-    const/16 v18, 0x0
+    .local v4, tx:I
+    const/16 v20, 0x0
 
-    .local v18, i:I
-    :goto_0
-    move-object/from16 v0, v20
+    .local v20, j:I
+    :goto_1
+    move-object/from16 v0, v21
 
-    iget v1, v0, Landroid/graphics/Rect;->bottom:I
+    iget v2, v0, Landroid/graphics/Rect;->right:I
 
-    if-ge v4, v1, :cond_5
+    if-ge v4, v2, :cond_3
 
     .line 427
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetY:I
+    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    int-to-float v2, v0
+    int-to-float v3, v0
 
-    mul-float/2addr v2, v8
+    mul-float/2addr v3, v9
 
-    add-float v7, v1, v2
+    add-float v7, v2, v3
 
-    .line 428
-    .local v7, y:F
-    move-object/from16 v0, v20
+    .local v7, x:F
+    move-object/from16 v2, p0
 
-    iget v3, v0, Landroid/graphics/Rect;->left:I
-
-    .local v3, tx:I
-    const/16 v19, 0x0
-
-    .local v19, j:I
-    :goto_1
-    move-object/from16 v0, v20
-
-    iget v1, v0, Landroid/graphics/Rect;->right:I
-
-    if-ge v3, v1, :cond_3
-
-    .line 429
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
-
-    int-to-float v1, v1
-
-    move/from16 v0, v19
-
-    int-to-float v2, v0
-
-    mul-float/2addr v2, v8
-
-    add-float v6, v1, v2
-
-    .local v6, x:F
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    .line 430
-    invoke-virtual/range {v1 .. v8}, Lcom/android/gallery3d/ui/TileImageView;->drawTile(Lcom/android/gallery3d/ui/GLCanvas;IIIFFF)V
+    move-object/from16 v3, p1
 
     .line 428
-    add-int v3, v3, v22
+    invoke-virtual/range {v2 .. v9}, Lcom/android/gallery3d/ui/TileImageView;->drawTile(Lcom/android/gallery3d/ui/GLCanvas;IIIFFF)V
 
-    add-int/lit8 v19, v19, 0x1
+    .line 426
+    add-int v4, v4, v23
+
+    add-int/lit8 v20, v20, 0x1
 
     goto :goto_1
 
-    .line 426
-    .end local v6           #x:F
+    .line 424
+    .end local v7           #x:F
     :cond_3
-    add-int v4, v4, v22
+    add-int v5, v5, v23
 
-    add-int/lit8 v18, v18, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_0
 
-    .line 433
-    .end local v3           #tx:I
-    .end local v4           #ty:I
-    .end local v7           #y:F
-    .end local v8           #length:F
-    .end local v18           #i:I
-    .end local v19           #j:I
-    .end local v20           #r:Landroid/graphics/Rect;
-    .end local v22           #size:I
+    .line 431
+    .end local v4           #tx:I
+    .end local v5           #ty:I
+    .end local v8           #y:F
+    .end local v9           #length:F
+    .end local v19           #i:I
+    .end local v20           #j:I
+    .end local v21           #r:Landroid/graphics/Rect;
+    .end local v23           #size:I
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
+    iget-object v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    .line 434
+    .line 432
     move-object/from16 v0, p0
 
-    iget-object v9, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
-
-    move-object/from16 v0, p0
-
-    iget v11, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
+    iget-object v10, v0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetY:I
+    iget v12, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetX:I
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
-
-    int-to-float v1, v1
+    iget v13, v0, Lcom/android/gallery3d/ui/TileImageView;->mOffsetY:I
 
     move-object/from16 v0, p0
 
-    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
+    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageWidth:I
 
-    mul-float/2addr v1, v2
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
-
-    move-result v13
+    int-to-float v2, v2
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
+    iget v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
-    int-to-float v1, v1
+    mul-float/2addr v2, v3
 
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
-
-    mul-float/2addr v1, v2
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
     move-result v14
 
-    move-object/from16 v10, p1
+    move-object/from16 v0, p0
 
-    invoke-interface/range {v9 .. v14}, Lcom/android/gallery3d/ui/ScreenNail;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
+    iget v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mImageHeight:I
 
-    .line 437
+    int-to-float v2, v2
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
+
+    mul-float/2addr v2, v3
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v15
+
+    move-object/from16 v11, p1
+
+    invoke-interface/range {v10 .. v15}, Lcom/android/gallery3d/ui/ScreenNail;->draw(Lcom/android/gallery3d/ui/GLCanvas;IIII)V
+
+    .line 435
     invoke-direct/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->isScreenNailAnimating()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    .line 438
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidate()V
+    .line 436
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 442
+    .line 440
     :cond_5
-    if-eqz v17, :cond_6
+    if-eqz v18, :cond_6
 
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/camera/effect/GLCanvasState;->popState()V
-
-    .line 445
+    .line 443
     :cond_6
     move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mRenderComplete:Z
+    iget-boolean v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mRenderComplete:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_9
 
-    .line 446
+    .line 444
     move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/android/gallery3d/ui/TileImageView;->mBackgroundTileUploaded:Z
+    iget-boolean v2, v0, Lcom/android/gallery3d/ui/TileImageView;->mBackgroundTileUploaded:Z
 
-    if-nez v1, :cond_7
+    if-nez v2, :cond_7
 
     invoke-direct/range {p0 .. p1}, Lcom/android/gallery3d/ui/TileImageView;->uploadBackgroundTiles(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    .line 450
+    .line 448
     :cond_7
     :goto_2
     return-void
 
-    .line 442
+    .line 440
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    if-eqz v17, :cond_8
+    if-eqz v18, :cond_8
 
-    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/camera/effect/GLCanvasState;->popState()V
+    invoke-interface/range {p1 .. p1}, Lcom/android/gallery3d/ui/GLCanvas;->restore()V
 
     :cond_8
-    throw v1
+    throw v2
 
-    .line 448
+    .line 446
     :cond_9
-    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
 
     goto :goto_2
 .end method
@@ -2893,20 +2899,20 @@
     .parameter "model"
 
     .prologue
-    .line 157
+    .line 155
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView;->mModel:Lcom/android/gallery3d/ui/TileImageView$Model;
 
-    .line 158
+    .line 156
     if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView;->notifyModelInvalidated()V
 
-    .line 159
+    .line 157
     :cond_0
     return-void
 .end method
 
-.method public setPosition(FFFI)Z
+.method public setPosition(IIFI)Z
     .locals 1
     .parameter "centerX"
     .parameter "centerY"
@@ -2914,18 +2920,14 @@
     .parameter "rotation"
 
     .prologue
-    .line 345
-    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:F
+    .line 343
+    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:I
 
-    cmpl-float v0, v0, p1
+    if-ne v0, p1, :cond_0
 
-    if-nez v0, :cond_0
+    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:I
 
-    iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:F
-
-    cmpl-float v0, v0, p2
-
-    if-nez v0, :cond_0
+    if-ne v0, p2, :cond_0
 
     iget v0, p0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
@@ -2937,33 +2939,33 @@
 
     if-ne v0, p4, :cond_0
 
-    .line 346
+    .line 344
     const/4 v0, 0x0
 
-    .line 353
+    .line 351
     :goto_0
     return v0
 
-    .line 347
+    .line 345
     :cond_0
-    iput p1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:F
+    iput p1, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterX:I
 
-    .line 348
-    iput p2, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:F
+    .line 346
+    iput p2, p0, Lcom/android/gallery3d/ui/TileImageView;->mCenterY:I
 
-    .line 349
+    .line 347
     iput p3, p0, Lcom/android/gallery3d/ui/TileImageView;->mScale:F
 
-    .line 350
+    .line 348
     iput p4, p0, Lcom/android/gallery3d/ui/TileImageView;->mRotation:I
 
+    .line 349
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(IIFI)V
+
+    .line 350
+    invoke-virtual {p0}, Lcom/android/gallery3d/ui/GLView;->invalidate()V
+
     .line 351
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/gallery3d/ui/TileImageView;->layoutTiles(FFFI)V
-
-    .line 352
-    invoke-virtual {p0}, Lcom/android/gallery3d/ui/TileImageView;->invalidate()V
-
-    .line 353
     const/4 v0, 0x1
 
     goto :goto_0
@@ -2974,9 +2976,9 @@
     .parameter "s"
 
     .prologue
-    .line 162
+    .line 160
     iput-object p1, p0, Lcom/android/gallery3d/ui/TileImageView;->mScreenNail:Lcom/android/gallery3d/ui/ScreenNail;
 
-    .line 163
+    .line 161
     return-void
 .end method

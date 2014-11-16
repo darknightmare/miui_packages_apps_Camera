@@ -18,11 +18,11 @@
 # virtual methods
 .method protected getPreferenceXml(Z)I
     .locals 1
-    .parameter "isSimpleLayoutMode"
+    .parameter "isSimpleMode"
 
     .prologue
     .line 7
-    const v0, 0x7f060009
+    const v0, 0x7f060008
 
     return v0
 .end method

@@ -225,9 +225,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/Class;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,7 +247,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/DecodeHintType;
     .locals 1
-    .parameter
 
     .prologue
     .line 30
@@ -272,7 +268,7 @@
     .line 30
     sget-object v0, Lcom/google/zxing/DecodeHintType;->$VALUES:[Lcom/google/zxing/DecodeHintType;
 
-    invoke-virtual {v0}, [Lcom/google/zxing/DecodeHintType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
