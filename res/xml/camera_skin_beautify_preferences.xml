@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IconListPreference camera:key="pref_camera_skin_beautify_key" camera:defaultValue="@string/camera_face_beauty_simple_mode_open" camera:entryValues="@array/pref_camera_skin_beautify_entryvalues" camera:icons="@array/camera_skin_beautify_icons"
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera" />

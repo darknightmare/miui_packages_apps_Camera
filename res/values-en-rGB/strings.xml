@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Centre weighted</string>
+    <string name="web_url_apk_warning">This app comes from an unknown source and may be a security risk. Only instal apps from sources you trust.</string>
+</resources>

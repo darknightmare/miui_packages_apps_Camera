@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceGroup
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera">
+    <IconListPreference camera:title="@string/pref_camera_panoramamode_title" camera:key="pref_camera_panoramamode_key" camera:singleIcon="@drawable/ic_camera_simple_mode_panorama" />
+    <IconListPreference camera:title="@string/pref_camera_ae_bracket_hdr_title" camera:key="pref_camera_ae_bracket_hdr_key" camera:singleIcon="@drawable/ic_camera_simple_mode_hdr" />
+    <IconListPreference camera:title="@string/pref_camera_ubi_focus_title" camera:key="pref_camera_ubi_focus_key" camera:singleIcon="@drawable/ic_camera_simple_mode_ubi_focus" />
+    <IconListPreference camera:title="@string/pref_camera_hand_night_title" camera:key="pref_camera_hand_night_key" camera:singleIcon="@drawable/ic_camera_simple_mode_hand_night" />
+    <IconListPreference camera:title="@string/pref_burst_shoot_title" camera:key="pref_camera_burst_shooting_key" camera:singleIcon="@drawable/ic_camera_simple_mode_burst_shoot" />
+    <IconListPreference camera:title="@string/pref_camera_coloreffect_title" camera:key="pref_shader_coloreffect_key" camera:defaultValue="@string/pref_camera_shader_coloreffect_default" camera:singleIcon="@drawable/ic_camera_simple_mode_coloreffect" />
+    <IconListPreference camera:title="@string/pref_camera_coloreffect_title" camera:key="pref_camera_coloreffect_key" camera:defaultValue="@string/pref_camera_coloreffect_default" camera:entryValues="@array/pref_camera_coloreffect_entryvalues" camera:entries="@array/pref_camera_coloreffect_entries" camera:singleIcon="@drawable/ic_camera_simple_mode_coloreffect" camera:largeIcons="@array/camera_coloreffect_largeIcons" />
+    <IconListPreference camera:title="@string/pref_camera_countdown_title" camera:key="pref_camera_countdown_key" camera:singleIcon="@drawable/ic_camera_simple_mode_countdown" />
+    <IconListPreference camera:title="@string/face_beauty_simple_mode_title" camera:key="pref_camera_face_beauty_key" camera:defaultValue="@string/camera_face_beauty_simple_mode_open" camera:entryValues="@array/camera_face_beauty_simple_mode_entryvalues" camera:singleIcon="@drawable/ic_camera_simple_mode_face_beauty" />
+    <IconListPreference camera:title="@string/pref_camera_audio_capture_title" camera:key="pref_audio_capture" camera:singleIcon="@drawable/ic_camera_simple_mode_audio_capture" />
+    <IconListPreference camera:title="@string/pref_camera_settings_title" camera:key="pref_settings" camera:singleIcon="@drawable/ic_camera_simple_mode_setting" />
+    <IconListPreference camera:key="pref_camera_id_key" camera:defaultValue="@string/pref_camera_id_default" />
+</PreferenceGroup>

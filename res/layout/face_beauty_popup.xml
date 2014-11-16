@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.camera.ui.FaceBeautyPopup style="@style/SettingPopupWindow"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <FrameLayout android:id="@id/title_area" android:paddingBottom="@dimen/ruler_line_layout_paddingTop" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/title" style="@style/PopupTitleText" />
+            <ImageView android:layout_gravity="right|center" android:id="@id/mode_switcher" android:paddingRight="@dimen/APKTOOL_DUMMY_003e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_face_beauty_intelligent" />
+        </FrameLayout>
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:paddingLeft="@dimen/APKTOOL_DUMMY_003f" android:paddingRight="@dimen/APKTOOL_DUMMY_003f" android:clickable="true" style="@style/SettingItemRulerLine">
+                    <LinearLayout android:orientation="horizontal" android:id="@id/ruler_scale" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/APKTOOL_DUMMY_0040" android:layout_marginRight="@dimen/APKTOOL_DUMMY_0040" android:layout_alignLeft="@id/ruler_line" android:layout_alignRight="@id/ruler_line" />
+                    <ImageView android:id="@id/ruler_line" android:background="@drawable/ic_seek_bar_background" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/APKTOOL_DUMMY_0041" android:layout_marginTop="@dimen/APKTOOL_DUMMY_003d" android:layout_marginRight="@dimen/APKTOOL_DUMMY_0041" android:layout_below="@id/ruler_scale" android:layout_centerInParent="true" />
+                    <ImageView android:id="@id/ruler_corsor" android:background="@drawable/btn_camera_exposure_cursor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/ruler_scale" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <View android:id="@id/foot_seperator" style="@style/PopupTitleSeperator" />
+    </LinearLayout>
+</com.android.camera.ui.FaceBeautyPopup>

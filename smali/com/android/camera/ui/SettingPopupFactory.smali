@@ -1,0 +1,184 @@
+.class public Lcom/android/camera/ui/SettingPopupFactory;
+.super Ljava/lang/Object;
+.source "SettingPopupFactory.java"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static createSettingPopup(Ljava/lang/String;Landroid/view/ViewGroup;Landroid/content/Context;)Lcom/android/camera/ui/AbstractSettingPopup;
+    .locals 3
+    .parameter "key"
+    .parameter "root"
+    .parameter "context"
+
+    .prologue
+    .line 13
+    const-string v2, "layout_inflater"
+
+    invoke-virtual {p2, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/LayoutInflater;
+
+    .line 16
+    .local v1, inflater:Landroid/view/LayoutInflater;
+    const v0, 0x7f040002
+
+    .line 18
+    .local v0, inflateRes:I
+    const-string v2, "pref_video_quality_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "pref_video_speed_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "pref_qc_camera_iso_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 21
+    :cond_0
+    const v0, 0x7f040017
+
+    .line 38
+    :cond_1
+    :goto_0
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/camera/ui/AbstractSettingPopup;
+
+    return-object v2
+
+    .line 22
+    :cond_2
+    const-string v2, "pref_camera_coloreffect_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 23
+    const v0, 0x7f04001b
+
+    goto :goto_0
+
+    .line 24
+    :cond_3
+    const-string v2, "pref_shader_coloreffect_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 25
+    const v0, 0x7f040010
+
+    goto :goto_0
+
+    .line 26
+    :cond_4
+    const-string v2, "pref_camera_exposure_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 27
+    const v0, 0x7f040033
+
+    goto :goto_0
+
+    .line 28
+    :cond_5
+    const-string v2, "pref_qc_camera_manual_exposure_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    .line 29
+    const v0, 0x7f04001e
+
+    goto :goto_0
+
+    .line 30
+    :cond_6
+    const-string v2, "pref_camera_face_beauty_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    .line 31
+    const v0, 0x7f040012
+
+    goto :goto_0
+
+    .line 32
+    :cond_7
+    const-string v2, "pref_camera_whitebalance_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    .line 33
+    const v0, 0x7f040019
+
+    goto :goto_0
+
+    .line 34
+    :cond_8
+    const-string v2, "pref_camera_focus_mode_key"
+
+    invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 35
+    const v0, 0x7f040018
+
+    goto :goto_0
+.end method

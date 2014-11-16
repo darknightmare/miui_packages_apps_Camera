@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/pref_camera_settings_category"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_grp_picture_settings" android:key="category_picture_size_quality">
+        <com.android.camera.ui.PreviewListPreference android:persistent="false" android:title="@string/pref_camera_picturesize_title_simple_mode" android:key="pref_camera_picturesize_key" />
+        <com.android.camera.ui.PreviewListPreference android:persistent="false" android:title="@string/pref_camera_picturesize_title_simple_mode" android:key="pref_camera_front_picturesize_key" />
+        <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_jpegquality_entries" android:title="@string/pref_camera_jpegquality_title" android:key="pref_camera_jpegquality_key" android:defaultValue="@string/pref_camera_jpegquality_default" android:entryValues="@array/pref_camera_jpegquality_entryvalues" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_recordlocation_title" android:key="pref_camera_recordlocation_key" android:defaultValue="@string/pref_camera_recordlocation_default" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_grp_capture_settings">
+        <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_volumekey_function_entries" android:title="@string/pref_camera_volumekey_function_title" android:key="pref_camera_volumekey_function_key" android:defaultValue="@string/pref_camera_volumekey_function_default" android:entryValues="@array/pref_camera_volumekey_function_entryvalues" />
+        <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_burst_shooting_entries" android:title="@string/pref_camera_long_pressing_burst_shooting_title" android:key="pref_camera_burst_shooting_key" android:defaultValue="@string/pref_camera_long_pressing_burst_shooting_default" android:entryValues="@array/pref_camera_burst_shooting_entryvalues" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_long_press_shutter_button_focus_title" android:key="pref_long_pressed_shutter_button_focus_key" android:defaultValue="false" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_sound_title" android:key="pref_camera_sound_key" android:defaultValue="@string/pref_camera_sound_default" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_captrue_mirror_title" android:key="pref_captrue_mirror_key" android:defaultValue="@string/pref_captrue_mirror_default" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_scan_qrcode_title" android:key="pref_scan_qrcode_key" android:defaultValue="@string/pref_scan_qrcode_default" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_watermark_title" android:key="pref_camera_watermark_key" android:defaultValue="@string/pref_camera_watermark_default" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_referenceline_title" android:key="pref_key_camera_referenceline" android:defaultValue="@string/pref_camera_referenceline_entryvalue_default" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_auto_capture_when_stable_title" android:key="pref_capture_when_stable_key" android:defaultValue="false" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_auto_chroma_flash_title" android:key="pref_auto_chroma_flash_key" android:defaultValue="true" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/pref_priority_storage_title" android:key="pref_priority_storage" android:defaultValue="@bool/priority_storage" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_advanced_settings">
+        <PreferenceScreen android:title="@string/pref_advanced_functions" android:key="screen_preference">
+            <PreferenceCategory android:title="@string/pref_settings_mode">
+                <CheckBoxPreference android:persistent="false" android:title="@string/simple_mode_title" android:key="pref_layout_mode_key" android:defaultValue="false" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/pref_grp_advanced_settings">
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_autoexposure_entries" android:title="@string/pref_camera_autoexposure_title" android:key="pref_camera_autoexposure_key" android:defaultValue="@string/pref_camera_autoexposure_default" android:entryValues="@array/pref_camera_autoexposure_entryvalues" />
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_antibanding_entries" android:title="@string/pref_camera_antibanding_title" android:key="pref_camera_antibanding_key" android:defaultValue="@string/pref_camera_antibanding_default" android:entryValues="@array/pref_camera_antibanding_entryvalues" />
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_saturation_entries" android:title="@string/pref_camera_saturation_title" android:key="pref_qc_camera_saturation_key" android:defaultValue="@string/pref_camera_saturation_default" android:entryValues="@array/pref_camera_saturation_entryvalues" />
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_contrast_entries" android:title="@string/pref_camera_contrast_title" android:key="pref_qc_camera_contrast_key" android:defaultValue="@string/pref_camera_contrast_default" android:entryValues="@array/pref_camera_contrast_entryvalues" />
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_sharpness_entries" android:title="@string/pref_camera_sharpness_title" android:key="pref_qc_camera_sharpness_key" android:defaultValue="@string/pref_camera_sharpness_default" android:entryValues="@array/pref_camera_sharpness_entryvalues" />
+                <com.android.camera.ui.PreviewListPreference android:persistent="false" android:entries="@array/pref_camera_show_gender_age_entries" android:title="@string/pref_camera_show_gender_age_title" android:key="pref_camera_show_gender_age_key" android:defaultValue="@string/pref_camera_show_gender_age_default" android:entryValues="@array/pref_camera_show_gender_age_entryvalues" />
+                <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_facedetection_title" android:key="pref_camera_facedetection_key" android:defaultValue="@string/pref_camera_facedetection_default" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <Preference android:persistent="false" android:title="@string/confirm_restore_title" android:key="pref_restore" />
+    </PreferenceCategory>
+</PreferenceScreen>

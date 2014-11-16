@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/smart_control_panel" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.camera.SmartShutterButton android:id="@id/smart_shutter_button" android:focusable="true" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.android.camera.ui.RotateImageView android:gravity="center_vertical" android:id="@id/shutter_button_background" android:focusable="false" android:clickable="false" android:src="@drawable/ic_thumbnail_bg" android:contentDescription="@string/accessibility_shutter_button" style="@style/ReviewThumbnailMask" />
+        <com.android.camera.ui.RotateImageView android:id="@id/smart_shutter_button_imagesource" android:focusable="false" android:visibility="visible" android:clickable="false" android:src="@drawable/border_last_picture" android:contentDescription="@string/accessibility_shutter_button" style="@style/ReviewThumbnailMask" />
+    </com.android.camera.SmartShutterButton>
+</RelativeLayout>
